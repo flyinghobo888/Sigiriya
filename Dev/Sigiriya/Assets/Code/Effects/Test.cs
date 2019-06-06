@@ -13,7 +13,7 @@ public class Test : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             EventAnnouncer.OnRequestSceneChange((EnumScene)((++sceneIndex) % (int)EnumScene.SIZE), true);
         }

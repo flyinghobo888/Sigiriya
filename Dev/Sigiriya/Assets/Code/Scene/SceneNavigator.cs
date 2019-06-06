@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 //Responsible for keeping track of which scene we're in.
 public class SceneNavigator : ManagerBase<SceneNavigator>
 {
+    [SerializeField] private bool shouldFade;
+
     public EnumScene CurrentScene { get; private set; }
     public EnumScene TargetScene { get; private set; }
 
@@ -45,12 +47,10 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
         Debug.Log("Level was loaded!");
     }
 
-    private void ChangeScene(EnumScene targetScene, bool shouldFade)
+    private void ChangeScene(EnumScene targetScene, bool fade)
     {
-        //TODO: Change the scene with/without fade
-        Debug.Log("CHANGE THE SCENE WITH/WITHOUT FADE");
-
         TargetScene = targetScene;
+        shouldFade = fade;
 
         if (shouldFade)
         {
@@ -78,7 +78,14 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
 
     public void FadeOutToScene()
     {
-        sceneFade.FadeOut(((int)CurrentScene).ToString());
+        if (shouldFade)
+        {
+            sceneFade.FadeOut(((int)CurrentScene).ToString());
+        }
+        else
+        {
+            sceneFade.FadeOutNow();
+        }
     }
 }
 
