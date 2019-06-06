@@ -23,4 +23,12 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     public delegate void EndFadeOut(string fadeID);
     public static EndFadeOut OnEndFadeOut;
+
+    /* Dialogue Controller Events */
+
+    public delegate void ThrowFlag(string throwFlag);
+    public static ThrowFlag OnThrowFlag;
+
+    public delegate void DialogueEnd();
+    public static DialogueEnd OnDialogueEnd;
 }
