@@ -5,7 +5,6 @@ using UnityEngine;
 public class SceneBase<T> : ManagerBase<T> where T : ManagerBase<T>
 {
     private static GameObject persistenceInstance;
-    public bool sceneFade = true;
 
     protected void Awake()
     {
@@ -16,9 +15,6 @@ public class SceneBase<T> : ManagerBase<T> where T : ManagerBase<T>
             persistenceInstance.name = "_PERSISTENT";
         }
 
-        if (sceneFade)
-        {
-            SceneNavigator.Instance.FadeOutToScene();
-        }
+        SceneNavigator.Instance.FadeOutToScene();
     }
 }

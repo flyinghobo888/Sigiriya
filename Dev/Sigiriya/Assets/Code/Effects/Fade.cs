@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Fade : MonoBehaviour
 {
     [SerializeField] private float fadeLength = 1.0f;
-    [SerializeField] private CanvasGroup fadeImage;
+    [SerializeField] private CanvasGroup fadeImage = null;
 
     //Fades the image to 100% opacity
     private IEnumerator fadeIn;
@@ -41,6 +41,16 @@ public class Fade : MonoBehaviour
         {
             Debug.Log("Could not fade out, already fading");
         }
+    }
+
+    public void FadeInNow()
+    {
+        fadeImage.alpha = 1.0f;
+    }
+
+    public void FadeOutNow()
+    {
+        fadeImage.alpha = 0.0f;
     }
 
     private IEnumerator FadeInCoroutine(string fadeID, CanvasGroup image, float fadeLength)
