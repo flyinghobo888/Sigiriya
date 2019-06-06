@@ -1,0 +1,1 @@
+This is the prototypes folder. When builds are made, they will be stored in here.
