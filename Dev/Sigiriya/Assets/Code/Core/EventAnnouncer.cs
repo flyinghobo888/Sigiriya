@@ -11,4 +11,16 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     //Sends an event to change to the target scene (Changes the scene to the target scene).
     public delegate void RequestSceneChange(EnumScene scene, bool shouldFade);
     public static RequestSceneChange OnRequestSceneChange;
+
+    public delegate void StartFadeIn(string fadeID);
+    public static StartFadeIn OnStartFadeIn;
+
+    public delegate void EndFadeIn(string fadeID);
+    public static EndFadeIn OnEndFadeIn;
+
+    public delegate void StartFadeOut(string fadeID);
+    public static StartFadeOut OnStartFadeOut;
+
+    public delegate void EndFadeOut(string fadeID);
+    public static EndFadeOut OnEndFadeOut;
 }

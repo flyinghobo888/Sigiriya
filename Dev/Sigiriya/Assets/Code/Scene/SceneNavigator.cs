@@ -8,8 +8,16 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
     public EnumScene CurrentScene { get; private set; }
     public EnumScene TargetScene { get; private set; }
 
+    private static Fade sceneFade;
+
     private void Awake()
     {
+        if (!sceneFade)
+        {
+            sceneFade = Instantiate(Resources.Load<GameObject>("Unity/Prefabs/_FADE")).GetComponent<Fade>();
+            DontDestroyOnLoad(sceneFade);
+        }
+
         CurrentScene = (EnumScene)SceneManager.GetActiveScene().buildIndex;
         TargetScene = CurrentScene;
     }
@@ -20,6 +28,7 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
         SceneManager.sceneLoaded += SceneChanged;
 
         EventAnnouncer.OnRequestSceneChange += ChangeScene;
+        EventAnnouncer.OnEndFadeIn += GoToNextScene;
     }
 
     //Unregister the events in OnDisable
@@ -28,6 +37,7 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
         SceneManager.sceneLoaded -= SceneChanged;
 
         EventAnnouncer.OnRequestSceneChange -= ChangeScene;
+        EventAnnouncer.OnEndFadeIn -= GoToNextScene;
     }
 
     private void SceneChanged(Scene scene, LoadSceneMode mode)
@@ -39,6 +49,36 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
     {
         //TODO: Change the scene with/without fade
         Debug.Log("CHANGE THE SCENE WITH/WITHOUT FADE");
+
+        TargetScene = targetScene;
+
+        if (shouldFade)
+        {
+            sceneFade.FadeIn(((int)TargetScene).ToString());
+        }
+        else
+        {
+            GoToNextScene();
+        }
+    }
+
+    private void GoToNextScene(string fadeID)
+    {
+        if (fadeID == ((int)TargetScene).ToString())
+        {
+            GoToNextScene();
+        }
+    }
+
+    private void GoToNextScene()
+    {
+        SceneManager.LoadScene((int)TargetScene);
+        CurrentScene = TargetScene;
+    }
+
+    public void FadeOutToScene()
+    {
+        sceneFade.FadeOut(((int)CurrentScene).ToString());
     }
 }
 
@@ -48,5 +88,7 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
 public enum EnumScene
 {
     TITLE,  //Scene ID 0
-    GAME    //Scene ID 1
+    GAME,   //Scene ID 1
+
+    SIZE
 }
