@@ -6,10 +6,10 @@ public class PersistentEventBank : MonoBehaviour
 {
     private static List<string> eventFlags;
 
-    private static int peopleMorning = 5;
-    private static int peopleNoon = 7;
-    private static int peopleNight = 5;
-    private static int peopleTalked = 0;
+    //private static int peopleMorning = 5;
+    //private static int peopleNoon = 7;
+    //private static int peopleNight = 5;
+    //private static int peopleTalked = 0;
 
     private void Awake()
     {

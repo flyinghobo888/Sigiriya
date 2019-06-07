@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Name: Vector
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -136, y: -152}
+  position: {x: -200, y: -152}
   ports:
     keys:
     - x
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: DisplayValue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 136, y: -200}
+  position: {x: 120, y: -152}
   ports:
     keys:
     - input
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: Math Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -440, y: -40}
+  position: {x: -456, y: -40}
   ports:
     keys:
     - a

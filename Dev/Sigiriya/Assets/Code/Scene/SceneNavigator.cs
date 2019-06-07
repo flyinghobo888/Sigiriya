@@ -10,18 +10,14 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
     public EnumScene CurrentScene { get; private set; }
     public EnumScene TargetScene { get; private set; }
 
-    private static Fade sceneFade;
+    private static Fade screenFadeRef;
 
     private void Awake()
     {
-        if (!sceneFade)
-        {
-            sceneFade = Instantiate(Resources.Load<GameObject>("Unity/Prefabs/_FADE")).GetComponent<Fade>();
-            DontDestroyOnLoad(sceneFade);
-        }
-
         CurrentScene = (EnumScene)SceneManager.GetActiveScene().buildIndex;
         TargetScene = CurrentScene;
+
+        screenFadeRef = GameMaster.Instance.GetFade();
     }
 
     //Register the events to listen for in OnEnable
@@ -54,7 +50,7 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
 
         if (shouldFade)
         {
-            sceneFade.FadeIn(((int)TargetScene).ToString());
+            screenFadeRef.FadeIn("scene_fade");
         }
         else
         {
@@ -64,7 +60,7 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
 
     private void GoToNextScene(string fadeID)
     {
-        if (fadeID == ((int)TargetScene).ToString())
+        if (fadeID.CompareTo("scene_fade") == 0)
         {
             GoToNextScene();
         }
@@ -80,11 +76,11 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
     {
         if (shouldFade)
         {
-            sceneFade.FadeOut(((int)CurrentScene).ToString());
+            screenFadeRef.FadeOut("scene_fade");
         }
         else
         {
-            sceneFade.FadeOutNow();
+            screenFadeRef.FadeOutNow();
         }
     }
 }
