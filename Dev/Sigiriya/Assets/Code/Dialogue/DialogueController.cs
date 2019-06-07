@@ -125,6 +125,7 @@ public class DialogueController : MonoBehaviour
     private void Start()
     {
 
+
         checkPointNode = nodes[currNode].checkPointConnection;
         exitNode = nodes[currNode].exitConnection;
 

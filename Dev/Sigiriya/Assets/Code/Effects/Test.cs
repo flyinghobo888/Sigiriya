@@ -1,21 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class Test : MonoBehaviour
-{
-    private int sceneIndex;
+//public class Test : MonoBehaviour
+//{
+//    private int sceneIndex;
 
-    private void Start()
-    {
-        sceneIndex = (int)SceneNavigator.Instance.CurrentScene;
-    }
+//    private void Start()
+//    {
+//        sceneIndex = (int)SceneNavigator.Instance.CurrentScene;
+//    }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            EventAnnouncer.OnRequestSceneChange((EnumScene)((++sceneIndex) % (int)EnumScene.SIZE), true);
-        }
-    }
-}
+//    private void Update()
+//    {
+//        if (Input.GetMouseButtonDown(0))
+//        {
+//            EventAnnouncer.OnRequestSceneChange((EnumScene)((++sceneIndex) % (int)EnumScene.SIZE), true);
+//        }
+//    }
+//}

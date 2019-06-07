@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,51 +13,15 @@ MonoBehaviour:
   m_Name: New State Graph
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 114319284393922042}
   - {fileID: 114471802820302434}
-  - {fileID: 114232340257100334}
-  current: {fileID: 114232340257100334}
---- !u!114 &114232340257100334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ef86e1b73c7d642acaa1b75f66bbbb, type: 3}
-  m_Name: State Node
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -248, y: -392}
-  ports:
-    keys:
-    - enter
-    - exit
-    values:
-    - _fieldName: enter
-      _node: {fileID: 114232340257100334}
-      _typeQualifiedName: XNode.Examples.StateGraph.StateNode+Empty, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 114232340257100334}
-      _typeQualifiedName: XNode.Examples.StateGraph.StateNode+Empty, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: enter
-        node: {fileID: 114319284393922042}
-      _direction: 1
-      _connectionType: 0
-      _dynamic: 0
+  - {fileID: 114319284393922042}
+  current: {fileID: 0}
 --- !u!114 &114319284393922042
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -64,7 +29,7 @@ MonoBehaviour:
   m_Name: State Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -392, y: -168}
+  position: {x: -424, y: -136}
   ports:
     keys:
     - enter
@@ -74,11 +39,10 @@ MonoBehaviour:
       _node: {fileID: 114319284393922042}
       _typeQualifiedName: XNode.Examples.StateGraph.StateNode+Empty, Assembly-CSharp,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: exit
-        node: {fileID: 114232340257100334}
+      connections: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114319284393922042}
@@ -87,14 +51,17 @@ MonoBehaviour:
       connections:
       - fieldName: enter
         node: {fileID: 114471802820302434}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
 --- !u!114 &114471802820302434
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -102,7 +69,7 @@ MonoBehaviour:
   m_Name: State Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -56, y: -168}
+  position: {x: 40, y: -88}
   ports:
     keys:
     - enter
@@ -115,8 +82,10 @@ MonoBehaviour:
       connections:
       - fieldName: exit
         node: {fileID: 114319284393922042}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: exit
       _node: {fileID: 114471802820302434}
@@ -125,4 +94,5 @@ MonoBehaviour:
       connections: []
       _direction: 1
       _connectionType: 0
+      _typeConstraint: 0
       _dynamic: 0
