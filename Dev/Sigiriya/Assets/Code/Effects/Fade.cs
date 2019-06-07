@@ -68,7 +68,7 @@ public class Fade : MonoBehaviour
 
         fadeIn = null;
 
-        //Fade in ended
+        Debug.Log("Fade in ended");
         EventAnnouncer.OnEndFadeIn?.Invoke(fadeID);
     }
 
@@ -87,7 +87,7 @@ public class Fade : MonoBehaviour
 
         fadeOut = null;
 
-        //Fade out ended
+        Debug.Log("Fade out ended");
         EventAnnouncer.OnEndFadeOut?.Invoke(fadeID);
     }
 }

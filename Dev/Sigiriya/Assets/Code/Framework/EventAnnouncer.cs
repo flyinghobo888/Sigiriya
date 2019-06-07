@@ -12,6 +12,12 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     public delegate void RequestSceneChange(EnumScene scene, bool shouldFade);
     public static RequestSceneChange OnRequestSceneChange;
 
+    /* Location Events */
+    public delegate void RequestLocationChange(EnumLocation scene, bool shouldFade);
+    public static RequestLocationChange OnRequestLocationChange;
+
+    /* Fade Events */
+
     public delegate void StartFadeIn(string fadeID);
     public static StartFadeIn OnStartFadeIn;
 
