@@ -14,17 +14,20 @@ TODO:
 
 public class DialogueController : MonoBehaviour
 {
-    //[Header("Camera")]
-    //[SerializeField] private int textSize;
+	//[Header("Camera")]
+	//[SerializeField] private int textSize;
 
-    [Header("UI Fields")]
+	//Graph where nodes are kept
+	public SimpleGraph graph;
+
+	[Header("UI Fields")]
     [SerializeField] private TextMeshProUGUI promptPanel = null;
     [SerializeField] private Button[] responseButtons = null;
     [SerializeField] private Button continueButton = null;
     //private Text[] responseButtonText; 
 
     [Header("Dialogue")]
-    [SerializeField] public DialogueNode[] nodes;
+    [SerializeField] public List<DialogueNode> nodes; //HACK: yo, this was just changes from an array to a list. possible errors
     [SerializeField] int currNode = 0;
 
     private string ID;
@@ -37,13 +40,13 @@ public class DialogueController : MonoBehaviour
 
     [System.Serializable]
     public class DialogueNode
-    {
-        //Box for the prompt and the text to go inside
+    {  
+		//Box for the prompt and the text to go inside
         [Header("Prompt Info")]
         public string prompt;
 
         [Header("Response Info")]
-        [SerializeField] public Response[] responses;
+        [SerializeField] public List<Response> responses;
 
         //what the next dialogue node is. -1 to terminate discussion
         //should be one for each button, or only one if no buttons
@@ -84,18 +87,53 @@ public class DialogueController : MonoBehaviour
     private void Awake()
     {
         ID = this.name;
-        //EventManager.StartListening(ID + "_enable", EnableCurrNode);
+		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
+		graph.Restart();
 
-    }
+		//Dialogue.Chat node = graphD.current; //graph.nodes[0] as BaseNode;
+		//Dialogue.Chat nextNode = node.GetNextNode() as Dialogue.Chat;
+		//Debug.Log(nextNode.text);
+
+		//Go through each node in the node graph and set up this classes information from the graph
+		for (int i = 0; i < graph.nodes.Count; i++)
+		{
+			BaseNode node = graph.nodes[i] as BaseNode;
+
+			nodes.Add(new DialogueNode());
+			nodes[i].prompt = node.prompt;
+
+			if (node.answers.Count == 0 && node.GetNextNode() != null)
+			{
+				nodes[i].connection = node.GetNextNode().GetIndex();
+			}
+			else if (node.answers.Count > 0)
+			{
+				//Initialize list if we haven't already
+				if (nodes[i].responses == null)
+				{
+					nodes[i].responses = new List<Response>();
+				}
+
+				//For each response, fill in the data
+				for (int j = 0; j < node.answers.Count; j++)
+				{
+					nodes[i].responses.Add(new Response());
+					nodes[i].responses[j].response = node.answers[j].text;
+					nodes[i].responses[j].connection = node.GetAnswerConnection(j).GetIndex();
+				}
+			}
+		}
+
+	}
 
     private void OnEnable()
     {
         //EventManager.StartListening("E_down", ContinueDialogue);
         //EventManager.FireEvent("MENU_open");
 
-        for (int i = 0; i < nodes.Length; i++)
+        for (int i = 0; i < nodes.Count; i++)
         {
-            for (int j = 0; j < nodes[i].responses.Length; j++)
+            for (int j = 0; j < nodes[i].responses.Count; j++)
             {
                 EventAnnouncer.OnThrowFlag += nodes[i].responses[j].CheckFlag;
             }
@@ -111,9 +149,9 @@ public class DialogueController : MonoBehaviour
         //TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
         ///PlayerPrefs.SetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, currNode);
 
-        for (int i = 0; i < nodes.Length; i++)
+        for (int i = 0; i < nodes.Count; i++)
         {
-            for (int j = 0; j < nodes[i].responses.Length; j++)
+            for (int j = 0; j < nodes[i].responses.Count; j++)
             {
                 EventAnnouncer.OnThrowFlag -= nodes[i].responses[j].CheckFlag;
             }
@@ -166,9 +204,9 @@ public class DialogueController : MonoBehaviour
 
         int i = 0;
 
-        if (nodes[currNode].responses.Length > 0) //if we have responses
+        if (nodes[currNode].responses.Count > 0) //if we have responses
         {
-            for (; i < nodes[currNode].responses.Length; i++)
+            for (; i < nodes[currNode].responses.Count; i++)
             {
                 if (!nodes[currNode].responses[i].hidden)
                 {
@@ -202,7 +240,7 @@ public class DialogueController : MonoBehaviour
             nodes[currNode].speakerPic.gameObject.SetActive(false);
         }
 
-        if (nodes[currNode].responses.Length == 0)
+        if (nodes[currNode].responses.Count == 0)
         {
             //-2 should be changed. it represents a "no connection" value for reference
             //-1 means "end of convo"

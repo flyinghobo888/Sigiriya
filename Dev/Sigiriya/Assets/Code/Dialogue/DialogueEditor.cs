@@ -69,7 +69,7 @@ public class DialogueEditor : EditorWindow
 			currObjectDialogue = Selection.activeGameObject.GetComponent<DialogueController>();
 			//TODO: We have access to the dialogue, use loop to create many nodes
 
-			if (currObjectDialogue.nodes.Length > 0)
+			if (currObjectDialogue.nodes.Count > 0)
 			{
 				if (nodes == null)
 				{

@@ -14,7 +14,7 @@ namespace Dialogue {
 
             Chat node = target as Chat;
 
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("character"), GUIContent.none);
+            ///EditorGUILayout.PropertyField(serializedObject.FindProperty("character"), GUIContent.none);
             if (node.answers.Count == 0)
 			{
                 GUILayout.BeginHorizontal();
@@ -26,7 +26,7 @@ namespace Dialogue {
 			{
                 NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("input"));
             }
-            GUILayout.Space(-30);
+            //GUILayout.Space(-30);
 
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("text"), GUIContent.none);
             NodeEditorGUILayout.InstancePortList("answers", typeof(DialogueBaseNode), serializedObject, NodePort.IO.Output, XNode.Node.ConnectionType.Override);

@@ -38,7 +38,15 @@ namespace Dialogue {
             }
         }
 
-        public override void Trigger()
+		public Chat GetAnswerConnection(int index)
+		{
+			Chat node = GetOutputPort("answers " + index).Connection.node as Chat;
+
+			return node;
+		}
+
+
+		public override void Trigger()
 		{
             (graph as DialogueGraph).current = this;
         }
