@@ -16,6 +16,9 @@ public class BaseNode : XNode.Node
 	{
 		public string text;
 		public AudioClip voiceClip;
+		public bool isHidden;
+		public string throwFlag;
+		public string catchFlag;
 	}
 
 	// Use this for initialization

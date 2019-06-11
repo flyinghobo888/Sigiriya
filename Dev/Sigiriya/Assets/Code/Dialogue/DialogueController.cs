@@ -89,10 +89,8 @@ public class DialogueController : MonoBehaviour
         ID = this.name;
 		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
 		graph.Restart();
-
-		//Dialogue.Chat node = graphD.current; //graph.nodes[0] as BaseNode;
-		//Dialogue.Chat nextNode = node.GetNextNode() as Dialogue.Chat;
-		//Debug.Log(nextNode.text);
+		currNode = graph.current.GetIndex();
+		checkPointNode = currNode; //TODO: This is temporary. It causes the dialogue to go to the start everytime it is enabled
 
 		//Go through each node in the node graph and set up this classes information from the graph
 		for (int i = 0; i < graph.nodes.Count; i++)
@@ -106,7 +104,7 @@ public class DialogueController : MonoBehaviour
 			{
 				nodes[i].connection = node.GetNextNode().GetIndex();
 			}
-			else if (node.answers.Count > 0)
+			else if (node.answers.Count > 0) 
 			{
 				//Initialize list if we haven't already
 				if (nodes[i].responses == null)
@@ -120,7 +118,20 @@ public class DialogueController : MonoBehaviour
 					nodes[i].responses.Add(new Response());
 					nodes[i].responses[j].response = node.answers[j].text;
 					nodes[i].responses[j].connection = node.GetAnswerConnection(j).GetIndex();
+					nodes[i].responses[j].hidden = node.answers[j].isHidden;
+					if (node.answers[j].throwFlag != "")
+					{
+						nodes[i].responses[j].throwFlag = node.answers[j].throwFlag;
+					}
+					if (node.answers[j].catchFlag != "")
+					{
+						nodes[i].responses[j].catchFlag = node.answers[j].catchFlag;
+					}
 				}
+			}
+			else if (node.GetNextNode() == null)
+			{
+				nodes[i].connection = -1;
 			}
 		}
 
@@ -128,15 +139,19 @@ public class DialogueController : MonoBehaviour
 
     private void OnEnable()
     {
-        //EventManager.StartListening("E_down", ContinueDialogue);
-        //EventManager.FireEvent("MENU_open");
+		//EventManager.StartListening("E_down", ContinueDialogue);
+		//EventManager.FireEvent("MENU_open");
 
-        for (int i = 0; i < nodes.Count; i++)
+
+		for (int i = 0; i < nodes.Count; i++)
         {
-            for (int j = 0; j < nodes[i].responses.Count; j++)
-            {
-                EventAnnouncer.OnThrowFlag += nodes[i].responses[j].CheckFlag;
-            }
+			if (nodes[i].responses != null)
+			{
+				for (int j = 0; j < nodes[i].responses.Count; j++)
+				{
+					EventAnnouncer.OnThrowFlag += nodes[i].responses[j].CheckFlag;
+				}
+			}
         }
 
         PersistentEventBank.FireAllEvents();
@@ -151,10 +166,13 @@ public class DialogueController : MonoBehaviour
 
         for (int i = 0; i < nodes.Count; i++)
         {
-            for (int j = 0; j < nodes[i].responses.Count; j++)
-            {
-                EventAnnouncer.OnThrowFlag -= nodes[i].responses[j].CheckFlag;
-            }
+			if (nodes[i].responses != null)
+			{
+				for (int j = 0; j < nodes[i].responses.Count; j++)
+				{
+					EventAnnouncer.OnThrowFlag -= nodes[i].responses[j].CheckFlag;
+				}
+			}
         }
 
         EventAnnouncer.OnDialogueEnd?.Invoke();
@@ -163,9 +181,10 @@ public class DialogueController : MonoBehaviour
     private void Start()
     {
 
-
-        checkPointNode = nodes[currNode].checkPointConnection;
-        exitNode = nodes[currNode].exitConnection;
+		///TODO: uncomment these once the todo with the checkpoint connection is fixed
+        //checkPointNode = nodes[currNode].checkPointConnection;
+        //exitNode = nodes[currNode].exitConnection;
+		///-----------------------------------------
 
         //move to start once text size is decided
         //textSize = textSize * Screen.width / 1920;
@@ -192,8 +211,8 @@ public class DialogueController : MonoBehaviour
 
     void DisplayNode(DialogueNode node)
     {
-        checkPointNode = nodes[currNode].checkPointConnection;
-        exitNode = nodes[currNode].exitConnection;
+        //checkPointNode = nodes[currNode].checkPointConnection;
+        //exitNode = nodes[currNode].exitConnection;
 
         promptPanel.text = nodes[currNode].prompt;
 
@@ -204,7 +223,7 @@ public class DialogueController : MonoBehaviour
 
         int i = 0;
 
-        if (nodes[currNode].responses.Count > 0) //if we have responses
+        if (nodes[currNode].responses != null) //if we have responses
         {
             for (; i < nodes[currNode].responses.Count; i++)
             {
@@ -240,7 +259,7 @@ public class DialogueController : MonoBehaviour
             nodes[currNode].speakerPic.gameObject.SetActive(false);
         }
 
-        if (nodes[currNode].responses.Count == 0)
+        if (nodes[currNode].responses == null)
         {
             //-2 should be changed. it represents a "no connection" value for reference
             //-1 means "end of convo"
@@ -275,7 +294,7 @@ public class DialogueController : MonoBehaviour
 
     public void EnableCurrNode()
     {
-        //currNode = 0;
+        currNode = checkPointNode;
 
         //TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
         ///currNode = PlayerPrefs.GetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, 0);

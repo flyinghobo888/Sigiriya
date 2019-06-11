@@ -13,14 +13,21 @@ public class PersistentEventBank : MonoBehaviour
 
     private void Awake()
     {
-        eventFlags = new List<string>();
-        EventAnnouncer.OnThrowFlag += AddEvent;
+		if (eventFlags == null)
+		{
+			eventFlags = new List<string>();
+		}
+		EventAnnouncer.OnThrowFlag += AddEvent;
         EventAnnouncer.OnDialogueEnd += IncrementPeopleTalkedTo;
         PlayerPrefs.DeleteAll();
     }
 
     public static void FireAllEvents()
     {
+		if (eventFlags == null)
+		{
+			eventFlags = new List<string>();
+		}
         for (int i = 0; i < eventFlags.Count; i++)
         {
             Debug.Log(eventFlags[i]);

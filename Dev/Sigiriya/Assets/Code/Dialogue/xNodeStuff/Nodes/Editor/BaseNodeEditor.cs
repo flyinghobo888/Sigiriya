@@ -28,6 +28,10 @@ public class BaseNodeEditor : NodeEditor
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("prompt"), GUIContent.none);
 		NodeEditorGUILayout.InstancePortList("answers", typeof(BaseNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
+//		GUILayout.BeginHorizontal();
+//		EditorGUILayout.LabelField("Flag", GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent("Prompt:")).x));
+//		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("dialogueFlag"), GUIContent.none);
+//		GUILayout.EndHorizontal();
 
 		serializedObject.ApplyModifiedProperties();
 	}
