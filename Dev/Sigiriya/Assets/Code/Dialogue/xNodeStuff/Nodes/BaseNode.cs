@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using XNode;
 
 public class BaseNode : XNode.Node
@@ -9,7 +10,12 @@ public class BaseNode : XNode.Node
 	[Output(backingValue = ShowBackingValue.Never)] public BaseNode output;
 	[Output(instancePortList = true)] public List<Answer> answers = new List<Answer>();
 
+	[Output(instancePortList = true)] public BaseNode interruptConnection;
+	[Output(instancePortList = true)] public BaseNode checkPointConnection;
+	[Output(instancePortList = true)] public BaseNode exitConnection;
+
 	[TextArea] public string prompt;
+	public Image speakerPic;
 
 	[System.Serializable]
 	public class Answer
@@ -53,6 +59,18 @@ public class BaseNode : XNode.Node
 	public int GetIndex()
 	{
 		return graph.nodes.IndexOf(this);
+	}
+	public BaseNode GetConnectedNode(string portName)
+	{
+		NodePort port = GetOutputPort(portName);
+		if (!port.IsConnected)
+		{
+			Debug.Log(portName + " is not connected!");
+			return null;
+		}
+
+		BaseNode node = GetOutputPort(portName).Connection.node as BaseNode;
+		return node;
 	}
 
 	// Return the correct value of an output port when requested
