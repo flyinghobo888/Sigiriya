@@ -103,13 +103,9 @@ public class DialogueController : MonoBehaviour
 			if (node.answers.Count == 0)
 			{
 				if (node.GetNextNode() != null)
-				{
 					nodes[i].connection = node.GetNextNode().GetIndex();
-				}
 				else
-				{
 					nodes[i].connection = -1;
-				}
 
 				if (node.GetConnectedNode("interruptConnection") != null)
 					nodes[i].interruptConnection = node.GetConnectedNode("interruptConnection").GetIndex();
@@ -202,15 +198,7 @@ public class DialogueController : MonoBehaviour
 
     private void Start()
     {
-
-		///TODO: uncomment these once the todo with the checkpoint connection is fixed
-        checkPointNode = nodes[currNode].checkPointConnection;
-		if (nodes[currNode].exitConnection != -1)
-		{
-			exitNode = nodes[currNode].exitConnection;
-		}
-		Debug.Log(exitNode);
-		///-----------------------------------------
+		//Maybe set extraConnections again here? I dunno.
 
         //move to start once text size is decided
         //textSize = textSize * Screen.width / 1920;
@@ -329,9 +317,10 @@ public class DialogueController : MonoBehaviour
 
         if (currNode != -1)
         {
-            gameObject.SetActive(true);
-        }
-    }
+			DisplayNode(nodes[currNode]);
+			gameObject.SetActive(true);
+		}
+	}
 
     public void SetCurrNode(int newNode)
     {
