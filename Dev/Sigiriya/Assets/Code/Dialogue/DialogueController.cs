@@ -90,7 +90,7 @@ public class DialogueController : MonoBehaviour
 		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
 		graph.Restart();
 		currNode = graph.current.GetIndex();
-		checkPointNode = currNode; //TODO: This is temporary. It causes the dialogue to go to the start everytime it is enabled
+		//checkPointNode = currNode; //TODO: This is temporary. It causes the dialogue to go to the start everytime it is enabled
 
 		//Go through each node in the node graph and set up this classes information from the graph
 		for (int i = 0; i < graph.nodes.Count; i++)
@@ -100,9 +100,31 @@ public class DialogueController : MonoBehaviour
 			nodes.Add(new DialogueNode());
 			nodes[i].prompt = node.prompt;
 
-			if (node.answers.Count == 0 && node.GetNextNode() != null)
+			if (node.answers.Count == 0)
 			{
-				nodes[i].connection = node.GetNextNode().GetIndex();
+				if (node.GetNextNode() != null)
+				{
+					nodes[i].connection = node.GetNextNode().GetIndex();
+				}
+				else
+				{
+					nodes[i].connection = -1;
+				}
+
+				if (node.GetConnectedNode("interruptConnection") != null)
+					nodes[i].interruptConnection = node.GetConnectedNode("interruptConnection").GetIndex();
+				else
+					nodes[i].interruptConnection = -1;
+
+				if (node.GetConnectedNode("checkPointConnection") != null)
+					nodes[i].checkPointConnection = node.GetConnectedNode("checkPointConnection").GetIndex();
+				else
+					nodes[i].checkPointConnection = -1;
+
+				if (node.GetConnectedNode("exitConnection") != null)
+					nodes[i].exitConnection = node.GetConnectedNode("exitConnection").GetIndex();
+				else
+					nodes[i].exitConnection = -1;
 			}
 			else if (node.answers.Count > 0) 
 			{
@@ -182,8 +204,12 @@ public class DialogueController : MonoBehaviour
     {
 
 		///TODO: uncomment these once the todo with the checkpoint connection is fixed
-        //checkPointNode = nodes[currNode].checkPointConnection;
-        //exitNode = nodes[currNode].exitConnection;
+        checkPointNode = nodes[currNode].checkPointConnection;
+		if (nodes[currNode].exitConnection != -1)
+		{
+			exitNode = nodes[currNode].exitConnection;
+		}
+		Debug.Log(exitNode);
 		///-----------------------------------------
 
         //move to start once text size is decided
@@ -205,14 +231,14 @@ public class DialogueController : MonoBehaviour
             gameObject.SetActive(false);
 
             //A temporary comment. This exit node should be -1, but I don't wanna set them all by hand right now
-            //currNode = exitNode;
+            currNode = exitNode;
         }
     }
 
     void DisplayNode(DialogueNode node)
     {
-        //checkPointNode = nodes[currNode].checkPointConnection;
-        //exitNode = nodes[currNode].exitConnection;
+        checkPointNode = nodes[currNode].checkPointConnection;
+        exitNode = nodes[currNode].exitConnection;
 
         promptPanel.text = nodes[currNode].prompt;
 
@@ -241,6 +267,7 @@ public class DialogueController : MonoBehaviour
         }
         else
         {
+			//TODO: instead of a continue button, let them click elsewhere or something
             continueButton.gameObject.SetActive(true);
         }
 
@@ -294,7 +321,8 @@ public class DialogueController : MonoBehaviour
 
     public void EnableCurrNode()
     {
-        currNode = checkPointNode;
+        //currNode = checkPointNode;
+		//currNode = exitNode;
 
         //TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
         ///currNode = PlayerPrefs.GetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, 0);
