@@ -15,17 +15,17 @@ public class BaseNodeEditor : NodeEditor
 
 		BaseNode node = target as BaseNode;
 
-		if (node.answers.Count == 0)
-		{
+//		if (node.answers.Count == 0)
+//		{
 			GUILayout.BeginHorizontal();
 			NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("input"), GUILayout.MinWidth(0));
 			NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("output"), GUILayout.MinWidth(0));
 			GUILayout.EndHorizontal();
-		}
-		else
-		{
-			NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("input"));
-		}
+//		}
+//		else
+//		{
+//			NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("input"));
+//		}
 
 
 		GUILayout.BeginVertical();
@@ -42,6 +42,11 @@ public class BaseNodeEditor : NodeEditor
 		GUILayout.EndVertical();
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("prompt"), GUIContent.none);
+		GUILayout.BeginHorizontal();
+		EditorGUILayout.LabelField("Time", GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent("Time")).x));
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("time"), GUIContent.none);
+		GUILayout.EndHorizontal();
+
 		GUILayout.BeginHorizontal();
 		EditorGUILayout.LabelField("Speaker Image", GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent("Speaker Image:")).x));
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("speakerPic"), GUIContent.none);

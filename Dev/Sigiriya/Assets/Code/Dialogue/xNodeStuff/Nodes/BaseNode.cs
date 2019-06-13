@@ -16,6 +16,7 @@ public class BaseNode : XNode.Node
 
 	[TextArea] public string prompt;
 	public Image speakerPic;
+	public float time;
 
 	[System.Serializable]
 	public class Answer
