@@ -1,0 +1,1 @@
+This is the Artist's folder! Feel free to add any folders you feel necessary in here.
