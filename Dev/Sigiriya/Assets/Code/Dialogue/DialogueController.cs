@@ -36,6 +36,8 @@ public class DialogueController : MonoBehaviour
     //private int startNode = 0;
     private int exitNode = 2000; //HACK: a temporary number
 
+	private float talkTimer = 0;
+
     private Vector3 worldToScreenPos;
 
     [System.Serializable]
@@ -44,6 +46,7 @@ public class DialogueController : MonoBehaviour
 		//Box for the prompt and the text to go inside
         [Header("Prompt Info")]
         public string prompt;
+		public float time;
 
         [Header("Response Info")]
         [SerializeField] public List<Response> responses;
@@ -100,33 +103,29 @@ public class DialogueController : MonoBehaviour
 			nodes.Add(new DialogueNode());
 			nodes[i].prompt = node.prompt;
 
-			if (node.answers.Count == 0)
-			{
-				if (node.GetNextNode() != null)
-				{
-					nodes[i].connection = node.GetNextNode().GetIndex();
-				}
-				else
-				{
-					nodes[i].connection = -1;
-				}
+			if (node.GetNextNode() != null)
+				nodes[i].connection = node.GetNextNode().GetIndex();
+			else
+				nodes[i].connection = -1;
 
-				if (node.GetConnectedNode("interruptConnection") != null)
-					nodes[i].interruptConnection = node.GetConnectedNode("interruptConnection").GetIndex();
-				else
-					nodes[i].interruptConnection = -1;
+			if (node.GetConnectedNode("interruptConnection") != null)
+				nodes[i].interruptConnection = node.GetConnectedNode("interruptConnection").GetIndex();
+			else
+				nodes[i].interruptConnection = -1;
 
-				if (node.GetConnectedNode("checkPointConnection") != null)
-					nodes[i].checkPointConnection = node.GetConnectedNode("checkPointConnection").GetIndex();
-				else
-					nodes[i].checkPointConnection = -1;
+			if (node.GetConnectedNode("checkPointConnection") != null)
+				nodes[i].checkPointConnection = node.GetConnectedNode("checkPointConnection").GetIndex();
+			else
+				nodes[i].checkPointConnection = -1;
 
-				if (node.GetConnectedNode("exitConnection") != null)
-					nodes[i].exitConnection = node.GetConnectedNode("exitConnection").GetIndex();
-				else
-					nodes[i].exitConnection = -1;
-			}
-			else if (node.answers.Count > 0) 
+			if (node.GetConnectedNode("exitConnection") != null)
+				nodes[i].exitConnection = node.GetConnectedNode("exitConnection").GetIndex();
+			else
+				nodes[i].exitConnection = -1;
+
+			nodes[i].time = node.time;
+
+			if (node.answers.Count > 0) 
 			{
 				//Initialize list if we haven't already
 				if (nodes[i].responses == null)
@@ -202,15 +201,7 @@ public class DialogueController : MonoBehaviour
 
     private void Start()
     {
-
-		///TODO: uncomment these once the todo with the checkpoint connection is fixed
-        checkPointNode = nodes[currNode].checkPointConnection;
-		if (nodes[currNode].exitConnection != -1)
-		{
-			exitNode = nodes[currNode].exitConnection;
-		}
-		Debug.Log(exitNode);
-		///-----------------------------------------
+		//Maybe set extraConnections again here? I dunno.
 
         //move to start once text size is decided
         //textSize = textSize * Screen.width / 1920;
@@ -233,6 +224,26 @@ public class DialogueController : MonoBehaviour
             //A temporary comment. This exit node should be -1, but I don't wanna set them all by hand right now
             currNode = exitNode;
         }
+
+		talkTimer += Time.deltaTime;
+		if (talkTimer > nodes[currNode].time)
+		{
+			if (nodes[currNode].connection != -1 && enabled)
+			{
+				ContinueDialogue();
+			}
+			else
+			{
+				Debug.Log(ID + " is done talking");
+				gameObject.SetActive(false);
+
+				//A temporary comment. This exit node should be -1, but I don't wanna set them all by hand right now
+				currNode = exitNode;
+
+			}
+
+			talkTimer = 0;
+		}
     }
 
     void DisplayNode(DialogueNode node)
@@ -286,23 +297,12 @@ public class DialogueController : MonoBehaviour
             nodes[currNode].speakerPic.gameObject.SetActive(false);
         }
 
-        if (nodes[currNode].responses == null)
-        {
-            //-2 should be changed. it represents a "no connection" value for reference
-            //-1 means "end of convo"
-            if (nodes[currNode].connection == 0 && nodes[currNode].connection != -1)
-            {
-                currNode++;
-            }
-            else
-            {
-                currNode = nodes[currNode].connection;
-            }
+	     currNode = nodes[currNode].connection;
 
-        }
-    }
+		talkTimer = 0;
+	}
 
-    public void SelectResponse(int responseNode)
+	public void SelectResponse(int responseNode)
     {
         if (nodes[currNode].speakerPic != null)
         {
@@ -315,11 +315,13 @@ public class DialogueController : MonoBehaviour
         }
 
         SetCurrNode(nodes[currNode].responses[responseNode].connection);
-    }
 
-    #endregion
+		talkTimer = 0;
+	}
 
-    public void EnableCurrNode()
+	#endregion
+
+	public void EnableCurrNode()
     {
         //currNode = checkPointNode;
 		//currNode = exitNode;
@@ -329,9 +331,10 @@ public class DialogueController : MonoBehaviour
 
         if (currNode != -1)
         {
-            gameObject.SetActive(true);
-        }
-    }
+			DisplayNode(nodes[currNode]);
+			gameObject.SetActive(true);
+		}
+	}
 
     public void SetCurrNode(int newNode)
     {
