@@ -8,13 +8,14 @@ using UnityEditor;
 public class BaseNodeEditor : NodeEditor
 {
 	public bool openFoldout;
+	[SerializeField] public UnityEngine.UI.Image pic;
 
 	public override void OnBodyGUI()
 	{
 		serializedObject.Update();
 
 		BaseNode node = target as BaseNode;
-
+		SerializedObject so = new SerializedObject(target);
 //		if (node.answers.Count == 0)
 //		{
 			GUILayout.BeginHorizontal();
@@ -42,21 +43,13 @@ public class BaseNodeEditor : NodeEditor
 		GUILayout.EndVertical();
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("prompt"), GUIContent.none);
-		GUILayout.BeginHorizontal();
-		EditorGUILayout.LabelField("Time", GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent("Time")).x));
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("time"), GUIContent.none);
-		GUILayout.EndHorizontal();
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("time"), new GUIContent("Time"));
 
-		GUILayout.BeginHorizontal();
-		EditorGUILayout.LabelField("Speaker Image", GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent("Speaker Image:")).x));
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("speakerPic"), GUIContent.none);
-		GUILayout.EndHorizontal();
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("speakerPic"), new GUIContent("Speaker Image"));
+		//NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("action"), GUIContent.none);
+		//pic = (UnityEngine.UI.Image) EditorGUILayout.ObjectField("pic", pic, typeof (UnityEngine.UI.Image), true);
 
 		NodeEditorGUILayout.InstancePortList("answers", typeof(BaseNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
-//		GUILayout.BeginHorizontal();
-//		EditorGUILayout.LabelField("Flag", GUILayout.Width(GUI.skin.label.CalcSize(new GUIContent("Prompt:")).x));
-//		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("dialogueFlag"), GUIContent.none);
-//		GUILayout.EndHorizontal();
 
 		serializedObject.ApplyModifiedProperties();
 	}

@@ -24,10 +24,10 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI promptPanel = null;
     [SerializeField] private Button[] responseButtons = null;
     [SerializeField] private Button continueButton = null;
-    //private Text[] responseButtonText; 
+	[SerializeField] private List<Image> speakerImages; //basically just a holder of images to display
 
     [Header("Dialogue")]
-    [SerializeField] public List<DialogueNode> nodes; //HACK: yo, this was just changes from an array to a list. possible errors
+    [SerializeField] public List<DialogueNode> nodes;
     [SerializeField] int currNode = 0;
 
     private string ID;
@@ -64,7 +64,7 @@ public class DialogueController : MonoBehaviour
         [SerializeField] public int exitConnection;
 
         [Header("Image")]
-        [SerializeField] public Image speakerPic;
+        [SerializeField] public Sprite speakerPic; //This might one day become a list... :(
     };
 
     //Boxs for responses and the text inside them
@@ -93,7 +93,6 @@ public class DialogueController : MonoBehaviour
 		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
 		graph.Restart();
 		currNode = graph.current.GetIndex();
-		//checkPointNode = currNode; //TODO: This is temporary. It causes the dialogue to go to the start everytime it is enabled
 
 		//Go through each node in the node graph and set up this classes information from the graph
 		for (int i = 0; i < graph.nodes.Count; i++)
@@ -102,6 +101,7 @@ public class DialogueController : MonoBehaviour
 
 			nodes.Add(new DialogueNode());
 			nodes[i].prompt = node.prompt;
+			nodes[i].speakerPic = node.speakerPic;
 
 			if (node.GetNextNode() != null)
 				nodes[i].connection = node.GetNextNode().GetIndex();
@@ -221,11 +221,16 @@ public class DialogueController : MonoBehaviour
             Debug.Log(ID + " is done talking");
             gameObject.SetActive(false);
 
-            //A temporary comment. This exit node should be -1, but I don't wanna set them all by hand right now
             currNode = exitNode;
         }
 
 		talkTimer += Time.deltaTime;
+
+		if (nodes[currNode].time == 0)
+		{
+			talkTimer = 0;
+			Debug.Log("Node is missing a time!");
+		}
 		if (talkTimer > nodes[currNode].time)
 		{
 			if (nodes[currNode].connection != -1 && enabled)
@@ -237,9 +242,7 @@ public class DialogueController : MonoBehaviour
 				Debug.Log(ID + " is done talking");
 				gameObject.SetActive(false);
 
-				//A temporary comment. This exit node should be -1, but I don't wanna set them all by hand right now
 				currNode = exitNode;
-
 			}
 
 			talkTimer = 0;
@@ -253,12 +256,25 @@ public class DialogueController : MonoBehaviour
 
         promptPanel.text = nodes[currNode].prompt;
 
-        if (nodes[currNode].speakerPic != null)
-        {
-            nodes[currNode].speakerPic.gameObject.SetActive(true);
-        }
+        //if (nodes[currNode].speakerPic != null)
+        //{
+		//	//TODO: can't do in scene images anymore. Instead: set the image of an existing object, scale it, etc...
+        //    nodes[currNode].speakerPic.gameObject.SetActive(true);
+        //}
 
-        int i = 0;
+		if (nodes[currNode].speakerPic == speakerImages[0].sprite)
+		{
+			speakerImages[0].gameObject.SetActive(true);
+			speakerImages[1].gameObject.SetActive(false);
+		}
+		else if (nodes[currNode].speakerPic == speakerImages[1].sprite)
+		{
+			speakerImages[1].gameObject.SetActive(true);
+			speakerImages[0].gameObject.SetActive(false);
+		}
+
+
+		int i = 0;
 
         if (nodes[currNode].responses != null) //if we have responses
         {
@@ -278,7 +294,7 @@ public class DialogueController : MonoBehaviour
         }
         else
         {
-			//TODO: instead of a continue button, let them click elsewhere or something
+			//TODO: Timed dialogue continues now, so remove this gracefully after you get the order
             continueButton.gameObject.SetActive(true);
         }
 
@@ -292,24 +308,48 @@ public class DialogueController : MonoBehaviour
     //exposed to the UI continue button
     public void ContinueDialogue()
     {
-        if (nodes[currNode].speakerPic != null)
-        {
-            nodes[currNode].speakerPic.gameObject.SetActive(false);
-        }
+        //if (nodes[currNode].speakerPic != null)
+        //{
+        //    nodes[currNode].speakerPic.gameObject.SetActive(false);
+        //}
 
-	     currNode = nodes[currNode].connection;
+		if (nodes[currNode].speakerPic == speakerImages[0].sprite)
+		{
+			speakerImages[0].gameObject.SetActive(true);
+			speakerImages[1].gameObject.SetActive(false);
+		}
+		else if (nodes[currNode].speakerPic == speakerImages[1].sprite)
+		{
+			speakerImages[1].gameObject.SetActive(true);
+			speakerImages[0].gameObject.SetActive(false);
+		}
+
+
+		currNode = nodes[currNode].connection;
 
 		talkTimer = 0;
 	}
 
 	public void SelectResponse(int responseNode)
     {
-        if (nodes[currNode].speakerPic != null)
-        {
-            nodes[currNode].speakerPic.gameObject.SetActive(false);
-        }
+        //if (nodes[currNode].speakerPic != null)
+        //{
+        //    nodes[currNode].speakerPic.gameObject.SetActive(false);
+        //}
 
-        if (nodes[currNode].responses[responseNode].throwFlag != "")
+		if (nodes[currNode].speakerPic == speakerImages[0].sprite)
+		{
+			speakerImages[0].gameObject.SetActive(true);
+			speakerImages[1].gameObject.SetActive(false);
+		}
+		else if (nodes[currNode].speakerPic == speakerImages[1].sprite)
+		{
+			speakerImages[1].gameObject.SetActive(true);
+			speakerImages[0].gameObject.SetActive(false);
+		}
+
+
+		if (nodes[currNode].responses[responseNode].throwFlag != "")
         {
             EventAnnouncer.OnThrowFlag?.Invoke(nodes[currNode].responses[responseNode].throwFlag);
         }

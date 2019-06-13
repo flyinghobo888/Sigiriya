@@ -15,7 +15,7 @@ public class BaseNode : XNode.Node
 	[Output(instancePortList = true)] public BaseNode exitConnection;
 
 	[TextArea] public string prompt;
-	public Image speakerPic;
+	public Sprite speakerPic;
 	public float time;
 
 	[System.Serializable]
