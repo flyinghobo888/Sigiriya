@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class DialogueEditor : EditorWindow
+public class MyDialogueEditor : EditorWindow
 {
 	string myString = "string";
 	bool groupEnabled = false;
@@ -34,7 +34,7 @@ public class DialogueEditor : EditorWindow
 	[MenuItem("Dialogue System/DialogueEditor")]
 	public static void ShowWindow()
 	{
-		GetWindow(typeof(DialogueEditor));
+		GetWindow(typeof(MyDialogueEditor));
 	}
 
 	#region GUI Unity Functions

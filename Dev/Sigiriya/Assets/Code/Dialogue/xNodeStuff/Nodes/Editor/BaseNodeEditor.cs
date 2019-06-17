@@ -8,7 +8,9 @@ using UnityEditor;
 public class BaseNodeEditor : NodeEditor
 {
 	public bool openFoldout;
+	Sprite m_sprite;
 	[SerializeField] public UnityEngine.UI.Image pic;
+
 
 	public override void OnBodyGUI()
 	{
@@ -16,17 +18,12 @@ public class BaseNodeEditor : NodeEditor
 
 		BaseNode node = target as BaseNode;
 		SerializedObject so = new SerializedObject(target);
-//		if (node.answers.Count == 0)
-//		{
-			GUILayout.BeginHorizontal();
-			NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("input"), GUILayout.MinWidth(0));
-			NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("output"), GUILayout.MinWidth(0));
-			GUILayout.EndHorizontal();
-//		}
-//		else
-//		{
-//			NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("input"));
-//		}
+
+		GUILayout.BeginHorizontal();
+		NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("input"), GUILayout.MinWidth(0));
+		NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("output"), GUILayout.MinWidth(0));
+		GUILayout.EndHorizontal();
+
 
 
 		GUILayout.BeginVertical();
@@ -46,12 +43,32 @@ public class BaseNodeEditor : NodeEditor
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("time"), new GUIContent("Time"));
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("speakerPic"), new GUIContent("Speaker Image"));
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("usedSprite"), new GUIContent("Speaker Image"));
+
+		if (EditorGUILayout.DropdownButton(new GUIContent("Test"), FocusType.Passive))
+		{
+			GenericMenu menu = new GenericMenu();
+
+			//AddMenuItemForSprite(menu, "",); ///Don't know how to get the value from a list
+		}
 		//NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("action"), GUIContent.none);
 		//pic = (UnityEngine.UI.Image) EditorGUILayout.ObjectField("pic", pic, typeof (UnityEngine.UI.Image), true);
 
 		NodeEditorGUILayout.InstancePortList("answers", typeof(BaseNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
 
 		serializedObject.ApplyModifiedProperties();
+	}
+
+	void AddMenuItemForSprite(GenericMenu menu, string menuPath, List<Sprite> sprite)
+	{
+		// the menu item is marked as selected if it matches the current value of m_Color
+		menu.AddItem(new GUIContent(menuPath), m_sprite.Equals(sprite), OnSpriteSelected, sprite);
+	}
+
+	// the GenericMenu.MenuFunction2 event handler for when a menu item is selected
+	void OnSpriteSelected(object sprite)
+	{
+		m_sprite = (Sprite)sprite;
 	}
 
 	public override int GetWidth()

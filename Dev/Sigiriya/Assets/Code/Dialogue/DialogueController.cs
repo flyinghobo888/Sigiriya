@@ -24,7 +24,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI promptPanel = null;
     [SerializeField] private Button[] responseButtons = null;
     [SerializeField] private Button continueButton = null;
-	[SerializeField] private List<Image> speakerImages; //basically just a holder of images to display
+	[SerializeField] private List<Image> speakerImages; //basically just a holder of images to display 
 
     [Header("Dialogue")]
     [SerializeField] public List<DialogueNode> nodes;
@@ -64,7 +64,8 @@ public class DialogueController : MonoBehaviour
         [SerializeField] public int exitConnection;
 
         [Header("Image")]
-        [SerializeField] public Sprite speakerPic; //This might one day become a list... :(
+        [SerializeField] public tempCharSprites speakerPic; //This might one day become a list... :(
+		[SerializeField] public Sprite usedSprite;
     };
 
     //Boxs for responses and the text inside them
@@ -102,6 +103,7 @@ public class DialogueController : MonoBehaviour
 			nodes.Add(new DialogueNode());
 			nodes[i].prompt = node.prompt;
 			nodes[i].speakerPic = node.speakerPic;
+			nodes[i].usedSprite = node.usedSprite;
 
 			if (node.GetNextNode() != null)
 				nodes[i].connection = node.GetNextNode().GetIndex();
@@ -249,29 +251,47 @@ public class DialogueController : MonoBehaviour
 		}
     }
 
-    void DisplayNode(DialogueNode node)
-    {
-        checkPointNode = nodes[currNode].checkPointConnection;
-        exitNode = nodes[currNode].exitConnection;
+	void DisplayNode(DialogueNode node)
+	{
+		checkPointNode = nodes[currNode].checkPointConnection;
+		exitNode = nodes[currNode].exitConnection;
 
-        promptPanel.text = nodes[currNode].prompt;
+		promptPanel.text = nodes[currNode].prompt;
 
-        //if (nodes[currNode].speakerPic != null)
-        //{
+		//if (nodes[currNode].speakerPic != null)
+		//{
 		//	//TODO: can't do in scene images anymore. Instead: set the image of an existing object, scale it, etc...
-        //    nodes[currNode].speakerPic.gameObject.SetActive(true);
-        //}
+		//    nodes[currNode].speakerPic.gameObject.SetActive(true);
+		//}
 
-		if (nodes[currNode].speakerPic == speakerImages[0].sprite)
-		{
-			speakerImages[0].gameObject.SetActive(true);
-			speakerImages[1].gameObject.SetActive(false);
-		}
-		else if (nodes[currNode].speakerPic == speakerImages[1].sprite)
-		{
-			speakerImages[1].gameObject.SetActive(true);
-			speakerImages[0].gameObject.SetActive(false);
-		}
+		/*
+		 * if the speakerImage.sprite exists in the nodes.speakerPic list, go nuts. else, other way around
+		 */
+		bool imageFound = false;
+		int foundIndex = 0;
+		//for (int j = 0; j < nodes[currNode].speakerPic.spriteList.Count; j++)
+		//{
+			//if (nodes[currNode].speakerPic.spriteList[j] == speakerImages[0].sprite);
+
+			if (nodes[currNode].speakerPic.spriteList.Contains(speakerImages[0].sprite))
+			{
+			speakerImages[0].sprite = nodes[currNode].usedSprite;
+				speakerImages[0].gameObject.SetActive(true);
+				speakerImages[1].gameObject.SetActive(false);
+			}
+		//}
+//		if (imageFound == true)
+//		{
+//			speakerImages[0].sprite = nodes[currNode].speakerPic.spriteList[foundIndex];
+//			speakerImages[0].gameObject.SetActive(true);
+//			speakerImages[1].gameObject.SetActive(false);
+//		}
+
+		//else if (nodes[currNode].speakerPic == speakerImages[1].sprite)
+		//{
+		//	speakerImages[1].gameObject.SetActive(true);
+		//	speakerImages[0].gameObject.SetActive(false);
+		//}
 
 
 		int i = 0;

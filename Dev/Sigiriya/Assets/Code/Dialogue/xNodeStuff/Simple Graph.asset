@@ -90,8 +90,9 @@ MonoBehaviour:
   interruptConnection: {fileID: 0}
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
-  prompt: Let's try again.
-  speakerPic: {fileID: 21300000, guid: 70767b43f9ea00c49b58adac9eba724d, type: 3}
+  prompt: Ah, care to finally have a conversation?
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: 09ba734770cbd1c4c9eed4ce1c62e35e, type: 3}
   time: 3
 --- !u!114 &-3304052863246691454
 MonoBehaviour:
@@ -212,12 +213,12 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   answers:
-  - text: Yes, sorry.
+  - text: Apologies, I wish to ask you something.
     voiceClip: {fileID: 0}
     isHidden: 0
     throwFlag: 
     catchFlag: 
-  - text: No, eat ass.
+  - text: You're a dweeb.
     voiceClip: {fileID: 0}
     isHidden: 0
     throwFlag: 
@@ -225,8 +226,9 @@ MonoBehaviour:
   interruptConnection: {fileID: 0}
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
-  prompt: Ready to talk?
-  speakerPic: {fileID: 21300000, guid: 452c4b2eea6c9c24ab25aad671fbaa52, type: 3}
+  prompt: '*Suvik stares at you*'
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: 3ed8493051233f540ba6de62ce3a1acb, type: 3}
   time: 5
 --- !u!114 &-1385988045181934441
 MonoBehaviour:
@@ -318,8 +320,9 @@ MonoBehaviour:
   interruptConnection: {fileID: 0}
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
-  prompt: If you've got nothing to say, go away! UwU
-  speakerPic: {fileID: 21300000, guid: 452c4b2eea6c9c24ab25aad671fbaa52, type: 3}
+  prompt: If you aren't going to say anything, don't waste my time!
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: c6126eb785b616c42bf18ff001f6b9ed, type: 3}
   time: 5
 --- !u!114 &-80224755489434925
 MonoBehaviour:
@@ -409,7 +412,8 @@ MonoBehaviour:
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Hello there!
-  speakerPic: {fileID: 21300000, guid: 452c4b2eea6c9c24ab25aad671fbaa52, type: 3}
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: 8d0723821e318fd45bffe95aa0d928e8, type: 3}
   time: 3
 --- !u!114 &11400000
 MonoBehaviour:
@@ -525,8 +529,9 @@ MonoBehaviour:
   interruptConnection: {fileID: 0}
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
-  prompt: Suck my dick.
-  speakerPic: {fileID: 21300000, guid: 452c4b2eea6c9c24ab25aad671fbaa52, type: 3}
+  prompt: Get out of my sight.
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: dba2dc13b6bf90f46b0b31adf6b1a315, type: 3}
   time: 3
 --- !u!114 &3126718128484537067
 MonoBehaviour:
@@ -618,10 +623,9 @@ MonoBehaviour:
   interruptConnection: {fileID: 0}
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
-  prompt: 'WOW. Still not talking?
-
-    F U CK   Y O U'
-  speakerPic: {fileID: 21300000, guid: 452c4b2eea6c9c24ab25aad671fbaa52, type: 3}
+  prompt: Do you have nothing better to do than bother me?
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: dba2dc13b6bf90f46b0b31adf6b1a315, type: 3}
   time: 5
 --- !u!114 &3719147115685934561
 MonoBehaviour:
@@ -713,8 +717,9 @@ MonoBehaviour:
   interruptConnection: {fileID: 0}
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
-  prompt: Pure black! Like my  S O U L.
-  speakerPic: {fileID: 21300000, guid: 452c4b2eea6c9c24ab25aad671fbaa52, type: 3}
+  prompt: 'As dark as the most pristine onyx crystal. '
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: 3983317687df8f643b607464aff70065, type: 3}
   time: 3
 --- !u!114 &4500583415464065620
 MonoBehaviour:
@@ -809,8 +814,9 @@ MonoBehaviour:
   interruptConnection: {fileID: 0}
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
-  prompt: We've Talked. Fuck off.
-  speakerPic: {fileID: 21300000, guid: 70767b43f9ea00c49b58adac9eba724d, type: 3}
+  prompt: I'm busy now. Shoo.
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: 8d0723821e318fd45bffe95aa0d928e8, type: 3}
   time: 3
 --- !u!114 &6241482305763815696
 MonoBehaviour:
@@ -944,8 +950,9 @@ MonoBehaviour:
   interruptConnection: {fileID: 0}
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
-  prompt: What's up?
-  speakerPic: {fileID: 21300000, guid: 452c4b2eea6c9c24ab25aad671fbaa52, type: 3}
+  prompt: How can i help you?
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: 09ba734770cbd1c4c9eed4ce1c62e35e, type: 3}
   time: 8
 --- !u!114 &8036081515133871410
 MonoBehaviour:
@@ -1037,6 +1044,7 @@ MonoBehaviour:
   interruptConnection: {fileID: 0}
   checkPointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
-  prompt: Why yes I do!
-  speakerPic: {fileID: 21300000, guid: 70767b43f9ea00c49b58adac9eba724d, type: 3}
+  prompt: Yes, I have one of the most beautiful cats!
+  speakerPic: {fileID: 11400000, guid: 710ece5c8692ce34994d024a9269aa08, type: 2}
+  usedSprite: {fileID: 21300000, guid: 3983317687df8f643b607464aff70065, type: 3}
   time: 3
