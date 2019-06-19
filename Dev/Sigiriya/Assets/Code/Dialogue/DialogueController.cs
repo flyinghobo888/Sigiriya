@@ -166,7 +166,7 @@ public class DialogueController : MonoBehaviour
 
 		for (int i = 0; i < dialogueGraph.nodes.Count; i++)
         {
-			Debug.Log(dialogueGraph.nodes[i].GetType());
+			//Debug.Log(dialogueGraph.nodes[i].GetType());
 
 			if (dialogueGraph.nodes[i].GetType() == typeof(PromptNode))
 			{

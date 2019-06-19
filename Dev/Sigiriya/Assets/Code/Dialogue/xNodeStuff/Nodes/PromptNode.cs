@@ -22,12 +22,14 @@ public class PromptNode : BaseNode
 
 		return node;
 	}
+
 	public PromptNode GetConnectedNode(string portName)
 	{
 		NodePort port = GetOutputPort(portName);
 		if (!port.IsConnected)
 		{
-			Debug.Log(portName + " is not connected!");
+            //TODO: I commented this out cuz it was raping the chat
+			//Debug.Log(portName + " is not connected!");
 			return null;
 		}
 

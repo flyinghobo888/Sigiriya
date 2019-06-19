@@ -23,7 +23,8 @@ public abstract class BaseNode : XNode.Node
 
 		if (!exitPort.IsConnected)
 		{
-			Debug.LogWarning("Node isn't connected");
+            //TODO: Commented this out.
+			//Debug.LogWarning("Node isn't connected");
 			return null;
 		}
 

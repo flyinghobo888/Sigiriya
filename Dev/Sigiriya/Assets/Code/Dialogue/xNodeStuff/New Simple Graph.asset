@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7194264776630475122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e73e530b7568f44b720768a383ec01, type: 3}
+  m_Name: Conditional
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1816, y: -328}
+  ports:
+    keys:
+    - arg1
+    - arg2
+    - result
+    values:
+    - _fieldName: arg1
+      _node: {fileID: -7194264776630475122}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: result
+        node: {fileID: -1288922425042603585}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: arg2
+      _node: {fileID: -7194264776630475122}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: result
+        node: {fileID: -6600500421334239149}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: result
+      _node: {fileID: -7194264776630475122}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: isHidden
+        node: {fileID: -3973344302567661710}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  arg1: 0
+  arg2: 0
+  result: 0
+  conditionalType: 0
 --- !u!114 &-7021485861358587469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +73,7 @@ MonoBehaviour:
   m_Name: Trigger Check
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2160.872, y: -361.18427}
+  position: {x: -2168, y: -360}
   ports:
     keys:
     - result
@@ -33,6 +93,39 @@ MonoBehaviour:
   result: 1
   trigger: 1
   operatorType: 0
+--- !u!114 &-6600500421334239149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1c50885cf92d441beda9f05bf81710, type: 3}
+  m_Name: Trigger Check
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -2168, y: -184}
+  ports:
+    keys:
+    - result
+    values:
+    - _fieldName: result
+      _node: {fileID: -6600500421334239149}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: arg2
+        node: {fileID: -7194264776630475122}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  result: 1
+  trigger: 0
+  operatorType: 1
 --- !u!114 &-4839789800134864304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +233,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1765.7086, y: -367.534}
+  position: {x: -1704, y: -376}
   ports:
     keys:
     - isHidden
@@ -153,7 +246,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: result
-        node: {fileID: -1288922425042603585}
+        node: {fileID: -7194264776630475122}
         reroutePoints: []
       _direction: 0
       _connectionType: 1
@@ -185,11 +278,10 @@ MonoBehaviour:
       _dynamic: 0
   input: {fileID: 0}
   output: {fileID: 0}
-  isHidden: 1
+  isHidden: 0
   text: Two
   voiceClip: {fileID: 0}
   throwFlag: 
-  catchFlag: 
 --- !u!114 &-3427704197006917322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,8 +364,8 @@ MonoBehaviour:
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: isHidden
-        node: {fileID: -3973344302567661710}
+      - fieldName: arg1
+        node: {fileID: -7194264776630475122}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -304,6 +396,8 @@ MonoBehaviour:
   - {fileID: -7021485861358587469}
   - {fileID: -1288922425042603585}
   - {fileID: -3427704197006917322}
+  - {fileID: -7194264776630475122}
+  - {fileID: -6600500421334239149}
   current: {fileID: 8072756544370172541}
 --- !u!114 &2134040412538202712
 MonoBehaviour:
@@ -364,7 +458,6 @@ MonoBehaviour:
   text: One
   voiceClip: {fileID: 0}
   throwFlag: 
-  catchFlag: 
 --- !u!114 &4572063460490558955
 MonoBehaviour:
   m_ObjectHideFlags: 0
