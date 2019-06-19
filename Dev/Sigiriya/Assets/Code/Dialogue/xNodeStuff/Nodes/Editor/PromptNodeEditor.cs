@@ -4,8 +4,8 @@ using UnityEngine;
 using XNodeEditor;
 using UnityEditor;
 
-[CustomNodeEditor(typeof(BaseNode))]
-public class BaseNodeEditor : NodeEditor
+[CustomNodeEditor(typeof(PromptNode))]
+public class PromptNodeEditor : NodeEditor
 {
 	public bool openFoldout;
 	Sprite m_sprite;
@@ -16,7 +16,7 @@ public class BaseNodeEditor : NodeEditor
 	{
 		serializedObject.Update();
 
-		BaseNode node = target as BaseNode;
+		PromptNode node = target as PromptNode;
 		SerializedObject so = new SerializedObject(target);
 
 		GUILayout.BeginHorizontal();
@@ -32,7 +32,7 @@ public class BaseNodeEditor : NodeEditor
 		{
 			//TODO: maybe try to color these?
 			NodeEditorGUILayout.PortField(new GUIContent("Interrupt Connection "), target.GetOutputPort("interruptConnection"), GUILayout.MinWidth(0));
-			NodeEditorGUILayout.PortField(new GUIContent("Checkpoint Connection "), target.GetOutputPort("checkPointConnection"), GUILayout.MinWidth(0));
+			NodeEditorGUILayout.PortField(new GUIContent("Checkpoint Connection "), target.GetOutputPort("checkpointConnection"), GUILayout.MinWidth(0));
 			NodeEditorGUILayout.PortField(new GUIContent("Exit Connection "), target.GetOutputPort("exitConnection"), GUILayout.MinWidth(0));
 			//TODO: call this in window editor instead of node editor class
 			//NodeEditorWindow.current.Repaint();
@@ -51,10 +51,9 @@ public class BaseNodeEditor : NodeEditor
 
 			//AddMenuItemForSprite(menu, "",); ///Don't know how to get the value from a list
 		}
-		//NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("action"), GUIContent.none);
-		//pic = (UnityEngine.UI.Image) EditorGUILayout.ObjectField("pic", pic, typeof (UnityEngine.UI.Image), true);
 
-		NodeEditorGUILayout.InstancePortList("answers", typeof(BaseNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
+		NodeEditorGUILayout.InstancePortList("responses", typeof(PromptNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
+		//NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("responses"));
 
 		serializedObject.ApplyModifiedProperties();
 	}

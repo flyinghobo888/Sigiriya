@@ -120,6 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &116783276 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3283853190445022708, guid: a0690bd982ca2044cb72096e4f2f9730,
+    type: 3}
+  m_PrefabInstance: {fileID: 1301491436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &236511274
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,7 +409,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 960.00006
+  orthographic size: 960
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -649,6 +661,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestDialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 3283853190445022708, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ed8493051233f540ba6de62ce3a1acb,
+        type: 3}
     - target: {fileID: 7309626889424891635, guid: a0690bd982ca2044cb72096e4f2f9730,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -761,6 +779,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7309626889424891636, guid: a0690bd982ca2044cb72096e4f2f9730,
         type: 3}
+      propertyPath: speakerImages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309626889424891636, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
       propertyPath: graph
       value: 
       objectReference: {fileID: 11400000, guid: 13edccf6b7dcc9a4398932c9e4370612,
@@ -789,6 +812,42 @@ PrefabInstance:
         type: 3}
       propertyPath: OnEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309626889424891636, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
+      propertyPath: dialogueGraph
+      value: 
+      objectReference: {fileID: 11400000, guid: fb581a68e8d97524c8009b4e6fbce15b,
+        type: 2}
+    - target: {fileID: 7309626889424891636, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
+      propertyPath: speakerImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 116783276}
+    - target: {fileID: 7309626889424891636, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
+      propertyPath: speakerImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699668251915791800, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 990
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699668251915791800, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1584.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699668251915791800, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 207
+      objectReference: {fileID: 0}
+    - target: {fileID: 8699668251915791800, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6528414397560082376, guid: a0690bd982ca2044cb72096e4f2f9730,
         type: 3}
@@ -990,6 +1049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 150.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711054615395906439, guid: a0690bd982ca2044cb72096e4f2f9730,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7267040289443124780, guid: a0690bd982ca2044cb72096e4f2f9730,
         type: 3}

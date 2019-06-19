@@ -18,7 +18,7 @@ public class DialogueController : MonoBehaviour
 	//[SerializeField] private int textSize;
 
 	//Graph where nodes are kept
-	public SimpleGraph graph;
+	public SimpleGraph dialogueGraph;
 
 	[Header("UI Fields")]
     [SerializeField] private TextMeshProUGUI promptPanel = null;
@@ -27,14 +27,13 @@ public class DialogueController : MonoBehaviour
 	[SerializeField] private List<Image> speakerImages; //basically just a holder of images to display 
 
     [Header("Dialogue")]
-    [SerializeField] public List<DialogueNode> nodes;
-    [SerializeField] int currNode = 0;
+    //[SerializeField] public List<DialogueNode> nodes;
+    [SerializeField] PromptNode currNode;
 
-    private string ID;
-    private int checkPointNode = 0;
-    //TODO: Implement start node in future
-    //private int startNode = 0;
-    private int exitNode = 2000; //HACK: a temporary number
+
+	private string ID;
+    private PromptNode checkPointNode = null;
+    private PromptNode exitNode = null; 
 
 	private float talkTimer = 0;
 
@@ -92,71 +91,71 @@ public class DialogueController : MonoBehaviour
     {
         ID = this.name;
 		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
-		graph.Restart();
-		currNode = graph.current.GetIndex();
+		dialogueGraph.Restart();
+		currNode = dialogueGraph.current as PromptNode;
 
 		//Go through each node in the node graph and set up this classes information from the graph
-		for (int i = 0; i < graph.nodes.Count; i++)
-		{
-			BaseNode node = graph.nodes[i] as BaseNode;
-
-			nodes.Add(new DialogueNode());
-			nodes[i].prompt = node.prompt;
-			nodes[i].speakerPic = node.speakerPic;
-			nodes[i].usedSprite = node.usedSprite;
-
-			if (node.GetNextNode() != null)
-				nodes[i].connection = node.GetNextNode().GetIndex();
-			else
-				nodes[i].connection = -1;
-
-			if (node.GetConnectedNode("interruptConnection") != null)
-				nodes[i].interruptConnection = node.GetConnectedNode("interruptConnection").GetIndex();
-			else
-				nodes[i].interruptConnection = -1;
-
-			if (node.GetConnectedNode("checkPointConnection") != null)
-				nodes[i].checkPointConnection = node.GetConnectedNode("checkPointConnection").GetIndex();
-			else
-				nodes[i].checkPointConnection = -1;
-
-			if (node.GetConnectedNode("exitConnection") != null)
-				nodes[i].exitConnection = node.GetConnectedNode("exitConnection").GetIndex();
-			else
-				nodes[i].exitConnection = -1;
-
-			nodes[i].time = node.time;
-
-			if (node.answers.Count > 0) 
-			{
-				//Initialize list if we haven't already
-				if (nodes[i].responses == null)
-				{
-					nodes[i].responses = new List<Response>();
-				}
-
-				//For each response, fill in the data
-				for (int j = 0; j < node.answers.Count; j++)
-				{
-					nodes[i].responses.Add(new Response());
-					nodes[i].responses[j].response = node.answers[j].text;
-					nodes[i].responses[j].connection = node.GetAnswerConnection(j).GetIndex();
-					nodes[i].responses[j].hidden = node.answers[j].isHidden;
-					if (node.answers[j].throwFlag != "")
-					{
-						nodes[i].responses[j].throwFlag = node.answers[j].throwFlag;
-					}
-					if (node.answers[j].catchFlag != "")
-					{
-						nodes[i].responses[j].catchFlag = node.answers[j].catchFlag;
-					}
-				}
-			}
-			else if (node.GetNextNode() == null)
-			{
-				nodes[i].connection = -1;
-			}
-		}
+		//for (int i = 0; i < graph.nodes.Count; i++)
+		//{
+		//	BaseNode node = graph.nodes[i] as BaseNode;
+		//
+		//	nodes.Add(new DialogueNode());
+		//	nodes[i].prompt = node.prompt;
+		//	nodes[i].speakerPic = node.speakerPic;
+		//	nodes[i].usedSprite = node.usedSprite;
+		//
+		//	if (node.GetNextNode() != null)
+		//		nodes[i].connection = node.GetNextNode().GetIndex();
+		//	else
+		//		nodes[i].connection = -1;
+		//
+		//	if (node.GetConnectedNode("interruptConnection") != null)
+		//		nodes[i].interruptConnection = node.GetConnectedNode("interruptConnection").GetIndex();
+		//	else
+		//		nodes[i].interruptConnection = -1;
+		//
+		//	if (node.GetConnectedNode("checkPointConnection") != null)
+		//		nodes[i].checkPointConnection = node.GetConnectedNode("checkPointConnection").GetIndex();
+		//	else
+		//		nodes[i].checkPointConnection = -1;
+		//
+		//	if (node.GetConnectedNode("exitConnection") != null)
+		//		nodes[i].exitConnection = node.GetConnectedNode("exitConnection").GetIndex();
+		//	else
+		//		nodes[i].exitConnection = -1;
+		//
+		//	nodes[i].time = node.time;
+		//
+		//	if (node.answers.Count > 0) 
+		//	{
+		//		//Initialize list if we haven't already
+		//		if (nodes[i].responses == null)
+		//		{
+		//			nodes[i].responses = new List<Response>();
+		//		}
+		//
+		//		//For each response, fill in the data
+		//		for (int j = 0; j < node.answers.Count; j++)
+		//		{
+		//			nodes[i].responses.Add(new Response());
+		//			nodes[i].responses[j].response = node.answers[j].text;
+		//			nodes[i].responses[j].connection = node.GetAnswerConnection(j).GetIndex();
+		//			nodes[i].responses[j].hidden = node.answers[j].isHidden;
+		//			if (node.answers[j].throwFlag != "")
+		//			{
+		//				nodes[i].responses[j].throwFlag = node.answers[j].throwFlag;
+		//			}
+		//			if (node.answers[j].catchFlag != "")
+		//			{
+		//				nodes[i].responses[j].catchFlag = node.answers[j].catchFlag;
+		//			}
+		//		}
+		//	}
+		//	else if (node.GetNextNode() == null)
+		//	{
+		//		nodes[i].connection = -1;
+		//	}
+		//}
 
 	}
 
@@ -165,14 +164,20 @@ public class DialogueController : MonoBehaviour
 		//EventManager.StartListening("E_down", ContinueDialogue);
 		//EventManager.FireEvent("MENU_open");
 
-
-		for (int i = 0; i < nodes.Count; i++)
+		for (int i = 0; i < dialogueGraph.nodes.Count; i++)
         {
-			if (nodes[i].responses != null)
+			Debug.Log(dialogueGraph.nodes[i].GetType());
+
+			if (dialogueGraph.nodes[i].GetType() == typeof(PromptNode))
 			{
-				for (int j = 0; j < nodes[i].responses.Count; j++)
+				PromptNode node = dialogueGraph.nodes[i] as PromptNode;
+
+				if (node.responses != null)
 				{
-					EventAnnouncer.OnThrowFlag += nodes[i].responses[j].CheckFlag;
+					for (int j = 0; j < node.responses.Count; j++)
+					{
+						//EventAnnouncer.OnThrowFlag += node.responses[j].CheckFlag;
+					}
 				}
 			}
         }
@@ -187,13 +192,18 @@ public class DialogueController : MonoBehaviour
         //TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
         ///PlayerPrefs.SetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, currNode);
 
-        for (int i = 0; i < nodes.Count; i++)
+        for (int i = 0; i < dialogueGraph.nodes.Count; i++)
         {
-			if (nodes[i].responses != null)
+			if (dialogueGraph.nodes[i].GetType() == typeof(PromptNode))
 			{
-				for (int j = 0; j < nodes[i].responses.Count; j++)
+				PromptNode node = dialogueGraph.nodes[i] as PromptNode;
+
+				if (node.responses != null)
 				{
-					EventAnnouncer.OnThrowFlag -= nodes[i].responses[j].CheckFlag;
+					for (int j = 0; j < node.responses.Count; j++)
+					{
+						//EventAnnouncer.OnThrowFlag -= node.GetAnswerConnection(j).CheckFlag;
+					}
 				}
 			}
         }
@@ -212,11 +222,11 @@ public class DialogueController : MonoBehaviour
 
     private void Update()
     {
-        //-1 should be a signal to end the current discussion
-        if (currNode != -1 && enabled)
+		//-1 should be a signal to end the current discussion
+		if (currNode != null && enabled)
         {
             //this can probs be moved out of update tbh
-            DisplayNode(nodes[currNode]);
+            DisplayNode(currNode);
         }
         else
         {
@@ -228,14 +238,14 @@ public class DialogueController : MonoBehaviour
 
 		talkTimer += Time.deltaTime;
 
-		if (nodes[currNode].time == 0)
+		if (currNode.time == 0)
 		{
 			talkTimer = 0;
 			Debug.Log("Node is missing a time!");
 		}
-		if (talkTimer > nodes[currNode].time)
+		if (talkTimer > currNode.time)
 		{
-			if (nodes[currNode].connection != -1 && enabled)
+			if (currNode.GetNextNode() != null && enabled)
 			{
 				ContinueDialogue();
 			}
@@ -251,59 +261,36 @@ public class DialogueController : MonoBehaviour
 		}
     }
 
-	void DisplayNode(DialogueNode node)
+	void DisplayNode(PromptNode node)
 	{
-		checkPointNode = nodes[currNode].checkPointConnection;
-		exitNode = nodes[currNode].exitConnection;
+		checkPointNode = node.GetConnectedNode("checkpointConnection");
+		exitNode = node.GetConnectedNode("exitConnection");
 
-		promptPanel.text = nodes[currNode].prompt;
-
-		//if (nodes[currNode].speakerPic != null)
-		//{
-		//	//TODO: can't do in scene images anymore. Instead: set the image of an existing object, scale it, etc...
-		//    nodes[currNode].speakerPic.gameObject.SetActive(true);
-		//}
+		promptPanel.text = node.prompt;
 
 		/*
 		 * if the speakerImage.sprite exists in the nodes.speakerPic list, go nuts. else, other way around
 		 */
-		bool imageFound = false;
-		int foundIndex = 0;
-		//for (int j = 0; j < nodes[currNode].speakerPic.spriteList.Count; j++)
-		//{
-			//if (nodes[currNode].speakerPic.spriteList[j] == speakerImages[0].sprite);
-
-			if (nodes[currNode].speakerPic.spriteList.Contains(speakerImages[0].sprite))
+		if (node.speakerPic != null)
+		{
+			if (node.speakerPic.spriteList.Contains(speakerImages[0].sprite))
 			{
-			speakerImages[0].sprite = nodes[currNode].usedSprite;
+				speakerImages[0].sprite = node.usedSprite;
 				speakerImages[0].gameObject.SetActive(true);
-				speakerImages[1].gameObject.SetActive(false);
+				// only one speaker right now. Will need to expand this later
+				//speakerImages[1].gameObject.SetActive(false);
 			}
-		//}
-//		if (imageFound == true)
-//		{
-//			speakerImages[0].sprite = nodes[currNode].speakerPic.spriteList[foundIndex];
-//			speakerImages[0].gameObject.SetActive(true);
-//			speakerImages[1].gameObject.SetActive(false);
-//		}
-
-		//else if (nodes[currNode].speakerPic == speakerImages[1].sprite)
-		//{
-		//	speakerImages[1].gameObject.SetActive(true);
-		//	speakerImages[0].gameObject.SetActive(false);
-		//}
-
-
+		}
 		int i = 0;
 
-        if (nodes[currNode].responses != null) //if we have responses
+        if (node.responses != null) //if we have responses
         {
-            for (; i < nodes[currNode].responses.Count; i++)
+            for (; i < node.responses.Count; i++)
             {
-                if (!nodes[currNode].responses[i].hidden)
+                if (!node.GetAnswerConnection(i).getHidden())
                 {
                     responseButtons[i].gameObject.SetActive(true);
-                    responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = nodes[currNode].responses[i].response;
+                    responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = node.GetAnswerConnection(i).text;
                 }
                 else
                 {
@@ -314,7 +301,7 @@ public class DialogueController : MonoBehaviour
         }
         else
         {
-			//TODO: Timed dialogue continues now, so remove this gracefully after you get the order
+			//TODO: Timed dialogue continues now, so remove this gracefully after the continue button becomes obsolete
             continueButton.gameObject.SetActive(true);
         }
 
@@ -328,24 +315,25 @@ public class DialogueController : MonoBehaviour
     //exposed to the UI continue button
     public void ContinueDialogue()
     {
-        //if (nodes[currNode].speakerPic != null)
-        //{
-        //    nodes[currNode].speakerPic.gameObject.SetActive(false);
-        //}
-
-		if (nodes[currNode].speakerPic == speakerImages[0].sprite)
+		//if (nodes[currNode].speakerPic != null)
+		//{
+		//    nodes[currNode].speakerPic.gameObject.SetActive(false);
+		//}
+		if (currNode.speakerPic != null)
 		{
-			speakerImages[0].gameObject.SetActive(true);
-			speakerImages[1].gameObject.SetActive(false);
-		}
-		else if (nodes[currNode].speakerPic == speakerImages[1].sprite)
-		{
-			speakerImages[1].gameObject.SetActive(true);
-			speakerImages[0].gameObject.SetActive(false);
+			if (currNode.speakerPic == speakerImages[0].sprite)
+			{
+				speakerImages[0].gameObject.SetActive(true);
+				speakerImages[1].gameObject.SetActive(false);
+			}
+			else if (currNode.speakerPic == speakerImages[1].sprite)
+			{
+				speakerImages[1].gameObject.SetActive(true);
+				speakerImages[0].gameObject.SetActive(false);
+			}
 		}
 
-
-		currNode = nodes[currNode].connection;
+		currNode = currNode.GetNextNode() as PromptNode;
 
 		talkTimer = 0;
 	}
@@ -357,24 +345,25 @@ public class DialogueController : MonoBehaviour
         //    nodes[currNode].speakerPic.gameObject.SetActive(false);
         //}
 
-		if (nodes[currNode].speakerPic == speakerImages[0].sprite)
+		if (currNode.speakerPic != null)
+		if (currNode.speakerPic == speakerImages[0].sprite)
 		{
 			speakerImages[0].gameObject.SetActive(true);
 			speakerImages[1].gameObject.SetActive(false);
 		}
-		else if (nodes[currNode].speakerPic == speakerImages[1].sprite)
+		else if (currNode.speakerPic == speakerImages[1].sprite)
 		{
 			speakerImages[1].gameObject.SetActive(true);
 			speakerImages[0].gameObject.SetActive(false);
 		}
 
 
-		if (nodes[currNode].responses[responseNode].throwFlag != "")
+		if (currNode.GetAnswerConnection(responseNode).throwFlag != "")
         {
-            EventAnnouncer.OnThrowFlag?.Invoke(nodes[currNode].responses[responseNode].throwFlag);
+            EventAnnouncer.OnThrowFlag?.Invoke(currNode.GetAnswerConnection(responseNode).throwFlag);
         }
 
-        SetCurrNode(nodes[currNode].responses[responseNode].connection);
+        currNode = currNode.GetAnswerConnection(responseNode).GetNextNode() as PromptNode;
 
 		talkTimer = 0;
 	}
@@ -383,37 +372,39 @@ public class DialogueController : MonoBehaviour
 
 	public void EnableCurrNode()
     {
-        //currNode = checkPointNode;
+		//currNode = checkPointNode;
 		//currNode = exitNode;
 
-        //TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
-        ///currNode = PlayerPrefs.GetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, 0);
+		//TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
+		///currNode = PlayerPrefs.GetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, 0);
 
-        if (currNode != -1)
+		if (currNode != null)
         {
-			DisplayNode(nodes[currNode]);
+			DisplayNode(currNode);
 			gameObject.SetActive(true);
 		}
 	}
 
     public void SetCurrNode(int newNode)
     {
-        currNode = newNode;
+        currNode = dialogueGraph.nodes[newNode] as PromptNode;
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.tag == "Player")
+		if (col.tag == "Player")
         {
             if (this.enabled == true)
             {
-                //the interrupt node
-                int interruptNode = nodes[currNode].interruptConnection;
-                int checkpoint = nodes[currNode].checkPointConnection;
-                //set the interrupt node to go to the checkpoint node
+				//the interrupt node
+				PromptNode interruptNode = currNode.GetConnectedNode("interruptConnection");
+				PromptNode checkpoint = currNode.GetConnectedNode("checkpointConnection");
+
+				//TODO: setup interrupts in the xnode graph
+				//set the interrupt node to go to the checkpoint node
                 //This means interrupts can't ramble
-                nodes[interruptNode].connection = checkPointNode;
-                nodes[interruptNode].checkPointConnection = checkpoint;
+                //dialogueGraph.nodes[interruptNode].connection = checkPointNode;
+				//dialogueGraph.nodes[interruptNode].checkPointConnection = checkpoint;
 
                 //now go to the interruptNode
                 currNode = interruptNode;
@@ -421,14 +412,4 @@ public class DialogueController : MonoBehaviour
             }
         }
     }
-
-    #region Window Functions
-
-    public void SetStringVal(string val)
-    {
-        nodes[0].prompt = val;
-    }
-
-    #endregion
-
 }

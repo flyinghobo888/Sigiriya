@@ -40,5 +40,7 @@ namespace Dialogue {
     }
 
     [Serializable]
-    public class Condition : SerializableCallback<bool> { }
+    public class Condition : SerializableCallback<bool>
+	{
+	}
 }

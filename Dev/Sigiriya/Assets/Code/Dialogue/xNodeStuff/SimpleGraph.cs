@@ -13,6 +13,6 @@ public class SimpleGraph : NodeGraph
 	public void Restart()
 	{
 		//Find the first DialogueNode without any inputs. This is the starting node.
-		current = nodes.Find(x => x is BaseNode && x.Inputs.All(y => !y.IsConnected)) as BaseNode;
+		current = nodes.Find(x => x is PromptNode && x.Inputs.All(y => !y.IsConnected)) as PromptNode;
 	}
 }
