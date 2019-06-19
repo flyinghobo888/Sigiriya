@@ -5,11 +5,29 @@ using UnityEngine;
 //Author: Andrew Rimpici
 //Holds a list of game objects as children.
 //Each game object is responsible for tracking a specific status effect.
-public class StatusEffectTracker : MonoBehaviour
+public class StatusEffectTracker : ManagerBase<StatusEffectTracker>
 {
-    public void CreateStatusEffect()
-    {
+    public GameObject statusEffectPrefab;
+    private GameObject parentObj;
 
+    private void Start()
+    {
+        if (!parentObj)
+        {
+            parentObj = Instantiate(statusEffectPrefab);
+            parentObj.name = "Status Effect Parent";
+        }
+
+        CreateStatusEffect(EnumStatusEffect.HAPPY, 100, new HashSet<Character>());
+    }
+
+    public void CreateStatusEffect(EnumStatusEffect type, float duration, in HashSet<Character> affectedCharacters)
+    {
+        GameObject newStatusEffect = Instantiate(statusEffectPrefab);
+        StatusEffect effect = newStatusEffect.AddComponent<StatusEffect>();
+        effect.Init(type, duration, affectedCharacters);
+        newStatusEffect.transform.parent = parentObj.transform;
+        newStatusEffect.name = "Type: " + type + " Affecting: " + affectedCharacters.Count;
     }
 }
 
@@ -38,14 +56,19 @@ public class StatusEffect : MonoBehaviour
         isActive = false;
     }
 
-    private void Init(EnumStatusEffect type, float duration)
+    public void Init(EnumStatusEffect type, float duration, in HashSet<Character> affectedCharacters)
     {
         EffectType = type;
         Duration = duration;
         isInitialized = true;
+
+        foreach (Character c in affectedCharacters)
+        {
+            AddAffectedCharacter(c);
+        }
     }
 
-    private void AddAffectedCharacter(Character character)
+    public void AddAffectedCharacter(Character character)
     {
         if (!affectedCharacters.Add(character))
         {
@@ -71,17 +94,18 @@ public class StatusEffect : MonoBehaviour
                 //TODO: Send an event saying the status effect finished
                 //TODO: In the future use an object pool for status effects.
                 //It's expensive to create and destroy objects a lot.
+                isActive = false;
                 Destroy(gameObject);
             }
         }
     }
+}
 
-    public enum EnumStatusEffect
-    {
-        HAPPY,
-        ANGRY,
-        SYMPATHETIC,
+public enum EnumStatusEffect
+{
+    HAPPY,
+    ANGRY,
+    SYMPATHETIC,
 
-        SIZE
-    }
+    SIZE
 }
