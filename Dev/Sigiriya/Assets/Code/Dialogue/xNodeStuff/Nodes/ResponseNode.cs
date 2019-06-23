@@ -9,7 +9,7 @@ public class ResponseNode : BaseNode
 
 	public string text;
 	public AudioClip voiceClip;
-	public string throwFlag;
+	public FlagBank.Flags throwFlag;
 
 //	public void CheckFlag(string flag)
 //	{

@@ -358,7 +358,7 @@ public class DialogueController : MonoBehaviour
 		}
 
 
-		if (currNode.GetAnswerConnection(responseNode).throwFlag != "")
+		if (currNode.GetAnswerConnection(responseNode).throwFlag != FlagBank.Flags.NONE)
         {
             EventAnnouncer.OnThrowFlag?.Invoke(currNode.GetAnswerConnection(responseNode).throwFlag);
         }

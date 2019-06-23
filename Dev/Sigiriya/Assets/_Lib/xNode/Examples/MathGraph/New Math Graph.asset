@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8135110431040868979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e541bba2a188f4a84c6f3718ee6d55, type: 3}
+  m_Name: Math Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1892.4203, y: -207.91614}
+  ports:
+    keys:
+    - a
+    - b
+    - result
+    values:
+    - _fieldName: a
+      _node: {fileID: -8135110431040868979}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: b
+      _node: {fileID: -8135110431040868979}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: result
+      _node: {fileID: -8135110431040868979}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  a: 0
+  b: 0
+  result: 0
+  mathType: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,6 +68,7 @@ MonoBehaviour:
   - {fileID: 114067149339165002}
   - {fileID: 114441428018438906}
   - {fileID: 114775482956350040}
+  - {fileID: -8135110431040868979}
 --- !u!114 &114067149339165002
 MonoBehaviour:
   m_ObjectHideFlags: 0
