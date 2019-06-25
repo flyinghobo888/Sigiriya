@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[NodeTint(46, 217, 125)]
+[CreateNodeMenu("Sigiriya/Logic/TriggerCheck")]
 public class TriggerCheck : Node
 {
 	[Output] public bool result;
 	public FlagBank.Flags trigger;
 
 
-	public Operator operatorType = Operator.TRUE;
+	[NodeEnum] public Operator operatorType = Operator.TRUE;
 	public enum Operator
 	{
 		TRUE,

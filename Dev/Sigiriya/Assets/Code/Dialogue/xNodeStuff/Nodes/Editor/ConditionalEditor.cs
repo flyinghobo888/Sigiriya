@@ -15,15 +15,14 @@ public class ConditionalEditor : NodeEditor
 		Conditional node = target as Conditional;
 		SerializedObject so = new SerializedObject(target);
 
-		GUILayout.BeginHorizontal();
 		NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("arg1"), GUILayout.MinWidth(0));
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("conditionalType"), GUIContent.none);
-		GUILayout.EndHorizontal();
 
 		GUILayout.BeginHorizontal();
-		NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("arg2"), GUILayout.MinWidth(0));
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("conditionalType"), GUIContent.none);
 		NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("result"), GUILayout.MinWidth(0));
 		GUILayout.EndHorizontal();
+
+		NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("arg2"), GUILayout.MinWidth(0));
 
 		serializedObject.ApplyModifiedProperties();
 	}

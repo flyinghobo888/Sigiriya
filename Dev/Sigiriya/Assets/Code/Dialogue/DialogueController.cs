@@ -28,64 +28,17 @@ public class DialogueController : MonoBehaviour
 
     [Header("Dialogue")]
     //[SerializeField] public List<DialogueNode> nodes;
-    [SerializeField] PromptNode currNode;
+    [SerializeField] BaseNode currNode;
+	[SerializeField] PromptNode pNode;
 
 
 	private string ID;
-    private PromptNode checkPointNode = null;
-    private PromptNode exitNode = null; 
+    private BaseNode checkPointNode = null;
+    private BaseNode exitNode = null; 
 
 	private float talkTimer = 0;
 
     private Vector3 worldToScreenPos;
-
-    [System.Serializable]
-    public class DialogueNode
-    {  
-		//Box for the prompt and the text to go inside
-        [Header("Prompt Info")]
-        public string prompt;
-		public float time;
-
-        [Header("Response Info")]
-        [SerializeField] public List<Response> responses;
-
-        //what the next dialogue node is. -1 to terminate discussion
-        //should be one for each button, or only one if no buttons
-
-        [Header("Connection Info")]
-        //[SerializeField] public int[] connections;
-        [SerializeField] public int connection;
-
-        [Header("Special Connections")]
-        [SerializeField] public int interruptConnection;
-        [SerializeField] public int checkPointConnection;
-        [SerializeField] public int exitConnection;
-
-        [Header("Image")]
-        [SerializeField] public tempCharSprites speakerPic; //This might one day become a list... :(
-		[SerializeField] public Sprite usedSprite;
-    };
-
-    //Boxs for responses and the text inside them
-    [System.Serializable]
-    public class Response
-    {
-        [SerializeField] public string response;
-        [SerializeField] public int connection;
-        [Header("Flags")]
-        [SerializeField] public string throwFlag;
-        [SerializeField] public string catchFlag;
-        [SerializeField] public bool hidden;
-
-        public void CheckFlag(string flag)
-        {
-            if (flag == catchFlag)
-            {
-                hidden = false;
-            }
-        }
-    };
 
     private void Awake()
     {
@@ -93,70 +46,6 @@ public class DialogueController : MonoBehaviour
 		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
 		dialogueGraph.Restart();
 		currNode = dialogueGraph.current as PromptNode;
-
-		//Go through each node in the node graph and set up this classes information from the graph
-		//for (int i = 0; i < graph.nodes.Count; i++)
-		//{
-		//	BaseNode node = graph.nodes[i] as BaseNode;
-		//
-		//	nodes.Add(new DialogueNode());
-		//	nodes[i].prompt = node.prompt;
-		//	nodes[i].speakerPic = node.speakerPic;
-		//	nodes[i].usedSprite = node.usedSprite;
-		//
-		//	if (node.GetNextNode() != null)
-		//		nodes[i].connection = node.GetNextNode().GetIndex();
-		//	else
-		//		nodes[i].connection = -1;
-		//
-		//	if (node.GetConnectedNode("interruptConnection") != null)
-		//		nodes[i].interruptConnection = node.GetConnectedNode("interruptConnection").GetIndex();
-		//	else
-		//		nodes[i].interruptConnection = -1;
-		//
-		//	if (node.GetConnectedNode("checkPointConnection") != null)
-		//		nodes[i].checkPointConnection = node.GetConnectedNode("checkPointConnection").GetIndex();
-		//	else
-		//		nodes[i].checkPointConnection = -1;
-		//
-		//	if (node.GetConnectedNode("exitConnection") != null)
-		//		nodes[i].exitConnection = node.GetConnectedNode("exitConnection").GetIndex();
-		//	else
-		//		nodes[i].exitConnection = -1;
-		//
-		//	nodes[i].time = node.time;
-		//
-		//	if (node.answers.Count > 0) 
-		//	{
-		//		//Initialize list if we haven't already
-		//		if (nodes[i].responses == null)
-		//		{
-		//			nodes[i].responses = new List<Response>();
-		//		}
-		//
-		//		//For each response, fill in the data
-		//		for (int j = 0; j < node.answers.Count; j++)
-		//		{
-		//			nodes[i].responses.Add(new Response());
-		//			nodes[i].responses[j].response = node.answers[j].text;
-		//			nodes[i].responses[j].connection = node.GetAnswerConnection(j).GetIndex();
-		//			nodes[i].responses[j].hidden = node.answers[j].isHidden;
-		//			if (node.answers[j].throwFlag != "")
-		//			{
-		//				nodes[i].responses[j].throwFlag = node.answers[j].throwFlag;
-		//			}
-		//			if (node.answers[j].catchFlag != "")
-		//			{
-		//				nodes[i].responses[j].catchFlag = node.answers[j].catchFlag;
-		//			}
-		//		}
-		//	}
-		//	else if (node.GetNextNode() == null)
-		//	{
-		//		nodes[i].connection = -1;
-		//	}
-		//}
-
 	}
 
     private void OnEnable()
@@ -222,28 +111,40 @@ public class DialogueController : MonoBehaviour
 
     private void Update()
     {
+		if (currNode.GetType() != typeof(PromptNode))
+		{
+			if (currNode.GetType() == typeof(BranchNode))
+			{
+				BranchNode bNode = currNode as BranchNode;
+				
+				currNode = bNode.GetOutputNode() as PromptNode;
+			}
+		}
+
+		pNode = currNode as PromptNode;
+
 		//-1 should be a signal to end the current discussion
 		if (currNode != null && enabled)
         {
             //this can probs be moved out of update tbh
-            DisplayNode(currNode);
+            DisplayNode(pNode);
         }
         else
         {
             Debug.Log(ID + " is done talking");
             gameObject.SetActive(false);
 
-            currNode = exitNode;
+            currNode = exitNode as PromptNode;
         }
 
 		talkTimer += Time.deltaTime;
 
-		if (currNode.time == 0)
+		if (pNode.time == 0)
 		{
 			talkTimer = 0;
 			Debug.Log("Node is missing a time!");
 		}
-		if (talkTimer > currNode.time)
+		if (talkTimer > pNode.time)
 		{
 			if (currNode.GetNextNode() != null && enabled)
 			{
@@ -315,55 +216,49 @@ public class DialogueController : MonoBehaviour
     //exposed to the UI continue button
     public void ContinueDialogue()
     {
-		//if (nodes[currNode].speakerPic != null)
-		//{
-		//    nodes[currNode].speakerPic.gameObject.SetActive(false);
-		//}
-		if (currNode.speakerPic != null)
+		//TODO: fix this for the image swap from the character system
+		if (pNode.speakerPic != null)
 		{
-			if (currNode.speakerPic == speakerImages[0].sprite)
+			if (pNode.speakerPic == speakerImages[0].sprite)
 			{
 				speakerImages[0].gameObject.SetActive(true);
 				speakerImages[1].gameObject.SetActive(false);
 			}
-			else if (currNode.speakerPic == speakerImages[1].sprite)
+			else if (pNode.speakerPic == speakerImages[1].sprite)
 			{
 				speakerImages[1].gameObject.SetActive(true);
 				speakerImages[0].gameObject.SetActive(false);
 			}
 		}
 
-		currNode = currNode.GetNextNode() as PromptNode;
+
+		currNode = currNode.GetNextNode();
 
 		talkTimer = 0;
 	}
 
 	public void SelectResponse(int responseNode)
     {
-        //if (nodes[currNode].speakerPic != null)
-        //{
-        //    nodes[currNode].speakerPic.gameObject.SetActive(false);
-        //}
-
-		if (currNode.speakerPic != null)
-		if (currNode.speakerPic == speakerImages[0].sprite)
+		//TODO: fix this for the image swap from the character system
+		if (pNode.speakerPic != null)
+		if (pNode.speakerPic == speakerImages[0].sprite)
 		{
 			speakerImages[0].gameObject.SetActive(true);
 			speakerImages[1].gameObject.SetActive(false);
 		}
-		else if (currNode.speakerPic == speakerImages[1].sprite)
+		else if (pNode.speakerPic == speakerImages[1].sprite)
 		{
 			speakerImages[1].gameObject.SetActive(true);
 			speakerImages[0].gameObject.SetActive(false);
 		}
 
 
-		if (currNode.GetAnswerConnection(responseNode).throwFlag != FlagBank.Flags.NONE)
+		if (pNode.GetAnswerConnection(responseNode).throwFlag != FlagBank.Flags.NONE)
         {
-            EventAnnouncer.OnThrowFlag?.Invoke(currNode.GetAnswerConnection(responseNode).throwFlag);
+            EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
         }
 
-        currNode = currNode.GetAnswerConnection(responseNode).GetNextNode() as PromptNode;
+		currNode = pNode.GetAnswerConnection(responseNode).GetNextNode();
 
 		talkTimer = 0;
 	}
@@ -380,14 +275,14 @@ public class DialogueController : MonoBehaviour
 
 		if (currNode != null)
         {
-			DisplayNode(currNode);
+			DisplayNode(pNode);
 			gameObject.SetActive(true);
 		}
 	}
 
     public void SetCurrNode(int newNode)
     {
-        currNode = dialogueGraph.nodes[newNode] as PromptNode;
+		currNode = dialogueGraph.nodes[newNode] as BaseNode;// as PromptNode;
     }
 
     private void OnTriggerExit(Collider col)
@@ -397,17 +292,17 @@ public class DialogueController : MonoBehaviour
             if (this.enabled == true)
             {
 				//the interrupt node
-				PromptNode interruptNode = currNode.GetConnectedNode("interruptConnection");
-				PromptNode checkpoint = currNode.GetConnectedNode("checkpointConnection");
+				BaseNode interruptNode = pNode.GetConnectedNode("interruptConnection");
+				BaseNode checkpoint = pNode.GetConnectedNode("checkpointConnection");
 
 				//TODO: setup interrupts in the xnode graph
 				//set the interrupt node to go to the checkpoint node
-                //This means interrupts can't ramble
-                //dialogueGraph.nodes[interruptNode].connection = checkPointNode;
+				//This means interrupts can't ramble
+				//dialogueGraph.nodes[interruptNode].connection = checkPointNode;
 				//dialogueGraph.nodes[interruptNode].checkPointConnection = checkpoint;
 
-                //now go to the interruptNode
-                currNode = interruptNode;
+				//now go to the interruptNode
+				currNode = interruptNode;// as PromptNode;
                 this.enabled = false;
             }
         }

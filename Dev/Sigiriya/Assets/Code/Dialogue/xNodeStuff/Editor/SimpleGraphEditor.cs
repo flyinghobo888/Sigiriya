@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XNode;
+//using XNode;
+using XNodeEditor;
 
-[CreateAssetMenu]
-public class SimpleGraphEditor : NodeGraph { 
-	
+[CustomNodeGraphEditor(typeof(SimpleGraph))]
+public class SimpleGraphEditor : NodeGraphEditor
+{
+	public override void OnGUI()
+	{
+		// Keep repainting the GUI of the active NodeEditorWindow
+		NodeEditorWindow.current.Repaint();
+	}
 }

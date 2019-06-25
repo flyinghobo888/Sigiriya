@@ -4,8 +4,8 @@ using UnityEngine;
 using XNodeEditor;
 using UnityEditor;
 
-[CustomNodeEditor(typeof(TriggerCheck))]
-public class StringNodeEditor : NodeEditor
+[CustomNodeEditor(typeof(ResponseNode))]
+public class ResponseNodeEditor : NodeEditor
 {
 	FlagBank.Flags m_flag;
 	bool canCopy = true;
@@ -14,27 +14,33 @@ public class StringNodeEditor : NodeEditor
 	{
 		serializedObject.Update();
 
-		TriggerCheck node = target as TriggerCheck;
-
-		CreateMenu(node);
+		ResponseNode node = target as ResponseNode;
+		SerializedObject so = new SerializedObject(target);
 
 		GUILayout.BeginHorizontal();
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("operatorType"), GUIContent.none);
-		NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("result"), GUILayout.MinWidth(0));
+		NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("promptInput"), GUILayout.MinWidth(0));
+		NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("output"), GUILayout.MinWidth(0));
 		GUILayout.EndHorizontal();
+
+		GUILayout.BeginVertical();
+		NodeEditorGUILayout.PortField(new GUIContent("Hidden Status"), target.GetInputPort("isHidden"), GUILayout.MinWidth(0));
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("text"), GUIContent.none);
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("voiceClip"), GUIContent.none);
+		CreateMenu(node);
+		GUILayout.EndVertical();
 
 		serializedObject.ApplyModifiedProperties();
 	}
 
-	void CreateMenu(TriggerCheck node)
+	void CreateMenu(ResponseNode node)
 	{
 		if (canCopy)
 		{
-			m_flag = node.trigger;
+			m_flag = node.throwFlag;
 			canCopy = false;
 		}
 
-		if (EditorGUILayout.DropdownButton(new GUIContent(node.trigger.ToString()), FocusType.Passive))
+		if (EditorGUILayout.DropdownButton(new GUIContent(node.throwFlag.ToString()), FocusType.Passive))
 		{
 			GenericMenu menu = new GenericMenu();
 
@@ -46,7 +52,7 @@ public class StringNodeEditor : NodeEditor
 			// display the menu
 			menu.ShowAsContext();
 		}
-		node.trigger = m_flag;
+		node.throwFlag = m_flag;
 	}
 
 	void AddMenuItemForFlag(GenericMenu menu, string menuPath, FlagBank.Flags flag)
@@ -89,10 +95,16 @@ public class StringNodeEditor : NodeEditor
 		{
 			menu.AddSeparator("");
 		}
+		else
+		{
+			menu.AddSeparator("");
+			AddMenuItemForFlag(menu, FlagBank.Flags.NONE.ToString(), FlagBank.Flags.NONE);
+		}
 	}
+
 
 	public override int GetWidth()
 	{
-		return 150;
+		return 200;
 	}
 }

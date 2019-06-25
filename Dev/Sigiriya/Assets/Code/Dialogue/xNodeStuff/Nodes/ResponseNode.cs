@@ -3,22 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[NodeTint(189, 169, 30)]
+[CreateNodeMenu("Sigiriya/Dialogue/Response")]
 public class ResponseNode : BaseNode
 {
-	[Input(backingValue = ShowBackingValue.Never, connectionType = ConnectionType.Override)] public bool isHidden;
+	[Input(typeConstraint = TypeConstraint.Strict)] ResponseNode promptInput;
+	[Input(connectionType = ConnectionType.Override)] public bool isHidden;
 
 	public string text;
 	public AudioClip voiceClip;
 	public FlagBank.Flags throwFlag;
 
-//	public void CheckFlag(string flag)
-//	{
-//		isHidden = this.GetInputValue<bool>("isHidden", this.isHidden);	
-//	}
-
 	public bool getHidden()
 	{
-		isHidden = this.GetInputValue<bool>("isHidden", this.isHidden);
+		NodePort port = GetInputPort("isHidden");
+		if (port.IsConnected)
+		{
+			isHidden = !this.GetInputValue<bool>("isHidden", this.isHidden);
+		}
+		else
+		{
+			isHidden = false;
+		}
 		return isHidden;
 	}
 
