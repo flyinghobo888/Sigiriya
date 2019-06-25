@@ -19,16 +19,16 @@ public abstract class BaseNode : XNode.Node
 	{
 		SimpleGraph fmGraph = graph as SimpleGraph;
 
-		NodePort exitPort = GetOutputPort("output");
+		NodePort outPort = GetOutputPort("output");
 
-		if (!exitPort.IsConnected)
+		if (!outPort.IsConnected)
 		{
             //TODO: Commented this out.
 			//Debug.LogWarning("Node isn't connected");
 			return null;
 		}
 
-		BaseNode node = exitPort.Connection.node as BaseNode;
+		BaseNode node = outPort.Connection.node as BaseNode;
 		return node;
 	}
 

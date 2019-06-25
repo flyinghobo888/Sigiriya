@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[CreateNodeMenu("Sigiriya/Dialogue/PromptNode")]
 public class PromptNode : BaseNode
 {
 	[Output(instancePortList = true, connectionType = ConnectionType.Override)] public List<BaseNode> responses = new List<BaseNode>();
 
-	[Output] public BaseNode interruptConnection;
-	[Output] public BaseNode checkpointConnection;
-	[Output] public BaseNode exitConnection;
+	[Output(connectionType = ConnectionType.Override)] public BaseNode interruptConnection;
+	[Output(connectionType = ConnectionType.Override)] public BaseNode checkpointConnection;
+	[Output(connectionType = ConnectionType.Override)] public BaseNode exitConnection;
 
 	[TextArea] public string prompt;
 	public tempCharSprites speakerPic;
@@ -23,7 +24,7 @@ public class PromptNode : BaseNode
 		return node;
 	}
 
-	public PromptNode GetConnectedNode(string portName)
+	public BaseNode GetConnectedNode(string portName)
 	{
 		NodePort port = GetOutputPort(portName);
 		if (!port.IsConnected)
@@ -33,7 +34,7 @@ public class PromptNode : BaseNode
 			return null;
 		}
 
-		PromptNode node = GetOutputPort(portName).Connection.node as PromptNode;
+		BaseNode node = GetOutputPort(portName).Connection.node as BaseNode;
 		return node;
 	}
 

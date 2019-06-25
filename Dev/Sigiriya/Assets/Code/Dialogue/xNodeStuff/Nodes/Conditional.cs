@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[NodeTint(46, 217, 125)]
+[CreateNodeMenu("Sigiriya/Logic/Conditional")]
 public class Conditional : Node
 {
 	[Input] public bool arg1;
