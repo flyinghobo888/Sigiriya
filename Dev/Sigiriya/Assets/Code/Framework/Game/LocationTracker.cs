@@ -160,6 +160,16 @@ public class LocationTracker : ManagerBase<LocationTracker>
             currentLocationBackground.sprite = targetLocation.values [0];
         }
     }
+
+    public bool IsLocationRegistered(EnumLocation location)
+    {
+        if (locations.ContainsKey(location))
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
 
 public enum EnumLocation : int

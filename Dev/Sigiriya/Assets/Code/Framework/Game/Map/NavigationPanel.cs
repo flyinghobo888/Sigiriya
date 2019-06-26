@@ -3,46 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-
 public class NavigationPanel : MonoBehaviour
 {
-    Transform buttonContainer;
+    private Transform buttonContainer;
+    [SerializeField] private GameObject NavButton;
 
-    [SerializeField]
-    GameObject NavButton;
-    void Start()
+    private void Start()
     {
-        buttonContainer = transform.Find ("NavButtonContainer");
-        foreach (EnumLocation l in (EnumLocation []) System.Enum.GetValues (typeof (EnumLocation)))
+        buttonContainer = transform.Find("NavButtonContainer");
+
+        for (int i = 0; i < (int)EnumLocation.SIZE; ++i)
         {
-            if (l != EnumLocation.SIZE)
+            EnumLocation location = (EnumLocation)i;
+            GameObject button = Instantiate(NavButton, buttonContainer);
+            button.GetComponent<Button>().onClick.AddListener(delegate
             {
-                GameObject g = Instantiate (NavButton, buttonContainer);
-                g.GetComponent<Button> ().onClick.AddListener (delegate
-                {
-                    GoToLocation (l.ToString ());
-                });
-                g.GetComponentInChildren<Text> ().text = l.ToString ();
-            }
+                GoToLocation(location);
+            });
+
+            button.GetComponentInChildren<Text>().text = location.ToString();
         }
 
-        ClosePanel ();
+        ClosePanel();
     }
 
-    public void GoToLocation(string locationName)
+    public void GoToLocation(EnumLocation location)
     {
-        EnumLocation tempLocation;
-        Debug.Log ("Attempt go to " + locationName);
-        if (System.Enum.TryParse (locationName, out tempLocation))
+        if (LocationTracker.Instance.IsLocationRegistered(location))
         {
-            EventAnnouncer.OnRequestLocationChange?.Invoke (tempLocation, true);
-            Debug.Log ("Attempt Success");
-            ClosePanel ();
+            EventAnnouncer.OnRequestLocationChange?.Invoke(location, true);
+            Debug.Log("Attempt Success");
+            ClosePanel();
         }
         else
         {
-            Debug.Log ("Attempt Fail");
+            Debug.Log("Attempt Failed. Register location first!");
         }
     }
 
@@ -50,20 +45,24 @@ public class NavigationPanel : MonoBehaviour
     public void TogglePanel()
     {
         if (gameObject.activeInHierarchy)
-            ClosePanel ();
+        {
+            ClosePanel();
+        }
         else
-            OpenPanel ();
+        {
+            OpenPanel();
+        }
     }
 
     public void OpenPanel()
     {
-        gameObject.SetActive (true);
+        gameObject.SetActive(true);
     }
 
 
     public void ClosePanel()
     {
-        gameObject.SetActive (false);
+        gameObject.SetActive(false);
     }
 
 }
