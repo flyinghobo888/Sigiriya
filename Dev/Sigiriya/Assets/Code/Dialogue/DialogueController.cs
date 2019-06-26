@@ -30,7 +30,7 @@ public class DialogueController : MonoBehaviour
     //[SerializeField] public List<DialogueNode> nodes;
     [SerializeField] BaseNode currNode;
 	[SerializeField] PromptNode pNode;
-
+	private bool isInit = false;
 
 	private string ID;
     private BaseNode checkPointNode = null;
@@ -42,13 +42,24 @@ public class DialogueController : MonoBehaviour
 
     private void Awake()
     {
-        ID = this.name;
+		if (!isInit)
+		{
+			Init();
+		}
+	}
+
+	private void Init()
+	{
+		ID = this.name;
 		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
 		dialogueGraph.Restart();
 		currNode = dialogueGraph.current as PromptNode;
+		pNode = currNode as PromptNode;
+		//gameObject.SetActive(false);
+		isInit = true;
 	}
 
-    private void OnEnable()
+	private void OnEnable()
     {
 		//EventManager.StartListening("E_down", ContinueDialogue);
 		//EventManager.FireEvent("MENU_open");
@@ -111,6 +122,9 @@ public class DialogueController : MonoBehaviour
 
     private void Update()
     {
+		//TODO: maybe make this a loop? this way I can string different nodes instead of needing a prompt after things. 
+		//if i do make loop, i need to make sure it checks if the node is null, in case i reach the end before a prompt
+		//OR just add an empty prompt and link through that
 		if (currNode.GetType() != typeof(PromptNode))
 		{
 			if (currNode.GetType() == typeof(BranchNode))
@@ -141,7 +155,7 @@ public class DialogueController : MonoBehaviour
 
 		if (pNode.time == 0)
 		{
-			talkTimer = 0;
+			//talkTimer = 0;
 			Debug.Log("Node is missing a time!");
 		}
 		if (talkTimer > pNode.time)
@@ -273,6 +287,10 @@ public class DialogueController : MonoBehaviour
 		//TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
 		///currNode = PlayerPrefs.GetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, 0);
 
+		if (!isInit)
+		{
+			Init();
+		}
 		if (currNode != null)
         {
 			DisplayNode(pNode);
