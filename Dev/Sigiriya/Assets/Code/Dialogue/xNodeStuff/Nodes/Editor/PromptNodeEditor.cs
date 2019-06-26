@@ -41,8 +41,10 @@ public class PromptNodeEditor : NodeEditor
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("prompt"), GUIContent.none);
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("time"), new GUIContent("Time"));
 
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("speakerPic"), new GUIContent("Speaker Image"));
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("usedSprite"), new GUIContent("Speaker Image"));
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("speaker"), new GUIContent("Speaker"));
+
+        //TODO: Change this to only display the valid expressions for the current speaker.
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("expression"), new GUIContent("Expression"));
 
 		NodeEditorGUILayout.InstancePortList("responses", typeof(ResponseNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
 		//NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("responses"));

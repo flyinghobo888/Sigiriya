@@ -183,20 +183,16 @@ public class DialogueController : MonoBehaviour
 
 		promptPanel.text = node.prompt;
 
-		/*
+        /*
 		 * if the speakerImage.sprite exists in the nodes.speakerPic list, go nuts. else, other way around
 		 */
-		if (node.speakerPic != null)
-		{
-			if (node.speakerPic.spriteList.Contains(speakerImages[0].sprite))
-			{
-				speakerImages[0].sprite = node.usedSprite;
-				speakerImages[0].gameObject.SetActive(true);
-				// only one speaker right now. Will need to expand this later
-				//speakerImages[1].gameObject.SetActive(false);
-			}
-		}
-		int i = 0;
+        Sprite speakerPic = node.GetSprite(true);
+        if (speakerPic != null)
+        {
+            speakerImages[0].sprite = speakerPic;
+            speakerImages[0].gameObject.SetActive(true);
+        }
+        int i = 0;
 
         if (node.responses != null) //if we have responses
         {
@@ -230,44 +226,41 @@ public class DialogueController : MonoBehaviour
     //exposed to the UI continue button
     public void ContinueDialogue()
     {
-		//TODO: fix this for the image swap from the character system
-		if (pNode.speakerPic != null)
-		{
-			if (pNode.speakerPic == speakerImages[0].sprite)
-			{
-				speakerImages[0].gameObject.SetActive(true);
-				speakerImages[1].gameObject.SetActive(false);
-			}
-			else if (pNode.speakerPic == speakerImages[1].sprite)
-			{
-				speakerImages[1].gameObject.SetActive(true);
-				speakerImages[0].gameObject.SetActive(false);
-			}
-		}
+        Sprite speakerPic = pNode.GetSprite(false);
+        if (speakerPic != null)
+        {
+            speakerImages[0].sprite = speakerPic;
+            speakerImages[0].gameObject.SetActive(true);
+        }
 
-
-		currNode = currNode.GetNextNode();
+        currNode = currNode.GetNextNode();
 
 		talkTimer = 0;
 	}
 
 	public void SelectResponse(int responseNode)
     {
-		//TODO: fix this for the image swap from the character system
-		if (pNode.speakerPic != null)
-		if (pNode.speakerPic == speakerImages[0].sprite)
-		{
-			speakerImages[0].gameObject.SetActive(true);
-			speakerImages[1].gameObject.SetActive(false);
-		}
-		else if (pNode.speakerPic == speakerImages[1].sprite)
-		{
-			speakerImages[1].gameObject.SetActive(true);
-			speakerImages[0].gameObject.SetActive(false);
-		}
+        //TODO: fix this for the image swap from the character system
+        //if (pNode.speakerPic != null)
+        //if (pNode.speakerPic == speakerImages[0].sprite)
+        //{
+        //	speakerImages[0].gameObject.SetActive(true);
+        //	speakerImages[1].gameObject.SetActive(false);
+        //}
+        //else if (pNode.speakerPic == speakerImages[1].sprite)
+        //{
+        //	speakerImages[1].gameObject.SetActive(true);
+        //	speakerImages[0].gameObject.SetActive(false);
+        //}
 
+        Sprite speakerPic = pNode.GetSprite(false);
+        if (speakerPic != null)
+        {
+            speakerImages[0].sprite = speakerPic;
+            speakerImages[0].gameObject.SetActive(true);
+        }
 
-		if (pNode.GetAnswerConnection(responseNode).throwFlag != FlagBank.Flags.NONE)
+        if (pNode.GetAnswerConnection(responseNode).throwFlag != FlagBank.Flags.NONE)
         {
             EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
         }
