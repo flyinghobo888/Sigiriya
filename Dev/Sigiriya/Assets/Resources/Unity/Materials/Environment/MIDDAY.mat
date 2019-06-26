@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GradientMaterial
+  m_Name: MIDDAY
   m_Shader: {fileID: -6465566751694194690, guid: 7c3a4503b354f2142b88a5a68182b79e,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_CF293945: 0.63
+    - Vector1_CF293945: 0.5
     - Vector1_FE63BD48: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -80,7 +80,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - Color_22E35091: {r: 0.8867924, g: 0.81562483, b: 0.28862584, a: 0}
-    - Color_B0472F4B: {r: 1, g: 1, b: 1, a: 0}
+    - Color_22E35091: {r: 0.99607843, g: 0.8666667, b: 0.38039216, a: 0}
+    - Color_B0472F4B: {r: 0.06666667, g: 0.53333336, b: 0.41960785, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

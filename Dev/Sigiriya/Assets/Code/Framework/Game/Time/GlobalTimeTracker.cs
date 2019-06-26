@@ -10,9 +10,27 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     private float currentTime;
     private EnumTime currentTimeOfDay;
 
+    [SerializeField] private SpriteRenderer background;
+
+    [SerializeField] private Material sunriseOverlay;
+    [SerializeField] private Material morningOverlay;
+    [SerializeField] private Material middayOverlay;
+    [SerializeField] private Material eveningOverlay;
+    [SerializeField] private Material nightOverlay;
+
+    private List<Material> backgroundOverlays = new List<Material>();
+    private int currentIndex = 0;
+
     private void Start()
     {
         currentTimeOfDay = EnumTime.MORNING;
+
+        backgroundOverlays.Clear();
+        backgroundOverlays.Add(sunriseOverlay);
+        backgroundOverlays.Add(morningOverlay);
+        backgroundOverlays.Add(middayOverlay);
+        backgroundOverlays.Add(eveningOverlay);
+        backgroundOverlays.Add(nightOverlay);
     }
 
     private void Update()
@@ -21,9 +39,10 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
         if (currentTime >= 1.0f)
         {
+            currentIndex = (((int)currentTimeOfDay + 1) % (int)EnumTime.SIZE);
             currentTime = 0.0f;
-            currentTimeOfDay = (EnumTime)(((int)currentTimeOfDay + 1) % (int)EnumTime.SIZE);
-            //Debug.Log("Time of Day: " + currentTimeOfDay);
+            currentTimeOfDay = (EnumTime)(currentIndex);
+            background.material = backgroundOverlays[currentIndex];
         }
     }
 }
