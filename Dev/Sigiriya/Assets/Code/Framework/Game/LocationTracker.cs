@@ -9,11 +9,14 @@ public class LocationTracker : ManagerBase<LocationTracker>
     [SerializeField] private EnumLocation currentLocation = EnumLocation.HOME;
     [SerializeField] private SpriteRenderer currentLocationBackground = null;
 
-    public EnumLocation TargetLocation { get; private set; }
+    public EnumLocation TargetLocation
+    {
+        get; private set;
+    }
 
     private bool shouldFade;
 
-    [Header("Home Location")]
+    [Header ("Home Location")]
     [SerializeField] private Location home = null;
 
     [Header("Village Location")]
@@ -49,11 +52,11 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     private void Awake()
     {
-        screenFadeRef = GameMaster.Instance.GetFade();
+        screenFadeRef = GameMaster.Instance.GetFade ();
         TargetLocation = currentLocation;
 
-        InitLocations();
-        ChangeLocation(currentLocation, true);
+        InitLocations ();
+        ChangeLocation (currentLocation, true);
     }
 
     private void OnEnable()
@@ -71,7 +74,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
     private void InitLocations()
     {
         if (home)
-            locations.Add(EnumLocation.HOME, home);
+            locations.Add (EnumLocation.HOME, home);
 
         if (village)
             locations.Add(EnumLocation.VILLAGE, village);
@@ -103,31 +106,31 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     private void ChangeLocation(EnumLocation targetLocation, bool fade)
     {
-        if (locations.ContainsKey(targetLocation))
+        if (locations.ContainsKey (targetLocation))
         {
             TargetLocation = targetLocation;
             shouldFade = fade;
 
             if (shouldFade)
             {
-                screenFadeRef.FadeIn("location_fade");
+                screenFadeRef.FadeIn ("location_fade");
             }
             else
             {
-                GoToNextLocation();
+                GoToNextLocation ();
             }
         }
         else
         {
-            Debug.Log("Location: " + targetLocation + " is not registered.");
+            Debug.Log ("Location: " + targetLocation + " is not registered.");
         }
     }
 
     private void GoToNextLocation(string fadeID)
     {
-        if (fadeID.CompareTo("location_fade") == 0)
+        if (fadeID.CompareTo ("location_fade") == 0)
         {
-            GoToNextLocation();
+            GoToNextLocation ();
         }
     }
 
@@ -137,24 +140,24 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
         if (shouldFade)
         {
-            screenFadeRef.FadeOut("location_fade");
+            screenFadeRef.FadeOut ("location_fade");
         }
         else
         {
-            screenFadeRef.FadeOutNow();
+            screenFadeRef.FadeOutNow ();
         }
 
-        UpdateBackground(currentLocation);
+        UpdateBackground (currentLocation);
     }
 
     private void UpdateBackground(EnumLocation location)
     {
         Location targetLocation;
-        if (locations.TryGetValue(location, out targetLocation))
+        if (locations.TryGetValue (location, out targetLocation))
         {
             //TODO: Get list of flags from a global flag thing
             //For now just use first image in location obj
-            currentLocationBackground.sprite = targetLocation.values[0];
+            currentLocationBackground.sprite = targetLocation.values [0];
         }
     }
 }
