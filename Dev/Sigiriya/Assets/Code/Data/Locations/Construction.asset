@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595b6e687c9383247a02ecab226a472d, type: 3}
-  m_Name: Bob
+  m_Script: {fileID: 11500000, guid: e6f08e770f48f9e44b3ac389d46899c2, type: 3}
+  m_Name: Construction
   m_EditorClassIdentifier: 
-  color: {r: 0.504717, g: 0.6449343, b: 1, a: 1}
+  keys: 00000000
+  values:
+  - {fileID: 21300000, guid: 5761bd4d10ae0eb46a57a4492c06c18e, type: 3}

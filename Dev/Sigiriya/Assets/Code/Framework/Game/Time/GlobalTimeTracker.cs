@@ -23,7 +23,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
         {
             currentTime = 0.0f;
             currentTimeOfDay = (EnumTime)(((int)currentTimeOfDay + 1) % (int)EnumTime.SIZE);
-            Debug.Log("Time of Day: " + currentTimeOfDay);
+            //Debug.Log("Time of Day: " + currentTimeOfDay);
         }
     }
 }

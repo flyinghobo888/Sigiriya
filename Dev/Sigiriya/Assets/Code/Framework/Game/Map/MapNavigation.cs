@@ -6,13 +6,14 @@ public class MapNavigation : MonoBehaviour
 {
     public void GoToHome(bool shouldFade)
     {
-        Debug.Log("GO TO HOME");
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.HOME, shouldFade);
+        Debug.Log ("GO TO HOME");
+        EventAnnouncer.OnRequestLocationChange?.Invoke (EnumLocation.HOME, shouldFade);
     }
 
     public void GoToSpring(bool shouldFade)
     {
-        Debug.Log("GO TO SPRING");
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.SPRING, shouldFade);
+        Debug.Log ("GO TO SPRING");
+        EventAnnouncer.OnRequestLocationChange?.Invoke (EnumLocation.SPRING, shouldFade);
     }
+
 }
