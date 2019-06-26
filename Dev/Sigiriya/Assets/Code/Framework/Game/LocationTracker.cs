@@ -16,8 +16,32 @@ public class LocationTracker : ManagerBase<LocationTracker>
     [Header("Home Location")]
     [SerializeField] private Location home = null;
 
+    [Header("Village Location")]
+    [SerializeField] private Location village = null;
+
     [Header("Spring Location")]
     [SerializeField] private Location spring = null;
+
+    [Header("Clearing Location")]
+    [SerializeField] private Location clearing = null;
+
+    [Header("Gathering Location")]
+    [SerializeField] private Location gathering = null;
+
+    [Header("Construction Location")]
+    [SerializeField] private Location construction = null;
+
+    [Header("Kitchen Location")]
+    [SerializeField] private Location kitchen = null;
+
+    [Header("Potting Location")]
+    [SerializeField] private Location potting = null;
+
+    [Header("Garden Location")]
+    [SerializeField] private Location garden = null;
+
+    [Header("Wewa Location")]
+    [SerializeField] private Location wewa = null;
 
     private Dictionary<EnumLocation, Location> locations = new Dictionary<EnumLocation, Location>();
 
@@ -49,8 +73,32 @@ public class LocationTracker : ManagerBase<LocationTracker>
         if (home)
             locations.Add(EnumLocation.HOME, home);
 
+        if (village)
+            locations.Add(EnumLocation.VILLAGE, village);
+
         if (spring)
             locations.Add(EnumLocation.SPRING, spring);
+
+        if (clearing)
+            locations.Add(EnumLocation.CLEARING, clearing);
+
+        if (gathering)
+            locations.Add(EnumLocation.GATHERING, gathering);
+
+        if (construction)
+            locations.Add(EnumLocation.CONSTRUCTION, construction);
+
+        if (kitchen)
+            locations.Add(EnumLocation.KITCHEN, kitchen);
+
+        if (potting)
+            locations.Add(EnumLocation.POTTING, potting);
+
+        if (garden)
+            locations.Add(EnumLocation.GARDEN, garden);
+
+        if (wewa)
+            locations.Add(EnumLocation.WEWA, wewa);
     }
 
     private void ChangeLocation(EnumLocation targetLocation, bool fade)
@@ -114,7 +162,15 @@ public class LocationTracker : ManagerBase<LocationTracker>
 public enum EnumLocation : int
 {
     HOME,
+    VILLAGE,
     SPRING,
+    CLEARING,
+    GATHERING,
+    CONSTRUCTION,
+    KITCHEN,
+    POTTING,
+    GARDEN,
+    WEWA,
     SIZE
 }
 
