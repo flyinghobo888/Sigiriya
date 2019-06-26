@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class PersistentEventBank : MonoBehaviour
 {
-    private static List<string> eventFlags;
+	//TODO: might want to move all of this to the FlagBank
+	private static List<FlagBank.Flags> eventFlags;
 
-    //private static int peopleMorning = 5;
-    //private static int peopleNoon = 7;
-    //private static int peopleNight = 5;
-    //private static int peopleTalked = 0;
-
-    private void Awake()
+	private void Awake()
     {
 		if (eventFlags == null)
 		{
-			eventFlags = new List<string>();
+			eventFlags = new List<FlagBank.Flags>();
 		}
 		EventAnnouncer.OnThrowFlag += AddEvent;
         EventAnnouncer.OnDialogueEnd += IncrementPeopleTalkedTo;
@@ -26,7 +22,7 @@ public class PersistentEventBank : MonoBehaviour
     {
 		if (eventFlags == null)
 		{
-			eventFlags = new List<string>();
+			eventFlags = new List<FlagBank.Flags>();
 		}
         for (int i = 0; i < eventFlags.Count; i++)
         {
@@ -35,7 +31,17 @@ public class PersistentEventBank : MonoBehaviour
         }
     }
 
-    private static void AddEvent(string flag)
+	public static bool ContainsFlag(FlagBank.Flags flag)
+	{
+		if (eventFlags.Contains(flag))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+    private static void AddEvent(FlagBank.Flags flag)
     {
         if (!eventFlags.Contains(flag))
         {

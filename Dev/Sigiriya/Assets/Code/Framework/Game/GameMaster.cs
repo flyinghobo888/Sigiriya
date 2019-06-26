@@ -18,7 +18,6 @@ public class GameMaster : ManagerBase<GameMaster>
     {
         if (!screenFade)
         {
-            Debug.Log("HELLO");
             screenFade = Instantiate(Resources.Load<GameObject>("Unity/Prefabs/_FADE")).GetComponent<Fade>();
             DontDestroyOnLoad(screenFade);
         }

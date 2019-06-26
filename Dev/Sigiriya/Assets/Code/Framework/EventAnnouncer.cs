@@ -32,7 +32,7 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     /* Dialogue Controller Events */
 
-    public delegate void ThrowFlag(string throwFlag);
+    public delegate void ThrowFlag(FlagBank.Flags throwFlag);
     public static ThrowFlag OnThrowFlag;
 
     public delegate void DialogueEnd();

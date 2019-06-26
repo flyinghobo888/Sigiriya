@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121ce89c4ecc6cf4c90040fdd1a93ca2, type: 3}
+  m_Name: Imposing
+  m_EditorClassIdentifier: 
+  traitName: Imposing
+  traitDescription: 
+  subTraitThreshold: 3
+  rawSubTraits:
+  - {fileID: 11400000, guid: 81893c9af257f0e4b8ec33de168f7576, type: 2}
+  - {fileID: 11400000, guid: edf6adf363aa40f41bd1aac0a9253293, type: 2}
+  - {fileID: 11400000, guid: d062e401e86a7f547b12a9598b724303, type: 2}
+  - {fileID: 11400000, guid: f3a735ca2003cf449860df68b637a370, type: 2}
