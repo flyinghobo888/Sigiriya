@@ -183,7 +183,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  result: 0
+  result: 1
   trigger: 20
   operatorType: 0
 --- !u!114 &-7787823219457673002
@@ -344,7 +344,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  result: 0
+  result: 1
   trigger: 20
   operatorType: 0
 --- !u!114 &-7685423413082282552
@@ -577,7 +577,7 @@ MonoBehaviour:
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections:
-      - fieldName: output
+      - fieldName: exitConnection
         node: {fileID: -3835610837137847140}
         reroutePoints: []
       _direction: 0
@@ -946,7 +946,10 @@ MonoBehaviour:
       _node: {fileID: -3835610837137847140}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: -6901311603160596809}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -967,10 +970,7 @@ MonoBehaviour:
       _node: {fileID: -3835610837137847140}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -6901311603160596809}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -2587,7 +2587,7 @@ MonoBehaviour:
   - {fileID: -6901311603160596809}
   - {fileID: -7692305611155764132}
   - {fileID: 8469940650096660753}
-  current: {fileID: 0}
+  current: {fileID: -1183248601938687362}
 --- !u!114 &1076977886190611023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2961,7 +2961,7 @@ MonoBehaviour:
       _dynamic: 0
   arg1: 0
   arg2: 0
-  result: 0
+  result: 1
   conditionalType: 1
 --- !u!114 &2477858416688256257
 MonoBehaviour:
@@ -3319,7 +3319,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  result: 0
+  result: 1
   trigger: 18
   operatorType: 0
 --- !u!114 &4599037309611595753
@@ -4499,7 +4499,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 13617.539, y: 423.08386}
+  position: {x: 13570.467, y: 423.08386}
   ports:
     keys:
     - responses
@@ -4607,7 +4607,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  result: 0
+  result: 1
   trigger: 19
   operatorType: 0
 --- !u!114 &8832880170448256610
