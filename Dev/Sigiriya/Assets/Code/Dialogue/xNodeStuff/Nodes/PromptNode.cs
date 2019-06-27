@@ -51,7 +51,7 @@ public class PromptNode : BaseNode
             return speaker.GetSpriteFromExpression(expression, isTalking);
         }
 
-        Debug.LogError("THERE IS NO CHARACTER ATTACHED TO THIS NODE! :o");
+        //Debug.LogError("THERE IS NO CHARACTER ATTACHED TO THIS NODE! :o");
         return null;
     }
 }
