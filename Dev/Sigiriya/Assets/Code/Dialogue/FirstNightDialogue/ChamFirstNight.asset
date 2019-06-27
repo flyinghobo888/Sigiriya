@@ -160,7 +160,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: ' What? No Appa, Hetuwa gave me the clay.'
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-8307369051937867877
@@ -323,7 +323,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Just wanted to say goodnight, have good dreams.
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-7072531788480734392
@@ -417,7 +417,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: What, Appa?
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-6692685190263886899
@@ -511,7 +511,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Was there something else, Appa?
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-6119114763051917792
@@ -605,7 +605,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "Maybe. You don\u2019t need to know where I am all the time, Appa."
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 3
 --- !u!114 &-5672817484140689194
@@ -638,7 +638,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  result: 1
+  result: 0
   trigger: 5
   operatorType: 0
 --- !u!114 &-5176569025049909926
@@ -733,7 +733,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: "That\u2019s not why\u2026! I was just curious what you\u2019ve been up
     to, Chamara."
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 3
 --- !u!114 &-4662935951703345241
@@ -827,7 +827,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "Ugh, Appa don\u2019t call me that!"
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-3782833694016737799
@@ -921,7 +921,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Does that mean you made this?
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-3487552623190662791
@@ -1015,7 +1015,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "What? Podda? But that\u2019s what you are!"
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-2912533652648740784
@@ -1109,7 +1109,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Stop calling me that!
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-2751041093986633175
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "That\u2019s not why\u2026 I\u2019m just interested in your life Chamara."
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-1232191801318727998
@@ -1297,7 +1297,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Goodnight, Chamara.
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-1092257148415097186
@@ -1451,7 +1451,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Appa!
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-877973154168648780
@@ -1545,7 +1545,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "Like what Appa? You don\u2019t need to know where I am all the time."
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-557904717189775777
@@ -1639,7 +1639,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "I didn\u2019t take anything from him."
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &-500156892605958605
@@ -1730,7 +1730,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: . . .
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &11400000
@@ -1881,7 +1881,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "\u2026. Thanks Appa. Night."
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &395706779484011283
@@ -2008,7 +2008,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "I feel like we don\u2019t talk that much about those things!"
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &1125133087745997936
@@ -2299,7 +2299,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "It\u2019s nothing, Appa."
-  speaker: {fileID: 11400000, guid: 0988b1a97e0a81041a9ed4b35fe60d17, type: 2}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 3
 --- !u!114 &1568528597950964621
@@ -2393,7 +2393,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "\u2026 Yeah I\u2019ve been around there."
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &1847599912351808195
@@ -2710,7 +2710,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: No Chamara, I meant the little figure itself.
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &3505511336618496477
@@ -2804,7 +2804,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Can I see it?
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &3637312139024279949
@@ -2898,7 +2898,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: No.
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &4186871738620664856
@@ -3058,7 +3058,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "\u2026 Good night."
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &5744216232211323900
@@ -3221,7 +3221,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Okay?
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &6671023666774214625
@@ -3340,7 +3340,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: "It doesn\u2019t look like nothing, is that clay?"
-  speaker: {fileID: 11400000, guid: 0988b1a97e0a81041a9ed4b35fe60d17, type: 2}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 1
   time: 3
 --- !u!114 &7022446702389130819
@@ -3373,7 +3373,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  result: 0
+  result: 1
   trigger: 2
   operatorType: 0
 --- !u!114 &7074367737663595461
@@ -3467,7 +3467,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Just wanted to say goodnight, podda.
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &7375028620191607130
@@ -3586,7 +3586,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Does it matter?
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 3
 --- !u!114 &7949626714632959405
@@ -3680,7 +3680,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Was there something else, Appa?
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2
 --- !u!114 &8297954157966831747
@@ -3796,7 +3796,7 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Chamara?
-  speaker: {fileID: 11400000, guid: 0988b1a97e0a81041a9ed4b35fe60d17, type: 2}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 3
 --- !u!114 &8841609374787389914
@@ -3829,7 +3829,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  result: 1
+  result: 0
   trigger: 3
   operatorType: 0
 --- !u!114 &9116947970883766711
@@ -3923,6 +3923,6 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: '... Yeah.'
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   expression: 0
   time: 2

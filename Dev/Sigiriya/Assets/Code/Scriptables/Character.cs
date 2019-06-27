@@ -158,6 +158,7 @@ public class Character : ScriptableObject
         LAUGH,
         STERN,
         FRUSTRATED,
-        INTERESTED
+        INTERESTED,
+        SAD
     }
 }

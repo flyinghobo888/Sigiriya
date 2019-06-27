@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
+  m_Name: Lakmini
+  m_EditorClassIdentifier: 
+  characterName: Lakmini
+  defaultSprite: {fileID: 21300000, guid: 150a5c16f8bc1e54e995ed67d437f8e0, type: 3}
+  rawExpressionOrder: 0000000011000000120000001300000004000000
+  rawExpressions:
+  - {fileID: 21300000, guid: a31cd30f615bd8b4592d0820349f3619, type: 3}
+  - {fileID: 21300000, guid: 283139bc8122e8d4d966ce1f4c7c51c1, type: 3}
+  - {fileID: 21300000, guid: d9de7a903d47a1946b3682721abdcc7c, type: 3}
+  - {fileID: 21300000, guid: caaea08d2ae1aae4780a0f0a2d40cdb2, type: 3}
+  - {fileID: 21300000, guid: cca34f3e5939ef440b405e8e418cd9ef, type: 3}
+  rawTalkExpressions:
+  - {fileID: 21300000, guid: 9771af1beac51e24c9352b229288aadf, type: 3}
+  - {fileID: 21300000, guid: 401114f16a0f34b4fbb90f81e928d5d1, type: 3}
+  - {fileID: 21300000, guid: 580a9fd8fb25c794caabe5d923f781ef, type: 3}
+  - {fileID: 21300000, guid: 8e8b171a78c058e44943677c4dcfab2d, type: 3}
+  - {fileID: 21300000, guid: ce76b545111367f43aee3a0d14df0ef1, type: 3}
+  rawSubTraits: []

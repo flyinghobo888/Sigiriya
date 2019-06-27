@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
+  m_Name: Isuri
+  m_EditorClassIdentifier: 
+  characterName: Isuri
+  defaultSprite: {fileID: 21300000, guid: 1d48b451930b23f44a66a6b9faa5ee83, type: 3}
+  rawExpressionOrder: 0f000000100000000900000007000000
+  rawExpressions:
+  - {fileID: 21300000, guid: fa35a02a1d6ff0148afc44b12e9a676e, type: 3}
+  - {fileID: 21300000, guid: 3c74e28fb8a7f0542b12a82d6c3e1b6a, type: 3}
+  - {fileID: 21300000, guid: a6ac0c62b82f4b44bb43610c8a8ff1a7, type: 3}
+  - {fileID: 21300000, guid: bb83873d1760ffb4f93bd45ffcad94f3, type: 3}
+  rawTalkExpressions:
+  - {fileID: 21300000, guid: 91acb50dfbe119649b95b4647d228337, type: 3}
+  - {fileID: 21300000, guid: 7ded08e32765b60478374827e2357ffb, type: 3}
+  - {fileID: 21300000, guid: 10a17d02542c5224aad93edf32a14e04, type: 3}
+  - {fileID: 21300000, guid: 0d63d6d9260d85b478cce254a41c203f, type: 3}
+  rawSubTraits: []
