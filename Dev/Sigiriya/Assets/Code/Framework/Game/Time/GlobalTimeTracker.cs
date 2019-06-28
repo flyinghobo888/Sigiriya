@@ -46,7 +46,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
+        currentTime += Time.deltaTime*.1f;
 
         background.material.SetColor ("Color_22E35091", Color.Lerp (currentTopColor, targetTopColor, currentTime/1));
         background.material.SetColor ("Color_B0472F4B", Color.Lerp (currentBottomColor, targetBottomColor, currentTime/1));
