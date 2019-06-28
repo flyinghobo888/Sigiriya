@@ -13,8 +13,8 @@ public class PromptNode : BaseNode
 	[Output(connectionType = ConnectionType.Override)] public BaseNode exitConnection;
 
 	[TextArea] public string prompt;
-	public tempCharSprites speakerPic;
-	public Sprite usedSprite;
+    public Character speaker;
+	public Character.EnumExpression expression;
 	public float time;
 
 	public ResponseNode GetAnswerConnection(int index)
@@ -43,4 +43,15 @@ public class PromptNode : BaseNode
 	{
 		return null; // Replace this
 	}
+
+    public Sprite GetSprite(bool isTalking)
+    {
+        if (speaker)
+        {
+            return speaker.GetSpriteFromExpression(expression, isTalking);
+        }
+
+        //Debug.LogError("THERE IS NO CHARACTER ATTACHED TO THIS NODE! :o");
+        return null;
+    }
 }
