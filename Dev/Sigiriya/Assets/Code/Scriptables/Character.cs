@@ -101,7 +101,7 @@ public class Character : ScriptableObject
     {
         if (isTalking)
         {
-            foreach (KeyValuePair<EnumExpression, Sprite> element in expressions)
+            foreach (KeyValuePair<EnumExpression, Sprite> element in talkExpressions)
             {
                 if (expression == element.Key)
                 {
@@ -111,7 +111,7 @@ public class Character : ScriptableObject
         }
         else
         {
-            foreach (KeyValuePair<EnumExpression, Sprite> element in talkExpressions)
+            foreach (KeyValuePair<EnumExpression, Sprite> element in expressions)
             {
                 if (expression == element.Key)
                 {
@@ -158,6 +158,7 @@ public class Character : ScriptableObject
         LAUGH,
         STERN,
         FRUSTRATED,
-        INTERESTED
+        INTERESTED,
+        SAD
     }
 }

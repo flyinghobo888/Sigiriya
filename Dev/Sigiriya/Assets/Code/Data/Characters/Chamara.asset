@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
+  m_Name: Chamara
+  m_EditorClassIdentifier: 
+  characterName: Chamara
+  defaultSprite: {fileID: 21300000, guid: cdd593e95c870bb47aa9a25f97dc0c28, type: 3}
+  rawExpressionOrder: 0000000004000000050000000600000007000000
+  rawExpressions:
+  - {fileID: 21300000, guid: 074af81a701bc8842bcd741843a5b298, type: 3}
+  - {fileID: 21300000, guid: 0994e71ba3debc841a8d84919f1365bc, type: 3}
+  - {fileID: 21300000, guid: 4b9e7b61f1509884dabad9cd59252e06, type: 3}
+  - {fileID: 21300000, guid: 4f003a22879104f4f9fbfc9a12311d1f, type: 3}
+  - {fileID: 21300000, guid: a0d66ee034f33fd46b3c0ede9c24b405, type: 3}
+  rawTalkExpressions:
+  - {fileID: 21300000, guid: 6afada3799ebadd4eb95227b147451e5, type: 3}
+  - {fileID: 21300000, guid: 36a498866f91bd1458bcb59d8d3c9311, type: 3}
+  - {fileID: 21300000, guid: 210aa5d4b5a3a9847b6a11ec1acf772e, type: 3}
+  - {fileID: 21300000, guid: c078f6274e650154e910d1146818b855, type: 3}
+  - {fileID: 21300000, guid: 22c872c2549073a439c9afd01fa1fe5b, type: 3}
+  rawSubTraits: []
