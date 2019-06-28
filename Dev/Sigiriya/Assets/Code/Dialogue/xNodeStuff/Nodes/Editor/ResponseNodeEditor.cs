@@ -69,8 +69,6 @@ public class ResponseNodeEditor : NodeEditor
 
 	void CreateSubmenu(GenericMenu menu, int index)
 	{
-		FlagBank.Flags[] flagList = ((FlagBank.Flags[])System.Enum.GetValues(typeof(FlagBank.Flags)));
-
 		int currSubmenu = (int)FlagBank.submenuList[index];
 		string submenuTrigger = FlagBank.submenuList[index].ToString();
 		int nextSubmenu;
@@ -82,13 +80,13 @@ public class ResponseNodeEditor : NodeEditor
 		}
 		else
 		{
-			nextSubmenu = flagList.Length - 1;
+			nextSubmenu = FlagBank.flagList.Count - 1;
 		}
 
 		//get each flag from the submenu to the next submenu
 		for (; currSubmenu < nextSubmenu; currSubmenu++)
 		{
-			FlagBank.Flags tmpFlag = flagList[currSubmenu + 1];
+			FlagBank.Flags tmpFlag = FlagBank.flagList[currSubmenu + 1];
 			AddMenuItemForFlag(menu, submenuTrigger + "/" + tmpFlag, tmpFlag);
 		}
 
