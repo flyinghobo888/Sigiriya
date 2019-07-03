@@ -14,89 +14,90 @@ TODO:
 
 public class DialogueController : MonoBehaviour
 {
-	//[Header("Camera")]
-	//[SerializeField] private int textSize;
+    //[Header("Camera")]
+    //[SerializeField] private int textSize;
 
-	//Graph where nodes are kept
-	public SimpleGraph dialogueGraph;
+    //Graph where nodes are kept
+    public SimpleGraph dialogueGraph;
 
-	[Header("UI Fields")]
+    [Header ("UI Fields")]
+    [SerializeField] private TextMeshProUGUI nameBox = null;
     [SerializeField] private TextMeshProUGUI promptPanel = null;
-    [SerializeField] private Button[] responseButtons = null;
+    [SerializeField] private Button [] responseButtons = null;
     [SerializeField] private Button continueButton = null;
-	[SerializeField] private List<Image> speakerImages; //basically just a holder of images to display 
+    [SerializeField] private List<Image> speakerImages; //basically just a holder of images to display 
 
-    [Header("Dialogue")]
+    [Header ("Dialogue")]
     //[SerializeField] public List<DialogueNode> nodes;
     [SerializeField] BaseNode currNode;
-	[SerializeField] PromptNode pNode;
-	private bool isInit = false;
+    [SerializeField] PromptNode pNode;
+    private bool isInit = false;
 
-	private string ID;
+    private string ID;
     private BaseNode checkPointNode = null;
-    private BaseNode exitNode = null; 
+    private BaseNode exitNode = null;
 
-	private float talkTimer = 0;
+    private float talkTimer = 0;
 
     private Vector3 worldToScreenPos;
 
     private void Awake()
     {
-		if (!isInit)
-		{
-			Init();
-		}
-	}
-
-	private void Init()
-	{
-		ID = this.name;
-		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
-		dialogueGraph.Restart();
-		currNode = dialogueGraph.current;
-
-		//TODO: maybe make this a loop? this way I can string different nodes instead of needing a prompt after things. 
-		//if i do make loop, i need to make sure it checks if the node is null, in case i reach the end before a prompt
-		//OR just add an empty prompt and link through that
-		if (currNode.GetType() != typeof(PromptNode))
-		{
-			if (currNode.GetType() == typeof(BranchNode))
-			{
-				BranchNode bNode = currNode as BranchNode;
-
-				currNode = bNode.GetOutputNode() as PromptNode;
-			}
-		}
-
-		pNode = currNode as PromptNode;
-		//gameObject.SetActive(false);
-		isInit = true;
-	}
-
-	private void OnEnable()
-    {
-		//EventManager.StartListening("E_down", ContinueDialogue);
-		//EventManager.FireEvent("MENU_open");
-
-		for (int i = 0; i < dialogueGraph.nodes.Count; i++)
+        if (!isInit)
         {
-			//Debug.Log(dialogueGraph.nodes[i].GetType());
+            Init ();
+        }
+    }
 
-			if (dialogueGraph.nodes[i].GetType() == typeof(PromptNode))
-			{
-				PromptNode node = dialogueGraph.nodes[i] as PromptNode;
+    private void Init()
+    {
+        ID = this.name;
+        //EventManager.StartListening(ID + "_enable", EnableCurrNode);
+        dialogueGraph.Restart ();
+        currNode = dialogueGraph.current;
 
-				if (node.responses != null)
-				{
-					for (int j = 0; j < node.responses.Count; j++)
-					{
-						//EventAnnouncer.OnThrowFlag += node.responses[j].CheckFlag;
-					}
-				}
-			}
+        //TODO: maybe make this a loop? this way I can string different nodes instead of needing a prompt after things. 
+        //if i do make loop, i need to make sure it checks if the node is null, in case i reach the end before a prompt
+        //OR just add an empty prompt and link through that
+        if (currNode.GetType () != typeof (PromptNode))
+        {
+            if (currNode.GetType () == typeof (BranchNode))
+            {
+                BranchNode bNode = currNode as BranchNode;
+
+                currNode = bNode.GetOutputNode () as PromptNode;
+            }
         }
 
-        PersistentEventBank.FireAllEvents();
+        pNode = currNode as PromptNode;
+        //gameObject.SetActive(false);
+        isInit = true;
+    }
+
+    private void OnEnable()
+    {
+        //EventManager.StartListening("E_down", ContinueDialogue);
+        //EventManager.FireEvent("MENU_open");
+
+        for (int i = 0 ; i < dialogueGraph.nodes.Count ; i++)
+        {
+            //Debug.Log(dialogueGraph.nodes[i].GetType());
+
+            if (dialogueGraph.nodes [i].GetType () == typeof (PromptNode))
+            {
+                PromptNode node = dialogueGraph.nodes [i] as PromptNode;
+
+                if (node.responses != null)
+                {
+                    for (int j = 0 ; j < node.responses.Count ; j++)
+                    {
+                        //EventAnnouncer.OnThrowFlag += node.responses[j].CheckFlag;
+                    }
+                }
+            }
+        }
+
+        PersistentEventBank.FireAllEvents ();
     }
     private void OnDisable()
     {
@@ -106,28 +107,28 @@ public class DialogueController : MonoBehaviour
         //TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
         ///PlayerPrefs.SetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, currNode);
 
-        for (int i = 0; i < dialogueGraph.nodes.Count; i++)
+        for (int i = 0 ; i < dialogueGraph.nodes.Count ; i++)
         {
-			if (dialogueGraph.nodes[i].GetType() == typeof(PromptNode))
-			{
-				PromptNode node = dialogueGraph.nodes[i] as PromptNode;
+            if (dialogueGraph.nodes [i].GetType () == typeof (PromptNode))
+            {
+                PromptNode node = dialogueGraph.nodes [i] as PromptNode;
 
-				if (node.responses != null)
-				{
-					for (int j = 0; j < node.responses.Count; j++)
-					{
-						//EventAnnouncer.OnThrowFlag -= node.GetAnswerConnection(j).CheckFlag;
-					}
-				}
-			}
+                if (node.responses != null)
+                {
+                    for (int j = 0 ; j < node.responses.Count ; j++)
+                    {
+                        //EventAnnouncer.OnThrowFlag -= node.GetAnswerConnection(j).CheckFlag;
+                    }
+                }
+            }
         }
 
-        EventAnnouncer.OnDialogueEnd?.Invoke();
+        EventAnnouncer.OnDialogueEnd?.Invoke ();
     }
 
     private void Start()
     {
-		//Maybe set extraConnections again here? I dunno.
+        //Maybe set extraConnections again here? I dunno.
 
         //move to start once text size is decided
         //textSize = textSize * Screen.width / 1920;
@@ -136,103 +137,104 @@ public class DialogueController : MonoBehaviour
 
     private void Update()
     {
-		//TODO: maybe make this a loop? this way I can string different nodes instead of needing a prompt after things. 
-		//if i do make loop, i need to make sure it checks if the node is null, in case i reach the end before a prompt
-		//OR just add an empty prompt and link through that
-		if (currNode.GetType() != typeof(PromptNode))
-		{
-			if (currNode.GetType() == typeof(BranchNode))
-			{
-				BranchNode bNode = currNode as BranchNode;
-				
-				currNode = bNode.GetOutputNode() as PromptNode;
-			}
-		}
+        //TODO: maybe make this a loop? this way I can string different nodes instead of needing a prompt after things. 
+        //if i do make loop, i need to make sure it checks if the node is null, in case i reach the end before a prompt
+        //OR just add an empty prompt and link through that
+        if (currNode.GetType () != typeof (PromptNode))
+        {
+            if (currNode.GetType () == typeof (BranchNode))
+            {
+                BranchNode bNode = currNode as BranchNode;
 
-		pNode = currNode as PromptNode;
+                currNode = bNode.GetOutputNode () as PromptNode;
+            }
+        }
 
-		//-1 should be a signal to end the current discussion
-		if (currNode != null && enabled)
+        pNode = currNode as PromptNode;
+
+        //-1 should be a signal to end the current discussion
+        if (currNode != null && enabled)
         {
             //this can probs be moved out of update tbh
-            DisplayNode(pNode);
+            DisplayNode (pNode);
         }
         else
         {
-            Debug.Log(ID + " is done talking");
-            gameObject.SetActive(false);
+            Debug.Log (ID + " is done talking");
+            gameObject.SetActive (false);
 
             currNode = exitNode as PromptNode;
         }
 
-		talkTimer += Time.deltaTime;
+        talkTimer += Time.deltaTime;
 
-		if (pNode.time == 0)
-		{
-			//talkTimer = 0;
-			Debug.Log("Node is missing a time!");
-		}
-		if (talkTimer > pNode.time)
-		{
-			if (currNode.GetNextNode() != null && enabled)
-			{
-				ContinueDialogue();
-			}
-			else
-			{
-				Debug.Log(ID + " is done talking");
-				gameObject.SetActive(false);
+        if (pNode.time == 0)
+        {
+            //talkTimer = 0;
+            Debug.Log ("Node is missing a time!");
+        }
+        if (talkTimer > pNode.time)
+        {
+            if (currNode.GetNextNode () != null && enabled)
+            {
+                ContinueDialogue ();
+            }
+            else
+            {
+                Debug.Log (ID + " is done talking");
+                gameObject.SetActive (false);
 
-				currNode = exitNode;
-			}
+                currNode = exitNode;
+            }
 
-			talkTimer = 0;
-		}
+            talkTimer = 0;
+        }
     }
 
-	void DisplayNode(PromptNode node)
-	{
-		checkPointNode = node.GetConnectedNode("checkpointConnection");
-		exitNode = node.GetConnectedNode("exitConnection");
+    void DisplayNode(PromptNode node)
+    {
+        checkPointNode = node.GetConnectedNode ("checkpointConnection");
+        exitNode = node.GetConnectedNode ("exitConnection");
 
-		promptPanel.text = node.prompt;
+        nameBox.text = node.speaker==null ? "Player" : node.speaker.characterName;
+        promptPanel.text = node.prompt;
 
         /*
 		 * if the speakerImage.sprite exists in the nodes.speakerPic list, go nuts. else, other way around
 		 */
-        Sprite speakerPic = node.GetSprite(true);
+        Sprite speakerPic = node.GetSprite (true);
         if (speakerPic != null)
         {
-            speakerImages[0].sprite = speakerPic;
-            speakerImages[0].gameObject.SetActive(true);
+            speakerImages [0].sprite = speakerPic;
+            speakerImages [0].gameObject.SetActive (true);
         }
         int i = 0;
 
         if (node.responses != null) //if we have responses
         {
-            for (; i < node.responses.Count; i++)
+            for (; i < node.responses.Count ; i++)
             {
-                if (!node.GetAnswerConnection(i).getHidden())
+                if (!node.GetAnswerConnection (i).getHidden ())
                 {
-                    responseButtons[i].gameObject.SetActive(true);
-                    responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = node.GetAnswerConnection(i).text;
+                    responseButtons [i].gameObject.SetActive (true);
+                    responseButtons [i].GetComponentInChildren<TextMeshProUGUI> ().text = node.GetAnswerConnection (i).text;
                 }
                 else
                 {
-                    responseButtons[i].gameObject.SetActive(false);
+                    responseButtons [i].gameObject.SetActive (false);
                 }
             }
-            continueButton.gameObject.SetActive(false);
+            continueButton.gameObject.SetActive (false);
         }
         else
         {
-			//TODO: Timed dialogue continues now, so remove this gracefully after the continue button becomes obsolete
-            continueButton.gameObject.SetActive(true);
+            //TODO: Timed dialogue continues now, so remove this gracefully after the continue button becomes obsolete
+            continueButton.gameObject.SetActive (true);
         }
 
-        for (; i < responseButtons.Length; i++)
+        for (; i < responseButtons.Length ; i++)
         {
-            responseButtons[i].gameObject.SetActive(false);
+            responseButtons [i].gameObject.SetActive (false);
         }
     }
 
@@ -240,19 +242,19 @@ public class DialogueController : MonoBehaviour
     //exposed to the UI continue button
     public void ContinueDialogue()
     {
-        Sprite speakerPic = pNode.GetSprite(false);
+        Sprite speakerPic = pNode.GetSprite (false);
         if (speakerPic != null)
         {
-            speakerImages[0].sprite = speakerPic;
-            speakerImages[0].gameObject.SetActive(true);
+            speakerImages [0].sprite = speakerPic;
+            speakerImages [0].gameObject.SetActive (true);
         }
 
-        currNode = currNode.GetNextNode();
+        currNode = currNode.GetNextNode ();
 
-		talkTimer = 0;
-	}
+        talkTimer = 0;
+    }
 
-	public void SelectResponse(int responseNode)
+    public void SelectResponse(int responseNode)
     {
         //TODO: fix this for the image swap from the character system
         //if (pNode.speakerPic != null)
@@ -267,82 +269,82 @@ public class DialogueController : MonoBehaviour
         //	speakerImages[0].gameObject.SetActive(false);
         //}
 
-        Sprite speakerPic = pNode.GetSprite(false);
+        Sprite speakerPic = pNode.GetSprite (false);
         if (speakerPic != null)
         {
-            speakerImages[0].sprite = speakerPic;
-            speakerImages[0].gameObject.SetActive(true);
+            speakerImages [0].sprite = speakerPic;
+            speakerImages [0].gameObject.SetActive (true);
         }
 
-        if (pNode.GetAnswerConnection(responseNode).throwFlag != FlagBank.Flags.NONE)
+        if (pNode.GetAnswerConnection (responseNode).throwFlag != FlagBank.Flags.NONE)
         {
-            EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
+            EventAnnouncer.OnThrowFlag?.Invoke (pNode.GetAnswerConnection (responseNode).throwFlag);
         }
 
-		currNode = pNode.GetAnswerConnection(responseNode).GetNextNode();
+        currNode = pNode.GetAnswerConnection (responseNode).GetNextNode ();
 
-		talkTimer = 0;
-	}
+        talkTimer = 0;
+    }
 
-	#endregion
+    #endregion
 
-	public void EnableCurrNode()
+    public void EnableCurrNode()
     {
-		//currNode = checkPointNode;
-		//currNode = exitNode;
+        //currNode = checkPointNode;
+        //currNode = exitNode;
 
-		//TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
-		///currNode = PlayerPrefs.GetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, 0);
+        //TODO: THIS IS FOR OLD PROTOTYPE PLZ FIX
+        ///currNode = PlayerPrefs.GetInt(Managers.GameStateManager.Instance.CurrentTime + gameObject.name, 0);
 
-		if (!isInit)
-		{
-			Init();
-		}
-		if (currNode != null)
+        if (!isInit)
         {
-			//TODO: maybe make this a loop? this way I can string different nodes instead of needing a prompt after things. 
-			//if i do make loop, i need to make sure it checks if the node is null, in case i reach the end before a prompt
-			//OR just add an empty prompt and link through that
-			if (currNode.GetType() != typeof(PromptNode))
-			{
-				if (currNode.GetType() == typeof(BranchNode))
-				{
-					BranchNode bNode = currNode as BranchNode;
+            Init ();
+        }
+        if (currNode != null)
+        {
+            //TODO: maybe make this a loop? this way I can string different nodes instead of needing a prompt after things. 
+            //if i do make loop, i need to make sure it checks if the node is null, in case i reach the end before a prompt
+            //OR just add an empty prompt and link through that
+            if (currNode.GetType () != typeof (PromptNode))
+            {
+                if (currNode.GetType () == typeof (BranchNode))
+                {
+                    BranchNode bNode = currNode as BranchNode;
 
-					currNode = bNode.GetOutputNode() as PromptNode;
-				}
-			}
+                    currNode = bNode.GetOutputNode () as PromptNode;
+                }
+            }
 
-			pNode = currNode as PromptNode;
+            pNode = currNode as PromptNode;
 
-			DisplayNode(pNode);
-			gameObject.SetActive(true);
-		}
-	}
+            DisplayNode (pNode);
+            gameObject.SetActive (true);
+        }
+    }
 
     public void SetCurrNode(int newNode)
     {
-		currNode = dialogueGraph.nodes[newNode] as BaseNode;// as PromptNode;
+        currNode = dialogueGraph.nodes [newNode] as BaseNode;// as PromptNode;
     }
 
     private void OnTriggerExit(Collider col)
     {
-		if (col.tag == "Player")
+        if (col.tag == "Player")
         {
             if (this.enabled == true)
             {
-				//the interrupt node
-				BaseNode interruptNode = pNode.GetConnectedNode("interruptConnection");
-				BaseNode checkpoint = pNode.GetConnectedNode("checkpointConnection");
+                //the interrupt node
+                BaseNode interruptNode = pNode.GetConnectedNode ("interruptConnection");
+                BaseNode checkpoint = pNode.GetConnectedNode ("checkpointConnection");
 
-				//TODO: setup interrupts in the xnode graph
-				//set the interrupt node to go to the checkpoint node
-				//This means interrupts can't ramble
-				//dialogueGraph.nodes[interruptNode].connection = checkPointNode;
-				//dialogueGraph.nodes[interruptNode].checkPointConnection = checkpoint;
+                //TODO: setup interrupts in the xnode graph
+                //set the interrupt node to go to the checkpoint node
+                //This means interrupts can't ramble
+                //dialogueGraph.nodes[interruptNode].connection = checkPointNode;
+                //dialogueGraph.nodes[interruptNode].checkPointConnection = checkpoint;
 
-				//now go to the interruptNode
-				currNode = interruptNode;// as PromptNode;
+                //now go to the interruptNode
+                currNode = interruptNode;// as PromptNode;
                 this.enabled = false;
             }
         }
