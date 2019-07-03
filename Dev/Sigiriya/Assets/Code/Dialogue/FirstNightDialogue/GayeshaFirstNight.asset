@@ -717,7 +717,10 @@ MonoBehaviour:
       _node: {fileID: -5579528266651980188}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: -5579528266651980188}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -729,6 +732,9 @@ MonoBehaviour:
       connections:
       - fieldName: output
         node: {fileID: -3518324887489821962}
+        reroutePoints: []
+      - fieldName: exitConnection
+        node: {fileID: -5579528266651980188}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -850,7 +856,10 @@ MonoBehaviour:
       _node: {fileID: -5525859624776946346}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: -5525859624776946346}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -862,6 +871,9 @@ MonoBehaviour:
       connections:
       - fieldName: output
         node: {fileID: 2345381232794050466}
+        reroutePoints: []
+      - fieldName: exitConnection
+        node: {fileID: -5525859624776946346}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1076,7 +1088,10 @@ MonoBehaviour:
       _node: {fileID: -5006700742423115308}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: -5006700742423115308}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -1088,6 +1103,9 @@ MonoBehaviour:
       connections:
       - fieldName: output
         node: {fileID: 9156832407439496452}
+        reroutePoints: []
+      - fieldName: exitConnection
+        node: {fileID: -5006700742423115308}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1831,7 +1849,10 @@ MonoBehaviour:
       _node: {fileID: -1749044386014827032}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: -1749044386014827032}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -1843,6 +1864,9 @@ MonoBehaviour:
       connections:
       - fieldName: output
         node: {fileID: 3693691021984687248}
+        reroutePoints: []
+      - fieldName: exitConnection
+        node: {fileID: -1749044386014827032}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -2230,7 +2254,7 @@ MonoBehaviour:
   - {fileID: 2345381232794050466}
   - {fileID: -5525859624776946346}
   - {fileID: 3680564379652292429}
-  current: {fileID: 0}
+  current: {fileID: 9156832407439496452}
 --- !u!114 &469323016241931347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4101,7 +4125,10 @@ MonoBehaviour:
       _node: {fileID: 6358026102158533194}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 6358026102158533194}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -4113,6 +4140,9 @@ MonoBehaviour:
       connections:
       - fieldName: output
         node: {fileID: 3807716637649504317}
+        reroutePoints: []
+      - fieldName: exitConnection
+        node: {fileID: 6358026102158533194}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

@@ -53,7 +53,21 @@ public class DialogueController : MonoBehaviour
 		ID = this.name;
 		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
 		dialogueGraph.Restart();
-		currNode = dialogueGraph.current as PromptNode;
+		currNode = dialogueGraph.current;
+
+		//TODO: maybe make this a loop? this way I can string different nodes instead of needing a prompt after things. 
+		//if i do make loop, i need to make sure it checks if the node is null, in case i reach the end before a prompt
+		//OR just add an empty prompt and link through that
+		if (currNode.GetType() != typeof(PromptNode))
+		{
+			if (currNode.GetType() == typeof(BranchNode))
+			{
+				BranchNode bNode = currNode as BranchNode;
+
+				currNode = bNode.GetOutputNode() as PromptNode;
+			}
+		}
+
 		pNode = currNode as PromptNode;
 		//gameObject.SetActive(false);
 		isInit = true;
@@ -286,6 +300,21 @@ public class DialogueController : MonoBehaviour
 		}
 		if (currNode != null)
         {
+			//TODO: maybe make this a loop? this way I can string different nodes instead of needing a prompt after things. 
+			//if i do make loop, i need to make sure it checks if the node is null, in case i reach the end before a prompt
+			//OR just add an empty prompt and link through that
+			if (currNode.GetType() != typeof(PromptNode))
+			{
+				if (currNode.GetType() == typeof(BranchNode))
+				{
+					BranchNode bNode = currNode as BranchNode;
+
+					currNode = bNode.GetOutputNode() as PromptNode;
+				}
+			}
+
+			pNode = currNode as PromptNode;
+
 			DisplayNode(pNode);
 			gameObject.SetActive(true);
 		}

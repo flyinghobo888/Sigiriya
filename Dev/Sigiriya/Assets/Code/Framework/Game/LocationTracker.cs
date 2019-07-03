@@ -16,7 +16,13 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     private bool shouldFade;
 
-    [Header ("Home Location")]
+	[Header("TEMP")]
+	[SerializeField] GameObject Home;
+	[SerializeField] GameObject Clearing;
+	[SerializeField] GameObject Kitchen;
+	[SerializeField] GameObject Spring;
+
+	[Header ("Home Location")]
     [SerializeField] private Location home = null;
 
     [Header("Village Location")]
@@ -137,8 +143,12 @@ public class LocationTracker : ManagerBase<LocationTracker>
     private void GoToNextLocation()
     {
         currentLocation = TargetLocation;
+		Home.SetActive(false);
+		Kitchen.SetActive(false);
+		Clearing.SetActive(false);
+		Spring.SetActive(false);
 
-        if (shouldFade)
+		if (shouldFade)
         {
             screenFadeRef.FadeOut ("location_fade");
         }
@@ -146,8 +156,25 @@ public class LocationTracker : ManagerBase<LocationTracker>
         {
             screenFadeRef.FadeOutNow ();
         }
+		Debug.Log(currentLocation);
+		if (currentLocation == EnumLocation.HOME)
+		{
+			Home.SetActive(true);
+		}
+		else if (currentLocation == EnumLocation.KITCHEN)
+		{
+			Kitchen.SetActive(true);
+		}
+		else if (currentLocation == EnumLocation.GATHERING)
+		{
+			Clearing.SetActive(true);
+		}
+		else if (currentLocation == EnumLocation.SPRING)
+		{
+			Spring.SetActive(true);
+		}
 
-        UpdateBackground (currentLocation);
+		UpdateBackground (currentLocation);
     }
 
     private void UpdateBackground(EnumLocation location)

@@ -1885,7 +1885,10 @@ MonoBehaviour:
       _node: {fileID: 1892795664295814661}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 1892795664295814661}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -1897,6 +1900,9 @@ MonoBehaviour:
       connections:
       - fieldName: output
         node: {fileID: 7897472907595517429}
+        reroutePoints: []
+      - fieldName: exitConnection
+        node: {fileID: 1892795664295814661}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -2270,7 +2276,10 @@ MonoBehaviour:
       _node: {fileID: 4221124309008363677}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 4221124309008363677}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -2282,6 +2291,9 @@ MonoBehaviour:
       connections:
       - fieldName: output
         node: {fileID: -643646023117127768}
+        reroutePoints: []
+      - fieldName: exitConnection
+        node: {fileID: 4221124309008363677}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -2389,7 +2401,10 @@ MonoBehaviour:
       _node: {fileID: 4324825934913410976}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 4324825934913410976}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -2404,6 +2419,9 @@ MonoBehaviour:
         reroutePoints: []
       - fieldName: exitConnection
         node: {fileID: -3499392415766697195}
+        reroutePoints: []
+      - fieldName: exitConnection
+        node: {fileID: 4324825934913410976}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
