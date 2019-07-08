@@ -785,8 +785,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "You\u2019ve been doing so much since we got here! I don\u2019t know how you
-    keep up!"
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 12
 --- !u!114 &-4104642430452742294
@@ -949,7 +949,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "it\u2019s okay to be sad."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 13
 --- !u!114 &-3080585425319846883
@@ -1370,7 +1371,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: Do you want to talk about it?
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &11400000
@@ -1435,7 +1437,8 @@ MonoBehaviour:
   - {fileID: 8084741504757777955}
   - {fileID: 8282718453556111936}
   - {fileID: 8248608683991422735}
-  current: {fileID: -8929880472086506719}
+  current: {fileID: 2180259523156687118}
+  isInit: 0
 --- !u!114 &132394992039104119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1834,7 +1837,7 @@ MonoBehaviour:
       _dynamic: 0
   arg1: 0
   arg2: 0
-  result: 0
+  result: 1
   conditionalType: 1
 --- !u!114 &642026779679393277
 MonoBehaviour:
@@ -2030,7 +2033,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "There\u2019s no use in being so sad, Lakmini."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &1137208297265852550
@@ -2631,7 +2635,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "it\u2019s not your fault."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 14
 --- !u!114 &3174807012648297763
@@ -3229,7 +3234,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "We\u2019re in the middle of the jungle!"
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 11
 --- !u!114 &5198708656923454524
@@ -3392,7 +3398,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: How are you holding up?
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &6057355318771245136
@@ -3461,7 +3468,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: Thank you for feeding Neja.
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 15
 --- !u!114 &6347085440265641382
@@ -3741,7 +3749,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  result: 0
+  result: 1
   trigger: 12
   operatorType: 0
 --- !u!114 &8084741504757777955

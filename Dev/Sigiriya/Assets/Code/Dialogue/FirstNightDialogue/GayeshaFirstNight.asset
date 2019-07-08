@@ -1322,7 +1322,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "She\u2019s pulling through."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 7
 --- !u!114 &-3859317437070391819
@@ -2114,7 +2115,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "Sorry then, I\u2019ll let you go."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-315760835573967911
@@ -2183,7 +2185,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: Oh, sorry then, but how's your family?
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &11400000
@@ -2255,6 +2258,7 @@ MonoBehaviour:
   - {fileID: -5525859624776946346}
   - {fileID: 3680564379652292429}
   current: {fileID: 9156832407439496452}
+  isInit: 0
 --- !u!114 &469323016241931347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2415,7 +2419,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: Could you use help?
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &1261485860623118402
@@ -3078,7 +3083,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "How\u2019s your family settling?"
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &3055097771481297621
@@ -3587,7 +3593,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "She\u2019s been struggling."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 8
 --- !u!114 &3807716637649504317
@@ -4065,7 +4072,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "She\u2019s still so quiet."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 9
 --- !u!114 &6358026102158533194
@@ -4508,7 +4516,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "I don\u2019t think I\u2019ve seen you since we got here!"
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &7931929591955079830

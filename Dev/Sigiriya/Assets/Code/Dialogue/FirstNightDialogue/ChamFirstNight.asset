@@ -157,7 +157,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "Did you take that from Hetuwa\u2019s?"
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 2
 --- !u!114 &-8343596973372820343
@@ -320,7 +321,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "I haven\u2019t seen you all day, where have you been?"
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-8177897182850202047
@@ -1885,6 +1887,7 @@ MonoBehaviour:
   - {fileID: 170161482912582739}
   - {fileID: -8930487348316651429}
   current: {fileID: 8297954157966831747}
+  isInit: 0
 --- !u!114 &170161482912582739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2228,7 +2231,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "Chamara! Come on now, don\u2019t be like that."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 4
 --- !u!114 &1303238251020478285
@@ -2297,7 +2301,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "Is the potting yard where you\u2019ve been lately?"
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 3
 --- !u!114 &1383216390267589455
@@ -3059,7 +3064,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "I\u2019m just curious, podda."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 5
 --- !u!114 &5427020705864055778
@@ -3219,7 +3225,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: What have you got there?
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &6306303349322917838

@@ -66,7 +66,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "I don\u2019t think everyone lives here."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-8714733977057366191
@@ -700,7 +701,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: Did you have a big day?
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-4194617275805267721
@@ -1052,7 +1054,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: Maybe, poddi.
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-1535882184681945913
@@ -1215,7 +1218,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: Who was the most interesting?
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-318817641209345125
@@ -1370,7 +1374,8 @@ MonoBehaviour:
   - {fileID: 7526150100407245207}
   - {fileID: 8063056955787163005}
   - {fileID: -8177465408660248403}
-  current: {fileID: 1881549196608439168}
+  current: {fileID: 4849860614935902308}
+  isInit: 1
 --- !u!114 &48160649106254483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2001,7 +2006,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: What did you and Aravinda find today?
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &1684943580626524278
@@ -2756,7 +2762,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "I miss her too, poddi. She\u2019s my Amma you know."
+  textFull: 
+  textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &5392669265096715433

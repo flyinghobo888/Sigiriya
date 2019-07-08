@@ -24,7 +24,16 @@ public class ResponseNodeEditor : NodeEditor
 
 		GUILayout.BeginVertical();
 		NodeEditorGUILayout.PortField(new GUIContent("Hidden Status"), target.GetInputPort("isHidden"), GUILayout.MinWidth(0));
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("text"), GUIContent.none);
+		GUILayout.BeginHorizontal();
+		GUILayout.Label("Quip");
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("textButton"), GUIContent.none);
+		GUILayout.EndHorizontal();
+
+		GUILayout.BeginHorizontal();
+		GUILayout.Label("Full ");
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("textFull"), GUIContent.none);
+		GUILayout.EndHorizontal();
+
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("voiceClip"), GUIContent.none);
 		CreateMenu(node);
 		GUILayout.EndVertical();
