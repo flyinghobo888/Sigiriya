@@ -13,9 +13,9 @@ public class SceneTest : MonoBehaviour
 
 	private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            EventAnnouncer.OnRequestSceneChange((EnumScene)((++sceneIndex) % (int)EnumScene.SIZE), true);
-        }
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    EventAnnouncer.OnRequestSceneChange((EnumScene)((++sceneIndex) % (int)EnumScene.SIZE), true);
+        //}
     }
 }

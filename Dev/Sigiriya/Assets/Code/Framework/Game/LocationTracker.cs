@@ -54,15 +54,15 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     private Dictionary<EnumLocation, Location> locations = new Dictionary<EnumLocation, Location>();
 
-    private static Fade screenFadeRef;
+    [Header("Location Fade")]
+    [SerializeField] private Fade locationFadeRef;
 
     private void Awake()
     {
-        screenFadeRef = GameMaster.Instance.GetFade ();
         TargetLocation = currentLocation;
 
-        InitLocations ();
-        ChangeLocation (currentLocation, true);
+        InitLocations();
+        ChangeLocation(currentLocation, false);
     }
 
     private void OnEnable()
@@ -80,7 +80,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
     private void InitLocations()
     {
         if (home)
-            locations.Add (EnumLocation.HOME, home);
+            locations.Add(EnumLocation.HOME, home);
 
         if (village)
             locations.Add(EnumLocation.VILLAGE, village);
@@ -112,31 +112,31 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     private void ChangeLocation(EnumLocation targetLocation, bool fade)
     {
-        if (locations.ContainsKey (targetLocation))
+        if (locations.ContainsKey(targetLocation))
         {
             TargetLocation = targetLocation;
             shouldFade = fade;
 
             if (shouldFade)
             {
-                screenFadeRef.FadeIn ("location_fade");
+                locationFadeRef.FadeIn("location_fade");
             }
             else
             {
-                GoToNextLocation ();
+                GoToNextLocation();
             }
         }
         else
         {
-            Debug.Log ("Location: " + targetLocation + " is not registered.");
+            Debug.Log("Location: " + targetLocation + " is not registered.");
         }
     }
 
     private void GoToNextLocation(string fadeID)
     {
-        if (fadeID.CompareTo ("location_fade") == 0)
+        if (fadeID.CompareTo("location_fade") == 0)
         {
-            GoToNextLocation ();
+            GoToNextLocation();
         }
     }
 
@@ -150,12 +150,13 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
 		if (shouldFade)
         {
-            screenFadeRef.FadeOut ("location_fade");
+            locationFadeRef.FadeOut("location_fade");
         }
         else
         {
-            screenFadeRef.FadeOutNow ();
+            locationFadeRef.FadeOutNow();
         }
+
 		Debug.Log(currentLocation);
 		if (currentLocation == EnumLocation.HOME)
 		{
@@ -174,7 +175,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
 			Spring.SetActive(true);
 		}
 
-		UpdateBackground (currentLocation);
+		UpdateBackground(currentLocation);
     }
 
     private void UpdateBackground(EnumLocation location)

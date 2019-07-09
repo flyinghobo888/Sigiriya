@@ -68,6 +68,7 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
 
     private void GoToNextScene()
     {
+        Debug.Log("GO TO SCENE: " + TargetScene);
         SceneManager.LoadScene((int)TargetScene);
         CurrentScene = TargetScene;
     }
@@ -90,8 +91,9 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
 //The scene id should match with the enum id.
 public enum EnumScene
 {
-    TITLE,  //Scene ID 0
-    GAME,   //Scene ID 1
+    TITLE,      //Scene ID 0
+    GAME,       //Scene ID 1
+    CREDITS,    //Scene ID 2
 
     SIZE
 }
