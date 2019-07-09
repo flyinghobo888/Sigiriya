@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2118.1636, y: -723.2564}
+  position: {x: -2104, y: -728}
   ports:
     keys:
     - responses
@@ -1887,7 +1887,7 @@ MonoBehaviour:
   - {fileID: 170161482912582739}
   - {fileID: -8930487348316651429}
   current: {fileID: 8297954157966831747}
-  isInit: 0
+  isInit: 1
 --- !u!114 &170161482912582739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3807,7 +3807,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1755.0698, y: -720.79706}
+  position: {x: -1784, y: -728}
   ports:
     keys:
     - responses
