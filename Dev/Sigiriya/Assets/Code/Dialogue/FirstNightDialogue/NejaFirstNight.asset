@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5656.1924, y: -739.8142}
+  position: {x: 1716.1924, y: -99.81421}
   ports:
     keys:
     - promptInput
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8564.967, y: -911.8206}
+  position: {x: 4639.967, y: -276.82062}
   ports:
     keys:
     - responses
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8212.08, y: -917.5028}
+  position: {x: 4287.08, y: -282.5028}
   ports:
     keys:
     - responses
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5901.5, y: -801.5}
+  position: {x: 1961.5, y: -161.5}
   ports:
     keys:
     - responses
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7515.086, y: -608.1126}
+  position: {x: 3590.086, y: 26.88739}
   ports:
     keys:
     - responses
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6249.603, y: -391.72543}
+  position: {x: 2324.603, y: 243.27457}
   ports:
     keys:
     - responses
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8003.043, y: -294.58685}
+  position: {x: 4078.043, y: 340.41315}
   ports:
     keys:
     - responses
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4297.115, y: -946.2301}
+  position: {x: 357.11523, y: -306.2301}
   ports:
     keys:
     - promptInput
@@ -701,8 +701,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  textFull: 
-  textButton: 
+  textFull: What have you been up to on this fine day?
+  textButton: What be up 2?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-4194617275805267721
@@ -718,7 +718,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 9264.544, y: -626.26465}
+  position: {x: 5339.544, y: 8.735352}
   ports:
     keys:
     - responses
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8383.23, y: -290.03998}
+  position: {x: 4458.2305, y: 344.96002}
   ports:
     keys:
     - responses
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4541.113, y: -1011.6552}
+  position: {x: 601.1128, y: -371.6552}
   ports:
     keys:
     - responses
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7277.9067, y: -864.16516}
+  position: {x: 3352.9067, y: -229.16516}
   ports:
     keys:
     - promptInput
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6227.94, y: -794.9266}
+  position: {x: 2302.94, y: -159.92657}
   ports:
     keys:
     - responses
@@ -1165,7 +1165,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5660.5234, y: -388.27844}
+  position: {x: 1720.5234, y: 251.72156}
   ports:
     keys:
     - promptInput
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 10794.602, y: -592.0942}
+  position: {x: 6894.6016, y: 32.905823}
   ports:
     keys:
     - responses
@@ -1374,7 +1374,7 @@ MonoBehaviour:
   - {fileID: 7526150100407245207}
   - {fileID: 8063056955787163005}
   - {fileID: -8177465408660248403}
-  current: {fileID: 4849860614935902308}
+  current: {fileID: -3746233487908304234}
   isInit: 1
 --- !u!114 &48160649106254483
 MonoBehaviour:
@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6604.7104, y: -388.43146}
+  position: {x: 2679.7104, y: 246.56854}
   ports:
     keys:
     - responses
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8913.8, y: -903.43646}
+  position: {x: 4988.8, y: -268.43646}
   ports:
     keys:
     - responses
@@ -1577,7 +1577,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7647.501, y: -299.13214}
+  position: {x: 3722.501, y: 335.86786}
   ports:
     keys:
     - responses
@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8568.172, y: -621.0196}
+  position: {x: 4643.172, y: 13.980408}
   ports:
     keys:
     - responses
@@ -1765,7 +1765,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 9583.656, y: -617.8805}
+  position: {x: 5683.6562, y: 7.119507}
   ports:
     keys:
     - responses
@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 11143.358, y: -599.2826}
+  position: {x: 7243.3584, y: 25.717407}
   ports:
     keys:
     - responses
@@ -1953,7 +1953,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4290.082, y: -561.4761}
+  position: {x: 350.08203, y: 78.523926}
   ports:
     keys:
     - promptInput
@@ -2006,8 +2006,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  textFull: 
-  textButton: 
+  textFull: Hast thou been on a true adventure??
+  textButton: Adventure?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &1684943580626524278
@@ -2023,7 +2023,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8206.484, y: -621.63544}
+  position: {x: 4281.4844, y: 13.364563}
   ports:
     keys:
     - responses
@@ -2117,7 +2117,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3550.387, y: -773.20435}
+  position: {x: -389.61304, y: -133.20435}
   ports:
     keys:
     - responses
@@ -2208,7 +2208,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7526.225, y: -925.8339}
+  position: {x: 3601.225, y: -290.83392}
   ports:
     keys:
     - responses
@@ -2302,7 +2302,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7876.4097, y: -925.5557}
+  position: {x: 3951.4097, y: -290.55573}
   ports:
     keys:
     - responses
@@ -2396,7 +2396,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4864.278, y: -1008.675}
+  position: {x: 924.27783, y: -368.675}
   ports:
     keys:
     - responses
@@ -2490,7 +2490,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4845.887, y: -591.682}
+  position: {x: 905.8872, y: 48.317993}
   ports:
     keys:
     - responses
@@ -2584,7 +2584,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3900.6357, y: -773.20435}
+  position: {x: -39.364258, y: -133.20435}
   ports:
     keys:
     - responses
@@ -2709,7 +2709,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7272.781, y: -596.39087}
+  position: {x: 3347.7808, y: 38.60913}
   ports:
     keys:
     - promptInput
@@ -2779,7 +2779,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5246.8857, y: -703.07294}
+  position: {x: 1306.8857, y: -63.072937}
   ports:
     keys:
     - responses
@@ -2907,7 +2907,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 10448.5, y: -603.5}
+  position: {x: 6548.5, y: 21.5}
   ports:
     keys:
     - responses
@@ -3007,7 +3007,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6921.554, y: -801.1251}
+  position: {x: 2996.5542, y: -166.12512}
   ports:
     keys:
     - responses
@@ -3132,7 +3132,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5906.994, y: -394.86075}
+  position: {x: 1966.9941, y: 245.13925}
   ports:
     keys:
     - responses
@@ -3226,7 +3226,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 9921.683, y: -616.2513}
+  position: {x: 6021.6826, y: 8.748718}
   ports:
     keys:
     - responses
@@ -3320,7 +3320,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 9589.853, y: -898.827}
+  position: {x: 5689.8525, y: -273.82703}
   ports:
     keys:
     - responses
@@ -3414,7 +3414,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4525.4243, y: -594.6622}
+  position: {x: 585.4243, y: 45.33783}
   ports:
     keys:
     - responses
@@ -3508,7 +3508,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6961.0474, y: -387.21368}
+  position: {x: 3036.0474, y: 247.78632}
   ports:
     keys:
     - responses
@@ -3602,7 +3602,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7295.4746, y: -334.03394}
+  position: {x: 3370.4746, y: 300.96606}
   ports:
     keys:
     - responses
@@ -3696,7 +3696,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7877.205, y: -610.6023}
+  position: {x: 3952.205, y: 24.397705}
   ports:
     keys:
     - responses
@@ -3790,7 +3790,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 11521.336, y: -585.22046}
+  position: {x: 7621.336, y: 39.77954}
   ports:
     keys:
     - responses
@@ -3881,7 +3881,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6582.1772, y: -793.29736}
+  position: {x: 2657.1772, y: -158.29736}
   ports:
     keys:
     - responses
@@ -3975,7 +3975,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8918.356, y: -622.09235}
+  position: {x: 4993.3564, y: 12.907654}
   ports:
     keys:
     - responses
@@ -4069,7 +4069,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 9260.454, y: -895.6338}
+  position: {x: 5335.454, y: -260.6338}
   ports:
     keys:
     - responses
@@ -4164,7 +4164,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8754.313, y: -292.76508}
+  position: {x: 4829.3135, y: 342.23492}
   ports:
     keys:
     - responses

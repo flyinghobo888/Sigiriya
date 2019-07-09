@@ -28,7 +28,7 @@ public class DialogueController : MonoBehaviour
 	[SerializeField] private List<Image> speakerImages; //basically just a holder of images to display 
 
 	[Header("Dialogue")]
-	[SerializeField] PromptNode pNode;
+	//[SerializeField] PromptNode pNode;
 	private string ID;
 	private BaseNode checkPointNode = null;
 	private BaseNode exitNode = null;
@@ -84,11 +84,13 @@ public class DialogueController : MonoBehaviour
 
 	private void Update()
 	{
+		//PromptNode pNode = dialogueGraph.current as PromptNode;
+
 		//null should be a signal to end the current discussion
 		if (dialogueGraph.current != null && enabled)
 		{
 			//this can probs be moved out of update tbh
-			DisplayNode(pNode);
+			DisplayNode(dialogueGraph.current);
 		}
 		else
 		{
@@ -98,11 +100,13 @@ public class DialogueController : MonoBehaviour
 			dialogueGraph.current = exitNode;
 		}
 
-		if (pNode.time != 0)
+		int tempDefaultTime = 3;
+		//TODO: the time variable should be moved from promptNode to baseNode
+		if (tempDefaultTime != 0)//pNode.time != 0)
 		{
 			talkTimer += Time.deltaTime;
 		}
-		if (talkTimer > pNode.time)
+		if (talkTimer > tempDefaultTime)
 		{
 			ContinueDialogue();
 
@@ -111,45 +115,76 @@ public class DialogueController : MonoBehaviour
 	}
 
 	//Display node can only display PromptNodes. This might need to also support ResponseNodes
-	void DisplayNode(PromptNode node)
+	void DisplayNode(BaseNode node)
 	{
-		checkPointNode = node.GetConnectedNode("checkpointConnection");
-		exitNode = node.GetConnectedNode("exitConnection");
-
-		//nameBox.text = node.speaker==null ? "Player" : node.speaker.characterName;
-		promptPanel.text = node.prompt;
-
-		//Activate the talking sprite 
-		SetSpeakerImage(true);
-
-		int i = 0;
-
-		if (node.responses != null) //if we have responses
+		if (node.GetType() != null && node.GetType() == typeof(PromptNode))
 		{
-			for (; i < node.responses.Count; i++)
+			PromptNode pNode = node as PromptNode;
+
+			checkPointNode = pNode.GetConnectedNode("checkpointConnection");
+			exitNode = pNode.GetConnectedNode("exitConnection");
+
+			//nameBox.text = node.speaker==null ? "Player" : node.speaker.characterName;
+			promptPanel.text = pNode.prompt;
+
+			//Activate the talking sprite 
+			SetSpeakerImage(true);
+
+			int i = 0;
+
+			if (pNode.responses != null) //if we have responses
 			{
-				if (!node.GetAnswerConnection(i).getHidden())
+				for (; i < pNode.responses.Count; i++)
 				{
-					responseButtons[i].gameObject.SetActive(true);
-					//TODO: update the response class with two(2) text things. a button text, and full text
-					responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = node.GetAnswerConnection(i).textButton;
+					if (!pNode.GetAnswerConnection(i).getHidden())
+					{
+						responseButtons[i].gameObject.SetActive(true);
+						//TODO: update the response class with two(2) text things. a button text, and full text
+						responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
+					}
+					else
+					{
+						responseButtons[i].gameObject.SetActive(false);
+					}
 				}
-				else
-				{
-					responseButtons[i].gameObject.SetActive(false);
-				}
+				continueButton.gameObject.SetActive(false);
 			}
-			continueButton.gameObject.SetActive(false);
-		}
-		else
-		{
-			//TODO: Timed dialogue continues now, so remove this gracefully after the continue button becomes obsolete
-			continueButton.gameObject.SetActive(true);
-		}
+			else
+			{
+				//TODO: Timed dialogue continues now, so remove this gracefully after the continue button becomes obsolete
+				continueButton.gameObject.SetActive(true);
+			}
 
-		for (; i < responseButtons.Length; i++)
+			for (; i < responseButtons.Length; i++)
+			{
+				responseButtons[i].gameObject.SetActive(false);
+			}
+		}
+		else if(node.GetType() == typeof(ResponseNode))
 		{
-			responseButtons[i].gameObject.SetActive(false);
+			ResponseNode rNode = node as ResponseNode;
+
+			//nameBox.text = node.speaker==null ? "Player" : node.speaker.characterName;
+			if (rNode.textFull != "")
+			{
+				promptPanel.text = rNode.textFull;
+			}
+			else
+			{
+				promptPanel.text = rNode.textButton;
+			}
+
+
+
+			//Activate the talking sprite 
+			SetSpeakerImage(false);
+			Debug.Log("PLAYER TALKING");
+			int i = 0;
+
+			for (; i < responseButtons.Length; i++)
+			{
+				responseButtons[i].gameObject.SetActive(false);
+			}
 		}
 	}
 
@@ -169,6 +204,15 @@ public class DialogueController : MonoBehaviour
 	//SHOULD ONLY BE USED BY RESPONSE BUTTONS FOR NOW
 	public void SelectResponse(int responseNode)
 	{
+		//Error check
+		if (dialogueGraph.current.GetType() != null && dialogueGraph.current.GetType() != typeof(PromptNode))
+		{
+			Debug.LogError("Can't get responses because this isn't a PromptNode!");
+			return;
+		}
+
+		PromptNode pNode = dialogueGraph.current as PromptNode;
+
 		//Activate the listening image
 		SetSpeakerImage(false);
 
@@ -177,7 +221,7 @@ public class DialogueController : MonoBehaviour
 			EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
 		}
 
-		dialogueGraph.current = pNode.GetAnswerConnection(responseNode).GetNextNode();
+		dialogueGraph.current = pNode.GetAnswerConnection(responseNode);//.GetNextNode();
 
 		AssessCurrentType();
 
@@ -198,10 +242,9 @@ public class DialogueController : MonoBehaviour
 		{
 			AssessCurrentType();
 
-			pNode = dialogueGraph.current as PromptNode;
 			SetSpeakerImage(false);
 
-			DisplayNode(pNode);
+			DisplayNode(dialogueGraph.current);
 			gameObject.SetActive(true);
 		}
 	}
@@ -214,6 +257,15 @@ public class DialogueController : MonoBehaviour
 
 	private void SetSpeakerImage(bool isSpeaking)
 	{
+		//Error check
+		if (dialogueGraph.current.GetType() != null && dialogueGraph.current.GetType() != typeof(PromptNode))
+		{
+			//Debug.LogError("Can't set speaker image of a non-promptNode");
+			return;
+		}
+
+		PromptNode pNode = dialogueGraph.current as PromptNode;
+
 		Sprite speakerPic = pNode.GetSprite(isSpeaking);
 		if (speakerPic != null)
 		{
@@ -230,16 +282,18 @@ public class DialogueController : MonoBehaviour
 		{
 			Init();
 		}
+		if (dialogueGraph.current != null)
+		{
+			AssessCurrentType();
 
-		AssessCurrentType();
+			SetSpeakerImage(false);
 
-		SetSpeakerImage(false);
-
-		//Problem where on graph swap speakerimage isn't updated
-		//This revealed another underlying problem where the speakers don't show up until they speak
-		//Which in turn is a major barrier to multi character talks
-		//TODO: Figure out a more graceful way to solve the image swapping
-		speakerImages[0].gameObject.SetActive(false);
+			//Problem where on graph swap speakerimage isn't updated
+			//This revealed another underlying problem where the speakers don't show up until they speak
+			//Which in turn is a major barrier to multi character talks
+			//TODO: Figure out a more graceful way to solve the image swapping
+			speakerImages[0].gameObject.SetActive(false);
+		}
 	}
 
 	//This checks to see what the type of the current node is, and evaluates until it reaches a PromptNode
@@ -251,7 +305,7 @@ public class DialogueController : MonoBehaviour
 			return;
 		}
 
-		while (dialogueGraph.current.GetType() != typeof(PromptNode) && dialogueGraph.current != null)
+		while ((dialogueGraph.current.GetType() != typeof(PromptNode) && dialogueGraph.current.GetType() != typeof(ResponseNode)) && dialogueGraph.current != null)
 		{
 			//only supports branch nodes rn.
 			if (dialogueGraph.current.GetType() == typeof(BranchNode))
@@ -268,8 +322,6 @@ public class DialogueController : MonoBehaviour
 				dialogueGraph.current = rNode.GetNextNode();
 			}
 		}
-
-		pNode = dialogueGraph.current as PromptNode;
 	}
 
 	private void OnTriggerExit(Collider col)
@@ -278,18 +330,19 @@ public class DialogueController : MonoBehaviour
 		{
 			if (this.enabled == true)
 			{
-				//the interrupt node
-				BaseNode interruptNode = pNode.GetConnectedNode("interruptConnection");
-				BaseNode checkpoint = pNode.GetConnectedNode("checkpointConnection");
-
 				//TODO: setup interrupts in the xnode graph
+
+				//the interrupt node
+				//BaseNode interruptNode = pNode.GetConnectedNode("interruptConnection");
+				//BaseNode checkpoint = pNode.GetConnectedNode("checkpointConnection");
+
 				//set the interrupt node to go to the checkpoint node
 				//This means interrupts can't ramble
 				//dialogueGraph.nodes[interruptNode].connection = checkPointNode;
 				//dialogueGraph.nodes[interruptNode].checkPointConnection = checkpoint;
 
 				//now go to the interruptNode
-				dialogueGraph.current = interruptNode;// as PromptNode;
+				//dialogueGraph.current = interruptNode;// as PromptNode;
 				this.enabled = false;
 			}
 		}
