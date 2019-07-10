@@ -195,6 +195,12 @@ public class DialogueController : MonoBehaviour
 	//goes to the next default connected node
 	public void ContinueDialogue()
 	{
+        if (!TextController.Instance.IsFinished)
+        {
+            EventAnnouncer.OnDialogueRequestFinish(promptPanel);
+            return;
+        }
+
 		//Activate the listening image while I still have the emotion
 		SetSpeakerImage(false);
 

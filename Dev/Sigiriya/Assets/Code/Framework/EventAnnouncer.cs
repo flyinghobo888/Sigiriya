@@ -48,4 +48,7 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     public delegate void DialogueUpdate(TextMeshProUGUI display, string text);
     public static DialogueUpdate OnDialogueUpdate;
+
+    public delegate void DialogueRequestFinish(TextMeshProUGUI display);
+    public static DialogueRequestFinish OnDialogueRequestFinish;
 }

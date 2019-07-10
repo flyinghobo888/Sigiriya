@@ -12,6 +12,8 @@ public class TextController : ManagerBase<TextController>
     private string outputText;
     private int currentIndex;
 
+    public bool IsFinished { get; private set; }
+
     [SerializeField] private float fillSpeed = 10;
     [SerializeField] private float letterBucketSize = 10;
 
@@ -23,23 +25,21 @@ public class TextController : ManagerBase<TextController>
     {
         //Listen for text to display fancily
         EventAnnouncer.OnDialogueUpdate += UpdateText;
+        EventAnnouncer.OnDialogueRequestFinish += FinishText;
     }
 
     private void OnDisable()
     {
         //Unlisten for text to display fancily
         EventAnnouncer.OnDialogueUpdate -= UpdateText;
+        EventAnnouncer.OnDialogueRequestFinish -= FinishText;
     }
 
     private void UpdateText(TextMeshProUGUI display, string text)
     {
         currentText = text.ToCharArray();
 
-        if (displayText != null)
-        {
-            StopCoroutine(displayText);
-        }
-
+        StopText();
         displayText = StartCoroutine(DisplayText(display));
     }
 
@@ -51,6 +51,7 @@ public class TextController : ManagerBase<TextController>
         outputText = "";
         currentIndex = 0;
         fillCount = 0.0f;
+        IsFinished = false;
 
         //While we still have text to fill...
         while (currentIndex < currentText.Length)
@@ -65,12 +66,27 @@ public class TextController : ManagerBase<TextController>
 
                 if (currentIndex >= currentText.Length)
                 {
+                    IsFinished = true;
                     break;
                 }
             }
 
-            Debug.Log("HELLO");
             yield return null;
+        }
+    }
+
+    private void FinishText(TextMeshProUGUI display)
+    {
+        display.text = currentText.ArrayToString();
+        StopText();
+    }
+
+    private void StopText()
+    {
+        if (displayText != null)
+        {
+            StopCoroutine(displayText);
+            IsFinished = true;
         }
     }
 }
