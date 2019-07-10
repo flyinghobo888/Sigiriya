@@ -67,7 +67,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "I don\u2019t think everyone lives here."
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-8714733977057366191
@@ -701,8 +701,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  textFull: What have you been up to on this fine day?
-  textButton: What be up 2?
+  textFull: Did you have a big day?
+  textButton: Big day?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-4194617275805267721
@@ -1033,7 +1033,6 @@ MonoBehaviour:
   status: 0
   actors:
   - {fileID: 11400000, guid: ab4ace76d33fb4d4da8aefce80f2de83, type: 2}
-  - {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
 --- !u!114 &-2328550291879525163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,7 +1100,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: Maybe, poddi.
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-1535882184681945913
@@ -1265,7 +1264,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: Who was the most interesting?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-318817641209345125
@@ -1421,8 +1420,8 @@ MonoBehaviour:
   - {fileID: 8063056955787163005}
   - {fileID: -8177465408660248403}
   - {fileID: -3743040320694533528}
-  current: {fileID: 1881549196608439168}
-  isInit: 1
+  current: {fileID: 5462849641231178739}
+  isInit: 0
   actors:
   - {fileID: 11400000, guid: ab4ace76d33fb4d4da8aefce80f2de83, type: 2}
 --- !u!114 &48160649106254483
@@ -2055,8 +2054,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  textFull: Hast thou been on a true adventure??
-  textButton: Adventure?
+  textFull: 
+  textButton: What did you and Aravinda find today?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &1684943580626524278
@@ -2815,7 +2814,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "I miss her too, poddi. She\u2019s my Amma you know."
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &5392669265096715433

@@ -158,7 +158,10 @@ MonoBehaviour:
       _node: {fileID: -8929880472086506719}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: -4226584042156237117}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 1
@@ -786,9 +789,55 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "You\u2019ve been doing so much since we got here! I don\u2019t know
+    how you keep up!"
   voiceClip: {fileID: 0}
   throwFlag: 12
+--- !u!114 &-4226584042156237117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92cf68ba0cfe544992bd2946b62f1df, type: 3}
+  m_Name: Actor Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 107.40892, y: -1037.9049}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: -4226584042156237117}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -4226584042156237117}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -8929880472086506719}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  status: 0
+  actors:
+  - {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
 --- !u!114 &-4104642430452742294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,7 +999,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "it\u2019s okay to be sad."
   voiceClip: {fileID: 0}
   throwFlag: 13
 --- !u!114 &-3080585425319846883
@@ -1372,7 +1421,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: Do you want to talk about it?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &11400000
@@ -1437,8 +1486,11 @@ MonoBehaviour:
   - {fileID: 8084741504757777955}
   - {fileID: 8282718453556111936}
   - {fileID: 8248608683991422735}
+  - {fileID: -4226584042156237117}
   current: {fileID: 2180259523156687118}
-  isInit: 1
+  isInit: 0
+  actors:
+  - {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
 --- !u!114 &132394992039104119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2034,7 +2086,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "There\u2019s no use in being so sad, Lakmini."
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &1137208297265852550
@@ -2636,7 +2688,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "it\u2019s not your fault."
   voiceClip: {fileID: 0}
   throwFlag: 14
 --- !u!114 &3174807012648297763
@@ -3235,7 +3287,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "We\u2019re in the middle of the jungle!"
   voiceClip: {fileID: 0}
   throwFlag: 11
 --- !u!114 &5198708656923454524
@@ -3399,7 +3451,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: Thank you for feeding Neja.
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &6057355318771245136
@@ -3469,7 +3521,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: How are you holding up?
   voiceClip: {fileID: 0}
   throwFlag: 15
 --- !u!114 &6347085440265641382
