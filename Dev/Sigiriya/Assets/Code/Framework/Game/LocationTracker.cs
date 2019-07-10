@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Authors: Andrew Rimpici
 //Responsible for keeping track of which location in the world we're in.
 public class LocationTracker : ManagerBase<LocationTracker>
 {
     [SerializeField] private EnumLocation currentLocation = EnumLocation.HOME;
-    [SerializeField] private SpriteRenderer currentLocationBackground = null;
+    [SerializeField] private Image currentLocationBackground = null;
 
     public EnumLocation TargetLocation
     {
