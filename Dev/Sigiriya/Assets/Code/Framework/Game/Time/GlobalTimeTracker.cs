@@ -8,7 +8,10 @@ using UnityEngine.UI;
 public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 {
     //For now, just change the time every few seconds
+    private float totalTime = 5.0f;
+    private float totalTimeInverse;
     private float currentTime;
+
     private EnumTime currentTimeOfDay;
 
     [SerializeField] private Image background;
@@ -30,6 +33,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
     private void Start()
     {
+        totalTimeInverse = 1.0f / totalTime;
         currentTimeOfDay = EnumTime.MORNING;
 
         backgroundOverlays.Clear();
@@ -45,10 +49,10 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     {
         currentTime += Time.deltaTime;
 
-        background.material.SetColor("Color_22E35091", Color.Lerp(currentTopColor, targetTopColor, currentTime));
-        background.material.SetColor("Color_B0472F4B", Color.Lerp(currentBottomColor, targetBottomColor, currentTime));
+        background.material.SetColor("Color_22E35091", Color.Lerp(currentTopColor, targetTopColor, currentTime * totalTimeInverse));
+        background.material.SetColor("Color_B0472F4B", Color.Lerp(currentBottomColor, targetBottomColor, currentTime * totalTimeInverse));
 
-        if (currentTime >= 1.0f)
+        if (currentTime >= totalTime)
         {
             currentIndex = (((int)currentTimeOfDay + 1) % (int)EnumTime.SIZE);
             currentTime = 0.0f;
