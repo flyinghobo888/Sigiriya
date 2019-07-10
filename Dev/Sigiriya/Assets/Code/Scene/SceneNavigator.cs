@@ -92,8 +92,8 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
 public enum EnumScene
 {
     TITLE,      //Scene ID 0
-    GAME,       //Scene ID 1
-    CREDITS,    //Scene ID 2
+    CREDITS,    //Scene ID 1
+    GAME,       //Scene ID 2
 
     SIZE
 }
