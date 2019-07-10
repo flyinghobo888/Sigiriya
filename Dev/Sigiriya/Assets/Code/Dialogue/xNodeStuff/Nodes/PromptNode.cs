@@ -42,6 +42,8 @@ public class PromptNode : BaseNode
 		return null; // Replace this
 	}
 
+	//TODO: move this to the graph, since that controls the speed at which lobsters die
+	//hmmm but I need the emotion from this node tho
     public Sprite GetSprite(bool isTalking)
     {
         if (speaker)

@@ -127,9 +127,6 @@ public class DialogueController : MonoBehaviour
 			//nameBox.text = node.speaker==null ? "Player" : node.speaker.characterName;
 			promptPanel.text = pNode.prompt;
 
-			//Activate the talking sprite 
-			SetSpeakerImage(true);
-
 			int i = 0;
 
 			if (pNode.responses != null) //if we have responses
@@ -174,10 +171,6 @@ public class DialogueController : MonoBehaviour
 				promptPanel.text = rNode.textButton;
 			}
 
-
-
-			//Activate the talking sprite 
-			SetSpeakerImage(false);
 			Debug.Log("PLAYER TALKING");
 			int i = 0;
 
@@ -192,12 +185,15 @@ public class DialogueController : MonoBehaviour
 	//goes to the next default connected node
 	public void ContinueDialogue()
 	{
-		//Activate the listening image
+		//Activate the listening image while I still have the emotion
 		SetSpeakerImage(false);
 
 		dialogueGraph.current = dialogueGraph.current.GetNextNode();
-
 		AssessCurrentType();
+
+		//activate the talking for the speaker
+		SetSpeakerImage(true);
+
 		talkTimer = 0;
 	}
 
@@ -213,7 +209,7 @@ public class DialogueController : MonoBehaviour
 
 		PromptNode pNode = dialogueGraph.current as PromptNode;
 
-		//Activate the listening image
+		//Activate the listening image while I've got the emotion
 		SetSpeakerImage(false);
 
 		if (pNode.GetAnswerConnection(responseNode).throwFlag != FlagBank.Flags.NONE)
@@ -222,8 +218,10 @@ public class DialogueController : MonoBehaviour
 		}
 
 		dialogueGraph.current = pNode.GetAnswerConnection(responseNode);//.GetNextNode();
-
 		AssessCurrentType();
+
+		//Activate the speaking for the new speaker
+		SetSpeakerImage(true);
 
 		talkTimer = 0;
 	}
@@ -234,18 +232,56 @@ public class DialogueController : MonoBehaviour
 	{
 		SwapGraph(newGraph);
 
-		if (!dialogueGraph.isInit)
-		{
-			Init();
-		}
 		if (dialogueGraph.current != null)
 		{
 			AssessCurrentType();
 
-			SetSpeakerImage(false);
+			//SetSpeakerImage(false, 0);
+			SetNeutralSpeakers();
 
 			DisplayNode(dialogueGraph.current);
 			gameObject.SetActive(true);
+		}
+	}
+	void SetNeutralSpeakers()
+	{
+		if (dialogueGraph.current.GetType() == null)
+		{
+			return;
+		}
+
+		List<Sprite> speakerPics = new List<Sprite>();
+		int i = 0;
+		for (; i < dialogueGraph.actors.Count; i++)
+		{
+			speakerPics.Add(dialogueGraph.GetSprite(false, dialogueGraph.actors[i], Character.EnumExpression.NEUTRAL));
+
+			if (speakerPics[i] != null)
+			{
+				speakerImages[i].sprite = speakerPics[0];
+				speakerImages[i].gameObject.SetActive(true); //should always be active
+			}
+		}
+		for (; i < speakerImages.Count; i++)
+		{
+			speakerImages[i].gameObject.SetActive(false);
+		}
+	}
+	private void SetSpeakerImage(bool isSpeaking)//, int index)
+	{
+		//Error check
+		if (dialogueGraph.current == null || dialogueGraph.current.GetType() != typeof(PromptNode))
+		{
+			return;
+		}
+
+		PromptNode pNode = dialogueGraph.current as PromptNode;
+
+		Sprite speakerPic = dialogueGraph.GetSprite(isSpeaking, pNode.speaker, pNode.expression);
+		if (speakerPic != null)
+		{
+			speakerImages[dialogueGraph.GetActorIndex(pNode.speaker)].sprite = speakerPic;
+			//speakerImages[0].gameObject.SetActive(true); //should always be active, this line is depracated
 		}
 	}
 
@@ -255,24 +291,6 @@ public class DialogueController : MonoBehaviour
 		dialogueGraph.current = dialogueGraph.nodes[newNode] as BaseNode;
 	}
 
-	private void SetSpeakerImage(bool isSpeaking)
-	{
-		//Error check
-		if (dialogueGraph.current.GetType() != null && dialogueGraph.current.GetType() != typeof(PromptNode))
-		{
-			//Debug.LogError("Can't set speaker image of a non-promptNode");
-			return;
-		}
-
-		PromptNode pNode = dialogueGraph.current as PromptNode;
-
-		Sprite speakerPic = pNode.GetSprite(isSpeaking);
-		if (speakerPic != null)
-		{
-			speakerImages[0].sprite = speakerPic;
-			speakerImages[0].gameObject.SetActive(true);
-		}
-	}
 
 	public void SwapGraph(SimpleGraph newGraph)
 	{
@@ -286,13 +304,7 @@ public class DialogueController : MonoBehaviour
 		{
 			AssessCurrentType();
 
-			SetSpeakerImage(false);
-
-			//Problem where on graph swap speakerimage isn't updated
-			//This revealed another underlying problem where the speakers don't show up until they speak
-			//Which in turn is a major barrier to multi character talks
-			//TODO: Figure out a more graceful way to solve the image swapping
-			speakerImages[0].gameObject.SetActive(false);
+			SetNeutralSpeakers();
 		}
 	}
 
@@ -314,12 +326,20 @@ public class DialogueController : MonoBehaviour
 
 				dialogueGraph.current = bNode.GetOutputNode();
 			}
-			//TODO: This needs to be actually supported down the road
-			else if (dialogueGraph.current.GetType() == typeof(ResponseNode))
+			else if (dialogueGraph.current.GetType() == typeof(ActorNode))
 			{
-				ResponseNode rNode = dialogueGraph.current as ResponseNode;
+				ActorNode aNode = dialogueGraph.current as ActorNode;
 
-				dialogueGraph.current = rNode.GetNextNode();
+				if (aNode.status == ActorNode.ActorMovement.Arriving)
+				{
+					dialogueGraph.AddActor(aNode.actors[0]);
+				}
+				else if (aNode.status == ActorNode.ActorMovement.Arriving)
+				{
+					dialogueGraph.RemoveActor(aNode.actors[0]);
+				}
+
+				dialogueGraph.current = aNode.GetNextNode();
 			}
 		}
 	}
