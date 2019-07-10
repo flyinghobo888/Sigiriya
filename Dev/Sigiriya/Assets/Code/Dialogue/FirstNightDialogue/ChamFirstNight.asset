@@ -64,7 +64,10 @@ MonoBehaviour:
       _node: {fileID: -8930487348316651429}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: -1260895507183766230}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 1
@@ -158,7 +161,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "Did you take that from Hetuwa\u2019s?"
   voiceClip: {fileID: 0}
   throwFlag: 2
 --- !u!114 &-8343596973372820343
@@ -322,7 +325,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "I haven\u2019t seen you all day, where have you been?"
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-8177897182850202047
@@ -1299,6 +1302,51 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 0
   time: 2
+--- !u!114 &-1260895507183766230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92cf68ba0cfe544992bd2946b62f1df, type: 3}
+  m_Name: Actor Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -2408.3804, y: -705.4892}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: -1260895507183766230}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -1260895507183766230}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -8930487348316651429}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  status: 0
+  actors:
+  - {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
 --- !u!114 &-1232191801318727998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1886,8 +1934,11 @@ MonoBehaviour:
   - {fileID: -8177897182850202047}
   - {fileID: 170161482912582739}
   - {fileID: -8930487348316651429}
+  - {fileID: -1260895507183766230}
   current: {fileID: 8297954157966831747}
-  isInit: 1
+  isInit: 0
+  actors:
+  - {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
 --- !u!114 &170161482912582739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2232,7 +2283,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "Chamara! Come on now, don\u2019t be like that."
   voiceClip: {fileID: 0}
   throwFlag: 4
 --- !u!114 &1303238251020478285
@@ -2302,7 +2353,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "Is the potting yard where you\u2019ve been lately?"
   voiceClip: {fileID: 0}
   throwFlag: 3
 --- !u!114 &1383216390267589455
@@ -3065,7 +3116,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "I\u2019m just curious, podda."
   voiceClip: {fileID: 0}
   throwFlag: 5
 --- !u!114 &5427020705864055778
@@ -3226,7 +3277,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: What have you got there?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &6306303349322917838

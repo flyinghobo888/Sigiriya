@@ -252,7 +252,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: What are you doing?
+  textFull: 
+  textButton: What are you doing?
   voiceClip: {fileID: 0}
   throwFlag: 20
 --- !u!114 &-7761566911823386873
@@ -413,7 +414,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: You are from Sigiriya as well I presume?
+  textFull: 
+  textButton: You are from Sigiriya as well I presume?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-7420637097879134703
@@ -541,7 +543,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "I guess I won\u2019t be."
+  textFull: 
+  textButton: "I guess I won\u2019t be."
   voiceClip: {fileID: 0}
   throwFlag: 21
 --- !u!114 &-6901311603160596809
@@ -1391,7 +1394,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "I\u2019m really very curious."
+  textFull: 
+  textButton: "I\u2019m really very curious."
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-2258849242027089531
@@ -1749,7 +1753,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: Oh, sorry to bother you.
+  textFull: 
+  textButton: Oh, sorry to bother you.
   voiceClip: {fileID: 0}
   throwFlag: 18
 --- !u!114 &-1705651330061451787
@@ -2098,7 +2103,10 @@ MonoBehaviour:
       _node: {fileID: -1183248601938687362}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: 6931495544667867078}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 1
@@ -2700,8 +2708,11 @@ MonoBehaviour:
   - {fileID: -7692305611155764132}
   - {fileID: 8469940650096660753}
   - {fileID: -1044129772033794385}
+  - {fileID: 6931495544667867078}
   current: {fileID: 0}
   isInit: 0
+  actors:
+  - {fileID: 11400000, guid: 69a9005166247554c9f0fa48a1c4d8ae, type: 2}
 --- !u!114 &1076977886190611023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3143,7 +3154,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: '... Why?'
+  textFull: 
+  textButton: Oh! Okay, sorry.
   voiceClip: {fileID: 0}
   throwFlag: 19
 --- !u!114 &3219054929207498501
@@ -3212,7 +3224,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "You\u2019re being rude."
+  textFull: 
+  textButton: "You\u2019re being rude."
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &4063196469694802858
@@ -3406,7 +3419,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: I guess I will.
+  textFull: 
+  textButton: I guess I will.
   voiceClip: {fileID: 0}
   throwFlag: 21
 --- !u!114 &4244128613461191376
@@ -3948,7 +3962,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "Wait, can I ask what you\u2019re doing first?"
+  textFull: 
+  textButton: "Wait, can I ask what you\u2019re doing first?"
   voiceClip: {fileID: 0}
   throwFlag: 17
 --- !u!114 &6061489927102798225
@@ -4201,7 +4216,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: "Why are you out here? If you don\u2019t mind me asking."
+  textFull: 
+  textButton: "Why are you out here? If you don\u2019t mind me asking."
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &6545169010260740581
@@ -4361,9 +4377,55 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: Oh! Okay, sorry.
+  textFull: 
+  textButton: "\u2026 Why?"
   voiceClip: {fileID: 0}
   throwFlag: 18
+--- !u!114 &6931495544667867078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92cf68ba0cfe544992bd2946b62f1df, type: 3}
+  m_Name: Actor Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 3799.0525, y: -707.13727}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 6931495544667867078}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 6931495544667867078}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -1183248601938687362}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  status: 0
+  actors:
+  - {fileID: 11400000, guid: 69a9005166247554c9f0fa48a1c4d8ae, type: 2}
 --- !u!114 &7117250933761939812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4615,7 +4677,8 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  text: And yet I am.
+  textFull: 
+  textButton: And yet I am.
   voiceClip: {fileID: 0}
   throwFlag: 20
 --- !u!114 &8469940650096660753

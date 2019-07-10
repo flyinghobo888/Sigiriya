@@ -1323,7 +1323,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "She\u2019s pulling through."
   voiceClip: {fileID: 0}
   throwFlag: 7
 --- !u!114 &-3859317437070391819
@@ -2116,7 +2116,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: Oh, sorry then, but how  your family?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &-315760835573967911
@@ -2186,7 +2186,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "Sorry then, I\u2019ll let you go."
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &11400000
@@ -2257,8 +2257,11 @@ MonoBehaviour:
   - {fileID: 2345381232794050466}
   - {fileID: -5525859624776946346}
   - {fileID: 3680564379652292429}
+  - {fileID: 4246209947623214067}
   current: {fileID: 9156832407439496452}
   isInit: 0
+  actors:
+  - {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
 --- !u!114 &469323016241931347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2420,7 +2423,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: Could you use help?
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &1261485860623118402
@@ -3084,7 +3087,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "How\u2019s your family settling?"
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &3055097771481297621
@@ -3594,7 +3597,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "She\u2019s been struggling."
   voiceClip: {fileID: 0}
   throwFlag: 8
 --- !u!114 &3807716637649504317
@@ -3691,6 +3694,51 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
   time: 2
+--- !u!114 &4246209947623214067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92cf68ba0cfe544992bd2946b62f1df, type: 3}
+  m_Name: Actor Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -289.1956, y: -973.8635}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 4246209947623214067}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 4246209947623214067}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 9156832407439496452}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  status: 0
+  actors:
+  - {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
 --- !u!114 &4550769607867363480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4073,7 +4121,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "She\u2019s still so quiet."
   voiceClip: {fileID: 0}
   throwFlag: 9
 --- !u!114 &6358026102158533194
@@ -4517,7 +4565,7 @@ MonoBehaviour:
   output: {fileID: 0}
   isHidden: 0
   textFull: 
-  textButton: 
+  textButton: "I don\u2019t think I\u2019ve seen you since we got here!"
   voiceClip: {fileID: 0}
   throwFlag: 0
 --- !u!114 &7931929591955079830
@@ -4899,7 +4947,10 @@ MonoBehaviour:
       _node: {fileID: 9156832407439496452}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: 4246209947623214067}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 1
