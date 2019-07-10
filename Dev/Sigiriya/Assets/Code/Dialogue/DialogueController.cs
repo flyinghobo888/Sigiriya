@@ -25,7 +25,9 @@ public class DialogueController : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI promptPanel = null;
 	[SerializeField] private Button[] responseButtons = null;
 	[SerializeField] private Button continueButton = null;
-	[SerializeField] private List<Image> speakerImages; //basically just a holder of images to display 
+	[SerializeField] private List<Image> speakerImages; //basically just a holder of images to display
+
+    [SerializeField] private GameObject characterContainer = null;
 
 	[Header("Dialogue")]
 	//[SerializeField] PromptNode pNode;
@@ -96,8 +98,11 @@ public class DialogueController : MonoBehaviour
 		{
 			Debug.Log(ID + " is done talking");
 			gameObject.SetActive(false);
+            characterContainer.SetActive(true);
 
-			dialogueGraph.current = exitNode;
+            dialogueGraph.current = exitNode;
+
+            //conversation is done.
 		}
 
 		int tempDefaultTime = 3;
@@ -241,9 +246,22 @@ public class DialogueController : MonoBehaviour
 
 			DisplayNode(dialogueGraph.current);
 			gameObject.SetActive(true);
-		}
+
+            //Start talking.
+        }
 	}
-	void SetNeutralSpeakers()
+
+    public void DisableCharacterController(GameObject charContainer)
+    {
+        characterContainer = charContainer;
+
+        if (characterContainer != null)
+        {
+            characterContainer.SetActive(false);
+        }
+    }
+
+	private void SetNeutralSpeakers()
 	{
 		if (dialogueGraph.current.GetType() == null)
 		{
@@ -267,6 +285,7 @@ public class DialogueController : MonoBehaviour
 			speakerImages[i].gameObject.SetActive(false);
 		}
 	}
+
 	private void SetSpeakerImage(bool isSpeaking)//, int index)
 	{
 		//Error check
@@ -290,7 +309,6 @@ public class DialogueController : MonoBehaviour
 	{
 		dialogueGraph.current = dialogueGraph.nodes[newNode] as BaseNode;
 	}
-
 
 	public void SwapGraph(SimpleGraph newGraph)
 	{

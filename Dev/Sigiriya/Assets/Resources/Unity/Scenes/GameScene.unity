@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1296,7 +1296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000000007639869, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &557429964
@@ -1916,6 +1916,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 11400000, guid: 1255be17b006ec94ca0da7deb350f656,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: SimpleGraph, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2492439304203546930}
+        m_MethodName: DisableCharacterController
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1113375827}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3122,6 +3133,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2492439304203546930}
+        m_MethodName: DisableCharacterController
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1943549365}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1943549368
@@ -3608,6 +3630,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 11400000, guid: 05a71633cd566144f9f25bf9e4eeab1c,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: SimpleGraph, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2492439304203546930}
+        m_MethodName: DisableCharacterController
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4614492078856140769}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4330,6 +4363,7 @@ MonoBehaviour:
   continueButton: {fileID: 2492439303801739865}
   speakerImages:
   - {fileID: 7671171307061666354}
+  characterContainer: {fileID: 0}
   graphList:
   - {fileID: 11400000, guid: 1255be17b006ec94ca0da7deb350f656, type: 2}
   - {fileID: 11400000, guid: 05a71633cd566144f9f25bf9e4eeab1c, type: 2}
@@ -4884,6 +4918,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2492439304203546930}
+        m_MethodName: DisableCharacterController
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8082388490606483856}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &3639809566717544721
@@ -5172,6 +5217,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2492439304203546930}
+        m_MethodName: DisableCharacterController
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4021018717793773754}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &7671171307061666354
@@ -5253,6 +5309,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 11400000, guid: d94c0f8ab13c24746bd2d50af6478ecb,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: SimpleGraph, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2492439304203546930}
+        m_MethodName: DisableCharacterController
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 3639809566717544721}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
