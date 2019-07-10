@@ -71,7 +71,6 @@ public class DialogueController : MonoBehaviour
 		//EventManager.StopListening("E_down", ContinueDialogue);
 		//EventManager.FireEvent("MENU_close");
 
-
 		EventAnnouncer.OnDialogueEnd?.Invoke();
 	}
 
@@ -86,38 +85,38 @@ public class DialogueController : MonoBehaviour
 
 	private void Update()
 	{
-		//PromptNode pNode = dialogueGraph.current as PromptNode;
+        //PromptNode pNode = dialogueGraph.current as PromptNode;
 
-		//null should be a signal to end the current discussion
-		if (dialogueGraph.current != null && enabled)
-		{
-			//this can probs be moved out of update tbh
-			DisplayNode(dialogueGraph.current);
-		}
-		else
-		{
-			Debug.Log(ID + " is done talking");
-			gameObject.SetActive(false);
-            characterContainer.SetActive(true);
+        //null should be a signal to end the current discussion
+        //if (dialogueGraph.current != null && enabled)
+        //{
+        //	//this can probs be moved out of update tbh
+        //	//DisplayNode(dialogueGraph.current);
+        //}
+        //else
+        //{
+        //	Debug.Log(ID + " is done talking");
+        //	gameObject.SetActive(false);
+        //          characterContainer.SetActive(true);
 
-            dialogueGraph.current = exitNode;
+        //          dialogueGraph.current = exitNode;
 
-            //conversation is done.
-		}
+        //          //conversation is done.
+        //}
 
-		int tempDefaultTime = 3;
-		//TODO: the time variable should be moved from promptNode to baseNode
-		if (tempDefaultTime != 0)//pNode.time != 0)
-		{
-			talkTimer += Time.deltaTime;
-		}
-		if (talkTimer > tempDefaultTime)
-		{
-			ContinueDialogue();
+        //int tempDefaultTime = 3;
+        ////TODO: the time variable should be moved from promptNode to baseNode
+        //if (tempDefaultTime != 0)//pNode.time != 0)
+        //{
+        //    talkTimer += Time.deltaTime;
+        //}
+        //if (talkTimer > tempDefaultTime)
+        //{
+        //    ContinueDialogue();
 
-			talkTimer = 0;
-		}
-	}
+        //    talkTimer = 0;
+        //}
+    }
 
 	//Display node can only display PromptNodes. This might need to also support ResponseNodes
 	void DisplayNode(BaseNode node)
@@ -130,25 +129,27 @@ public class DialogueController : MonoBehaviour
 			exitNode = pNode.GetConnectedNode("exitConnection");
 
 			nameBox.text = pNode.speaker == null ? "Player" : pNode.speaker.characterName;
-			promptPanel.text = pNode.prompt;
+            promptPanel.text = "";//pNode.prompt;
+            EventAnnouncer.OnDialogueUpdate(promptPanel, pNode.prompt);
 
 			int i = 0;
 
-			if (pNode.responses != null) //if we have responses
+			if (pNode.responses.Count != 0) //if we have responses
 			{
-				for (; i < pNode.responses.Count; i++)
-				{
-					if (!pNode.GetAnswerConnection(i).getHidden())
-					{
-						responseButtons[i].gameObject.SetActive(true);
-						//TODO: update the response class with two(2) text things. a button text, and full text
-						responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
-					}
-					else
-					{
-						responseButtons[i].gameObject.SetActive(false);
-					}
-				}
+                for (; i < pNode.responses.Count; i++)
+                {
+                    if (!pNode.GetAnswerConnection(i).getHidden())
+                    {
+                        responseButtons[i].gameObject.SetActive(true);
+                        //TODO: update the response class with two(2) text things. a button text, and full text
+                        responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
+                    }
+                    else
+                    {
+                        responseButtons[i].gameObject.SetActive(false);
+                    }
+                }
+
 				continueButton.gameObject.SetActive(false);
 			}
 			else
@@ -169,12 +170,14 @@ public class DialogueController : MonoBehaviour
             nameBox.text = "Player";
             if (rNode.textFull != "")
 			{
-				promptPanel.text = rNode.textFull;
-			}
+                promptPanel.text = "";//rNode.textFull;
+                EventAnnouncer.OnDialogueUpdate(promptPanel, rNode.textFull);
+            }
 			else
 			{
-				promptPanel.text = rNode.textButton;
-			}
+                promptPanel.text = "";//rNode.textButton;
+                EventAnnouncer.OnDialogueUpdate(promptPanel, rNode.textButton);
+            }
 
 			Debug.Log("PLAYER TALKING");
 			int i = 0;
@@ -183,7 +186,9 @@ public class DialogueController : MonoBehaviour
 			{
 				responseButtons[i].gameObject.SetActive(false);
 			}
-		}
+
+            continueButton.gameObject.SetActive(true);
+        }
 	}
 
 	#region Continuation Commands
@@ -199,7 +204,9 @@ public class DialogueController : MonoBehaviour
 		//activate the talking for the speaker
 		SetSpeakerImage(true);
 
-		talkTimer = 0;
+        DisplayNodeOrQuit();
+
+        talkTimer = 0;
 	}
 
 	//SHOULD ONLY BE USED BY RESPONSE BUTTONS FOR NOW
@@ -228,7 +235,9 @@ public class DialogueController : MonoBehaviour
 		//Activate the speaking for the new speaker
 		SetSpeakerImage(true);
 
-		talkTimer = 0;
+        DisplayNodeOrQuit();
+
+        talkTimer = 0;
 	}
 	#endregion
 
@@ -396,4 +405,20 @@ public class DialogueController : MonoBehaviour
 			graphList[i].isInit = false;
 		}
 	}
+
+    private void DisplayNodeOrQuit()
+    {
+        if (dialogueGraph.current != null)
+        {
+            DisplayNode(dialogueGraph.current);
+        }
+        else
+        {
+            Debug.Log(ID + " is done talking");
+            gameObject.SetActive(false);
+            characterContainer.SetActive(true);
+
+            dialogueGraph.current = exitNode;
+        }
+    }
 }
