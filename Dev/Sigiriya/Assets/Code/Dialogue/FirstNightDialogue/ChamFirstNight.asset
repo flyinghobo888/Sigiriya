@@ -1,99 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8930487348316651429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
-  m_Name: Prompt Node
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -2104, y: -728}
-  ports:
-    keys:
-    - responses
-    - interruptConnection
-    - checkpointConnection
-    - exitConnection
-    - input
-    - output
-    values:
-    - _fieldName: responses
-      _node: {fileID: -8930487348316651429}
-      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
-        Culture=neutral, PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: interruptConnection
-      _node: {fileID: -8930487348316651429}
-      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: checkpointConnection
-      _node: {fileID: -8930487348316651429}
-      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exitConnection
-      _node: {fileID: -8930487348316651429}
-      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: input
-      _node: {fileID: -8930487348316651429}
-      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: output
-        node: {fileID: -1260895507183766230}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 1
-      _dynamic: 0
-    - _fieldName: output
-      _node: {fileID: -8930487348316651429}
-      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 8297954157966831747}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  input: {fileID: 0}
-  output: {fileID: 0}
-  responses: []
-  interruptConnection: {fileID: 0}
-  checkpointConnection: {fileID: 0}
-  exitConnection: {fileID: 0}
-  prompt: 
-  speaker: {fileID: 0}
-  expression: 0
-  time: 0
 --- !u!114 &-8420386046531337867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1315,7 +1221,7 @@ MonoBehaviour:
   m_Name: Actor Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2408.3804, y: -705.4892}
+  position: {x: -2088, y: -712}
   ports:
     keys:
     - input
@@ -1336,7 +1242,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: input
-        node: {fileID: -8930487348316651429}
+        node: {fileID: 8297954157966831747}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1933,10 +1839,9 @@ MonoBehaviour:
   - {fileID: 5427020705864055778}
   - {fileID: -8177897182850202047}
   - {fileID: 170161482912582739}
-  - {fileID: -8930487348316651429}
   - {fileID: -1260895507183766230}
-  current: {fileID: 8297954157966831747}
-  isInit: 0
+  current: {fileID: 2346893732446245091}
+  isInit: 1
   actors:
   - {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
 --- !u!114 &170161482912582739
@@ -3858,7 +3763,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1784, y: -728}
+  position: {x: -1848, y: -760}
   ports:
     keys:
     - responses
@@ -3915,11 +3820,11 @@ MonoBehaviour:
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections:
-      - fieldName: output
-        node: {fileID: -8930487348316651429}
-        reroutePoints: []
       - fieldName: exitConnection
         node: {fileID: 8297954157966831747}
+        reroutePoints: []
+      - fieldName: output
+        node: {fileID: -1260895507183766230}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

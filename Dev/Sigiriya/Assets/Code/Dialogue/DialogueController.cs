@@ -124,7 +124,7 @@ public class DialogueController : MonoBehaviour
 			checkPointNode = pNode.GetConnectedNode("checkpointConnection");
 			exitNode = pNode.GetConnectedNode("exitConnection");
 
-			//nameBox.text = node.speaker==null ? "Player" : node.speaker.characterName;
+			nameBox.text = pNode.speaker == null ? "Player" : pNode.speaker.characterName;
 			promptPanel.text = pNode.prompt;
 
 			int i = 0;
@@ -161,8 +161,8 @@ public class DialogueController : MonoBehaviour
 		{
 			ResponseNode rNode = node as ResponseNode;
 
-			//nameBox.text = node.speaker==null ? "Player" : node.speaker.characterName;
-			if (rNode.textFull != "")
+            nameBox.text = "Player";
+            if (rNode.textFull != "")
 			{
 				promptPanel.text = rNode.textFull;
 			}
