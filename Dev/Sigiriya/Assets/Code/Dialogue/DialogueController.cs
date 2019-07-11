@@ -291,7 +291,7 @@ public class DialogueController : MonoBehaviour
 
 			if (speakerPics[i] != null)
 			{
-				speakerImages[i].sprite = speakerPics[0];
+				speakerImages[i].sprite = speakerPics[i];
 				speakerImages[i].gameObject.SetActive(true); //should always be active
 			}
 		}
@@ -365,11 +365,17 @@ public class DialogueController : MonoBehaviour
 
 				if (aNode.status == ActorNode.ActorMovement.Arriving)
 				{
-					dialogueGraph.AddActor(aNode.actors[0]);
+					for (int i = 0; i < aNode.actors.Count; i++)
+					{
+						dialogueGraph.AddActor(aNode.actors[i]);
+					}
 				}
-				else if (aNode.status == ActorNode.ActorMovement.Arriving)
+				else if (aNode.status == ActorNode.ActorMovement.Leaving)
 				{
-					dialogueGraph.RemoveActor(aNode.actors[0]);
+					for (int i = 0; i < aNode.actors.Count; i++)
+					{
+						dialogueGraph.RemoveActor(aNode.actors[i]);
+					}
 				}
 
 				dialogueGraph.current = aNode.GetNextNode();
