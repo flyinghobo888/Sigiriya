@@ -7,6 +7,11 @@ using TMPro;
 //Designed to hold all of the possible events for the game.
 public class EventAnnouncer : ManagerBase<EventAnnouncer>
 {
+    public void PressButton()
+    {
+        OnUIButtonPressed?.Invoke(EnumSound.BUTTON_PRESS);
+    }
+
     /* Scene Events */
 
     //Sends an event to change to the target scene (Changes the scene to the target scene).
@@ -51,4 +56,25 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     public delegate void DialogueRequestFinish(TextMeshProUGUI display);
     public static DialogueRequestFinish OnDialogueRequestFinish;
+
+
+    /* Audio Events */
+
+    public delegate void PlayMusicRequested();
+    public static PlayMusicRequested OnPlayMusicRequested;
+
+    public delegate void StopMusicRequested();
+    public static StopMusicRequested OnStopMusicRequested;
+
+    public delegate void MusicVolumeChanged(float value);
+    public static MusicVolumeChanged OnMusicVolumeChanged;
+
+    public delegate void SoundVolumeChanged(float value);
+    public static SoundVolumeChanged OnSoundVolumeChanged;
+
+
+    /* Sound Events */
+
+    public delegate AudioSource UIButtonPressed(EnumSound soundID);
+    public static UIButtonPressed OnUIButtonPressed;
 }

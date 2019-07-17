@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class NavigationPanel : MonoBehaviour
 {
     private Transform buttonContainer;
-    [SerializeField] private GameObject NavButton;
+    [SerializeField] private GameObject NavButton = null;
 
     private void Start()
     {

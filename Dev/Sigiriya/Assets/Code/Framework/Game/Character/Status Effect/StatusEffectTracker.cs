@@ -58,13 +58,16 @@ public class StatusEffect : MonoBehaviour
 
     public void Init(EnumStatusEffect type, float duration, in HashSet<Character> affectedCharacters)
     {
-        EffectType = type;
-        Duration = duration;
-        isInitialized = true;
-
-        foreach (Character c in affectedCharacters)
+        if (!isInitialized)
         {
-            AddAffectedCharacter(c);
+            EffectType = type;
+            Duration = duration;
+            isInitialized = true;
+
+            foreach (Character c in affectedCharacters)
+            {
+                AddAffectedCharacter(c);
+            }
         }
     }
 

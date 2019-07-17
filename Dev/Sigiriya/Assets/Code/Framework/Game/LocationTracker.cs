@@ -18,10 +18,10 @@ public class LocationTracker : ManagerBase<LocationTracker>
     private bool shouldFade;
 
 	[Header("TEMP")]
-	[SerializeField] GameObject Home;
-	[SerializeField] GameObject Clearing;
-	[SerializeField] GameObject Kitchen;
-	[SerializeField] GameObject Spring;
+	[SerializeField] GameObject Home = null;
+	[SerializeField] GameObject Clearing = null;
+	[SerializeField] GameObject Kitchen = null;
+	[SerializeField] GameObject Spring = null;
 
 	[Header ("Home Location")]
     [SerializeField] private Location home = null;
@@ -56,7 +56,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
     private Dictionary<EnumLocation, Location> locations = new Dictionary<EnumLocation, Location>();
 
     [Header("Location Fade")]
-    [SerializeField] private Fade locationFadeRef;
+    [SerializeField] private Fade locationFadeRef = null;
 
     private void Awake()
     {

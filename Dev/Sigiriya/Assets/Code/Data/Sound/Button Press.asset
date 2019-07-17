@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3957a008614447a448d5721c93d5227d, type: 3}
+  m_Name: Button Press
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: ce957cec1c1e5ca4f8c025c87d02a81f, type: 3}
+  - {fileID: 8300000, guid: 412561c35ad50e840a4865adf5cb3049, type: 3}
+  - {fileID: 8300000, guid: c6b04908e3a12ba49a620e053163ac03, type: 3}
+  - {fileID: 8300000, guid: f020affaf4238634382628fe0dd06383, type: 3}
+  - {fileID: 8300000, guid: 9c1c90325f0ed254799e828c24568bcd, type: 3}
+  - {fileID: 8300000, guid: 4711356e8db7a504e8e3a4f183da59eb, type: 3}
+  - {fileID: 8300000, guid: 2c91ec0629eb8d045b599315ea349dc6, type: 3}
+  - {fileID: 8300000, guid: 8207479db67399e4393125438786bb37, type: 3}
+  - {fileID: 8300000, guid: fb5d8a4cc83a7d0428400e5e8fec6fa0, type: 3}
+  - {fileID: 8300000, guid: 9be36037f98265a49a35760569b852ea, type: 3}
+  soundID: 0

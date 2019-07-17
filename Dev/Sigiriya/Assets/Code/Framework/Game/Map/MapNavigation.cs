@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapNavigation : MonoBehaviour
 {
-    [SerializeField] private GameObject map;
+    [SerializeField] private GameObject map = null;
 
     private void OnEnable()
     {

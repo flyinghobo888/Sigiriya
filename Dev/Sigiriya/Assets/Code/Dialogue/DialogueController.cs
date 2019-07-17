@@ -25,7 +25,7 @@ public class DialogueController : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI promptPanel = null;
 	[SerializeField] private Button[] responseButtons = null;
 	[SerializeField] private Button continueButton = null;
-	[SerializeField] private List<Image> speakerImages; //basically just a holder of images to display
+	[SerializeField] private List<Image> speakerImages = null; //basically just a holder of images to display
 
     [SerializeField] private GameObject characterContainer = null;
 
@@ -35,10 +35,10 @@ public class DialogueController : MonoBehaviour
 	private BaseNode checkPointNode = null;
 	private BaseNode exitNode = null;
 
-	private float talkTimer = 0;
+	//private float talkTimer = 0;
 
 	[Header("Dev/Editor")]
-	[SerializeField] private List<SimpleGraph> graphList;
+	[SerializeField] private List<SimpleGraph> graphList = null;
 
 	private void Awake()
 	{
@@ -212,7 +212,7 @@ public class DialogueController : MonoBehaviour
 
         DisplayNodeOrQuit();
 
-        talkTimer = 0;
+        //talkTimer = 0;
 	}
 
 	//SHOULD ONLY BE USED BY RESPONSE BUTTONS FOR NOW
@@ -243,7 +243,7 @@ public class DialogueController : MonoBehaviour
 
         DisplayNodeOrQuit();
 
-        talkTimer = 0;
+        //talkTimer = 0;
 	}
 	#endregion
 

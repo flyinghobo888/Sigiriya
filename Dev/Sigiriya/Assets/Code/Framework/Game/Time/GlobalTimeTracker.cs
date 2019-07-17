@@ -14,13 +14,13 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
     private EnumTime currentTimeOfDay;
 
-    [SerializeField] private Image background;
+    [SerializeField] private Image background = null;
 
-    [SerializeField] private Material sunriseOverlay;
-    [SerializeField] private Material morningOverlay;
-    [SerializeField] private Material middayOverlay;
-    [SerializeField] private Material eveningOverlay;
-    [SerializeField] private Material nightOverlay;
+    [SerializeField] private Material sunriseOverlay = null;
+    [SerializeField] private Material morningOverlay = null;
+    [SerializeField] private Material middayOverlay = null;
+    [SerializeField] private Material eveningOverlay = null;
+    [SerializeField] private Material nightOverlay = null;
 
     private List<Material> backgroundOverlays = new List<Material>();
     private int currentIndex = 0;

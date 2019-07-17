@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -204,6 +204,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 775685222}
         m_MethodName: MenuClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4726204770643466474, guid: 4a4e4865488a7a64a90f54b907098869,
+          type: 3}
+        m_MethodName: PressButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1649,8 +1661,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1809064428}
   m_HandleRect: {fileID: 1809064427}
   m_Direction: 2
-  m_Value: 0.99999976
-  m_Size: 0.63116765
+  m_Value: 1
+  m_Size: 0.6310636
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

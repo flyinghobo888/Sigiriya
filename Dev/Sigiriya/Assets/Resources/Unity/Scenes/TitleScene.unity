@@ -212,6 +212,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4726204770643466474, guid: 4a4e4865488a7a64a90f54b907098869,
+          type: 3}
+        m_MethodName: PressButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!222 &40721020
@@ -737,6 +749,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 775685222}
         m_MethodName: CreditsClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4726204770643466474, guid: 4a4e4865488a7a64a90f54b907098869,
+          type: 3}
+        m_MethodName: PressButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
