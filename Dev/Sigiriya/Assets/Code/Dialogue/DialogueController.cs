@@ -270,10 +270,13 @@ public class DialogueController : MonoBehaviour
     {
         characterContainer = charContainer;
 
-        if (characterContainer != null)
-        {
-            characterContainer.SetActive(false);
-        }
+		if (dialogueGraph.current != null)
+		{
+			if (characterContainer != null)
+			{
+				characterContainer.SetActive(false);
+			}
+		}
     }
 
 	private void SetNeutralSpeakers()
