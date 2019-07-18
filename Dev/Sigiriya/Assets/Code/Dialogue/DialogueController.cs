@@ -12,7 +12,7 @@ TODO:
 
 */
 
-public class DialogueController : MonoBehaviour
+public class DialogueController : ManagerBase<DialogueController>
 {
 	//[Header("Camera")]
 	//[SerializeField] private int textSize;
