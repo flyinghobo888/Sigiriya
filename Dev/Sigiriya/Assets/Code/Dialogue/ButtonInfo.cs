@@ -34,7 +34,7 @@ public class ButtonInfo : MonoBehaviour
 	{
 		Debug.Log("Do I have something to say?");
 
-		if (LocationTracker.Instance.dialogueController != null && talkBubble != null)
+		if (DialogueController.Instance != null && talkBubble != null)
 		{
 			if (!dialogueGraph.isInit)
 			{
@@ -60,11 +60,11 @@ public class ButtonInfo : MonoBehaviour
 
 	public void EnableCurrNode()
 	{
-		LocationTracker.Instance.dialogueController.EnableCurrNode(dialogueGraph);
+		DialogueController.Instance.EnableCurrNode(dialogueGraph);
 	}
 
 	public void DisableCharacter()
 	{
-		LocationTracker.Instance.dialogueController.DisableCharacterController(characterContainer);
+		DialogueController.Instance.DisableCharacterController(characterContainer);
 	}
 }

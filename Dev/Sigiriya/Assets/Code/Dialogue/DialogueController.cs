@@ -42,16 +42,24 @@ public class DialogueController : ManagerBase<DialogueController>
 
 	private void Awake()
 	{
-		if (dialogueGraph.isInit)
+		if (dialogueGraph != null)
 		{
-			Init();
+			if (dialogueGraph.isInit)
+			{
+				Instance.Init();
+				Instance.gameObject.SetActive(false);
+			}
+		}
+		else
+		{
+			Instance.gameObject.SetActive(false);
 		}
 	}
 
 	private void Init()
 	{
 		ID = this.name;
-		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
+
 		dialogueGraph.Restart();
 
 		AssessCurrentType();
