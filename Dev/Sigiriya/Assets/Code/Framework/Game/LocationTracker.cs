@@ -7,6 +7,8 @@ using UnityEngine.UI;
 //Responsible for keeping track of which location in the world we're in.
 public class LocationTracker : ManagerBase<LocationTracker>
 {
+	[SerializeField] public DialogueController dialogueController;
+
     [SerializeField] private EnumLocation currentLocation = EnumLocation.HOME;
     [SerializeField] private Image currentLocationBackground = null;
 

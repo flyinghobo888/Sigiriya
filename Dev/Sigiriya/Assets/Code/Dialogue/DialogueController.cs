@@ -430,10 +430,10 @@ public class DialogueController : MonoBehaviour
         else
         {
             Debug.Log(ID + " is done talking");
-            gameObject.SetActive(false);
-            characterContainer.SetActive(true);
+			dialogueGraph.current = exitNode;
 
-            dialogueGraph.current = exitNode;
+			gameObject.SetActive(false);
+            characterContainer.SetActive(true);
         }
     }
 }
