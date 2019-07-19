@@ -23,7 +23,7 @@ public class InputTracker : ManagerBase<InputTracker>
     private int activeTouchCount = 0;
     public List<Touch> HeldTouches { get; private set; } = new List<Touch>();
 
-    public Touch NewestTouch { get; private set; }
+    public List<Touch> NewTouches { get; private set; } = new List<Touch>();
 
     private void Start()
     {
@@ -44,6 +44,15 @@ public class InputTracker : ManagerBase<InputTracker>
 
         //Press -> Idle
         pressState.AddTransition(toIdleState);
+
+        //Press -> Multipress
+        pressState.AddTransition(toMultipressState);
+
+        //Multipress -> Press
+        multipressState.AddTransition(toPressState);
+
+        //Multipress -> Idle
+        multipressState.AddTransition(toIdleState);
     }
 
     private void AddStates()
@@ -77,7 +86,7 @@ public class InputTracker : ManagerBase<InputTracker>
                 if (t.phase == TouchPhase.Began)
                 {
                     EventAnnouncer.OnTouchStarted?.Invoke(t);
-                    NewestTouch = t;
+                    NewTouches.Add(t);
                 }
                 //If the touch just ended or was interupted, fire the touch release event
                 else if (t.phase == TouchPhase.Ended || t.phase == TouchPhase.Canceled)
@@ -97,8 +106,9 @@ public class InputTracker : ManagerBase<InputTracker>
                 EventAnnouncer.OnTouchesHeld?.Invoke(HeldTouches.ToArray());
             }
 
-            //Reset the held touches list to prepare for the next frame
+            //Reset the touches lists to prepare for the next frame
             HeldTouches.Clear();
+            NewTouches.Clear();
         }
 
         //To keep track of the current frames touch count during the next frame

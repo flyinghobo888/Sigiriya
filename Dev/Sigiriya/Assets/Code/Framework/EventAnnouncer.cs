@@ -152,6 +152,6 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     public static MultiTouchEnded OnMultiTouchEnded;
 
     //When the user removes too many fingers and only has one left
-    public delegate void MultiTouchChanging(Touch touch);
+    public delegate void MultiTouchChanging();
     public static MultiTouchChanging OnMultiTouchChanging;
 }

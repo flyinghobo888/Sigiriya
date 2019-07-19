@@ -13,7 +13,7 @@ public class PressGestureState : GestureState
         base.OnEntrance();
         Debug.Log("Entering Press Gesture State");
 
-        EventAnnouncer.OnPressStarted?.Invoke(InputTracker.Instance.NewestTouch);
+        EventAnnouncer.OnPressStarted?.Invoke(InputTracker.Instance.NewTouches[0]);
     }
 
     public override void OnExit()
@@ -43,22 +43,36 @@ public class PressGestureState : GestureState
     {
         EventAnnouncer.OnTouchStarted += TrackPress;
         EventAnnouncer.OnTouchReleased += TrackPress;
+        EventAnnouncer.OnTouchesHeld += TrackPress;
+        EventAnnouncer.OnTouchEnded += TransitionToIdle;
     }
 
     protected override void UnlistenForEvents()
     {
         EventAnnouncer.OnTouchStarted -= TrackPress;
         EventAnnouncer.OnTouchReleased -= TrackPress;
+        EventAnnouncer.OnTouchesHeld -= TrackPress;
+        EventAnnouncer.OnTouchEnded -= TransitionToIdle;
+    }
+
+    private void TrackPress(Touch[] t)
+    {
+        TrackPress();
     }
 
     private void TrackPress(Touch t)
     {
-        Debug.Log("TRACKING PRESS: " + t.phase + " COUNT: " + InputTracker.Instance.HeldTouches.Count);
-        if (InputTracker.Instance.HeldTouches.Count > 1)
+        TrackPress();
+    }
+
+    private void TrackPress()
+    {
+        Debug.Log("COUNT: " + Input.touchCount);
+        if (Input.touchCount > 1)
         {
             TransitionToMultiPress();
         }
-        else if (InputTracker.Instance.HeldTouches.Count == 0)
+        else if (Input.touchCount == 0)
         {
             TransitionToIdle();
         }
