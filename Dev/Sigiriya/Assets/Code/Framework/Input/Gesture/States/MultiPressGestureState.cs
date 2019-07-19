@@ -32,7 +32,7 @@ public class MultiPressGestureState : GestureState
         {
             //Multipress updated
             EventAnnouncer.OnMultiTouchUpdated?.Invoke(InputTracker.Instance.HeldTouches.ToArray());
-            Debug.Log("Multipress held");
+            //Debug.Log("Multipress held");
         }
 
         return state;
@@ -40,36 +40,47 @@ public class MultiPressGestureState : GestureState
 
     protected override void ListenForEvents()
     {
-        EventAnnouncer.OnTouchStarted += TrackTouch;
-        EventAnnouncer.OnTouchReleased += TrackTouch;
-        EventAnnouncer.OnTouchesHeld += TrackTouch;
+        EventAnnouncer.OnTouchStarted += TrackPress;
+        EventAnnouncer.OnTouchesHeld += TrackPress;
+        EventAnnouncer.OnTouchReleased += TrackPressReleased;
         EventAnnouncer.OnTouchEnded += TransitionToIdle;
     }
 
     protected override void UnlistenForEvents()
     {
-        EventAnnouncer.OnTouchStarted -= TrackTouch;
-        EventAnnouncer.OnTouchReleased -= TrackTouch;
-        EventAnnouncer.OnTouchesHeld -= TrackTouch;
+        EventAnnouncer.OnTouchStarted -= TrackPress;
+        EventAnnouncer.OnTouchesHeld -= TrackPress;
+        EventAnnouncer.OnTouchReleased -= TrackPressReleased;
         EventAnnouncer.OnTouchEnded -= TransitionToIdle;
     }
 
-    private void TrackTouch(Touch[] t)
+    private void TrackPress(Touch[] t)
     {
-        TrackTouch();
+        TrackPress();
     }
 
-    private void TrackTouch(Touch t)
+    private void TrackPress(Touch t)
     {
-        TrackTouch();
+        TrackPress();
     }
 
-    private void TrackTouch()
+    private void TrackPressReleased(Touch t)
     {
-        Debug.Log("COUNT: " + Input.touchCount);
-        if (Input.touchCount < 2)
+        if (InputTracker.Instance.HeldTouches.Count > 1)
         {
-            TransitionToPress();
+            TransitionToDeadMultiPress();
+        }
+        else
+        {
+            TrackPress();
+        }
+    }
+
+    private void TrackPress()
+    {
+        if (InputTracker.Instance.HeldTouches.Count < 2)
+        {
+            TransitionToDeadPress();
         }
         else if (Input.touchCount == 0)
         {
@@ -83,9 +94,15 @@ public class MultiPressGestureState : GestureState
         TransitionToUse = (int)GestureTransitionType.IDLE_TRANSITION;
     }
 
-    private void TransitionToPress()
+    private void TransitionToDeadPress()
     {
         IsRunning = false;
-        TransitionToUse = (int)GestureTransitionType.PRESS_TRANSITION;
+        TransitionToUse = (int)GestureTransitionType.DEAD_PRESS_TRANSITION;
+    }
+
+    private void TransitionToDeadMultiPress()
+    {
+        IsRunning = false;
+        TransitionToUse = (int)GestureTransitionType.DEAD_MULTIPRESS_TRANSITION;
     }
 }

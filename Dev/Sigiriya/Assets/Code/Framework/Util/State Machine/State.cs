@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public abstract class State
 {
     public int StateID { get; private set; }
+    public String StateName { get; private set; }
     public bool IsRunning { get; protected set; }
     public State PreviousState { get; private set; }
     public int TransitionToUse { get; protected set; }
@@ -14,6 +16,7 @@ public abstract class State
     public State(int stateID)
     {
         StateID = stateID;
+        StateName = ((GestureStateType[])Enum.GetValues(typeof(GestureStateType)))[StateID].ToString();
         IsRunning = false;
         TransitionToUse = StateTransition.INVALID_TRANSITION_TYPE;
         PreviousState = null;
@@ -58,4 +61,9 @@ public abstract class State
     protected abstract void ListenForEvents();
 
     protected abstract void UnlistenForEvents();
+
+    public override string ToString()
+    {
+        return StateName;
+    }
 }

@@ -123,6 +123,18 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     public delegate void PressChanging();
     public static PressChanging OnPressChanging;
 
+    //When the user stops dragging, or removes a finger but still has another finger on the screen
+    public delegate void DeadPressStarted();
+    public static DeadPressStarted OnDeadPressStarted;
+
+    //When the user doesn't move the dead finger
+    public delegate void DeadPressHeld();
+    public static DeadPressHeld OnDeadPressHeld;
+
+    //When the user moves or releases the dead finger
+    public delegate void DeadPressChanging();
+    public static DeadPressChanging OnDeadPressChanging;
+
     //When the user starts dragging their finger on the screen
     public delegate void DragStarted(Touch touch);
     public static DragStarted OnDragStarted;
@@ -154,4 +166,16 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     //When the user removes too many fingers and only has one left
     public delegate void MultiTouchChanging();
     public static MultiTouchChanging OnMultiTouchChanging;
+
+    //When the user stops dragging, or removes a finger but still has other fingers on the screen
+    public delegate void DeadMultiPressStarted();
+    public static DeadMultiPressStarted OnDeadMultiPressStarted;
+
+    //When the user doesn't move the dead fingers
+    public delegate void DeadMultiPressHeld();
+    public static DeadMultiPressHeld OnDeadMultiPressHeld;
+
+    //When the user moves or releases the dead fingers
+    public delegate void DeadMultiPressChanging();
+    public static DeadMultiPressChanging OnDeadMultiPressChanging;
 }

@@ -13,12 +13,17 @@ public class InputTracker : ManagerBase<InputTracker>
     private PressGestureState pressState = new PressGestureState();
     private MultiPressGestureState multipressState = new MultiPressGestureState();
     private DragGestureState dragState = new DragGestureState();
+    private DeadPressGestureState deadPressState = new DeadPressGestureState();
+    private DeadMultipressGestureState deadMultiPressState = new DeadMultipressGestureState();
 
     //Gesture Transitions
     private GestureStateTransition toIdleState = new GestureStateTransition(GestureTransitionType.IDLE_TRANSITION, GestureStateType.IDLE_STATE);
     private GestureStateTransition toPressState = new GestureStateTransition(GestureTransitionType.PRESS_TRANSITION, GestureStateType.PRESS_STATE);
     private GestureStateTransition toMultipressState = new GestureStateTransition(GestureTransitionType.MULTIPRESS_TRANSITION, GestureStateType.MULTIPRESS_STATE);
     private GestureStateTransition toDragState = new GestureStateTransition(GestureTransitionType.DRAG_TRANSITION, GestureStateType.DRAG_STATE);
+    private GestureStateTransition toDeadPressState = new GestureStateTransition(GestureTransitionType.DEAD_PRESS_TRANSITION, GestureStateType.DEAD_PRESS_STATE);
+    private GestureStateTransition toDeadMultipressState = new GestureStateTransition(GestureTransitionType.DEAD_MULTIPRESS_TRANSITION, GestureStateType.DEAD_MULTIPRESS_STATE);
+
 
     private int activeTouchCount = 0;
     public List<Touch> HeldTouches { get; private set; } = new List<Touch>();
@@ -43,16 +48,30 @@ public class InputTracker : ManagerBase<InputTracker>
         idleState.AddTransition(toPressState);
 
         //Press -> Idle
-        pressState.AddTransition(toIdleState);
-
         //Press -> Multipress
+        pressState.AddTransition(toIdleState);
         pressState.AddTransition(toMultipressState);
 
-        //Multipress -> Press
-        multipressState.AddTransition(toPressState);
+        //Deadpress -> Idle
+        //Deadpress -> Multipress
+        deadPressState.AddTransition(toIdleState);
+        deadPressState.AddTransition(toMultipressState);
 
         //Multipress -> Idle
+        //Multipress -> Press
+        //Multipress -> DeadPress
+        //Multipress -> DeadMultipress
         multipressState.AddTransition(toIdleState);
+        multipressState.AddTransition(toPressState);
+        multipressState.AddTransition(toDeadPressState);
+        multipressState.AddTransition(toDeadMultipressState);
+
+        //Dead Multipress -> Idle
+        //Dead Multipress -> Multipress
+        //Dead Multipress -> Dead Press
+        deadMultiPressState.AddTransition(toIdleState);
+        deadMultiPressState.AddTransition(toMultipressState);
+        deadMultiPressState.AddTransition(toDeadPressState);
     }
 
     private void AddStates()
@@ -61,6 +80,8 @@ public class InputTracker : ManagerBase<InputTracker>
         InputStateMachine.AddState(pressState);
         InputStateMachine.AddState(multipressState);
         InputStateMachine.AddState(dragState);
+        InputStateMachine.AddState(deadPressState);
+        InputStateMachine.AddState(deadMultiPressState);
     }
 
     private void Update()
@@ -105,6 +126,8 @@ public class InputTracker : ManagerBase<InputTracker>
             {
                 EventAnnouncer.OnTouchesHeld?.Invoke(HeldTouches.ToArray());
             }
+
+            GestureTest.Instance.DoUpdate();
 
             //Reset the touches lists to prepare for the next frame
             HeldTouches.Clear();

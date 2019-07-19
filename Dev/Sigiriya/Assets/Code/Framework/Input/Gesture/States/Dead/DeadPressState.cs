@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressGestureState : GestureState
+public class DeadPressGestureState : GestureState
 {
-    public PressGestureState() :
-        base(GestureStateType.PRESS_STATE)
+    public DeadPressGestureState() :
+        base(GestureStateType.DEAD_PRESS_STATE)
     { }
 
     public override void OnEntrance()
     {
         base.OnEntrance();
-        Debug.Log("Entering Press Gesture State");
+        Debug.Log("Entering Dead Press Gesture State");
 
-        EventAnnouncer.OnPressStarted?.Invoke(InputTracker.Instance.NewTouches[0]);
+        EventAnnouncer.OnDeadPressStarted?.Invoke();
     }
 
     public override void OnExit()
     {
         base.OnExit();
-        Debug.Log("Exiting Press Gesture State");
+        Debug.Log("Exiting Dead Press Gesture State");
 
-        EventAnnouncer.OnPressChanging?.Invoke();
+        EventAnnouncer.OnDeadPressChanging?.Invoke();
     }
 
     public override StateTransition OnUpdate()
@@ -31,9 +31,8 @@ public class PressGestureState : GestureState
         //The press is being held
         if (IsRunning && state == null)
         {
-            //We know HeldTouches size is greater than 0, otherwise the state would not be null
-            EventAnnouncer.OnPressHeld?.Invoke(InputTracker.Instance.HeldTouches[0]);
-            //Debug.Log("Press held");
+            EventAnnouncer.OnDeadPressHeld?.Invoke();
+            //Debug.Log("Dead press held");
         }
 
         return state;
@@ -42,16 +41,16 @@ public class PressGestureState : GestureState
     protected override void ListenForEvents()
     {
         EventAnnouncer.OnTouchStarted += TrackPress;
-        EventAnnouncer.OnTouchesHeld += TrackPress;
         EventAnnouncer.OnTouchReleased += TrackPress;
+        EventAnnouncer.OnTouchesHeld += TrackPress;
         EventAnnouncer.OnTouchEnded += TransitionToIdle;
     }
 
     protected override void UnlistenForEvents()
     {
         EventAnnouncer.OnTouchStarted -= TrackPress;
-        EventAnnouncer.OnTouchesHeld -= TrackPress;
         EventAnnouncer.OnTouchReleased -= TrackPress;
+        EventAnnouncer.OnTouchesHeld -= TrackPress;
         EventAnnouncer.OnTouchEnded -= TransitionToIdle;
     }
 
@@ -65,9 +64,10 @@ public class PressGestureState : GestureState
         TrackPress();
     }
 
+    //TODO: Add drag here
     private void TrackPress()
     {
-        if (Input.touchCount > 1)
+        if (InputTracker.Instance.HeldTouches.Count > 1)
         {
             TransitionToMultiPress();
         }
