@@ -1205,6 +1205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueGraph: {fileID: 11400000, guid: 365a8710c63b8dc43b1122b1f0c403c6, type: 2}
+  nameBox: {fileID: 0}
   promptPanel: {fileID: 1069972829049700788}
   responseButtons:
   - {fileID: 3498527129956596311}
@@ -1214,8 +1215,8 @@ MonoBehaviour:
   speakerImages:
   - {fileID: 8678108954401997939}
   - {fileID: 0}
-  currNode: {fileID: 0}
-  pNode: {fileID: 0}
+  characterContainer: {fileID: 0}
+  graphList: []
 --- !u!114 &3498527131977570160
 MonoBehaviour:
   m_ObjectHideFlags: 0

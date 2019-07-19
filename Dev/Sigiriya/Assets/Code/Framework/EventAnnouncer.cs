@@ -77,4 +77,81 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     public delegate AudioSource UIButtonPressed(EnumSound soundID);
     public static UIButtonPressed OnUIButtonPressed;
+
+
+    /* Input Events */
+
+    //When the user touches the screen
+    public delegate void TouchStarted(Touch t);
+    public static TouchStarted OnTouchStarted;
+
+    //When the user continues touching the screen
+    public delegate void TouchesHeld(Touch[] t);
+    public static TouchesHeld OnTouchesHeld;
+
+    //When the user releases a touch
+    public delegate void TouchReleased(Touch t);
+    public static TouchReleased OnTouchReleased;
+
+    //When there are no more touches on the screen
+    public delegate void TouchEnded();
+    public static TouchEnded OnTouchEnded;
+
+    /* Gesture Events */
+
+    //When the user has no fingers on the screen
+    public delegate void IdleStarted();
+    public static IdleStarted OnIdleStarted;
+
+    //When the user starts interacting with the screen
+    public delegate void IdleEnded();
+    public static IdleEnded OnIdleEnded;
+
+    //When the user first puts their finger on the screen
+    public delegate void PressStarted(Touch touch);
+    public static PressStarted OnPressStarted;
+
+    //When the user keeps their finger on the screen
+    public delegate void PressHeld(Touch touch);
+    public static PressHeld OnPressHeld;
+
+    //When the user removes their finger from the screen
+    public delegate void PressReleased(Touch touch);
+    public static PressReleased OnPressReleased;
+
+    //When the user starts doing a gesture other than pressing
+    public delegate void PressChanging();
+    public static PressChanging OnPressChanging;
+
+    //When the user starts dragging their finger on the screen
+    public delegate void DragStarted(Touch touch);
+    public static DragStarted OnDragStarted;
+
+    //When the user continues dragging their finger on the screen
+    public delegate void DragUpdated(Touch touch);
+    public static DragUpdated OnDragUpdated;
+
+    //When the user picked up their finger after already dragging
+    public delegate void DragReleased(Touch touch);
+    public static DragReleased OnDragReleased;
+
+    //When the user starts doing a gesture other than dragging
+    public delegate void DragChanging(Touch touch);
+    public static DragChanging OnDragChanging;
+
+    //When the user starts touching with multiple fingers
+    public delegate void MultiTouchStarted(Touch[] touch);
+    public static MultiTouchStarted OnMultiTouchStarted;
+
+    //When the user starts moving their fingers
+    public delegate void MultiTouchUpdated(Touch[] touch);
+    public static MultiTouchUpdated OnMultiTouchUpdated;
+
+    //When the user removes all their fingers
+    public delegate void MultiTouchEnded(Touch[] touch);
+    public static MultiTouchEnded OnMultiTouchEnded;
+
+    //When the user removes too many fingers and only has one left
+    public delegate void MultiTouchChanging(Touch touch);
+    public static MultiTouchChanging OnMultiTouchChanging;
 }
