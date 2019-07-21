@@ -12,7 +12,7 @@ TODO:
 
 */
 
-public class DialogueController : MonoBehaviour
+public class DialogueController : ManagerBase<DialogueController>
 {
 	//[Header("Camera")]
 	//[SerializeField] private int textSize;
@@ -42,16 +42,24 @@ public class DialogueController : MonoBehaviour
 
 	private void Awake()
 	{
-		if (dialogueGraph.isInit)
+		if (dialogueGraph != null)
 		{
-			Init();
+			if (dialogueGraph.isInit)
+			{
+				Instance.Init();
+				Instance.gameObject.SetActive(false);
+			}
+		}
+		else
+		{
+			Instance.gameObject.SetActive(false);
 		}
 	}
 
 	private void Init()
 	{
 		ID = this.name;
-		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
+
 		dialogueGraph.Restart();
 
 		AssessCurrentType();
@@ -270,10 +278,13 @@ public class DialogueController : MonoBehaviour
     {
         characterContainer = charContainer;
 
-        if (characterContainer != null)
-        {
-            characterContainer.SetActive(false);
-        }
+		if (dialogueGraph.current != null)
+		{
+			if (characterContainer != null)
+			{
+				characterContainer.SetActive(false);
+			}
+		}
     }
 
 	private void SetNeutralSpeakers()
@@ -427,10 +438,10 @@ public class DialogueController : MonoBehaviour
         else
         {
             Debug.Log(ID + " is done talking");
-            gameObject.SetActive(false);
-            characterContainer.SetActive(true);
+			dialogueGraph.current = exitNode;
 
-            dialogueGraph.current = exitNode;
+			gameObject.SetActive(false);
+            characterContainer.SetActive(true);
         }
     }
 }
