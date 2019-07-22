@@ -551,32 +551,42 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 147f7398e2c59334c95da3c5045675b7,
         type: 3}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+    - target: {fileID: 6906537474316247452, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2492439304203546930}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableCurrNode
-      objectReference: {fileID: 0}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 2492439304203546930}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: DisableCharacterController
-      objectReference: {fileID: 0}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      propertyPath: dialogueGraph
       value: 
       objectReference: {fileID: 11400000, guid: 1f6e2196fdf4f9440b1819f539b83870,
         type: 2}
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -379
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 682
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 417
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a, type: 3}
 --- !u!1 &177802369
@@ -1451,46 +1461,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 235e6c58d1fc923478a1c17a7c584db7,
         type: 3}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+    - target: {fileID: 6906537474316247452, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2492439304203546930}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableCurrNode
-      objectReference: {fileID: 0}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 2492439304203546930}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: DisableCharacterController
-      objectReference: {fileID: 0}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      propertyPath: dialogueGraph
       value: 
       objectReference: {fileID: 11400000, guid: d5b673d7ffe42f14cad74cc9eb4c7658,
         type: 2}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
         type: 3}
-      propertyPath: m_Colors.m_NormalColor.r
-      value: 1
+      propertyPath: m_AnchoredPosition.y
+      value: 1082
       objectReference: {fileID: 0}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
         type: 3}
-      propertyPath: m_Colors.m_NormalColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_Colors.m_NormalColor.b
-      value: 1
+      propertyPath: m_AnchoredPosition.x
+      value: -368
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a, type: 3}
@@ -1640,7 +1625,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 959.99994
+  orthographic size: 960.00006
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2653,32 +2638,27 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 4b9e7b61f1509884dabad9cd59252e06,
         type: 3}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+    - target: {fileID: 6906537474316247452, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 2492439304203546930}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: DisableCharacterController
-      objectReference: {fileID: 0}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2492439304203546930}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EnableCurrNode
-      objectReference: {fileID: 0}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      propertyPath: dialogueGraph
       value: 
       objectReference: {fileID: 11400000, guid: 1255be17b006ec94ca0da7deb350f656,
         type: 2}
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1408
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474675037858051218, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a, type: 3}
 --- !u!1 &1210518253
@@ -4064,16 +4044,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2492439304203546930}
-    - target: {fileID: 704814671891142866, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 2492439304203546930}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1705c6d2009f73a4e9f0c7eeb8e6ad0a, type: 3}
 --- !u!1 &1929117508992592961
@@ -4973,7 +4943,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2492439304203546932}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f58761eb7980b842b32bd5d61325f23, type: 3}
   m_Name: 
