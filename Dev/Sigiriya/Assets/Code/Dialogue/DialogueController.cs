@@ -40,21 +40,21 @@ public class DialogueController : ManagerBase<DialogueController>
 	[Header("Dev/Editor")]
 	[SerializeField] private List<SimpleGraph> graphList = null;
 
-	private void Awake()
-	{
-		if (dialogueGraph != null)
-		{
-			if (dialogueGraph.isInit)
-			{
-				Instance.Init();
-				Instance.gameObject.SetActive(false);
-			}
-		}
-		else
-		{
-			Instance.gameObject.SetActive(false);
-		}
-	}
+	//private void Awake()
+	//{
+	//	if (dialogueGraph != null)
+	//	{
+	//		if (dialogueGraph.isInit)
+	//		{
+	//			Instance.Init();
+	//			Instance.gameObject.SetActive(false);
+	//		}
+	//	}
+	//	else
+	//	{
+	//		Instance.gameObject.SetActive(false);
+	//	}
+	//}
 
 	private void Init()
 	{
@@ -310,8 +310,12 @@ public class DialogueController : ManagerBase<DialogueController>
 		{
 			speakerImages[i].gameObject.SetActive(false);
 		}
-	}
 
+		if (dialogueGraph.current.GetType() == typeof(PromptNode))
+		{
+			SetSpeakerImage(true);
+		}
+	}
 	private void SetSpeakerImage(bool isSpeaking)//, int index)
 	{
 		//Error check
@@ -329,7 +333,6 @@ public class DialogueController : ManagerBase<DialogueController>
 			//speakerImages[0].gameObject.SetActive(true); //should always be active, this line is depracated
 		}
 	}
-
 	//Generally not used
 	public void SetCurrNode(int newNode)
 	{

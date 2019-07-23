@@ -92,7 +92,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Oh, good night Appa!
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 18
+  expression: 9
   time: 2
 --- !u!114 &-8929880472086506719
 MonoBehaviour:
@@ -280,7 +280,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Did you need something else, Appa?
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 18
+  expression: 9
   time: 2
 --- !u!114 &-6962636361213209361
 MonoBehaviour:
@@ -501,7 +501,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: "\u2026. Sorry Appa."
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 17
+  expression: 5
   time: 2
 --- !u!114 &-5361887780449212405
 MonoBehaviour:
@@ -626,7 +626,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: "I\u2019m okay Appa."
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 17
+  expression: 5
   time: 2
 --- !u!114 &-5131373874168402464
 MonoBehaviour:
@@ -1127,7 +1127,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Thanks, Appa.
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 17
+  expression: 5
   time: 2
 --- !u!114 &-2030100616070850442
 MonoBehaviour:
@@ -1487,8 +1487,8 @@ MonoBehaviour:
   - {fileID: 8282718453556111936}
   - {fileID: 8248608683991422735}
   - {fileID: -4226584042156237117}
-  current: {fileID: 2180259523156687118}
-  isInit: 0
+  current: {fileID: 221289374055368530}
+  isInit: 1
   actors:
   - {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
 --- !u!114 &132394992039104119
@@ -1583,7 +1583,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: . . .
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 19
+  expression: 27
   time: 2
 --- !u!114 &221289374055368530
 MonoBehaviour:
@@ -2014,7 +2014,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Yup.
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 17
+  expression: 5
   time: 2
 --- !u!114 &713228667031766803
 MonoBehaviour:
@@ -2275,7 +2275,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: "I don\u2019t think that\u2019s true!"
   speaker: {fileID: 0}
-  expression: 0
+  expression: 5
   time: 2
 --- !u!114 &2180259523156687118
 MonoBehaviour:
@@ -2400,7 +2400,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Huh? Oh, of course Appa.
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 17
+  expression: 5
   time: 2
 --- !u!114 &2752978607386209281
 MonoBehaviour:
@@ -2619,7 +2619,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Huh? What do you mean?
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 18
+  expression: 9
   time: 2
 --- !u!114 &3031430704604828380
 MonoBehaviour:
@@ -2936,7 +2936,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: "Don\u2019t remind me Appa."
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 17
+  expression: 5
   time: 2
 --- !u!114 &4246346179832116825
 MonoBehaviour:
@@ -3218,7 +3218,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: "\u2026. Okay Appa."
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 17
+  expression: 5
   time: 2
 --- !u!114 &5111216676274916986
 MonoBehaviour:
@@ -3382,7 +3382,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: "There\u2019s not much to talk about Appa, nothing\u2019s changed."
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 17
+  expression: 5
   time: 2
 --- !u!114 &5608488763798214501
 MonoBehaviour:
@@ -3896,7 +3896,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: . . . Night Appa.
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 19
+  expression: 27
   time: 2
 --- !u!114 &8120106191421735670
 MonoBehaviour:
@@ -4115,7 +4115,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: "\u2026."
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  expression: 19
+  expression: 27
   time: 2
 --- !u!114 &8248608683991422735
 MonoBehaviour:
