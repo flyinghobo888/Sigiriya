@@ -127,7 +127,10 @@ public class InputTracker : ManagerBase<InputTracker>
                 EventAnnouncer.OnTouchesHeld?.Invoke(HeldTouches.ToArray());
             }
 
-            GestureTest.Instance.DoUpdate();
+            if (GestureTest.Instance != null)
+            {
+                GestureTest.Instance.DoUpdate();
+            }
 
             //Reset the touches lists to prepare for the next frame
             HeldTouches.Clear();

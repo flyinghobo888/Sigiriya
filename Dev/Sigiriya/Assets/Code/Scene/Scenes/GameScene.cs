@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class GameScene : SceneBase<GameScene>
 {
-    private void OnEnable()
+	[SerializeField] private DialogueController sceneDialogueController;
+
+	private void OnEnable()
     {
         Debug.Log("Game scene enabled!");
-    }
+
+		//This is just to initialize the dialoguecontroller instance
+		sceneDialogueController.gameObject.SetActive(true);
+		DialogueController.Instance.gameObject.SetActive(false);
+	}
 }

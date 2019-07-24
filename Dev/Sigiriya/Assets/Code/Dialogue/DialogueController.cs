@@ -12,7 +12,7 @@ TODO:
 
 */
 
-public class DialogueController : MonoBehaviour
+public class DialogueController : ManagerBase<DialogueController>
 {
 	//[Header("Camera")]
 	//[SerializeField] private int textSize;
@@ -40,18 +40,26 @@ public class DialogueController : MonoBehaviour
 	[Header("Dev/Editor")]
 	[SerializeField] private List<SimpleGraph> graphList = null;
 
-	private void Awake()
-	{
-		if (dialogueGraph.isInit)
-		{
-			Init();
-		}
-	}
+	//private void Awake()
+	//{
+	//	if (dialogueGraph != null)
+	//	{
+	//		if (dialogueGraph.isInit)
+	//		{
+	//			Instance.Init();
+	//			Instance.gameObject.SetActive(false);
+	//		}
+	//	}
+	//	else
+	//	{
+	//		Instance.gameObject.SetActive(false);
+	//	}
+	//}
 
 	private void Init()
 	{
 		ID = this.name;
-		//EventManager.StartListening(ID + "_enable", EnableCurrNode);
+
 		dialogueGraph.Restart();
 
 		AssessCurrentType();
@@ -270,10 +278,13 @@ public class DialogueController : MonoBehaviour
     {
         characterContainer = charContainer;
 
-        if (characterContainer != null)
-        {
-            characterContainer.SetActive(false);
-        }
+		if (dialogueGraph.current != null)
+		{
+			if (characterContainer != null)
+			{
+				characterContainer.SetActive(false);
+			}
+		}
     }
 
 	private void SetNeutralSpeakers()
@@ -299,8 +310,12 @@ public class DialogueController : MonoBehaviour
 		{
 			speakerImages[i].gameObject.SetActive(false);
 		}
-	}
 
+		if (dialogueGraph.current.GetType() == typeof(PromptNode))
+		{
+			SetSpeakerImage(true);
+		}
+	}
 	private void SetSpeakerImage(bool isSpeaking)//, int index)
 	{
 		//Error check
@@ -318,7 +333,6 @@ public class DialogueController : MonoBehaviour
 			//speakerImages[0].gameObject.SetActive(true); //should always be active, this line is depracated
 		}
 	}
-
 	//Generally not used
 	public void SetCurrNode(int newNode)
 	{
@@ -427,10 +441,10 @@ public class DialogueController : MonoBehaviour
         else
         {
             Debug.Log(ID + " is done talking");
-            gameObject.SetActive(false);
-            characterContainer.SetActive(true);
+			dialogueGraph.current = exitNode;
 
-            dialogueGraph.current = exitNode;
+			gameObject.SetActive(false);
+            characterContainer.SetActive(true);
         }
     }
 }
