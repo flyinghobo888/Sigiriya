@@ -223,5 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8657fd5843bd0ea4398de3247de268ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskList:
+  taskList: []
+  allTasksComplete: 0
+  editorAllTasks:
   - {fileID: 11400000, guid: 16443df3a12d6284598bbfb5acb3da8e, type: 2}
