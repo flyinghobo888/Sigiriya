@@ -329,9 +329,13 @@ public class DialogueController : ManagerBase<DialogueController>
 		Sprite speakerPic = dialogueGraph.GetSprite(isSpeaking, pNode.speaker, pNode.expression);
 		if (speakerPic != null)
 		{
-			speakerImages[dialogueGraph.GetActorIndex(pNode.speaker)].sprite = speakerPic;
-			//speakerImages[0].gameObject.SetActive(true); //should always be active, this line is depracated
-		}
+            Image speakerImage = speakerImages[dialogueGraph.GetActorIndex(pNode.speaker)];
+            speakerImage.sprite = speakerPic;
+
+            //speakerImage.rectTransform.sizeDelta = speakerPic.bounds.reatio;
+
+            //speakerImages[0].gameObject.SetActive(true); //should always be active, this line is depracated
+        }
 	}
 	//Generally not used
 	public void SetCurrNode(int newNode)
@@ -430,7 +434,9 @@ public class DialogueController : ManagerBase<DialogueController>
 		{
 			graphList[i].isInit = false;
 		}
-	}
+
+        EventAnnouncer.OnDialogueRestart?.Invoke();
+    }
 
     private void DisplayNodeOrQuit()
     {
