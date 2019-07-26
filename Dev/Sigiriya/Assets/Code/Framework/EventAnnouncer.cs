@@ -48,8 +48,8 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     public delegate void DialogueEnd();
     public static DialogueEnd OnDialogueEnd;
 
-
-    /* Text Controller Events */
+    public delegate void DialogueRestart();
+    public static DialogueRestart OnDialogueRestart;
 
     public delegate void DialogueUpdate(TextMeshProUGUI display, string text);
     public static DialogueUpdate OnDialogueUpdate;
@@ -96,6 +96,7 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     //When there are no more touches on the screen
     public delegate void TouchEnded();
     public static TouchEnded OnTouchEnded;
+
 
     /* Gesture Events */
 
