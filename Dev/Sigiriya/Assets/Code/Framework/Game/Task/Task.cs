@@ -9,10 +9,12 @@ public class Task : ScriptableObject
 	public class SubTask
 	{
 		public string taskName;
+		public string description;
 		public List<FlagBank.Flags> requirementFlags;
 		public Dictionary<FlagBank.Flags, bool> requirementStatus;
 
-		bool isHidden;
+		bool isHidden; //needs to be implemented
+		//if a certain flag is hit, this can be revealed to the player
 
 		public void InitSubTask()
 		{
@@ -51,6 +53,7 @@ public class Task : ScriptableObject
 	}
 
 	public string taskName;
+	public string description;
 	public List<SubTask> subTasks;	
 	public bool isTaskComplete;
 

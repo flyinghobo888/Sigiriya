@@ -18,6 +18,7 @@ public class TaskManager : ManagerBase<TaskManager>
 		{
 			task.isTaskComplete = false;
 		}
+		allTasksComplete = false;
 #endif
 
 
