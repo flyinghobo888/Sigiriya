@@ -7,33 +7,35 @@ public class ButtonInfo : MonoBehaviour
 	[SerializeField] private GameObject characterContainer;
 	[SerializeField] private GameObject talkBubble;
 	[SerializeField] private SimpleGraph dialogueGraph;
-	//[SerializeField] private DialogueController dCon;
+    //[SerializeField] private DialogueController dCon;
 
-	//TODO: instead of this script, rename it to ButtonInfo or something...
-	//and have the button call functions from here 
-	//Also, all graphs need to be initialized so that the bubbles work properly
-	//as it stands, they are only init when you click on the button.
-	//this needs to happen on startup, when graphs swap, etc.
+    //TODO: instead of this script, rename it to ButtonInfo or something...
+    //and have the button call functions from here 
+    //Also, all graphs need to be initialized so that the bubbles work properly
+    //as it stands, they are only init when you click on the button.
+    //this needs to happen on startup, when graphs swap, etc.
 
-	private void Awake()
+    private void Awake()
+    {
+        CheckIfWantsToTalk();
+    }
+
+    private void OnEnable()
 	{
-		CheckIfWantsToTalk();
-	}
+        EventAnnouncer.OnDialogueRestart += CheckIfWantsToTalk;
 
-	private void OnEnable()
-	{
-		CheckIfWantsToTalk();
-	}
+        CheckIfWantsToTalk();
+    }
 
 	private void OnDisable()
 	{
-		CheckIfWantsToTalk();
-	}
+        EventAnnouncer.OnDialogueRestart -= CheckIfWantsToTalk;
+
+        CheckIfWantsToTalk();
+    }
 
 	void CheckIfWantsToTalk()
 	{
-		Debug.Log("Do I have something to say?");
-
 		if (DialogueController.Instance != null && talkBubble != null)
 		{
 			if (!dialogueGraph.isInit)
@@ -48,7 +50,7 @@ public class ButtonInfo : MonoBehaviour
 			else
 			{
 				talkBubble.SetActive(true);
-			}
+            }
 		}
 	}
 
