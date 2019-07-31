@@ -1,10 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TaskManager : ManagerBase<TaskManager>
 {
+	[InspectorButton("AddTaskAgain")]
+	public bool AddTaskButton = false;
+
+	[InspectorButton("RemoveTaskAgain")]
+	public bool RemoveTaskButton = false;
+
 	public List<Task> taskList;
+	//public List<TaskUI> taskUIList; //create a taskUI class //why did I need this? if you figure it out, replace var of same name
+	[SerializeField] GameObject taskContainer; //where to get my list of tasks, as well as where to put them
+	[SerializeField] GameObject taskUIReference;
+	[SerializeField] private List<GameObject> taskUIList;
+
 	public bool allTasksComplete = false;
 
 #if UNITY_EDITOR
@@ -26,6 +38,10 @@ public class TaskManager : ManagerBase<TaskManager>
 		{
 			taskList = new List<Task>();
 		}
+		if (taskUIList == null)
+		{
+			taskUIList = new List<GameObject>();
+		}
 
 		for (int i = 0; i < taskList.Count; i++)
 		{
@@ -33,6 +49,7 @@ public class TaskManager : ManagerBase<TaskManager>
 		}
 
 		EventAnnouncer.OnThrowFlag += UpdateTasks;
+		UpdateTaskDisplay();
 	}
 
 	public void AddTask(Task newTask)
@@ -43,6 +60,11 @@ public class TaskManager : ManagerBase<TaskManager>
 			taskList.Add(newTask);
 		}
 	}
+	public void AddTaskAgain()
+	{
+		taskList.Add(editorAllTasks[0]);
+		UpdateTaskDisplay();
+	}
 
 	public void RemoveTask(Task oldTask)
 	{
@@ -50,6 +72,14 @@ public class TaskManager : ManagerBase<TaskManager>
 		{
 			Debug.Log(oldTask.taskName);
 			taskList.Remove(oldTask);
+		}
+	}
+	public void RemoveTaskAgain()
+	{
+		if (taskList.Count != 0)
+		{
+			taskList.Remove(taskList[taskList.Count - 1]);
+			UpdateTaskDisplay();
 		}
 	}
 
@@ -61,6 +91,7 @@ public class TaskManager : ManagerBase<TaskManager>
 		}
 
 		CheckTasks();
+		UpdateTaskDisplay();
 	}
 
 	public void CheckTasks()
@@ -78,6 +109,38 @@ public class TaskManager : ManagerBase<TaskManager>
 			{
 				allTasksComplete = false;
 			}
+		}
+	}
+
+	void UpdateTaskDisplay()
+	{
+		int numChild = taskContainer.transform.childCount;
+		while (taskList.Count > numChild)
+		{
+			GameObject taskUI = Instantiate(taskUIReference) as GameObject;
+
+			taskUI.transform.SetParent(taskContainer.transform);
+			taskUIList.Add(taskUI);
+
+			numChild++;
+		}
+		if (taskList.Count < numChild)
+		{
+			while (taskUIList.Count > taskList.Count)
+			{
+				GameObject taskUI = taskUIList[taskUIList.Count - 1];
+				taskUIList.Remove(taskUI);
+
+				Destroy(taskUI);
+			}
+		}
+
+		for (int i = 0; i < taskUIList.Count; i++)
+		{
+			TaskUIInfo taskInfo = taskUIList[i].GetComponent<TaskUIInfo>();
+
+			taskInfo.task = taskList[i];
+			taskInfo.UpdateTaskUI();
 		}
 	}
 }

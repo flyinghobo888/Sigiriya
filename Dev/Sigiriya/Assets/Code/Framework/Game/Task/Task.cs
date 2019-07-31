@@ -2,6 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO:i have half a mind to make tasks "recursive"
+/*I think I will
+	So:
+	Tasks will either refer to a flag to decide if they are complete, of if all their tasks are complete
+	What this means:
+	-Each task either has a list of tasks, or list of flags
+	-if it has a list of tasks, those tasks will refer to a list of tasks or a list of flags, etc.
+	-the task manager is just used to get a quick answer to the top level of tasks
+	-each task should be responsible for it's ui somehow. or something like that
+	 */
+
+
+
 [CreateAssetMenu(fileName = "TaskData", menuName = "Task")]
 public class Task : ScriptableObject
 {
