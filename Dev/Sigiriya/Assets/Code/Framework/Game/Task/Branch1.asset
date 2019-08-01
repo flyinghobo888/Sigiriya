@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a963609c62f71754b8e39ef0c1635114, type: 3}
-  m_Name: TaskLakmini
+  m_Name: Branch1
   m_EditorClassIdentifier: 
   taskName: 
-  description: Give Lak like, 20 parental kisses.
-  subTasks:
-  - {fileID: 11400000, guid: cfdfa7280fba50548a8e82cd6300ddd7, type: 2}
-  - {fileID: 11400000, guid: 258791e9a77e36940b738ac221e192ae, type: 2}
-  requirementFlags: 
+  description: 
+  subTasks: []
+  requirementFlags: 25000000
   isTaskComplete: 0

@@ -18,18 +18,26 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TaskData", menuName = "Task")]
 public class Task : ScriptableObject
 {
-	[System.Serializable]
-	public class SubTask
+	//Task name, and quick description
+	public string taskName;
+	public string description;
+
+	//Either a list of tasks, OR flags to complete this task
+	public List<Task> subTasks;
+	public List<FlagBank.Flags> requirementFlags;
+
+	//if we have flags, we create a dictionary to hold them
+	public Dictionary<FlagBank.Flags, bool> requirementStatus;
+	public bool isTaskComplete;
+
+	[SerializeField] GameObject myUI;
+	bool isHidden; //needs to be implemented
+	//if a certain flag is hit, this can be revealed to the player
+
+	public void InitTask()
 	{
-		public string taskName;
-		public string description;
-		public List<FlagBank.Flags> requirementFlags;
-		public Dictionary<FlagBank.Flags, bool> requirementStatus;
-
-		bool isHidden; //needs to be implemented
-		//if a certain flag is hit, this can be revealed to the player
-
-		public void InitSubTask()
+		//if we have flags, create the flag checking thing
+		if (requirementFlags.Count > 0)
 		{
 			if (requirementStatus == null)
 			{
@@ -53,61 +61,135 @@ public class Task : ScriptableObject
 				}
 			}
 		}
-
-		//update the bool value of the passed in key if it exists
-		public void UpdateSubTask(FlagBank.Flags flag)
+		else
 		{
-			if (requirementStatus.ContainsKey(flag))
+			foreach (Task task in subTasks)
 			{
-				Debug.Log("Task is Done! I think");
-				requirementStatus[flag] = true;
+				task.InitTask();
 			}
 		}
 	}
-
-	public string taskName;
-	public string description;
-	public List<SubTask> subTasks;	
-	public bool isTaskComplete;
-
-	public void InitAllSubTasks()
+	//update the bool value of the passed in key if it exists
+	public void UpdateTask(FlagBank.Flags flag)
 	{
-		if (subTasks == null)
+		if (requirementFlags.Count > 0 && requirementStatus.ContainsKey(flag))
 		{
-			Debug.Log("There are no subtasks!");
-			return;
-		}
+			Debug.Log("Task is Done! I think");
+			requirementStatus[flag] = true;
 
-		for (int i = 0; i < subTasks.Count; i++)
-		{
-			subTasks[i].InitSubTask();
-		}
-	}
-
-	public void UpdateSubTasks(FlagBank.Flags flag)
-	{
-		for (int i = 0; i < subTasks.Count; i++)
-		{
-			subTasks[i].UpdateSubTask(flag);
-		}
-
-		CheckTaskRequirements();
-	}
-
-	//check if all subtasks are complete
-	public void CheckTaskRequirements()
-	{
-		for (int i = 0; i < subTasks.Count; i++)
-		{
-			if (subTasks[i].requirementStatus.ContainsValue(false))
+			if (requirementStatus.ContainsValue(false))
+			{
+				isTaskComplete = false;
+			}
+			else
 			{
 				Debug.Log("Task " + taskName + " is Done! I think");
-				isTaskComplete = false;
-
-				return;
+				isTaskComplete = true;
 			}
 		}
+		else if (requirementFlags.Count == 0)
+		{
+			isTaskComplete = true;
 
-		isTaskComplete = true;
+			foreach (Task task in subTasks)
+			{
+				task.UpdateTask(flag);
+
+				if (!task.isTaskComplete)
+				{
+					isTaskComplete = false;
+				}
+			}
+		}
 	}
+
+	public void CreateUIElement(GameObject parentObject, GameObject uiReference)
+	{
+		//instantiate a UI reference, and child it the the parent. then call function for 
+		//all tasks this holds, with itself as the parent
+
+		if (myUI == null)
+		{
+			myUI = Instantiate(uiReference);
+			myUI.transform.parent = parentObject.transform;
+			myUI.GetComponent<TaskUIInfo>().task = this;
+		}
+		foreach (Task task in subTasks)
+		{
+			task.CreateUIElement(myUI , uiReference);
+		}
+
+		//create the prefab and set to the member var
+		//if it exists, don't create it, and instead update it, or delete it
+	}
+	//check if all subtasks are complete
+//	public void CheckTaskRequirements()
+//	{
+//		if (requirementFlags.Count > 0)
+//		{
+//			if (requirementStatus.ContainsValue(false))
+//			{
+//				isTaskComplete = false;
+//
+//				return;
+//			}
+//			Debug.Log("Task " + taskName + " is Done! I think");
+//			isTaskComplete = true;
+//		}
+//		else
+//		{
+//			foreach (Task task in subTasks)
+//			{
+//				task.CheckTaskRequirements();
+//				if (!task.isTaskComplete)
+//				{
+//					isTaskComplete = false;
+//					return;
+//				}
+//			}
+//			isTaskComplete = true;
+//			return;
+//		}
+//	}	
+
+
+	//public void InitAllSubTasks()
+	//{
+	//	if (subTasks == null)
+	//	{
+	//		Debug.Log("There are no subtasks!");
+	//		return;
+	//	}
+	//
+	//	for (int i = 0; i < subTasks.Count; i++)
+	//	{
+	//		subTasks[i].InitSubTask();
+	//	}
+	//}
+	//
+	//public void UpdateSubTasks(FlagBank.Flags flag)
+	//{
+	//	for (int i = 0; i < subTasks.Count; i++)
+	//	{
+	//		subTasks[i].UpdateSubTask(flag);
+	//	}
+	//
+	//	CheckTaskRequirements();
+	//}
+	//
+	////check if all subtasks are complete
+	//public void CheckTaskRequirements()
+	//{
+	//	for (int i = 0; i < subTasks.Count; i++)
+	//	{
+	//		if (subTasks[i].requirementStatus.ContainsValue(false))
+	//		{
+	//			isTaskComplete = false;
+	//
+	//			return;
+	//		}
+	//	}
+	//	Debug.Log("Task " + taskName + " is Done! I think");
+	//	isTaskComplete = true;
+	//}
 }
