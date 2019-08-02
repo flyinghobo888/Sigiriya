@@ -47,6 +47,9 @@ public class PersistentEventBank : MonoBehaviour
         {
             eventFlags.Add(flag);
         }
+
+		//Check task events whenever an event is added
+		//TaskManager.Instance.CheckTasks();
     }
 
     private static void IncrementPeopleTalkedTo()

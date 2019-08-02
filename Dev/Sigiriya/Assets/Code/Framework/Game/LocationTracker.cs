@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Authors: Andrew Rimpici
 //Responsible for keeping track of which location in the world we're in.
 public class LocationTracker : ManagerBase<LocationTracker>
 {
