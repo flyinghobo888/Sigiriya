@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Author: Andrew Rimpici
 //Holds a list of game objects as children.
 //Each game object is responsible for tracking a specific status effect.
 public class StatusEffectTracker : ManagerBase<StatusEffectTracker>

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Author: Andrew Rimpici
 public class InputTracker : ManagerBase<InputTracker>
 {
     //Gesture State Machine

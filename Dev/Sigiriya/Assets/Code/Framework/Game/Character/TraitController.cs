@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Author: Andrew Rimpici
 //Controls how the super and sub traits interact with each other.
 public class TraitController : ManagerBase<TraitController>
 {
