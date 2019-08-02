@@ -7,40 +7,27 @@ using UnityEngine.UI;
 public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 {
     //For now, just change the time every few seconds
-    private float totalTime = 2.0f;
+    private float totalTime = 5.0f;
     public float TotalTimeInverse { get; private set; }
-    public float CurrentTime { get; private set; }
+    public float CurrentTime { get; private set; } = 0.0f;
 
     //How far into the cycle the time is.
-    public float TimeAlpha { get; private set; }
+    public float TimeAlpha { get; private set; } = 0.0f;
 
     public EnumTime CurrentTimeOfDay { get; private set; }
 
-    [SerializeField] private Image background = null;
-
     private int currentIndex = 0;
-
-    private Color currentTopColor;
-    private Color targetTopColor;
-
-    private Color currentBottomColor;
-    private Color targetBottomColor;
 
     private void Start()
     {
         TotalTimeInverse = 1.0f / totalTime;
-        CurrentTimeOfDay = EnumTime.MORNING;
-
-        //SetNewColors();
+        CurrentTimeOfDay = EnumTime.SUNRISE;
     }
 
     private void Update()
     {
         CurrentTime += Time.deltaTime;
         TimeAlpha = CurrentTime * TotalTimeInverse;
-
-        //background.material.SetColor("Color_22E35091", Color.Lerp(currentTopColor, targetTopColor, currentTime * totalTimeInverse));
-        //background.material.SetColor("Color_B0472F4B", Color.Lerp(currentBottomColor, targetBottomColor, currentTime * totalTimeInverse));
 
         if (CurrentTime >= totalTime)
         {
@@ -49,21 +36,8 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
             CurrentTimeOfDay = (EnumTime)(currentIndex);
             TimeAlpha = 0.0f;
             EventAnnouncer.OnTimeChanged(CurrentTimeOfDay);
-            //SetNewColors();
         }
     }
-
-    //void SetNewColors()
-    //{
-        //Material currentMat = backgroundOverlays[currentIndex];
-        //Material nextMat = backgroundOverlays[(((int)currentTimeOfDay + 1) % (int)EnumTime.SIZE)];
-
-        //currentTopColor = currentMat.GetColor("Color_22E35091");
-        //currentBottomColor = currentMat.GetColor("Color_B0472F4B");
-
-        //targetTopColor = nextMat.GetColor("Color_22E35091");
-        //targetBottomColor = nextMat.GetColor("Color_B0472F4B");
-    //}
 }
 
 //In the future, we can track actual hours, but for now only track with an enum

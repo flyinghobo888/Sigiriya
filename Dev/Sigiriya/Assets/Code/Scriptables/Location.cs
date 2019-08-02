@@ -11,8 +11,7 @@ public class Location : ScriptableObject
     //  - The location enum
     //  - A list of images based on flags
 
-    //This gets set when you drag the location into the LocationTracker list.
-    private EnumLocation locationType;
+    public EnumLocation locationType;
 
     //I'm using strings for now because that's how the Flag system is set up,
     //but I think it would be cooler to have a bank of either enums or static final strings
