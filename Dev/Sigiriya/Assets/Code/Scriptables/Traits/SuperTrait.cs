@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Author: Andrew Rimpici
 //Can be used to create new Super Traits for characters.
 [CreateAssetMenu(fileName = "New Parent Trait", menuName = "Parent Trait")]
 public class SuperTrait : Trait

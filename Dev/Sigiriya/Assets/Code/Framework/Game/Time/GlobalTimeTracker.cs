@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Author: Andrew Rimpici
 //The Global Time Tracker is responsible for tracking the time through out the game.
 public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Author: Andrew Rimpici
 //Can be used to create new Locations by designers or artists.
 [CreateAssetMenu(fileName = "New Location", menuName = "Location")]
 public class Location : ScriptableObject

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Author: Andrew Rimpici
 //Can be used to create new Sound Effects by designers/sound designers.
 [CreateAssetMenu(fileName = "New Sound Effect", menuName = "Sound Effect")]
 public class SoundEffect : ScriptableObject

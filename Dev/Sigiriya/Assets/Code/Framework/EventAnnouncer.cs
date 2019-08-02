@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-//Authors: Andrew Rimpici
 //Designed to hold all of the possible events for the game.
 public class EventAnnouncer : ManagerBase<EventAnnouncer>
 {
