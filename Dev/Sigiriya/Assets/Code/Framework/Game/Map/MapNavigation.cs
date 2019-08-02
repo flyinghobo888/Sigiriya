@@ -21,24 +21,39 @@ public class MapNavigation : MonoBehaviour
         EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.KITCHEN, shouldFade);
     }
 
-    public void GoToConstructionSite(bool shouldFade)
+    public void GoToWewa(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.CONSTRUCTION, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.WEWA_MARSH, shouldFade);
     }
 
-    public void GoToGarden(bool shouldFade)
+    public void GoToConstructionSite(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.GARDEN, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.CONSTRUCTION_SITE, shouldFade);
     }
 
     public void GoToGatheringSpace(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.GATHERING, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.GATHERING_SPACE, shouldFade);
+    }
+
+    public void GoToForestClearing(bool shouldFade)
+    {
+        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.FOREST_CLEARING, shouldFade);
     }
 
     public void GoToHome(bool shouldFade)
     {
         EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.HOME, shouldFade);
+    }
+
+    public void GoToVillageCenter(bool shouldFade)
+    {
+        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.VILLAGE_CENTER, shouldFade);
+    }
+
+    public void GoToPottingYard(bool shouldFade)
+    {
+        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.POTTING_YARD, shouldFade);
     }
 
     public void GoToSpring(bool shouldFade)

@@ -5,32 +5,32 @@ using UnityEngine.UI;
 
 public class GradientChanger : ManagerBase<GradientChanger>
 {
-    [SerializeField] private Image topGradient;
-    [SerializeField] private Image bottomGradient;
+    [SerializeField] private Image topGradient = null;
+    [SerializeField] private Image bottomGradient = null;
     [Space]
-    [SerializeField] [Range(0, 1)] private float masterOpacity;
+    [SerializeField] [Range(0, 1)] private float masterOpacity = 1.0f;
     [Space]
-    [SerializeField] private Color topSunrise;
-    [SerializeField] private Color bottomSunrise;
-    [SerializeField] [Range(0, 1)] private float sunriseOpacity;
+    [SerializeField] private Color topSunrise = Color.white;
+    [SerializeField] private Color bottomSunrise = Color.white;
+    [SerializeField] [Range(0, 1)] private float sunriseOpacity = 1.0f;
     [Space]
-    [SerializeField] private Color topMorning;
-    [SerializeField] private Color bottomMorning;
-    [SerializeField] [Range(0, 1)] private float morningOpacity;
+    [SerializeField] private Color topMorning = Color.white;
+    [SerializeField] private Color bottomMorning = Color.white;
+    [SerializeField] [Range(0, 1)] private float morningOpacity = 1.0f;
     [Space]
-    [SerializeField] private Color topMidday;
-    [SerializeField] private Color bottomMidday;
-    [SerializeField] [Range(0, 1)] private float middayOpacity;
+    [SerializeField] private Color topMidday = Color.white;
+    [SerializeField] private Color bottomMidday = Color.white;
+    [SerializeField] [Range(0, 1)] private float middayOpacity = 1.0f;
     [Space]
-    [SerializeField] private Color topEvening;
-    [SerializeField] private Color bottomEvening;
-    [SerializeField] [Range(0, 1)] private float eveningOpacity;
+    [SerializeField] private Color topEvening = Color.white;
+    [SerializeField] private Color bottomEvening = Color.white;
+    [SerializeField] [Range(0, 1)] private float eveningOpacity = 1.0f;
     [Space]
-    [SerializeField] private Color topNight;
-    [SerializeField] private Color bottomNight;
-    [SerializeField] [Range(0, 1)] private float nightOpacity;
+    [SerializeField] private Color topNight = Color.white;
+    [SerializeField] private Color bottomNight = Color.white;
+    [SerializeField] [Range(0, 1)] private float nightOpacity = 1.0f;
     [Space]
-    [SerializeField] private EnumTime previewTime;
+    [SerializeField] private EnumTime previewTime = EnumTime.SUNRISE;
 
     private Dictionary<EnumTime, ColorData> timeColors = new Dictionary<EnumTime, ColorData>();
 
