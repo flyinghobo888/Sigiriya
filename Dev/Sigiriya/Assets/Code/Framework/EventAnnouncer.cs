@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-//Authors: Andrew Rimpici
 //Designed to hold all of the possible events for the game.
 public class EventAnnouncer : ManagerBase<EventAnnouncer>
 {
@@ -179,4 +178,10 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     //When the user moves or releases the dead fingers
     public delegate void DeadMultiPressChanging();
     public static DeadMultiPressChanging OnDeadMultiPressChanging;
+
+
+    /* Global Time Events */
+
+    public delegate void TimeChanged(EnumTime newTime);
+    public static TimeChanged OnTimeChanged;
 }
