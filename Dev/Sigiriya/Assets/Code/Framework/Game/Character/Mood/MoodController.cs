@@ -30,7 +30,7 @@ public class MoodController : ManagerBase<MoodController>
         for (i = 0; i < nodePoolSize; ++i)
         {
             nodePool[i] = new MoodNode();
-            Debug.Log("INITIALIZING NODE: " + i);
+            //Debug.Log("INITIALIZING NODE: " + i);
         }
     }
 

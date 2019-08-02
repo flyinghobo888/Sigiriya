@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameScene : SceneBase<GameScene>
 {
-	[SerializeField] private DialogueController sceneDialogueController;
+	[SerializeField] private DialogueController sceneDialogueController = null;
 
 	private void OnEnable()
     {

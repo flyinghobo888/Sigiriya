@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class TaskUIInfo : MonoBehaviour
 {
-	[SerializeField] public Task task;
-	[SerializeField] private Image checkbox;
-	[SerializeField] private Text taskDescription;
-	[SerializeField] public List<Text> subTasks; //I need a way to display the subtasks as well. This might not cut it
+	[SerializeField] public Task task = null;
+	[SerializeField] private Image checkbox = null;
+	[SerializeField] private Text taskDescription = null;
+	[SerializeField] public List<Text> subTasks = null; //I need a way to display the subtasks as well. This might not cut it
 
 	public void UpdateTaskUI()
 	{
