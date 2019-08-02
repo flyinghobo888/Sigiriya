@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Author: Andrew Rimpici
 //Can be used to create new Sub Traits for characters.
 [CreateAssetMenu(fileName = "New Sub Trait", menuName = "Sub Trait")]
 public class SubTrait : Trait

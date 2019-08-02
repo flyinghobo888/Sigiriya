@@ -67,6 +67,9 @@ namespace XNodeEditor {
         void OnFocus() {
             current = this;
             graphEditor = NodeGraphEditor.GetEditor(graph);
+
+            //Debug.Log("HELLO: " + NodeGraphEditor.GetEditor(graph));
+
             if (graphEditor != null && NodeEditorPreferences.GetSettings().autoSave) AssetDatabase.SaveAssets();
         }
 

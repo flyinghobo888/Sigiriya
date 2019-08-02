@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//Authors: Andrew Rimpici
 //Responsible for keeping track of which scene we're in.
 public class SceneNavigator : ManagerBase<SceneNavigator>
 {

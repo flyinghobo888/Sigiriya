@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-//Author: Andrew Rimpici
 //Manages the text and how it displays to the player.
 public class TextController : ManagerBase<TextController>
 {
