@@ -106,7 +106,7 @@ public class GradientChanger : ManagerBase<GradientChanger>
                 startOpacity = currentColorData.Opacity;
                 endOpacity = nextColorData.Opacity;
 
-                //previewTime = newTime;
+                previewTime = newTime;
             }
         }
     }
