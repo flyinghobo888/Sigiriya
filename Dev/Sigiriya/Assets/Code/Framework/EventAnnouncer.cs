@@ -178,4 +178,10 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     //When the user moves or releases the dead fingers
     public delegate void DeadMultiPressChanging();
     public static DeadMultiPressChanging OnDeadMultiPressChanging;
+
+
+    /* Global Time Events */
+
+    public delegate void TimeChanged(EnumTime newTime);
+    public static TimeChanged OnTimeChanged;
 }
