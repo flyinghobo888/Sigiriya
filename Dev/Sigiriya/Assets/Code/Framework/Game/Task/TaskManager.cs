@@ -13,8 +13,10 @@ public class TaskManager : ManagerBase<TaskManager>
 
 	public List<Task> taskList;
 	//public List<TaskUI> taskUIList; //create a taskUI class //why did I need this? if you figure it out, replace var of same name
-	[SerializeField] GameObject taskContainer; //where to get my list of tasks, as well as where to put them
-	[SerializeField] GameObject taskUIReference;
+	
+        //Hey Karim I commented this out since it was giving a warning lolz. Uncomment it when you wanna use it
+        ///[SerializeField] GameObject taskContainer = null; //where to get my list of tasks, as well as where to put them
+	[SerializeField] GameObject taskUIReference = null;
 	[SerializeField] private List<GameObject> taskUIList;
 
 	public bool allTasksComplete = false;
