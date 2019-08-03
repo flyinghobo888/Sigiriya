@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 {
     //For now, just change the time every few seconds
-    private float totalTime = 2.0f;
+    private float totalTime = 5.0f;
     public float TotalTimeInverse { get; private set; }
-    public float CurrentTime { get; private set; }
+    public float CurrentTime { get; private set; } = 0.0f;
 
     //How far into the cycle the time is.
-    public float TimeAlpha { get; private set; }
+    public float TimeAlpha { get; private set; } = 0.0f;
 
     public EnumTime CurrentTimeOfDay { get; private set; }
 
@@ -21,7 +21,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     private void Start()
     {
         TotalTimeInverse = 1.0f / totalTime;
-        CurrentTimeOfDay = EnumTime.MORNING;
+        CurrentTimeOfDay = EnumTime.SUNRISE;
     }
 
     private void Update()
