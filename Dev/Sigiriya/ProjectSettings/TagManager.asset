@@ -13,33 +13,45 @@ TagManager:
   - UI
   - 
   - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - PostProcessing
   - FadeUI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1875298369
+    locked: 0
+  - name: InactiveTalker
+    uniqueID: 818245029
+    locked: 0
+  - name: ActiveTalker
+    uniqueID: 2356894589
+    locked: 0
+  - name: UIBeforeBlur
+    uniqueID: 331294943
     locked: 0
   - name: FadeUI
     uniqueID: 3326119829
