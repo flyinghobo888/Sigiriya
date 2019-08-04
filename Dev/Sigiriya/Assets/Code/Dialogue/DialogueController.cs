@@ -9,7 +9,6 @@ using UnityEditor;
 TODO:
 -move text scaling
 -make dimensions CONSTANT
-
 */
 
 public class DialogueController : ManagerBase<DialogueController>
@@ -20,14 +19,31 @@ public class DialogueController : ManagerBase<DialogueController>
 	//Graph where nodes are kept
 	public SimpleGraph dialogueGraph;
 
-	[Header("UI Fields")]
-	[SerializeField] private TextMeshProUGUI nameBox = null;
-	[SerializeField] private TextMeshProUGUI promptPanel = null;
+    [Header("Dialogue Scene Objects")]
+    [SerializeField] private GameObject dialogueContainerObj = null;
+    [SerializeField] private GameObject backgroundBlurContainer = null;
 	[SerializeField] private Button[] responseButtons = null;
 	[SerializeField] private Button continueButton = null;
 	[SerializeField] private List<Image> speakerImages = null; //basically just a holder of images to display
 
-    [SerializeField] private GameObject characterContainer = null;
+    [Header("Player UI Fields")]
+    [SerializeField] private GameObject playerSpeechObj = null;
+    [SerializeField] private TextMeshProUGUI playerPromptPanel = null;
+
+    [Header("Character UI Fields")]
+    [SerializeField] private GameObject characterSpeechObj = null;
+    [SerializeField] private TextMeshProUGUI characterNameBox = null;
+	[SerializeField] private TextMeshProUGUI characterPromptPanel = null;
+
+    [Header("Foreground and Background Fields")]
+    [SerializeField] private GameObject backgroundContainer = null;
+    [SerializeField] private GameObject foregroundContainer = null;
+
+    private TextMeshProUGUI currentPromptPanel = null;
+    private GameObject characterButtonObj = null;
+
+    private GameObject prevSpeakingCharacter = null;
+    private GameObject currentSpeakingCharacter = null;
 
 	[Header("Dialogue")]
 	//[SerializeField] PromptNode pNode;
@@ -40,25 +56,27 @@ public class DialogueController : ManagerBase<DialogueController>
 	[Header("Dev/Editor")]
 	[SerializeField] private List<SimpleGraph> graphList = null;
 
-	//private void Awake()
-	//{
-	//	if (dialogueGraph != null)
-	//	{
-	//		if (dialogueGraph.isInit)
-	//		{
-	//			Instance.Init();
-	//			Instance.gameObject.SetActive(false);
-	//		}
-	//	}
-	//	else
-	//	{
-	//		Instance.gameObject.SetActive(false);
-	//	}
-	//}
+    //speakerImages[dialogueGraph.GetActorIndex(pNode.speaker)].gameObject - gets the game object in the scene of who is currently speaking. If pNode.speaker is null, the player is talking
 
-	private void Init()
+    //private void Awake()
+    //{
+    //	if (dialogueGraph != null)
+    //	{
+    //		if (dialogueGraph.isInit)
+    //		{
+    //			Instance.Init();
+    //			Instance.gameObject.SetActive(false);
+    //		}
+    //	}
+    //	else
+    //	{
+    //		Instance.gameObject.SetActive(false);
+    //	}
+    //}
+
+    private void Init()
 	{
-		ID = this.name;
+		ID = name;
 
 		dialogueGraph.Restart();
 
@@ -84,12 +102,14 @@ public class DialogueController : ManagerBase<DialogueController>
 
 	private void Start()
 	{
-		//Maybe set extraConnections again here? I dunno.
+        //Maybe set extraConnections again here? I dunno.
 
-		//move to start once text size is decided
-		//textSize = textSize * Screen.width / 1920;
-
-	}
+        //move to start once text size is decided
+        //textSize = textSize * Screen.width / 1920;
+        //dialogueContainerObj.SetActive(false);
+        //backgroundBlurContainer.SetActive(false);
+        ActivateDialogueUI(false);
+    }
 
 	private void Update()
 	{
@@ -136,11 +156,25 @@ public class DialogueController : ManagerBase<DialogueController>
 			checkPointNode = pNode.GetConnectedNode("checkpointConnection");
 			exitNode = pNode.GetConnectedNode("exitConnection");
 
-			nameBox.text = pNode.speaker == null ? "Player" : pNode.speaker.characterName;
-            promptPanel.text = "";//pNode.prompt;
-            EventAnnouncer.OnDialogueUpdate(promptPanel, pNode.prompt);
+            //The character is speaking
+            if (pNode.speaker != null)
+            {
+                characterNameBox.text = pNode.speaker.characterName;
+                ActivateSpeechPrompt(EnumTalking.CHARACTER);
+            }
+            else
+            {
+                ActivateSpeechPrompt(EnumTalking.PLAYER);
+            }
 
-			int i = 0;
+            currentPromptPanel.text = "";
+            EventAnnouncer.OnDialogueUpdate(currentPromptPanel, pNode.prompt);
+
+            //nameBox.text = pNode.speaker == null ? "Player" : pNode.speaker.characterName;
+            //promptPanel.text = "";//pNode.prompt;
+            //EventAnnouncer.OnDialogueUpdate(promptPanel, pNode.prompt);
+
+            int i = 0;
 
 			if (pNode.responses.Count != 0) //if we have responses
 			{
@@ -175,17 +209,30 @@ public class DialogueController : ManagerBase<DialogueController>
 		{
 			ResponseNode rNode = node as ResponseNode;
 
-            nameBox.text = "Player";
+            //The player is responding
+            ActivateSpeechPrompt(EnumTalking.PLAYER);
+            currentPromptPanel.text = "";
+
             if (rNode.textFull != "")
-			{
-                promptPanel.text = "";//rNode.textFull;
-                EventAnnouncer.OnDialogueUpdate(promptPanel, rNode.textFull);
+            {
+                EventAnnouncer.OnDialogueUpdate(currentPromptPanel, rNode.textFull);
             }
-			else
-			{
-                promptPanel.text = "";//rNode.textButton;
-                EventAnnouncer.OnDialogueUpdate(promptPanel, rNode.textButton);
+            else
+            {
+                EventAnnouncer.OnDialogueUpdate(currentPromptPanel, rNode.textButton);
             }
+
+            //nameBox.text = "Player";
+            //if (rNode.textFull != "")
+			//{
+                //promptPanel.text = "";//rNode.textFull;
+                //EventAnnouncer.OnDialogueUpdate(promptPanel, rNode.textFull);
+            //}
+			//else
+			//{
+                //promptPanel.text = "";//rNode.textButton;
+                //EventAnnouncer.OnDialogueUpdate(promptPanel, rNode.textButton);
+            //}
 
 			Debug.Log("PLAYER TALKING");
 			int i = 0;
@@ -205,7 +252,7 @@ public class DialogueController : ManagerBase<DialogueController>
 	{
         if (!TextController.Instance.IsFinished)
         {
-            EventAnnouncer.OnDialogueRequestFinish(promptPanel);
+            EventAnnouncer.OnDialogueRequestFinish(currentPromptPanel);
             return;
         }
 
@@ -266,9 +313,11 @@ public class DialogueController : ManagerBase<DialogueController>
 
 			//SetSpeakerImage(false, 0);
 			SetNeutralSpeakers();
+            BringAllToForeground();
 
 			DisplayNode(dialogueGraph.current);
-			gameObject.SetActive(true);
+            ActivateDialogueUI(true);
+            //dialogueContainerObj.SetActive(true);
 
             //Start talking.
         }
@@ -276,14 +325,14 @@ public class DialogueController : ManagerBase<DialogueController>
 
     public void DisableCharacterController(GameObject charContainer)
     {
-        characterContainer = charContainer;
+        characterButtonObj = charContainer;
 
 		if (dialogueGraph.current != null)
 		{
-			if (characterContainer != null)
+			if (characterButtonObj != null)
 			{
-				characterContainer.SetActive(false);
-			}
+                characterButtonObj.SetActive(false);
+            }
 		}
     }
 
@@ -316,6 +365,7 @@ public class DialogueController : ManagerBase<DialogueController>
 			SetSpeakerImage(true);
 		}
 	}
+
 	private void SetSpeakerImage(bool isSpeaking)//, int index)
 	{
 		//Error check
@@ -325,8 +375,9 @@ public class DialogueController : ManagerBase<DialogueController>
 		}
 
 		PromptNode pNode = dialogueGraph.current as PromptNode;
+        UpdateSpeakingCharacter(ref pNode);
 
-		Sprite speakerPic = dialogueGraph.GetSprite(isSpeaking, pNode.speaker, pNode.expression);
+        Sprite speakerPic = dialogueGraph.GetSprite(isSpeaking, pNode.speaker, pNode.expression);
 		if (speakerPic != null)
 		{
             Image speakerImage = speakerImages[dialogueGraph.GetActorIndex(pNode.speaker)];
@@ -337,12 +388,14 @@ public class DialogueController : ManagerBase<DialogueController>
             //speakerImages[0].gameObject.SetActive(true); //should always be active, this line is depracated
         }
 	}
+
 	//Generally not used
 	public void SetCurrNode(int newNode)
 	{
 		dialogueGraph.current = dialogueGraph.nodes[newNode] as BaseNode;
 	}
 
+    //Called when conversation is first started
 	public void SwapGraph(SimpleGraph newGraph)
 	{
 		dialogueGraph = newGraph;
@@ -351,12 +404,13 @@ public class DialogueController : ManagerBase<DialogueController>
 		{
 			Init();
 		}
+
 		if (dialogueGraph.current != null)
 		{
 			AssessCurrentType();
-
 			SetNeutralSpeakers();
-		}
+            BringAllToForeground();
+        }
 	}
 
 	//This checks to see what the type of the current node is, and evaluates until it reaches a PromptNode
@@ -405,7 +459,7 @@ public class DialogueController : ManagerBase<DialogueController>
 	{
 		if (col.tag == "Player")
 		{
-			if (this.enabled == true)
+			if (enabled)
 			{
 				//TODO: setup interrupts in the xnode graph
 
@@ -420,7 +474,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				//now go to the interruptNode
 				//dialogueGraph.current = interruptNode;// as PromptNode;
-				this.enabled = false;
+				enabled = false;
 			}
 		}
 	}
@@ -449,8 +503,89 @@ public class DialogueController : ManagerBase<DialogueController>
             Debug.Log(ID + " is done talking");
 			dialogueGraph.current = exitNode;
 
-			gameObject.SetActive(false);
-            characterContainer.SetActive(true);
+            ActivateDialogueUI(false);
+
+            if (characterButtonObj)
+            {
+                characterButtonObj.SetActive(true);
+            }
         }
+    }
+
+    private void ActivateDialogueUI(bool activate)
+    {
+        backgroundBlurContainer.SetActive(activate);
+        dialogueContainerObj.SetActive(activate);
+    }
+
+    private void ActivateSpeechPrompt(EnumTalking whoIsTalking)
+    {
+        if (whoIsTalking == EnumTalking.PLAYER)
+        {
+            playerSpeechObj.SetActive(true);
+            characterSpeechObj.SetActive(false);
+            currentPromptPanel = playerPromptPanel;
+        }
+        else
+        {
+            playerSpeechObj.SetActive(false);
+            characterSpeechObj.SetActive(true);
+            currentPromptPanel = characterPromptPanel;
+        }
+    }
+
+    //If prevSpeakingCharacter or currentSpeakingCharacter is null, that means it's the player.
+    private void UpdateSpeakingCharacter(ref PromptNode pNode)
+    {
+        if (currentSpeakingCharacter)
+        {
+            prevSpeakingCharacter = currentSpeakingCharacter;
+        }
+
+        //The player is talking.
+        if (pNode.speaker != null)
+        {
+            currentSpeakingCharacter = speakerImages[dialogueGraph.GetActorIndex(pNode.speaker)].gameObject;
+        }
+
+        BringAllToBackground();
+        UpdateSpeakingCharacterLocation();
+    }
+
+    private void UpdateSpeakingCharacterLocation()
+    {
+        if (prevSpeakingCharacter && !currentSpeakingCharacter)
+        {
+            prevSpeakingCharacter.transform.SetParent(backgroundContainer.transform);
+        }
+
+        if (currentSpeakingCharacter)
+        {
+            currentSpeakingCharacter.transform.SetParent(foregroundContainer.transform);
+        }
+    }
+
+    private void BringAllToForeground()
+    {
+        foreach (Image speaker in speakerImages)
+        {
+            speaker.transform.SetParent(foregroundContainer.transform);
+            speaker.transform.SetAsFirstSibling();
+        }
+    }
+
+    private void BringAllToBackground()
+    {
+        foreach (Image speaker in speakerImages)
+        {
+            speaker.transform.SetParent(backgroundContainer.transform);
+            speaker.transform.SetAsFirstSibling();
+        }
+    }
+
+    private enum EnumTalking
+    {
+        PLAYER,
+        CHARACTER
     }
 }
