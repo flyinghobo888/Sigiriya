@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5653615866928495980}
   - component: {fileID: 5653615866928495981}
   - component: {fileID: 1276202413}
-  m_Layer: 8
+  m_Layer: 31
   m_Name: _FADE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,8 +59,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 32767
+  m_SortingLayerID: -968847467
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &5653615866928495980
 MonoBehaviour:
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 5653615867165606090}
   - component: {fileID: 5653615867165606091}
   - component: {fileID: 5653615867165606089}
-  m_Layer: 8
+  m_Layer: 31
   m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f043a8052cccd944bb7d3f70da4f6a65, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -198,8 +198,8 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5653615867165606069}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
+  m_Alpha: 0
+  m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &5653615867363415736
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 5653615867363415743}
   - component: {fileID: 5653615867363415741}
   - component: {fileID: 5653615867363415742}
-  m_Layer: 8
+  m_Layer: 31
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

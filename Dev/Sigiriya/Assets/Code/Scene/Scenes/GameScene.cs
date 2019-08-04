@@ -11,8 +11,8 @@ public class GameScene : SceneBase<GameScene>
         Debug.Log("Game scene enabled!");
 
         //This is just to initialize the dialoguecontroller instance
-        sceneDialogueController.gameObject.SetActive(true);
+        //sceneDialogueController.gameObject.SetActive(true);
         DialogueController.Instance.RestartAllDialogue();
-        DialogueController.Instance.gameObject.SetActive(false);
+        //DialogueController.Instance.gameObject.SetActive(false);
     }
 }
