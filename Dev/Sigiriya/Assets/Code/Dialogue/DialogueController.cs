@@ -343,9 +343,39 @@ public class DialogueController : ManagerBase<DialogueController>
 		dialogueGraph.current = dialogueGraph.nodes[newNode] as BaseNode;
 	}
 
-	public void SwapGraph(SimpleGraph newGraph)
+	//no longer accept a graph. maybe have a version that does?
+	public void SwapGraph()
 	{
-		dialogueGraph = newGraph;
+		//figure out a new graph
+
+		SimpleGraph newGraph = null;
+		int maxPoints = 0;
+		foreach (SimpleGraph graph in graphList)
+		{
+			int points = 0;
+
+			if (graph.location == LocationTracker.Instance.currentLocation)
+			{
+				points += 2;
+			}
+
+			points += graph.bitchPoints;
+
+			if (points > maxPoints)
+			{
+				maxPoints = points;
+				newGraph = graph;
+			}
+		}
+
+		if (maxPoints > 2)
+		{
+			dialogueGraph = newGraph;
+		}
+		else
+		{
+			return;
+		}
 
 		if (!dialogueGraph.isInit)
 		{
@@ -358,6 +388,22 @@ public class DialogueController : ManagerBase<DialogueController>
 			SetNeutralSpeakers();
 		}
 	}
+	public void SwapGraph(SimpleGraph newGraph)
+	{
+		dialogueGraph = newGraph;
+	
+		if (!dialogueGraph.isInit)
+		{
+			Init();
+		}
+		if (dialogueGraph.current != null)
+		{
+			AssessCurrentType();
+	
+			SetNeutralSpeakers();
+		}
+	}
+
 
 	//This checks to see what the type of the current node is, and evaluates until it reaches a PromptNode
 	private void AssessCurrentType()

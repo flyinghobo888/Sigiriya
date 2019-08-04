@@ -12,7 +12,16 @@ public class SimpleGraph : NodeGraph
 	public bool isInit = false;
 
 	public List<Character> actors = new List<Character>();
-	//TODO: also include a list of emotions that are updated as this goes along
+
+	//TODO: dialogue pool variables
+	public int bitchPoints;
+	public EnumLocation location;
+	//Needed for current task?
+	//Narrative flags
+	//Location
+	//Time of day
+	//other people
+	//recently talked, but not finished
 
 	public void Restart()
 	{
