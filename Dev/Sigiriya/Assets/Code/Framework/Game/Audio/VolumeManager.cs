@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Author: Andrew Rimpici
 //Manages the game volume.
 public class VolumeManager : ManagerBase<VolumeManager>
 {

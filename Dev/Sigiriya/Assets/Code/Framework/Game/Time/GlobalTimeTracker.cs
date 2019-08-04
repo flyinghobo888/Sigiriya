@@ -3,74 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Author: Andrew Rimpici
 //The Global Time Tracker is responsible for tracking the time through out the game.
 public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 {
     //For now, just change the time every few seconds
     private float totalTime = 5.0f;
-    private float totalTimeInverse;
-    private float currentTime;
+    public float TotalTimeInverse { get; private set; }
+    public float CurrentTime { get; private set; } = 0.0f;
 
-    private EnumTime currentTimeOfDay;
+    //How far into the cycle the time is.
+    public float TimeAlpha { get; private set; } = 0.0f;
 
-    [SerializeField] private Image background = null;
+    public EnumTime CurrentTimeOfDay { get; private set; }
 
-    [SerializeField] private Material sunriseOverlay = null;
-    [SerializeField] private Material morningOverlay = null;
-    [SerializeField] private Material middayOverlay = null;
-    [SerializeField] private Material eveningOverlay = null;
-    [SerializeField] private Material nightOverlay = null;
-
-    private List<Material> backgroundOverlays = new List<Material>();
     private int currentIndex = 0;
-
-    private Color currentTopColor;
-    private Color targetTopColor;
-
-    private Color currentBottomColor;
-    private Color targetBottomColor;
 
     private void Start()
     {
-        totalTimeInverse = 1.0f / totalTime;
-        currentTimeOfDay = EnumTime.MORNING;
-
-        backgroundOverlays.Clear();
-        backgroundOverlays.Add(sunriseOverlay);
-        backgroundOverlays.Add(morningOverlay);
-        backgroundOverlays.Add(middayOverlay);
-        backgroundOverlays.Add(eveningOverlay);
-        backgroundOverlays.Add(nightOverlay);
-        SetNewColors();
+        TotalTimeInverse = 1.0f / totalTime;
+        CurrentTimeOfDay = EnumTime.SUNRISE;
     }
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
+        CurrentTime += Time.deltaTime;
+        TimeAlpha = CurrentTime * TotalTimeInverse;
 
-        background.material.SetColor("Color_22E35091", Color.Lerp(currentTopColor, targetTopColor, currentTime * totalTimeInverse));
-        background.material.SetColor("Color_B0472F4B", Color.Lerp(currentBottomColor, targetBottomColor, currentTime * totalTimeInverse));
-
-        if (currentTime >= totalTime)
+        if (CurrentTime >= totalTime)
         {
-            currentIndex = (((int)currentTimeOfDay + 1) % (int)EnumTime.SIZE);
-            currentTime = 0.0f;
-            currentTimeOfDay = (EnumTime)(currentIndex);
-            SetNewColors();
+            currentIndex = (((int)CurrentTimeOfDay + 1) % (int)EnumTime.SIZE);
+            CurrentTime = 0.0f;
+            CurrentTimeOfDay = (EnumTime)(currentIndex);
+            TimeAlpha = 0.0f;
+            EventAnnouncer.OnTimeChanged(CurrentTimeOfDay);
         }
-    }
-
-    void SetNewColors()
-    {
-        Material currentMat = backgroundOverlays[currentIndex];
-        Material nextMat = backgroundOverlays[(((int)currentTimeOfDay + 1) % (int)EnumTime.SIZE)];
-
-        currentTopColor = currentMat.GetColor("Color_22E35091");
-        currentBottomColor = currentMat.GetColor("Color_B0472F4B");
-
-        targetTopColor = nextMat.GetColor("Color_22E35091");
-        targetBottomColor = nextMat.GetColor("Color_B0472F4B");
     }
 }
 

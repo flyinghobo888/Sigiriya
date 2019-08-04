@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Author: Andrew Rimpici
 //Can be used to create new Characters by designers or artists.
 [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class Character : ScriptableObject
@@ -35,10 +34,21 @@ public class Character : ScriptableObject
     private Dictionary<EnumExpression, Sprite> expressions = new Dictionary<EnumExpression, Sprite>();
     private Dictionary<EnumExpression, Sprite> talkExpressions = new Dictionary<EnumExpression, Sprite>();
 
+    //MoodTracker.AddMood
+    //MoodTracker.RemoveMood
+    //MoodTracker.PauseMood
+    //MoodTracker.GetMoodNode
+    ///MoodNode.Active -> DONT USE. Only for object pool
+    //MoodNode.Paused
+    //MoodeNod.Duration
+    //MoodNode.Mood
+    public MoodTracker MoodTracker = new MoodTracker();
+
     public void InitCharacter()
     {
         RegisterSubTraits();
         RegisterSuperTraits();
+        MoodController.Instance.RegisterMoodTracker(this, MoodTracker);
         InitSprites();
     }
 

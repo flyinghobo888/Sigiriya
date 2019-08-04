@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Authors: Andrew Rimpici
 //All managers that there should only be one of at a time in a scene can extend this class and then it will make sure there are no duplicates.
 public class ManagerBase<T> : MonoBehaviour where T : MonoBehaviour
 {
