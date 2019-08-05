@@ -178,21 +178,44 @@ public class DialogueController : ManagerBase<DialogueController>
 
 			if (pNode.responses.Count != 0) //if we have responses
 			{
+				int grossCount = 0; //part of the gross stuff
                 for (; i < pNode.responses.Count; i++)
-                {
-                    if (!pNode.GetAnswerConnection(i).getHidden())
+				{
+					//god this is so fucking gross
+					//A check to see if visited
+					if (pNode.GetAnswerConnection(i).GetNextNode() != null && pNode.GetAnswerConnection(i).GetNextNode().GetType() == typeof(PromptNode))
+					{
+						PromptNode ppNode = pNode.GetAnswerConnection(i).GetNextNode() as PromptNode;
+
+						if (ppNode.isVisited == true)
+						{
+							grossCount++;
+							responseButtons[i].gameObject.SetActive(false);
+							if(grossCount == pNode.responses.Count)
+							{
+								continueButton.gameObject.SetActive(true);
+							}
+							//TODO: works up until no more responses. I need to activate continue at that point
+							continue;
+						}
+					}
+
+
+					if (!pNode.GetAnswerConnection(i).getHidden())
                     {
                         responseButtons[i].gameObject.SetActive(true);
-                        //TODO: update the response class with two(2) text things. a button text, and full text
                         responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
                     }
-                    else
-                    {
+					else
+					{
                         responseButtons[i].gameObject.SetActive(false);
                     }
                 }
 
-				continueButton.gameObject.SetActive(false);
+				if (grossCount != pNode.responses.Count)
+				{
+					continueButton.gameObject.SetActive(false);
+				}
 			}
 			else
 			{
@@ -290,7 +313,6 @@ public class DialogueController : ManagerBase<DialogueController>
 			EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
 		}
 
-		//TODO: !Important! work on isVisited
 		dialogueGraph.current = pNode.GetAnswerConnection(responseNode);//.GetNextNode();
 		AssessCurrentType();
 
@@ -306,6 +328,7 @@ public class DialogueController : ManagerBase<DialogueController>
 	//Used to enable object and start dialogue
 	public void EnableCurrNode(SimpleGraph newGraph)
 	{
+		//TODO: talk with Tom about how to implement the pool to his liking
 		if (newGraph == null)
 		{
 			int maxPoints = 0;
