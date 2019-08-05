@@ -290,6 +290,7 @@ public class DialogueController : ManagerBase<DialogueController>
 			EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
 		}
 
+		//TODO: !Important! work on isVisited
 		dialogueGraph.current = pNode.GetAnswerConnection(responseNode);//.GetNextNode();
 		AssessCurrentType();
 
@@ -305,6 +306,37 @@ public class DialogueController : ManagerBase<DialogueController>
 	//Used to enable object and start dialogue
 	public void EnableCurrNode(SimpleGraph newGraph)
 	{
+		if (newGraph == null)
+		{
+			int maxPoints = 0;
+			foreach (SimpleGraph graph in graphList)
+			{
+				int points = 0;
+
+				if (graph.location == LocationTracker.Instance.TargetLocation)
+				{
+					points += 2;
+				}
+
+				points += graph.bitchPoints;
+
+				if (points > maxPoints)
+				{
+					maxPoints = points;
+					newGraph = graph;
+				}
+			}
+
+			if (maxPoints > 2)
+			{
+				dialogueGraph = newGraph;
+			}
+			else
+			{
+				return;
+			}
+		}
+
 		SwapGraph(newGraph);
 
 		if (dialogueGraph.current != null)
@@ -395,52 +427,6 @@ public class DialogueController : ManagerBase<DialogueController>
 		dialogueGraph.current = dialogueGraph.nodes[newNode] as BaseNode;
 	}
 
-	//no longer accept a graph. maybe have a version that does?
-	public void SwapGraph()
-	{
-		//figure out a new graph
-
-		SimpleGraph newGraph = null;
-		int maxPoints = 0;
-		foreach (SimpleGraph graph in graphList)
-		{
-			int points = 0;
-
-			if (graph.location == LocationTracker.Instance.TargetLocation)
-			{
-				points += 2;
-			}
-
-			points += graph.bitchPoints;
-
-			if (points > maxPoints)
-			{
-				maxPoints = points;
-				newGraph = graph;
-			}
-		}
-
-		if (maxPoints > 2)
-		{
-			dialogueGraph = newGraph;
-		}
-		else
-		{
-			return;
-		}
-
-		if (!dialogueGraph.isInit)
-		{
-			Init();
-		}
-
-		if (dialogueGraph.current != null)
-		{
-			AssessCurrentType();
-			SetNeutralSpeakers();
-            BringAllToForeground();
-        }
-	}
 	public void SwapGraph(SimpleGraph newGraph)
 	{
 		dialogueGraph = newGraph;
@@ -469,7 +455,6 @@ public class DialogueController : ManagerBase<DialogueController>
 
 		while ((dialogueGraph.current.GetType() != typeof(PromptNode) && dialogueGraph.current.GetType() != typeof(ResponseNode)) && dialogueGraph.current != null)
 		{
-			//only supports branch nodes rn.
 			if (dialogueGraph.current.GetType() == typeof(BranchNode))
 			{
 				BranchNode bNode = dialogueGraph.current as BranchNode;
@@ -497,6 +482,13 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				dialogueGraph.current = aNode.GetNextNode();
 			}
+		}
+
+		if (dialogueGraph.current.GetType() == typeof(PromptNode))
+		{
+			PromptNode pNode = dialogueGraph.current as PromptNode;
+
+			pNode.isVisited = true;
 		}
 	}
 

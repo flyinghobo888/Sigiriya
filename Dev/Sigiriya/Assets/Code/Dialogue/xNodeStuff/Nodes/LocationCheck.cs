@@ -4,12 +4,11 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(46, 217, 125)]
-[CreateNodeMenu("Sigiriya/Logic/TriggerCheck")]
-public class TriggerCheck : Node
+[CreateNodeMenu("Sigiriya/Logic/LocationCheck")]
+public class LocationCheck : Node
 {
 	[Output] public bool result;
-	public FlagBank.Flags trigger;
-	//public EnumLocation location;
+	public EnumLocation location;
 	//public EnumMood mood;
 	//public EnumTime time;
 
@@ -28,12 +27,13 @@ public class TriggerCheck : Node
 		if (port.fieldName == "result")
 			switch (operatorType)
 			{
-				case Operator.TRUE: default:
-					result = PersistentEventBank.ContainsFlag(trigger) == true ;
+				case Operator.TRUE:
+				default:
+					result = LocationTracker.Instance.TargetLocation == location;
 					//result = true;
 					break;
 				case Operator.FALSE:
-					result = PersistentEventBank.ContainsFlag(trigger) == false;
+					result = LocationTracker.Instance.TargetLocation != location;
 					//result = false;
 					break;
 			}

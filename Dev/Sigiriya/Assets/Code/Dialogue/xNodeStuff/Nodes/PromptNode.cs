@@ -15,7 +15,7 @@ public class PromptNode : BaseNode
 	[TextArea] public string prompt;
     public Character speaker;
 	public Character.EnumExpression expression;
-	public float time;
+	public bool isVisited = false;
 
 	public ResponseNode GetAnswerConnection(int index)
 	{

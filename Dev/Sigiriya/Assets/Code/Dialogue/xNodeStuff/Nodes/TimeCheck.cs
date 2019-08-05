@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
-
 [NodeTint(46, 217, 125)]
-[CreateNodeMenu("Sigiriya/Logic/TriggerCheck")]
-public class TriggerCheck : Node
+[CreateNodeMenu("Sigiriya/Logic/TimeCheck")]
+public class TimeCheck : Node
 {
 	[Output] public bool result;
-	public FlagBank.Flags trigger;
-	//public EnumLocation location;
-	//public EnumMood mood;
-	//public EnumTime time;
+	public Character character;
+	public EnumTime time;
 
 	[NodeEnum] public Operator operatorType = Operator.TRUE;
 	public enum Operator
@@ -28,12 +25,13 @@ public class TriggerCheck : Node
 		if (port.fieldName == "result")
 			switch (operatorType)
 			{
-				case Operator.TRUE: default:
-					result = PersistentEventBank.ContainsFlag(trigger) == true ;
+				case Operator.TRUE:
+				default:
+					result = GlobalTimeTracker.Instance.CurrentTimeOfDay == time;
 					//result = true;
 					break;
 				case Operator.FALSE:
-					result = PersistentEventBank.ContainsFlag(trigger) == false;
+					result = GlobalTimeTracker.Instance.CurrentTimeOfDay != time;
 					//result = false;
 					break;
 			}

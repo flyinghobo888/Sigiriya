@@ -39,7 +39,7 @@ public class PromptNodeEditor : NodeEditor
 		GUILayout.EndVertical();
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("prompt"), GUIContent.none);
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("time"), new GUIContent("Time"));
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("isVisited"), new GUIContent("Visited"));
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("speaker"), new GUIContent("Speaker"));
 
