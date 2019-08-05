@@ -182,6 +182,9 @@ public class DialogueController : ManagerBase<DialogueController>
                 for (; i < pNode.responses.Count; i++)
 				{
 					//god this is so fucking gross
+					//TODO: hey, a fix might be to add a "isVisited" to responses? Cause they link to a single propmpt?
+					//unless the prompt is somehow linked through a response AND a branch,
+					//cause then a response would never be breached. this is gross
 					//A check to see if visited
 					if (pNode.GetAnswerConnection(i).GetNextNode() != null && pNode.GetAnswerConnection(i).GetNextNode().GetType() == typeof(PromptNode))
 					{
