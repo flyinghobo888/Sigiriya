@@ -343,8 +343,8 @@ public class DialogueController : ManagerBase<DialogueController>
 		bool usableGraph = false;
 		if (character != null)
 		{
-			List<SimpleGraph> graphListCopy = graphList;
-			foreach (SimpleGraph graph in graphListCopy)
+			List<SimpleGraph> graphListCopy = new List<SimpleGraph>();
+			foreach (SimpleGraph graph in graphList)
 			{
 				//cull the impossible
 
@@ -373,11 +373,6 @@ public class DialogueController : ManagerBase<DialogueController>
 					continue;
 				}
 
-				//check location
-				if (graph.location != LocationTracker.Instance.TargetLocation)
-				{
-					continue;
-				}
 
 				//check flags
 				bool containsFlags = true;
@@ -395,13 +390,20 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				//congrats! you passed!
 				dialogueGraph = graph;
+				graphListCopy.Add(graph);
 				usableGraph = true;
 			}
-			//foreach (SimpleGraph graph in graphListCopy)
-			//{
-			//	//find the one you want
-			//	//dialogueGraph = oneIWant;
-			//}
+			//Optional Requirements
+			foreach (SimpleGraph graph in graphListCopy)
+			{
+				//check location
+				if (graph.location != LocationTracker.Instance.TargetLocation)
+				{
+					continue;
+				}
+
+				dialogueGraph = graph;
+			}
 
 			if (!usableGraph)
 			{
