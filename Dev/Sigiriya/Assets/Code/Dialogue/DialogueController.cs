@@ -149,7 +149,7 @@ public class DialogueController : ManagerBase<DialogueController>
 	//Display node can only display PromptNodes. This might need to also support ResponseNodes
 	void DisplayNode(BaseNode node)
 	{
-		if (node.GetType() != null && node.GetType() == typeof(PromptNode))
+		if (node != null && node.GetType() == typeof(PromptNode))
 		{
 			PromptNode pNode = node as PromptNode;
 
@@ -177,6 +177,11 @@ public class DialogueController : ManagerBase<DialogueController>
             //nameBox.text = pNode.speaker == null ? "Player" : pNode.speaker.characterName;
             //promptPanel.text = "";//pNode.prompt;
             //EventAnnouncer.OnDialogueUpdate(promptPanel, pNode.prompt);
+
+			if (pNode.isNoReturn)
+			{
+				Debug.Log("YOU. SHALL NOT. PAAAASSSSSSSS!!! but i dunno what to do");
+			}
 
             int i = 0;
 
@@ -226,7 +231,6 @@ public class DialogueController : ManagerBase<DialogueController>
 			}
 			else
 			{
-				//TODO: Timed dialogue continues now, so remove this gracefully after the continue button becomes obsolete
 				continueButton.gameObject.SetActive(true);
 			}
 
@@ -235,7 +239,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				responseButtons[i].gameObject.SetActive(false);
 			}
 		}
-		else if(node.GetType() == typeof(ResponseNode))
+		else if(node != null && node.GetType() == typeof(ResponseNode))
 		{
 			ResponseNode rNode = node as ResponseNode;
 
