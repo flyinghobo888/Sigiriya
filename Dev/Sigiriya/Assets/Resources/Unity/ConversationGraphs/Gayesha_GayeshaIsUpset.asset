@@ -93,9 +93,10 @@ MonoBehaviour:
   prompt: More supplies will be here soon, too.
   speaker: {fileID: 0}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-8265424156014345700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,9 +229,10 @@ MonoBehaviour:
   prompt: How am I supposed to fix this?
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-8145662711160691775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,9 +397,10 @@ MonoBehaviour:
   prompt: "We didn\u2019t bring everything with us."
   speaker: {fileID: 0}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-7889896681868567808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,9 +494,10 @@ MonoBehaviour:
   prompt: Sniffle... sniffle...
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-7002346527036534081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,9 +670,10 @@ MonoBehaviour:
   prompt: How will it be all right?
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6807912689691359952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,9 +837,10 @@ MonoBehaviour:
   prompt: "I guess you\u2019re right."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6230417046822585348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,9 +934,10 @@ MonoBehaviour:
   prompt: "The Gayesha I know doesn\u2019t let anything bother her."
   speaker: {fileID: 0}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6132647214536404266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,9 +1031,10 @@ MonoBehaviour:
   prompt: I don't know where I'd be without you, Nish.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 26
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-5962964904164376317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,9 +1139,10 @@ MonoBehaviour:
   prompt: "It\u2019s just awful."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-5498633232084867817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,9 +1233,10 @@ MonoBehaviour:
   prompt: "I guess I\u2019ll leave you be."
   speaker: {fileID: 0}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-5435112091098111915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,9 +1414,10 @@ MonoBehaviour:
   prompt: I guess so...
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-3863835611928539736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,9 +1657,10 @@ MonoBehaviour:
   prompt: Asheni won't sleep, I am ashamed of what I'm cooking...
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-3076385384835603794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1753,9 +1765,10 @@ MonoBehaviour:
   prompt: "But it doesn\u2019t make this any less humiliating."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2074472136250226618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,9 +1859,10 @@ MonoBehaviour:
   prompt: They have you and Sandun, that is what matters.
   speaker: {fileID: 0}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2073799632162152573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1967,9 +1981,10 @@ MonoBehaviour:
   prompt: "I didn\u2019t really expect you to know what to say."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-1724832226940515322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2063,9 +2078,10 @@ MonoBehaviour:
   prompt: "This kitchen\u2019s a mess. I can\u2019t make anything."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-1470128203353535376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2198,9 +2214,10 @@ MonoBehaviour:
   prompt: "I\u2019m allowed to be upset."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 1
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-244145255376932712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2291,9 +2308,10 @@ MonoBehaviour:
   prompt: Kids are resilient. Asheni will grow to love it here.
   speaker: {fileID: 0}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-144177959810345682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2574,9 +2592,10 @@ MonoBehaviour:
   prompt: "It\u2019s fine..."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &218903407326004870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,9 +2686,10 @@ MonoBehaviour:
   prompt: That horrendous porridge isn't going to cook itself.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 1
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &658249921198056453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2763,9 +2783,10 @@ MonoBehaviour:
   prompt: '...'
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &937903693129878605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2859,9 +2880,10 @@ MonoBehaviour:
   prompt: "That\u2019s because I can\u2019t, Nish."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 0
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &2086695334263272723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2958,9 +2980,10 @@ MonoBehaviour:
   prompt: Ok, I better get back to it.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &2134915999881107594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3099,9 +3122,10 @@ MonoBehaviour:
   prompt: Um, alright.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &2887083573267459815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3279,9 +3303,10 @@ MonoBehaviour:
   prompt: I was just, uh, chopping onions.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &3191200927008176232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3375,9 +3400,10 @@ MonoBehaviour:
   prompt: And what am I supposed to do until then?
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &3582011359955487894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3527,9 +3553,10 @@ MonoBehaviour:
   prompt: God Nish! You are laughably bad at this...
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 1
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4758008252041544288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3704,9 +3731,10 @@ MonoBehaviour:
   prompt: Hi Nish.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &5322284759917823153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3870,9 +3898,10 @@ MonoBehaviour:
   prompt: "Don\u2019t tell me to \u201Cjust calm down\u201D Nish!"
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 0
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &5874243164926587550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3966,9 +3995,10 @@ MonoBehaviour:
   prompt: Huh?
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 2
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &5962432492184212348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4062,9 +4092,10 @@ MonoBehaviour:
   prompt: "Nothing\u2019s going right, Nishanta..."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &6015222649536691591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4183,9 +4214,10 @@ MonoBehaviour:
   prompt: You are my closest friend here.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 26
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &6239788309277434308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4419,9 +4451,10 @@ MonoBehaviour:
   prompt: Hi.
   speaker: {fileID: 0}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &6953702793605338201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4515,9 +4548,10 @@ MonoBehaviour:
   prompt: "I\u2019m sorry."
   speaker: {fileID: 0}
   expression: 1
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &6982800521280691252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4650,9 +4684,10 @@ MonoBehaviour:
   prompt: "What\u2019s going to happen to me Nish? And my family!"
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &7054365138861838922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4746,9 +4781,10 @@ MonoBehaviour:
   prompt: '...Thanks.'
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &7325192328472904156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4842,9 +4878,10 @@ MonoBehaviour:
   prompt: "It\u2019s fine Nish."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &7635603528053381286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4963,9 +5000,10 @@ MonoBehaviour:
   prompt: No...just...onions.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 27
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &7875035643580931516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5059,9 +5097,10 @@ MonoBehaviour:
   prompt: Nish! Hi! I didn't see you there.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 2
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &8646027817548545535
 MonoBehaviour:
   m_ObjectHideFlags: 0
