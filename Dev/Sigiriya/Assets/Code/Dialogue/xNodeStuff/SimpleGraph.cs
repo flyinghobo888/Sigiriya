@@ -14,19 +14,27 @@ public class SimpleGraph : NodeGraph
 	public List<Character> actors = new List<Character>();
 
 	//TODO: dialogue pool variables
-	public int bitchPoints;
 	public EnumLocation location;
-	//Needed for current task?
-	//Narrative flags
-	//Location
-	//Time of day
-	//other people
-	//recently talked, but not finished
+	public List<FlagBank.Flags> neededFlags;
+	public List<EnumTime> timeOfDay;
+	//Needed for current task? //dunno how to check yet
+	//recently talked, but not finished //dunno how to check yet
 
 	public void Restart()
 	{
 		//Find the first DialogueNode without any inputs. This is the starting node.
 		current = nodes.Find(x => x is ActorNode && x.Inputs.All(y => !y.IsConnected)) as ActorNode;
+
+		for (int i = 0; i < nodes.Count; i++)
+		{
+			if (nodes[i].GetType() == typeof(PromptNode))
+			{
+				PromptNode pNode = nodes[i] as PromptNode;
+
+				pNode.isVisited = false;
+			}
+		}
+
 		isInit = true;
 	}
 

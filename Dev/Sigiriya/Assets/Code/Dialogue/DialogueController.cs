@@ -160,7 +160,11 @@ public class DialogueController : ManagerBase<DialogueController>
             if (pNode.speaker != null)
             {
                 characterNameBox.text = pNode.speaker.characterName;
-                ActivateSpeechPrompt(EnumTalking.CHARACTER);
+				if (pNode.mood != EnumMood.NONE)
+				{
+					pNode.speaker.MoodTracker.AddMood(pNode.mood, pNode.moodDuration);
+				}
+				ActivateSpeechPrompt(EnumTalking.CHARACTER);
             }
             else
             {
@@ -329,41 +333,84 @@ public class DialogueController : ManagerBase<DialogueController>
 	#endregion
 
 	//Used to enable object and start dialogue
-	public void EnableCurrNode(SimpleGraph newGraph)
+	public void EnableCurrNode(List<Character> character)
 	{
-		//TODO: talk with Tom about how to implement the pool to his liking
-		if (newGraph == null)
+		//TODO: Maybe move this decision logic to the buttonInfo script, since the bubble thing won't work anymore
+		bool usableGraph = false;
+		if (character != null)
 		{
-			int maxPoints = 0;
-			foreach (SimpleGraph graph in graphList)
+			List<SimpleGraph> graphListCopy = graphList;
+			foreach (SimpleGraph graph in graphListCopy)
 			{
-				int points = 0;
+				//cull the impossible
 
-				if (graph.location == LocationTracker.Instance.TargetLocation)
+				//check characters
+				if (character.Count != graph.actors.Count)
 				{
-					points += 2;
+					continue; //fails
 				}
 
-				points += graph.bitchPoints;
-
-				if (points > maxPoints)
+				bool containsActor = true;
+				for (int i = 0; i < character.Count; i++)
 				{
-					maxPoints = points;
-					newGraph = graph;
+					if (!graph.actors.Contains(character[i]))
+					{
+						containsActor = false; //fails
+					}
 				}
-			}
+				if (!containsActor)
+				{
+					continue;
+				}
 
-			if (maxPoints > 2)
-			{
-				dialogueGraph = newGraph;
+				//check time
+				if (!graph.timeOfDay.Contains(GlobalTimeTracker.Instance.CurrentTimeOfDay))
+				{
+					continue;
+				}
+
+				//check location
+				if (graph.location != LocationTracker.Instance.TargetLocation)
+				{
+					continue;
+				}
+
+				//check flags
+				bool containsFlags = true;
+				for (int i = 0; i < graph.neededFlags.Count; i++)
+				{
+					if (!PersistentEventBank.ContainsFlag(graph.neededFlags[i]))
+					{
+						containsFlags = false;
+					}
+				}
+				if (!containsFlags)
+				{
+					continue;
+				}
+
+				//congrats! you passed!
+				dialogueGraph = graph;
+				usableGraph = true;
 			}
-			else
+			//foreach (SimpleGraph graph in graphListCopy)
+			//{
+			//	//find the one you want
+			//	//dialogueGraph = oneIWant;
+			//}
+
+			if (!usableGraph)
 			{
+				dialogueGraph = null;
 				return;
 			}
 		}
+		else
+		{
+			return;
+		}
 
-		SwapGraph(newGraph);
+		SwapGraph(dialogueGraph);
 
 		if (dialogueGraph.current != null)
 		{
@@ -380,23 +427,45 @@ public class DialogueController : ManagerBase<DialogueController>
             //Start talking.
         }
 	}
-
-    public void DisableCharacterController(GameObject charContainer)
-    {
-        characterButtonObj = charContainer;
+	public void EnableCurrNode(SimpleGraph newGraph)
+	{
+		SwapGraph(newGraph);
 
 		if (dialogueGraph.current != null)
 		{
-			if (characterButtonObj != null)
+			AssessCurrentType();
+
+			//SetSpeakerImage(false, 0);
+			SetNeutralSpeakers();
+			BringAllToForeground();
+
+			DisplayNode(dialogueGraph.current);
+			ActivateDialogueUI(true);
+			//dialogueContainerObj.SetActive(true);
+
+			//Start talking.
+		}
+	}
+
+	public void DisableCharacterController(GameObject charContainer)
+    {
+        characterButtonObj = charContainer;
+
+		if (dialogueGraph != null)
+		{
+			if (dialogueGraph.current != null)
 			{
-                characterButtonObj.SetActive(false);
-            }
+				if (characterButtonObj != null)
+				{
+					characterButtonObj.SetActive(false);
+				}
+			}
 		}
     }
 
 	private void SetNeutralSpeakers()
 	{
-		if (dialogueGraph.current.GetType() == null)
+		if (dialogueGraph.current == null)
 		{
 			return;
 		}
@@ -479,7 +548,7 @@ public class DialogueController : ManagerBase<DialogueController>
 			return;
 		}
 
-		while ((dialogueGraph.current.GetType() != typeof(PromptNode) && dialogueGraph.current.GetType() != typeof(ResponseNode)) && dialogueGraph.current != null)
+		while (dialogueGraph.current != null && (dialogueGraph.current.GetType() != typeof(PromptNode) && dialogueGraph.current.GetType() != typeof(ResponseNode)))
 		{
 			if (dialogueGraph.current.GetType() == typeof(BranchNode))
 			{

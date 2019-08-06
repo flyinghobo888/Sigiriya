@@ -45,6 +45,10 @@ public class PromptNodeEditor : NodeEditor
 
         //TODO: Change this to only display the valid expressions for the current speaker.
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("expression"), new GUIContent("Expression"));
+		GUILayout.BeginHorizontal();
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("mood"), new GUIContent("Mood"));
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("moodDuration"), new GUIContent("Duration"));
+		GUILayout.EndHorizontal();
 
 		NodeEditorGUILayout.InstancePortList("responses", typeof(ResponseNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
 		//NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("responses"));

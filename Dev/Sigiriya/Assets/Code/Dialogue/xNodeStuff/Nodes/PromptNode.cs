@@ -15,6 +15,8 @@ public class PromptNode : BaseNode
 	[TextArea] public string prompt;
     public Character speaker;
 	public Character.EnumExpression expression;
+	public EnumMood mood;
+	public float moodDuration;
 	public bool isVisited = false;
 
 	public ResponseNode GetAnswerConnection(int index)
