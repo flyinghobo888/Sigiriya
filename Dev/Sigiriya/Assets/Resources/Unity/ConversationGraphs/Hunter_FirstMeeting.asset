@@ -1289,7 +1289,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: output
-        node: {fileID: 7187943303519200034}
+        node: {fileID: 608523288935937979}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1499,7 +1499,6 @@ MonoBehaviour:
   nodes:
   - {fileID: -2480998259489898657}
   - {fileID: 8044415042844104109}
-  - {fileID: 7187943303519200034}
   - {fileID: 2670944925513283576}
   - {fileID: 7402237284894864797}
   - {fileID: -8545769441877924177}
@@ -1533,6 +1532,7 @@ MonoBehaviour:
   - {fileID: 384471483624676751}
   - {fileID: 7121500722081449723}
   - {fileID: 5818762659951626310}
+  - {fileID: 608523288935937979}
   current: {fileID: 0}
   isInit: 0
   actors:
@@ -1644,6 +1644,51 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
   isVisited: 0
+--- !u!114 &608523288935937979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92cf68ba0cfe544992bd2946b62f1df, type: 3}
+  m_Name: Actor Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -552, y: -216}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 608523288935937979}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 608523288935937979}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -2480998259489898657}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  status: 0
+  actors:
+  - {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
 --- !u!114 &1758028389865560725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2969,51 +3014,6 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 5
   isVisited: 0
---- !u!114 &7187943303519200034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92cf68ba0cfe544992bd2946b62f1df, type: 3}
-  m_Name: Actor Node
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -552, y: -216}
-  ports:
-    keys:
-    - input
-    - output
-    values:
-    - _fieldName: input
-      _node: {fileID: 7187943303519200034}
-      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 1
-      _dynamic: 0
-    - _fieldName: output
-      _node: {fileID: 7187943303519200034}
-      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -2480998259489898657}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  input: {fileID: 0}
-  output: {fileID: 0}
-  status: 0
-  actors:
-  - {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
 --- !u!114 &7242626949202443759
 MonoBehaviour:
   m_ObjectHideFlags: 0
