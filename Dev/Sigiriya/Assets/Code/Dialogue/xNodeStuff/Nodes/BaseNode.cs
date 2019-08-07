@@ -7,7 +7,7 @@ using XNode;
 public abstract class BaseNode : XNode.Node
 {
 	[Input(backingValue = ShowBackingValue.Never, typeConstraint = TypeConstraint.Inherited)] public BaseNode input;
-	[Output(backingValue = ShowBackingValue.Never)] public BaseNode output;
+	[Output(backingValue = ShowBackingValue.Never, connectionType = ConnectionType.Override)] public BaseNode output;
 
 	// Use this for initialization
 	protected override void Init()
@@ -23,7 +23,7 @@ public abstract class BaseNode : XNode.Node
 
 		if (!outPort.IsConnected)
 		{
-            //TODO: Commented this out.
+            //Note: Commented this out.
 			//Debug.LogWarning("Node isn't connected");
 			return null;
 		}

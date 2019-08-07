@@ -8,7 +8,7 @@ using XNode;
 public class BranchCheck : Node
 {
 	[Input] public BranchCheck input;
-	[Input] public bool flag;
+	[Input] public bool flag = true;
 	[Output] public BaseNode output;
 
 	public bool CheckBranchFlag()
