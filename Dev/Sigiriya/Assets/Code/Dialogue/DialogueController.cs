@@ -11,6 +11,9 @@ TODO:
 -make dimensions CONSTANT
 */
 
+/// <summary>
+/// Class used to read SimpleGraphs and control the dialogue UI
+/// </summary>
 public class DialogueController : ManagerBase<DialogueController>
 {
 	//[Header("Camera")]
@@ -146,7 +149,7 @@ public class DialogueController : ManagerBase<DialogueController>
         //}
     }
 
-	//Display node can only display PromptNodes. This might need to also support ResponseNodes
+	///<summary> A function to decide how to display the current node </summary>
 	void DisplayNode(BaseNode node)
 	{
 		if (node != null && node.GetType() == typeof(PromptNode))
@@ -191,9 +194,8 @@ public class DialogueController : ManagerBase<DialogueController>
                 for (; i < pNode.responses.Count; i++)
 				{
 					//god this is so fucking gross
-					//TODO: hey, a fix might be to add a "isVisited" to responses? Cause they link to a single propmpt?
-					//unless the prompt is somehow linked through a response AND a branch,
-					//cause then a response would never be breached. this is gross
+					//TODO: hey, a fix might be to add a function in responses to check their connected promptNode,
+					//IF it's a prompt node
 					//A check to see if visited
 					if (pNode.GetAnswerConnection(i).GetNextNode() != null && pNode.GetAnswerConnection(i).GetNextNode().GetType() == typeof(PromptNode))
 					{
@@ -207,7 +209,6 @@ public class DialogueController : ManagerBase<DialogueController>
 							{
 								continueButton.gameObject.SetActive(true);
 							}
-							//TODO: works up until no more responses. I need to activate continue at that point
 							continue;
 						}
 					}
@@ -281,7 +282,9 @@ public class DialogueController : ManagerBase<DialogueController>
 	}
 
 	#region Continuation Commands
-	//goes to the next default connected node
+	/// <summary>
+	/// Goes to the next default connected node
+	/// </summary>
 	public void ContinueDialogue()
 	{
         if (!TextController.Instance.IsFinished)
@@ -305,6 +308,10 @@ public class DialogueController : ManagerBase<DialogueController>
 	}
 
 	//SHOULD ONLY BE USED BY RESPONSE BUTTONS FOR NOW
+	/// <summary>
+	/// Goes to the next node on a <see cref="ResponseNode"/>
+	/// </summary>
+	/// <param name="responseNode"> Index of the <see cref="ResponseNode"/> </param>
 	public void SelectResponse(int responseNode)
 	{
 		//Error check
@@ -336,17 +343,33 @@ public class DialogueController : ManagerBase<DialogueController>
 	}
 	#endregion
 
-	//Used to enable object and start dialogue
+	/// <summary>
+	/// Used to enable object and start dialogue. Decides graph to use internally.
+	/// </summary>
+	/// <param name="character"> List of <see cref="Character"/> objects that will  be speaking. </param>
 	public void EnableCurrNode(List<Character> character)
 	{
 		//TODO: Maybe move this decision logic to the buttonInfo script, since the bubble thing won't work anymore
-		bool usableGraph = false;
 		if (character != null)
 		{
-			List<SimpleGraph> graphListCopy = new List<SimpleGraph>();
+			List<SimpleGraph> possibleGraphs = new List<SimpleGraph>();
 			foreach (SimpleGraph graph in graphList)
 			{
 				//cull the impossible
+
+				//check required graphs
+				bool containsGraph = true;
+				for (int i = 0; i < graph.dependantConversation.Count; i++)
+				{
+					if (graphList.Contains(graph.dependantConversation[i]))
+					{
+						containsGraph = false;
+					}
+				}
+				if (!containsGraph)
+				{
+					continue;
+				}
 
 				//check characters
 				if (character.Count != graph.actors.Count)
@@ -373,6 +396,11 @@ public class DialogueController : ManagerBase<DialogueController>
 					continue;
 				}
 
+				//check location 
+				if (!graph.location.Contains(LocationTracker.Instance.TargetLocation))
+				{
+					continue;
+				}
 
 				//check flags
 				bool containsFlags = true;
@@ -389,26 +417,27 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				//congrats! you passed!
-				dialogueGraph = graph;
-				graphListCopy.Add(graph);
-				usableGraph = true;
+				possibleGraphs.Add(graph);
 			}
-			//Optional Requirements
-			foreach (SimpleGraph graph in graphListCopy)
+			//Second Pass. ie. out of the possible convos, what do we pick?
+			foreach (SimpleGraph graph in possibleGraphs)
 			{
-				//check location
-				if (graph.location != LocationTracker.Instance.TargetLocation)
-				{
-					continue;
-				}
-
-				dialogueGraph = graph;
+				//Does nothing rn
 			}
+			//Now if we have more than one in possibleGraphs
+			if (possibleGraphs.Count > 0)
+			{
+				int num = Random.Range(0, possibleGraphs.Count - 1);
 
-			if (!usableGraph)
+				dialogueGraph = possibleGraphs[num];
+			}
+			else if (possibleGraphs.Count == 0)
+			{
+				dialogueGraph = possibleGraphs[0];
+			}
+			else
 			{
 				dialogueGraph = null;
-				return;
 			}
 		}
 		else
@@ -428,11 +457,15 @@ public class DialogueController : ManagerBase<DialogueController>
 
 			DisplayNode(dialogueGraph.current);
             ActivateDialogueUI(true);
-            //dialogueContainerObj.SetActive(true);
-
-            //Start talking.
-        }
+			//dialogueContainerObj.SetActive(true);
+			dialogueGraph.timesAccessed++;
+			//Start talking.
+		}
 	}
+	/// <summary>
+	/// Used to enable object and start dialogue. Uses graph provided.
+	/// </summary>
+	/// <param name="newGraph"> A <see cref="SimpleGraph"/> that is used for dialogue </param>
 	public void EnableCurrNode(SimpleGraph newGraph)
 	{
 		SwapGraph(newGraph);
@@ -448,11 +481,15 @@ public class DialogueController : ManagerBase<DialogueController>
 			DisplayNode(dialogueGraph.current);
 			ActivateDialogueUI(true);
 			//dialogueContainerObj.SetActive(true);
-
+			dialogueGraph.timesAccessed++;
 			//Start talking.
 		}
 	}
 
+	/// <summary>
+	/// Disables UI scene object when diaologue UI opens
+	/// </summary>
+	/// <param name="charContainer"> An object holding all desired UI elements </param>
 	public void DisableCharacterController(GameObject charContainer)
     {
         characterButtonObj = charContainer;

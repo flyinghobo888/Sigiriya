@@ -18,7 +18,7 @@ public class PromptNode : BaseNode
 	public EnumMood mood;
 	public float moodDuration;
 	public bool isVisited = false;
-	public bool isNoReturn = false; //TODO: this might do something?
+	public bool isNoReturn = false;
 
 	public ResponseNode GetAnswerConnection(int index)
 	{
