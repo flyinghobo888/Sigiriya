@@ -11,7 +11,6 @@ public class PromptNodeEditor : NodeEditor
 	Sprite m_sprite;
 	[SerializeField] public UnityEngine.UI.Image pic;
 
-
 	public override void OnBodyGUI()
 	{
 		serializedObject.Update();
@@ -20,9 +19,10 @@ public class PromptNodeEditor : NodeEditor
 
 		GUILayout.BeginHorizontal();
 		NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("input"), GUILayout.MinWidth(0));
+		node.CheckConnectedColor();
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("connected"), GUIContent.none);
 		NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("output"), GUILayout.MinWidth(0));
 		GUILayout.EndHorizontal();
-
 
 
 		GUILayout.BeginVertical();
@@ -40,15 +40,14 @@ public class PromptNodeEditor : NodeEditor
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("prompt"), GUIContent.none);
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("isVisited"), new GUIContent("Visited"));
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("isNoReturn"), new GUIContent("No Return"));
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("speaker"), new GUIContent("Speaker"));
 
         //TODO: Change this to only display the valid expressions for the current speaker.
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("expression"), new GUIContent("Expression"));
-		GUILayout.BeginHorizontal();
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("mood"), new GUIContent("Mood"));
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("moodDuration"), new GUIContent("Duration"));
-		GUILayout.EndHorizontal();
 
 		NodeEditorGUILayout.InstancePortList("responses", typeof(ResponseNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
 		//NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("responses"));

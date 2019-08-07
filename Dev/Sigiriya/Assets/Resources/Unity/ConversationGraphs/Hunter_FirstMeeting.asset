@@ -236,6 +236,8 @@ MonoBehaviour:
   prompt: Not here.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-7759372593133933173
 MonoBehaviour:
@@ -330,6 +332,8 @@ MonoBehaviour:
   prompt: I'm going to leave now.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-7120189337986617077
 MonoBehaviour:
@@ -463,6 +467,8 @@ MonoBehaviour:
   prompt: Observant.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 26
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-6772355255270623689
 MonoBehaviour:
@@ -636,6 +642,8 @@ MonoBehaviour:
   prompt: Aren't you lonely?
   speaker: {fileID: 0}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-5251552793968992280
 MonoBehaviour:
@@ -730,6 +738,8 @@ MonoBehaviour:
   prompt: Yes.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-4115760245193745868
 MonoBehaviour:
@@ -835,6 +845,8 @@ MonoBehaviour:
   prompt: "I think you know that\x19s not how I meant it."
   speaker: {fileID: 0}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-3903327651472300801
 MonoBehaviour:
@@ -929,6 +941,8 @@ MonoBehaviour:
   prompt: You're alone?
   speaker: {fileID: 0}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-3542713190538650674
 MonoBehaviour:
@@ -1034,6 +1048,8 @@ MonoBehaviour:
   prompt: That's alright.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-2961834690212447072
 MonoBehaviour:
@@ -1128,6 +1144,8 @@ MonoBehaviour:
   prompt: No.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-2717109430387732190
 MonoBehaviour:
@@ -1222,6 +1240,8 @@ MonoBehaviour:
   prompt: Are you leaving it? ...In the dark?
   speaker: {fileID: 0}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-2480998259489898657
 MonoBehaviour:
@@ -1236,7 +1256,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -344, y: -216}
+  position: {x: -408, y: -216}
   ports:
     keys:
     - responses
@@ -1314,8 +1334,10 @@ MonoBehaviour:
   checkpointConnection: {fileID: 0}
   exitConnection: {fileID: 0}
   prompt: Hello there.
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 0
+  mood: 0
+  moodDuration: 0.34
   isVisited: 0
 --- !u!114 &-1922828383887437723
 MonoBehaviour:
@@ -1410,6 +1432,8 @@ MonoBehaviour:
   prompt: Kalai.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 26
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &-390469535346846028
 MonoBehaviour:
@@ -1536,9 +1560,10 @@ MonoBehaviour:
   current: {fileID: 0}
   isInit: 0
   actors:
-  - {fileID: 0}
-  bitchPoints: 0
-  location: 0
+  - {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
+  location: 4
+  neededFlags: 
+  timeOfDay: 
 --- !u!114 &384471483624676751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,6 +1668,8 @@ MonoBehaviour:
   prompt: No.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &608523288935937979
 MonoBehaviour:
@@ -1657,7 +1684,7 @@ MonoBehaviour:
   m_Name: Actor Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -552, y: -216}
+  position: {x: -616, y: -216}
   ports:
     keys:
     - input
@@ -1782,6 +1809,8 @@ MonoBehaviour:
   prompt: "You could meet her, then she\u2019d know you."
   speaker: {fileID: 0}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &1862585145293067026
 MonoBehaviour:
@@ -1876,6 +1905,8 @@ MonoBehaviour:
   prompt: "Oh, it\u2019s good to meet you. I'm Nishanta."
   speaker: {fileID: 0}
   expression: 26
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &2493412021445286557
 MonoBehaviour:
@@ -2040,6 +2071,8 @@ MonoBehaviour:
   prompt: Oh. I didn't expect anyone to be here.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &2692946405723727266
 MonoBehaviour:
@@ -2204,6 +2237,8 @@ MonoBehaviour:
   prompt: It gets dark at night.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &3568637514902216705
 MonoBehaviour:
@@ -2427,6 +2462,8 @@ MonoBehaviour:
   prompt: But I did mean more along the lines of, where did you come from?
   speaker: {fileID: 0}
   expression: 26
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &5275049754460522963
 MonoBehaviour:
@@ -2546,6 +2583,8 @@ MonoBehaviour:
   prompt: I know.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &5347473918151541062
 MonoBehaviour:
@@ -2640,6 +2679,8 @@ MonoBehaviour:
   prompt: "Right, that\u2019s what I thought. I think I would have seen you otherwise."
   speaker: {fileID: 0}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &5786117531933942062
 MonoBehaviour:
@@ -2734,6 +2775,8 @@ MonoBehaviour:
   prompt: Fish.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &5818762659951626310
 MonoBehaviour:
@@ -2825,6 +2868,8 @@ MonoBehaviour:
   prompt: Maybe.
   speaker: {fileID: 0}
   expression: 26
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &6569816692451220224
 MonoBehaviour:
@@ -2919,6 +2964,8 @@ MonoBehaviour:
   prompt: Not anything in particular.
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 2
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &7121500722081449723
 MonoBehaviour:
@@ -3013,6 +3060,8 @@ MonoBehaviour:
   prompt: Oh, alright then. I will see you around?
   speaker: {fileID: 0}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &7242626949202443759
 MonoBehaviour:
@@ -3107,6 +3156,8 @@ MonoBehaviour:
   prompt: 'She doesn''t know me. '
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 5
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &7333815648068435145
 MonoBehaviour:
@@ -3201,6 +3252,8 @@ MonoBehaviour:
   prompt: That...doesn't seem true.
   speaker: {fileID: 0}
   expression: 2
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &7402237284894864797
 MonoBehaviour:
@@ -3320,6 +3373,8 @@ MonoBehaviour:
   prompt: Neither did I.
   speaker: {fileID: 0}
   expression: 0
+  mood: 0
+  moodDuration: 0
   isVisited: 0
 --- !u!114 &8044415042844104109
 MonoBehaviour:
@@ -3414,4 +3469,6 @@ MonoBehaviour:
   prompt: Ah!
   speaker: {fileID: 11400000, guid: 281f434c86f97d849a93b32e6509a6b9, type: 2}
   expression: 2
+  mood: 0
+  moodDuration: 0
   isVisited: 0

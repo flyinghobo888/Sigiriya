@@ -7,24 +7,36 @@ using XNode;
 [CreateAssetMenu]
 public class SimpleGraph : NodeGraph
 {
+	//TODO: add numberOfTimes logic node
+
 	[HideInInspector]
 	public BaseNode current;
 	public bool isInit = false;
+	public int timesAccessed = 0;
 
 	public List<Character> actors = new List<Character>();
 
-	//TODO: dialogue pool variables
-	public EnumLocation location;
+	//Dialogue pool variables
+	public List<EnumLocation> location;
 	public List<FlagBank.Flags> neededFlags;
 	public List<EnumTime> timeOfDay;
-	//Needed for current task? //dunno how to check yet
-	//recently talked, but not finished //dunno how to check yet
+	public List<SimpleGraph> dependantConversation;
+	//recently talked, but not finished //Check by checking the isInit
+
+	public bool isDone = false;
 
 	public void Restart()
 	{
-		//Find the first DialogueNode without any inputs. This is the starting node.
+		//Find the first Dialogue ActorNode without any inputs. This is the starting node.
 		current = nodes.Find(x => x is ActorNode && x.Inputs.All(y => !y.IsConnected)) as ActorNode;
 
+		ResetIsVisited();
+
+		isInit = true;
+	}
+
+	public void ResetIsVisited()
+	{
 		for (int i = 0; i < nodes.Count; i++)
 		{
 			if (nodes[i].GetType() == typeof(PromptNode))
@@ -35,7 +47,6 @@ public class SimpleGraph : NodeGraph
 			}
 		}
 
-		isInit = true;
 	}
 
 	public void AddActor(Character newActor)

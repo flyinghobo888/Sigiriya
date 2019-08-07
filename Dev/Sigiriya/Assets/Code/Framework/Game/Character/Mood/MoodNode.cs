@@ -56,7 +56,7 @@ public class MoodNode
 
 public enum EnumMood
 {
-	NONE = -1,
+	NONE,
     HAPPY,
     SAD,
     EXCITED,
