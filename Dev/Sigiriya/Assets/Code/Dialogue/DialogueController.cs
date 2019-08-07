@@ -220,8 +220,16 @@ public class DialogueController : ManagerBase<DialogueController>
 					if (!pNode.GetAnswerConnection(i).getHidden())
                     {
                         responseButtons[i].gameObject.SetActive(true);
-                        responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
-                    }
+
+						if (pNode.GetAnswerConnection(i).textFull != "")
+						{
+							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textFull;
+						}
+						else
+						{
+							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
+						}
+					}
 					else
 					{
                         responseButtons[i].gameObject.SetActive(false);
@@ -394,13 +402,13 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				//check time
-				if (!graph.timeOfDay.Contains(GlobalTimeTracker.Instance.CurrentTimeOfDay))
+				if (graph.timeOfDay.Count > 0 && !graph.timeOfDay.Contains(GlobalTimeTracker.Instance.CurrentTimeOfDay))
 				{
 					continue;
 				}
 
 				//check location 
-				if (!graph.location.Contains(LocationTracker.Instance.TargetLocation))
+				if (graph.location.Count > 0 && !graph.location.Contains(LocationTracker.Instance.TargetLocation))
 				{
 					continue;
 				}
@@ -428,19 +436,20 @@ public class DialogueController : ManagerBase<DialogueController>
 				//Does nothing rn
 			}
 			//Now if we have more than one in possibleGraphs
-			if (possibleGraphs.Count > 0)
+			if (possibleGraphs.Count > 1)
 			{
 				int num = Random.Range(0, possibleGraphs.Count - 1);
 
 				dialogueGraph = possibleGraphs[num];
 			}
-			else if (possibleGraphs.Count == 0)
+			else if (possibleGraphs.Count == 1)
 			{
 				dialogueGraph = possibleGraphs[0];
 			}
 			else
 			{
 				dialogueGraph = null;
+				return;
 			}
 		}
 		else
