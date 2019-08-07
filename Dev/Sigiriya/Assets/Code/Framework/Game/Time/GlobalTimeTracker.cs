@@ -23,7 +23,8 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     //How far into the cycle the time is.
     public float TimeAlpha { get; private set; } = 0.0f;
 
-    public EnumDisplayTime CurrentTimeOfDay { get; private set; }
+    public EnumTime CurrentTimeOfDay { get; private set; }
+    public EnumDisplayTime CurrentDisplayTimeOfDay { get; private set; }
 
     private void Start()
     {
@@ -54,9 +55,11 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
     private void CalculateDisplayTime()
     {
-        CurrentTimeOfDay = GetTimeOfDay();
+        CurrentDisplayTimeOfDay = GetTimeOfDay();
+        CurrentTimeOfDay = GetSimplifiedTime(CurrentDisplayTimeOfDay);
+
         EnumDisplayTime NextTimeOfDay = (EnumDisplayTime)(((int)CurrentTimeOfDay + 1) % (int)EnumDisplayTime.SIZE);
-        TimeOfDay.TryGetValue(CurrentTimeOfDay, out float startTime);
+        TimeOfDay.TryGetValue(CurrentDisplayTimeOfDay, out float startTime);
         TimeOfDay.TryGetValue((EnumDisplayTime)((int)NextTimeOfDay), out float endTime);
         float currentTime = GlobalTime.Ticks;
 
@@ -97,6 +100,11 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
         {
             return EnumDisplayTime.EVENING;
         }
+    }
+
+    private EnumTime GetSimplifiedTime(EnumDisplayTime displayTime)
+    {
+        return (EnumTime)displayTime;
     }
 
     public class SigiTime
