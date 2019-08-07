@@ -23,11 +23,20 @@ public class SimpleGraph : NodeGraph
 	public List<SimpleGraph> dependantConversation;
 	//recently talked, but not finished //Check by checking the isInit
 
+	public bool isDone = false;
+
 	public void Restart()
 	{
 		//Find the first Dialogue ActorNode without any inputs. This is the starting node.
 		current = nodes.Find(x => x is ActorNode && x.Inputs.All(y => !y.IsConnected)) as ActorNode;
 
+		ResetIsVisited();
+
+		isInit = true;
+	}
+
+	public void ResetIsVisited()
+	{
 		for (int i = 0; i < nodes.Count; i++)
 		{
 			if (nodes[i].GetType() == typeof(PromptNode))
@@ -38,7 +47,6 @@ public class SimpleGraph : NodeGraph
 			}
 		}
 
-		isInit = true;
 	}
 
 	public void AddActor(Character newActor)

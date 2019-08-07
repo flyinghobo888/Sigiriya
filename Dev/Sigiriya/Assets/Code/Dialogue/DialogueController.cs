@@ -149,7 +149,10 @@ public class DialogueController : ManagerBase<DialogueController>
         //}
     }
 
-	///<summary> A function to decide how to display the current node </summary>
+	/// <summary>
+	///A function to decide how to display the current node if it is a <see cref="PromptNode"/> or <see cref="ResponseNode"/>
+	/// </summary>
+	/// <param name="node"> Should cast <see cref="BaseNode"/> to <see cref="PromptNode"/> or <see cref="ResponseNode"/> </param>
 	void DisplayNode(BaseNode node)
 	{
 		if (node != null && node.GetType() == typeof(PromptNode))
@@ -183,7 +186,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 			if (pNode.isNoReturn)
 			{
-				Debug.Log("YOU. SHALL NOT. PAAAASSSSSSSS!!! but i dunno what to do");
+				dialogueGraph.isDone = true;
 			}
 
             int i = 0;
@@ -677,6 +680,12 @@ public class DialogueController : ManagerBase<DialogueController>
         {
             Debug.Log(ID + " is done talking");
 			dialogueGraph.current = exitNode;
+			dialogueGraph.ResetIsVisited();
+
+			if (dialogueGraph.isDone)
+			{
+				graphList.Remove(dialogueGraph);
+			}
 
             ActivateDialogueUI(false);
 
