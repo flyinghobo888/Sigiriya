@@ -1670,7 +1670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 7f57ebf5889138c41b02ec166658dbb8, type: 2}
-  m_Color: {r: 0.8207547, g: 0.29798332, b: 0.24390352, a: 0.3137255}
+  m_Color: {r: 0.8207547, g: 0.08666353, b: 0, a: 0.3137255}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2051,7 +2051,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 960
+  orthographic size: 960.00006
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2632,6 +2632,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c19390a5ed1dd47b54fa0309dab5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SUNRISE_START: 6
+  MORNING_START: 7
+  MIDDAY_START: 11
+  EVENING_START: 16
+  NIGHT_START: 21
+  startTime: 4
+  DaySpeedMultiplier: 3600
 --- !u!114 &775685226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2723,7 +2730,8 @@ MonoBehaviour:
   topNight: {r: 0.8207547, g: 0.08666353, b: 0, a: 0.3137255}
   bottomNight: {r: 0.16470589, g: 0.06666667, b: 0.53333336, a: 0.47058824}
   nightOpacity: 1
-  previewTime: 0
+  previewTime: 4
+  transitionAlpha: 0.7
 --- !u!224 &862266602 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8911578579625800289, guid: 693c6c4474b901f458e955eecfca83aa,
@@ -3358,7 +3366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 7f57ebf5889138c41b02ec166658dbb8, type: 2}
-  m_Color: {r: 0.18155926, g: 0.63424426, b: 0.754717, a: 0.3137255}
+  m_Color: {r: 0.16470589, g: 0.06666667, b: 0.53333336, a: 0.47058824}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3517,7 +3525,7 @@ PrefabInstance:
     - target: {fileID: 7930808758864414913, guid: 95ce57142504a2c43bf0b675f65418f9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -340
+      value: -339.99994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ce57142504a2c43bf0b675f65418f9, type: 3}
@@ -5775,6 +5783,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1152051722100684412, guid: 07de1f9c83a455546b60fbf8552bb6b9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 775685224}
+    - target: {fileID: 1152051722100684412, guid: 07de1f9c83a455546b60fbf8552bb6b9,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectResponse
+      objectReference: {fileID: 0}
     - target: {fileID: 1152051721229259401, guid: 07de1f9c83a455546b60fbf8552bb6b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5904,16 +5922,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 1152051722100684412, guid: 07de1f9c83a455546b60fbf8552bb6b9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 775685224}
-    - target: {fileID: 1152051722100684412, guid: 07de1f9c83a455546b60fbf8552bb6b9,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectResponse
       objectReference: {fileID: 0}
     - target: {fileID: 7987470499000467729, guid: 07de1f9c83a455546b60fbf8552bb6b9,
         type: 3}
@@ -6141,7 +6149,7 @@ PrefabInstance:
     - target: {fileID: 7420978166686630691, guid: 57a5b36aab8762e48a3b44f3a26a4a71,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -334
+      value: -333.99994
       objectReference: {fileID: 0}
     - target: {fileID: 7420978166686630691, guid: 57a5b36aab8762e48a3b44f3a26a4a71,
         type: 3}
