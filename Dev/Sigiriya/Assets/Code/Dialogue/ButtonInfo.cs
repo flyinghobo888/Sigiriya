@@ -7,6 +7,7 @@ public class ButtonInfo : MonoBehaviour
 	[SerializeField] private GameObject characterContainer = null;
 	[SerializeField] private GameObject talkBubble = null;
 	[SerializeField] private SimpleGraph dialogueGraph = null;
+	[SerializeField] private List<Character> charactersInConVo = null;
     //[SerializeField] private DialogueController dCon;
 
     //TODO: instead of this script, rename it to ButtonInfo or something...
@@ -62,7 +63,8 @@ public class ButtonInfo : MonoBehaviour
 
 	public void EnableCurrNode()
 	{
-		DialogueController.Instance.EnableCurrNode(dialogueGraph);
+		DialogueController.Instance.EnableCurrNode(charactersInConVo);
+		//DialogueController.Instance.EnableCurrNode(dialogueGraph);
 	}
 
 	public void DisableCharacter()
