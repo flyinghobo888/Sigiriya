@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
+  m_Name: Pamu
+  m_EditorClassIdentifier: 
+  characterName: Pamu
+  defaultSprite: {fileID: 21300000, guid: 60cc5e31d2902f24da03d5e4ef100b03, type: 3}
+  rawExpressionOrder: 00000000040000000500000009000000
+  rawExpressions:
+  - {fileID: 21300000, guid: ec40e8389fc7d264abe6d4f6b6896fd3, type: 3}
+  - {fileID: 21300000, guid: 7ce8e25f3cfe0934fb8c5159a2802422, type: 3}
+  - {fileID: 21300000, guid: 60cc5e31d2902f24da03d5e4ef100b03, type: 3}
+  - {fileID: 21300000, guid: 1f2bbb74931983945a9888acb2a9f99a, type: 3}
+  rawTalkExpressions:
+  - {fileID: 21300000, guid: dbc9dee6634bc664bb4cf9beaa7a54b7, type: 3}
+  - {fileID: 21300000, guid: 0733533cb1391154288013f7236428fa, type: 3}
+  - {fileID: 21300000, guid: d05f6b5023816f64488bb3d7b10dfb82, type: 3}
+  - {fileID: 21300000, guid: 7d827881d0729e740a8bbaa0aab07e3d, type: 3}
+  rawSubTraits: []
