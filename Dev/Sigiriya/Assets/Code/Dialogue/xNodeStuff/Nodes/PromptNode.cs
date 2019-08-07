@@ -15,12 +15,47 @@ public class PromptNode : BaseNode
 	[TextArea] public string prompt;
     public Character speaker;
 	public Character.EnumExpression expression;
-	public float time;
+	public EnumMood mood;
+	public float moodDuration;
+	public bool isVisited = false;
+	public bool isNoReturn = false;
+
+	public Color connected;
+	public void CheckConnectedColor()
+	{
+		bool isConnected = true;
+
+		if (GetConnectedNode("output") == null)
+		{
+			isConnected = false;
+		}
+
+		if (responses.Count > 0)
+		{
+			isConnected = true;
+		}
+
+		for (int i = 0; i < responses.Count; i++)
+		{
+			if (GetAnswerConnection(i) == null)
+			{
+				isConnected = false;
+			}
+		}
+
+		if (isConnected)
+		{
+			connected = Color.green;
+		}
+		else
+		{
+			connected = Color.red;
+		}
+	}
 
 	public ResponseNode GetAnswerConnection(int index)
 	{
 		ResponseNode node = GetOutputPort("responses " + index).Connection.node as ResponseNode;
-
 		return node;
 	}
 

@@ -26,7 +26,23 @@ public class BranchNode : BaseNode
 
 			if (check.CheckBranchFlag())
 			{
-				return check.GetConnectedNode();
+				BaseNode checkNode = check.GetConnectedNode();
+
+				if (checkNode != null)
+				{
+					if (checkNode.GetType() == typeof(PromptNode))
+					{
+						PromptNode pCheckNode = (PromptNode)checkNode;
+						if (!pCheckNode.isVisited)
+						{
+							return checkNode;
+						}
+					}
+					else
+					{
+						return checkNode;
+					}
+				}
 			}
 		}
 		
