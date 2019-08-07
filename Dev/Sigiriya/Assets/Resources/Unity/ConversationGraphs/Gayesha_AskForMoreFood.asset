@@ -96,6 +96,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-8747570978159463854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +193,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-8707332883009748345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +385,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0.55
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-8155241739322324967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +482,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-7579048285325731416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,6 +579,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-7455265717103577339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,6 +819,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6963451886488477996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +913,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6951908700636941549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,6 +1010,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6913044138524415706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,6 +1115,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6820137718381966100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,6 +1212,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6534265753294472043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,6 +1310,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6485838156695289839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,6 +1407,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-6310849946487926945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,6 +1586,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-5907922699601300799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1667,9 +1680,10 @@ MonoBehaviour:
   prompt: '....'
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-5609198227471596427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1766,6 +1780,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-5431057544323079847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1941,6 +1956,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-5124623507838031700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2034,6 +2050,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-5029394584269138274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,6 +2147,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-4949972645844816810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2223,6 +2241,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-4887443564696542290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2319,6 +2338,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-4451479335009493622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2415,6 +2435,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-4282019213175480329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2511,6 +2532,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-4239923449041322268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,6 +2630,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-4016869842333338261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2704,6 +2727,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-3895946546762089233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2797,6 +2821,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-3849782420273199187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2893,6 +2918,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-3816219503177191248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2986,9 +3012,10 @@ MonoBehaviour:
   prompt: Hello Nishanta.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-3786032424668341359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3086,6 +3113,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-3255593486444641645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3182,6 +3210,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2951257755728957786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3303,6 +3332,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2950142953028321411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3424,6 +3454,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2854575766816810640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3520,6 +3551,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2849333111784943150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3655,6 +3687,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2774128432990169896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3776,6 +3809,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2692500595592191567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4018,6 +4052,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2239021350729023264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4111,6 +4146,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2219811727158277940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4292,6 +4328,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-2134927268836919038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4483,6 +4520,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-1140044169393697421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4660,6 +4698,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-961299550652627598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4756,6 +4795,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-937059874555252162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4852,6 +4892,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-905278578280562626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4948,6 +4989,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-803466403309430421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5041,9 +5083,10 @@ MonoBehaviour:
   prompt: From my understanding, that isn't your job.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-617748242735523747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5166,6 +5209,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-558657081002295597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5259,6 +5303,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &-213289062446051100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5548,6 +5593,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &238962736355793517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5787,6 +5833,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &1168608076248160643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5883,6 +5930,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &1234754715839352554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6077,6 +6125,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &1596276708347067360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6173,6 +6222,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &1874046421841788857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6340,6 +6390,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &2526556600675084025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6436,6 +6487,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &2997145732290021900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6557,6 +6609,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &3283273253298147279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6664,6 +6717,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &3366247564086209681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6760,6 +6814,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &3823596893577520456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6856,6 +6911,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &3843693739132638843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6949,6 +7005,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4185834444361587455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7067,6 +7124,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4229997045711353144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7255,9 +7313,10 @@ MonoBehaviour:
   prompt: Alright, why so mopey? What's wrong?
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 11
-  mood: -1
+  mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4286469680493282673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7489,6 +7548,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4464904667783215584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7596,6 +7656,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4632590481737258034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7692,6 +7753,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4648913132745561193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7789,6 +7851,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4754239297926585487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7882,6 +7945,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4953830539527155185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7978,6 +8042,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &4992235035423016603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8074,6 +8139,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &5509293374607826777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8251,6 +8317,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &5666264781306430806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8347,6 +8414,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &5680625479554400999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8443,6 +8511,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &5880009483666484692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8564,6 +8633,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &5965179315089006581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8730,6 +8800,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &6309430411901636511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8871,6 +8942,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &7206053914854023965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9037,6 +9109,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &7372457983595952411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9305,6 +9378,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &7722023189919898600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9401,6 +9475,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &8063106019727966055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9494,6 +9569,7 @@ MonoBehaviour:
   mood: 0
   moodDuration: 0
   isVisited: 0
+  isNoReturn: 0
 --- !u!114 &8637997162117760837
 MonoBehaviour:
   m_ObjectHideFlags: 0
