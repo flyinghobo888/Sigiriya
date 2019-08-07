@@ -182,6 +182,6 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     /* Global Time Events */
 
-    public delegate void TimeChanged(EnumTime newTime);
+    public delegate void TimeChanged(GlobalTimeTracker.SigiTime globalTime);
     public static TimeChanged OnTimeChanged;
 }
