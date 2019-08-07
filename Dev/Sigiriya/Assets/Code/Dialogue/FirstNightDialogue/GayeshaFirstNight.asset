@@ -76,12 +76,9 @@ MonoBehaviour:
       _node: {fileID: -8852412424601447505}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -4203798855496563935}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -93,7 +90,11 @@ MonoBehaviour:
   prompt: "I wasn\u2019t implying it, I was saying it."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 11
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-8719133675771735996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,12 +171,9 @@ MonoBehaviour:
       _node: {fileID: -8719133675771735996}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -3518324887489821962}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -187,7 +185,11 @@ MonoBehaviour:
   prompt: "I\u2019m sorry Gayesha, is there anything I can do to help with your kitchen?"
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-7925871715007507592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,12 +266,9 @@ MonoBehaviour:
       _node: {fileID: -7925871715007507592}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 5963720941485700913}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -281,7 +280,11 @@ MonoBehaviour:
   prompt: "\u2026."
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-7597158045636588381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,12 +361,9 @@ MonoBehaviour:
       _node: {fileID: -7597158045636588381}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -3633643012767736247}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -375,7 +375,11 @@ MonoBehaviour:
   prompt: "Seems like everything\u2019s gotten pretty scattered in this move."
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &-7375341061994914506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,12 +456,9 @@ MonoBehaviour:
       _node: {fileID: -7375341061994914506}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 2345381232794050466}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -469,7 +470,11 @@ MonoBehaviour:
   prompt: "Right, I mean, I wasn\u2019t. I was going to offer Lakmini."
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-6518513520563997324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,12 +551,9 @@ MonoBehaviour:
       _node: {fileID: -6518513520563997324}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -7925871715007507592}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -564,7 +566,11 @@ MonoBehaviour:
     through something like this."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-5685983386169711078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,12 +647,9 @@ MonoBehaviour:
       _node: {fileID: -5685983386169711078}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 6670732273187906550}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -658,7 +661,11 @@ MonoBehaviour:
   prompt: "I don\u2019t know, she hasn\u2019t improved at all since we left Anuradhapura."
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-5579528266651980188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +753,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: responses 0
@@ -797,7 +804,11 @@ MonoBehaviour:
   prompt: Nishantha, how is your daughter?
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 5
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-5525859624776946346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,7 +896,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: responses 0
@@ -936,7 +947,11 @@ MonoBehaviour:
   prompt: "\u2026 How is she doing lately?"
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 10
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-5324152428309901455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,12 +1028,9 @@ MonoBehaviour:
       _node: {fileID: -5324152428309901455}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 6826312677137077555}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -1030,7 +1042,11 @@ MonoBehaviour:
   prompt: "That\u2019s good to hear. She worries me."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 10
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-5006700742423115308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,7 +1133,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: responses 0
@@ -1155,7 +1171,11 @@ MonoBehaviour:
   prompt: Evening Nishantha.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 5
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-4203798855496563935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,12 +1252,9 @@ MonoBehaviour:
       _node: {fileID: -4203798855496563935}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 4550769607867363480}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -1249,7 +1266,11 @@ MonoBehaviour:
   prompt: . . .
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-4089284506343661079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1311,12 +1332,9 @@ MonoBehaviour:
       _node: {fileID: -4089284506343661079}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -5324152428309901455}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -1402,12 +1420,9 @@ MonoBehaviour:
       _node: {fileID: -3859317437070391819}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -7375341061994914506}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -1419,7 +1434,11 @@ MonoBehaviour:
   prompt: " And if you\u2019re about to offer yourself, I\u2019d prefer if you didn\u2019t."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 11
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-3633643012767736247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1496,12 +1515,9 @@ MonoBehaviour:
       _node: {fileID: -3633643012767736247}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 3807716637649504317}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -1513,7 +1529,11 @@ MonoBehaviour:
   prompt: "I can\u2019t imagine why."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 11
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-3518324887489821962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1590,12 +1610,9 @@ MonoBehaviour:
       _node: {fileID: -3518324887489821962}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -5579528266651980188}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -1607,7 +1624,11 @@ MonoBehaviour:
   prompt: Unless you can move my old kitchen from Anuradhapura, then no.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-2372912444862910067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,7 +1707,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -1698,7 +1719,11 @@ MonoBehaviour:
   prompt: "Yeah. Look, I\u2019ll be seeing you Nishanta."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-2071960065089474851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1775,12 +1800,9 @@ MonoBehaviour:
       _node: {fileID: -2071960065089474851}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 2181059416628311599}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -1792,7 +1814,11 @@ MonoBehaviour:
   prompt: "She\u2019s dealing with all this without a woman properly in her life."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-1749044386014827032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,7 +1905,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: responses 0
@@ -1918,7 +1944,11 @@ MonoBehaviour:
     here!"
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 11
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-1538242205569583581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2028,12 +2058,9 @@ MonoBehaviour:
       _node: {fileID: -516858785244350000}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 1964917375015666253}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2045,7 +2072,11 @@ MonoBehaviour:
   prompt: "They\u2019re doing alright."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &-381418594729173865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2104,12 +2135,9 @@ MonoBehaviour:
       _node: {fileID: -381418594729173865}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 3376307410315754260}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2174,12 +2202,9 @@ MonoBehaviour:
       _node: {fileID: -315760835573967911}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 8705016952089803523}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2258,10 +2283,16 @@ MonoBehaviour:
   - {fileID: -5525859624776946346}
   - {fileID: 3680564379652292429}
   - {fileID: 4246209947623214067}
-  current: {fileID: 9156832407439496452}
+  current: {fileID: 4246209947623214067}
   isInit: 0
+  timesAccessed: 0
   actors:
   - {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
+  location: 
+  neededFlags: 
+  timeOfDay: 
+  dependantConversation: []
+  isDone: 0
 --- !u!114 &469323016241931347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2338,12 +2369,9 @@ MonoBehaviour:
       _node: {fileID: 469323016241931347}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -5685983386169711078}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2355,7 +2383,11 @@ MonoBehaviour:
   prompt: Well Nishanta? What do you expect?
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 11
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &524155085052649108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2411,12 +2443,9 @@ MonoBehaviour:
       _node: {fileID: 524155085052649108}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 3680564379652292429}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2502,12 +2531,9 @@ MonoBehaviour:
       _node: {fileID: 1261485860623118402}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -2372912444862910067}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2519,7 +2545,11 @@ MonoBehaviour:
   prompt: "\u2026 Thank you for that Gayesha."
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1647963991691424427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2596,12 +2626,9 @@ MonoBehaviour:
       _node: {fileID: 1647963991691424427}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -8719133675771735996}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2613,7 +2640,11 @@ MonoBehaviour:
   prompt: "Can\u2019t say I\u2019ve not been around much to see them settled."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 11
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1964917375015666253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2690,12 +2721,9 @@ MonoBehaviour:
       _node: {fileID: 1964917375015666253}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 3693691021984687248}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2707,7 +2735,11 @@ MonoBehaviour:
   prompt: "Not that I\u2019ve been around much to see them settled."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 11
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &2181059416628311599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2784,12 +2816,9 @@ MonoBehaviour:
       _node: {fileID: 2181059416628311599}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -8852412424601447505}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2801,7 +2830,11 @@ MonoBehaviour:
   prompt: "Are you implying I can\u2019t help her myself?"
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2201248625753773067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2880,7 +2913,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2892,7 +2925,11 @@ MonoBehaviour:
   prompt: Right.
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2345381232794050466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2969,12 +3006,9 @@ MonoBehaviour:
       _node: {fileID: 2345381232794050466}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -5525859624776946346}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -2986,7 +3020,11 @@ MonoBehaviour:
   prompt: Oh, well yes, she has been poking around my kitchen lately.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2346568066442406231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3075,12 +3113,9 @@ MonoBehaviour:
       _node: {fileID: 2768653916991837853}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -516858785244350000}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3166,12 +3201,9 @@ MonoBehaviour:
       _node: {fileID: 3055097771481297621}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 7931929591955079830}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3184,7 +3216,11 @@ MonoBehaviour:
     gotten here."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &3376307410315754260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3263,7 +3299,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3275,7 +3311,11 @@ MonoBehaviour:
   prompt: "I\u2019ll be seeing you, Nishantha."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3410351308010228145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3412,12 +3452,9 @@ MonoBehaviour:
       _node: {fileID: 3680564379652292429}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -3859317437070391819}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3429,7 +3466,11 @@ MonoBehaviour:
   prompt: Of course I could, but my options are slim.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3693691021984687248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3506,12 +3547,9 @@ MonoBehaviour:
       _node: {fileID: 3693691021984687248}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -1749044386014827032}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3523,7 +3561,11 @@ MonoBehaviour:
   prompt: Are you simply too busy?
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &3693789876850684501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3585,12 +3627,9 @@ MonoBehaviour:
       _node: {fileID: 3693789876850684501}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 8266660783989801350}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3676,12 +3715,9 @@ MonoBehaviour:
       _node: {fileID: 3807716637649504317}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 6358026102158533194}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3693,7 +3729,11 @@ MonoBehaviour:
   prompt: Nishantha, did you need something?
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4246209947623214067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3726,12 +3766,9 @@ MonoBehaviour:
       _node: {fileID: 4246209947623214067}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 9156832407439496452}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3817,7 +3854,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3829,7 +3866,11 @@ MonoBehaviour:
   prompt: I need to get home to my own family, I will be seeing you Nish.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4657450510283953694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3939,12 +3980,9 @@ MonoBehaviour:
       _node: {fileID: 5914718573309321730}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 1261485860623118402}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -3956,7 +3994,11 @@ MonoBehaviour:
   prompt: She needs more time Nishanta, give it to her.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 10
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5963720941485700913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4033,12 +4075,9 @@ MonoBehaviour:
       _node: {fileID: 5963720941485700913}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 2201248625753773067}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -4050,7 +4089,11 @@ MonoBehaviour:
   prompt: "But you can\u2019t control circumstances."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5970398678972262550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4109,12 +4152,9 @@ MonoBehaviour:
       _node: {fileID: 5970398678972262550}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 469323016241931347}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -4210,7 +4250,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: responses 0
@@ -4248,7 +4288,11 @@ MonoBehaviour:
   prompt: I would like to see my family at least once today.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 5
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6365761038159118512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4385,12 +4429,9 @@ MonoBehaviour:
       _node: {fileID: 6670732273187906550}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 5914718573309321730}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -4403,7 +4444,11 @@ MonoBehaviour:
     and her home."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6826312677137077555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4480,12 +4525,9 @@ MonoBehaviour:
       _node: {fileID: 6826312677137077555}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -6518513520563997324}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -4497,7 +4539,11 @@ MonoBehaviour:
   prompt: I know Gayesha.
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &7561340597176979305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4553,12 +4599,9 @@ MonoBehaviour:
       _node: {fileID: 7561340597176979305}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 3055097771481297621}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -4644,12 +4687,9 @@ MonoBehaviour:
       _node: {fileID: 7931929591955079830}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -7597158045636588381}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -4661,7 +4701,11 @@ MonoBehaviour:
   prompt: The state of it is appalling.
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 11
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &8266660783989801350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4738,12 +4782,9 @@ MonoBehaviour:
       _node: {fileID: 8266660783989801350}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -2071960065089474851}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -4755,7 +4796,11 @@ MonoBehaviour:
   prompt: "That\u2019s not a surprise."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8705016952089803523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4832,12 +4877,9 @@ MonoBehaviour:
       _node: {fileID: 8705016952089803523}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: 1647963991691424427}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -4849,7 +4891,11 @@ MonoBehaviour:
   prompt: "They\u2019ve been adjusting."
   speaker: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   expression: 5
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &9047774437806862000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4959,12 +5005,9 @@ MonoBehaviour:
       _node: {fileID: 9156832407439496452}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: input
-        node: {fileID: -5006700742423115308}
-        reroutePoints: []
+      connections: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   input: {fileID: 0}
@@ -4976,4 +5019,8 @@ MonoBehaviour:
   prompt: Oh! Gayesha how have you been!
   speaker: {fileID: 0}
   expression: 0
-  time: 2
+  mood: 0
+  moodDuration: 0
+  isVisited: 0
+  isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
