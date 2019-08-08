@@ -43,13 +43,15 @@ public class GradientChanger : ManagerBase<GradientChanger>
     private Color topColor, bottomColor;
 
     private GlobalTimeTracker timeTracker;
-    private float lerpAlpha;
+    private float scaledAlpha;
+
 
     private void OnEnable()
     {
         timeTracker = GlobalTimeTracker.Instance;
 
         EventAnnouncer.OnTimeTickUpdated += UpdateBackground;
+        EventAnnouncer.OnDayIsStarting += UpdateBackground;
 
         timeColors.Add(EnumDisplayTime.SIZE, new ColorData(topSunrise, bottomSunrise, sunriseOpacity));
         timeColors.Add(EnumDisplayTime.SUNRISE, new ColorData(topSunrise, bottomSunrise, sunriseOpacity));
@@ -64,6 +66,7 @@ public class GradientChanger : ManagerBase<GradientChanger>
     private void OnDisable()
     {
         EventAnnouncer.OnTimeTickUpdated -= UpdateBackground;
+        EventAnnouncer.OnDayIsStarting -= UpdateBackground;
     }
 
     private void OnValidate()
@@ -91,6 +94,14 @@ public class GradientChanger : ManagerBase<GradientChanger>
         bottomGradient.color = bottomColor;
     }
 
+    private void UpdateBackground()
+    {
+        float temp = transitionAlpha;
+        transitionAlpha = 0.0f;
+        UpdateBackground(GlobalTimeTracker.Instance.GlobalTime);
+        transitionAlpha = temp;
+    }
+
     private void UpdateBackground(SigiTime globalTime)
     {
         if (timeColors.TryGetValue(timeTracker.ExternalTimeOfDay, out ColorData currentColorData))
@@ -114,7 +125,7 @@ public class GradientChanger : ManagerBase<GradientChanger>
 
         if (timeTracker.TimeAlpha >= transitionAlpha)
         {
-            float scaledAlpha = (timeTracker.TimeAlpha - transitionAlpha) / (1.0f - transitionAlpha);
+            scaledAlpha = (timeTracker.TimeAlpha - transitionAlpha) / (1.0f - transitionAlpha);
             EventAnnouncer.OnTimeTransitioning?.Invoke(timeTracker.ExternalTimeOfDay, timeTracker.NextTimeOfDay, scaledAlpha);
             LerpColors(scaledAlpha);
         }
