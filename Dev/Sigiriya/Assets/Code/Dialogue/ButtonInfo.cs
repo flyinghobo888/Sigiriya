@@ -7,7 +7,7 @@ public class ButtonInfo : MonoBehaviour
 	[SerializeField] private GameObject characterContainer = null;
 	[SerializeField] private GameObject talkBubble = null;
 	[SerializeField] private SimpleGraph dialogueGraph = null;
-	[SerializeField] private List<Character> charactersInConVo = null;
+	[SerializeField] private List<Character> charactersInConvo = null;
     //[SerializeField] private DialogueController dCon;
 
     //TODO: instead of this script, rename it to ButtonInfo or something...
@@ -37,11 +37,11 @@ public class ButtonInfo : MonoBehaviour
 
 	void CheckIfWantsToTalk()
 	{
-		if (DialogueController.Instance != null && talkBubble != null)
+		if (DialogueController.Instance != null && talkBubble != null && dialogueGraph != null)
 		{
 			if (!dialogueGraph.isInit)
 			{
-				dialogueGraph.Restart();
+				dialogueGraph.Init();
 			}
 
 			if (dialogueGraph.current == null)
@@ -63,7 +63,7 @@ public class ButtonInfo : MonoBehaviour
 
 	public void EnableCurrNode()
 	{
-		DialogueController.Instance.EnableCurrNode(charactersInConVo);
+		DialogueController.Instance.EnableCurrNode(charactersInConvo);
 		//DialogueController.Instance.EnableCurrNode(dialogueGraph);
 	}
 

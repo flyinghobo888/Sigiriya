@@ -81,7 +81,7 @@ public class DialogueController : ManagerBase<DialogueController>
 	{
 		ID = name;
 
-		dialogueGraph.Restart();
+		dialogueGraph.Init();
 
 		AssessCurrentType();
 	}
@@ -438,7 +438,7 @@ public class DialogueController : ManagerBase<DialogueController>
 			//Now if we have more than one in possibleGraphs
 			if (possibleGraphs.Count > 1)
 			{
-				int num = Random.Range(0, possibleGraphs.Count - 1);
+				int num = Random.Range(0, possibleGraphs.Count);
 
 				dialogueGraph = possibleGraphs[num];
 			}
@@ -673,7 +673,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 		for (int i = 0; i < graphList.Count; i++)
 		{
-			graphList[i].isInit = false;
+			graphList[i].Reset();
 		}
 
         EventAnnouncer.OnDialogueRestart?.Invoke();
