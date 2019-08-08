@@ -25,11 +25,19 @@ public class SimpleGraph : NodeGraph
 
 	public bool isDone = false;
 
-	public void Restart()
+	public void Reset()
+	{
+		isInit = false;
+		isDone = false;
+		timesAccessed = 0;
+		ResetIsVisited();
+	}
+
+	public void Init()
 	{
 		//Find the first Dialogue ActorNode without any inputs. This is the starting node.
 		current = nodes.Find(x => x is ActorNode && x.Inputs.All(y => !y.IsConnected)) as ActorNode;
-
+		timesAccessed = 0;
 		ResetIsVisited();
 
 		isInit = true;

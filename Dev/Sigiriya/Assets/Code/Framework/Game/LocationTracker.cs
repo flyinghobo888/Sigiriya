@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LocationTracker : ManagerBase<LocationTracker>
 {
     [SerializeField] private EnumLocation currentLocation = EnumLocation.HOME;
+    public EnumLocation CurrentLocation { get { return currentLocation; } private set { currentLocation = value; } }
 
     public EnumLocation TargetLocation { get; private set; }
     private bool shouldFade;
@@ -18,21 +19,26 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     private void Awake()
     {
-        TargetLocation = currentLocation;
+        CurrentLocation = currentLocation;
+        TargetLocation = CurrentLocation;
 
-        ChangeLocation(currentLocation, false);
+        ChangeLocation(EnumLocation.SIZE, CurrentLocation, false);
     }
 
     private void OnEnable()
     {
         EventAnnouncer.OnRequestLocationChange += ChangeLocation;
         EventAnnouncer.OnEndFadeIn += GoToNextLocation;
+
+        EventAnnouncer.OnDayIsStarting += StartOfDay;
     }
 
     private void OnDisable()
     {
         EventAnnouncer.OnRequestLocationChange -= ChangeLocation;
         EventAnnouncer.OnEndFadeIn -= GoToNextLocation;
+
+        EventAnnouncer.OnDayIsStarting -= StartOfDay;
     }
 
     public void RegisterLocation(EnumLocation locationKey, LocationController locationValue)
@@ -48,7 +54,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
         }
     }
 
-    private void ChangeLocation(EnumLocation targetLocation, bool fade)
+    private void ChangeLocation(EnumLocation prevLocation, EnumLocation targetLocation, bool fade)
     {
         if (locationControllers.ContainsKey(targetLocation))
         {
@@ -80,9 +86,11 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     private void GoToNextLocation()
     {
-        GetLocationController(currentLocation).gameObject.SetActive(false);
-        currentLocation = TargetLocation;
-        GetLocationController(currentLocation).gameObject.SetActive(true);
+        GetLocationController(CurrentLocation).gameObject.SetActive(false);
+        CurrentLocation = TargetLocation;
+        GetLocationController(CurrentLocation).gameObject.SetActive(true);
+
+        EventAnnouncer.OnArrivedAtLocation?.Invoke(CurrentLocation);
 
         if (shouldFade)
         {
@@ -114,6 +122,14 @@ public class LocationTracker : ManagerBase<LocationTracker>
         {
             Debug.LogWarning("Could not find location registerd with key: " + location.ToString());
             return null;
+        }
+    }
+
+    private void StartOfDay()
+    {
+        foreach (LocationController controller in locationControllers.Values)
+        {
+            controller.StartOfDay();
         }
     }
 }

@@ -7,7 +7,30 @@ public class MoodTracker
     private Dictionary<EnumMood, MoodNode> moodList = new Dictionary<EnumMood, MoodNode>();
     private List<EnumMood> removalsList = new List<EnumMood>();
 
-    public void AddMood(EnumMood mood, float duration, bool isPaused = false)
+    //public void AddMood(EnumMood mood, float duration, bool isPaused = false)
+    //{
+    //    if (moodList.TryGetValue(mood, out MoodNode existingValue))
+    //    {
+    //        existingValue.SetDuration(duration);
+    //        existingValue.Paused = isPaused;
+    //        Debug.Log("Mood already active on this character. Updating values.");
+    //    }
+    //    else
+    //    {
+    //        MoodNode newMoodNode = MoodController.Instance.CreateMoodNode(mood, duration, isPaused);
+
+    //        if (newMoodNode != null)
+    //        {
+    //            moodList.Add(mood, newMoodNode);
+    //        }
+    //        else
+    //        {
+    //            Debug.LogWarning("Could not add mood to mood tracker. Mood Node is null.");
+    //        }
+    //    }
+    //}
+
+    public void AddMood(EnumMood mood, SigiTime duration, bool isPaused = false)
     {
         if (moodList.TryGetValue(mood, out MoodNode existingValue))
         {
@@ -94,7 +117,7 @@ public class MoodTracker
             if (!node.Paused)
             {
                 EnumMood mood = node.Mood;
-                node.Update(Time.deltaTime);
+                node.Update();
 
                 if (!node.Active)
                 {

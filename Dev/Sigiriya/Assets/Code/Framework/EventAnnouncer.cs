@@ -20,9 +20,11 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     
     /* Location Events */
 
-    public delegate void RequestLocationChange(EnumLocation scene, bool shouldFade);
+    public delegate void RequestLocationChange(EnumLocation prevLocation, EnumLocation targetLocation, bool shouldFade);
     public static RequestLocationChange OnRequestLocationChange;
 
+    public delegate void ArrivedAtLocation(EnumLocation currentLocation);
+    public static ArrivedAtLocation OnArrivedAtLocation;
 
     /* Fade Events */
 
@@ -182,6 +184,12 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     /* Global Time Events */
 
-    public delegate void TimeChanged(GlobalTimeTracker.SigiTime globalTime);
+    public delegate void TimeChanged(SigiTime globalTime);
     public static TimeChanged OnTimeChanged;
+
+    public delegate void DayIsStarting();
+    public static DayIsStarting OnDayIsStarting;
+
+    public delegate void DayIsEnding();
+    public static DayIsEnding OnDayIsEnding;
 }
