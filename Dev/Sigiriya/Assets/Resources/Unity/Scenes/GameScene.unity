@@ -1149,7 +1149,7 @@ PrefabInstance:
     - target: {fileID: 7475983865213726787, guid: 66f0181e903acc94e9da943ba1e87ff7,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -43
+      value: -43.00006
       objectReference: {fileID: 0}
     - target: {fileID: 228587130049160568, guid: 66f0181e903acc94e9da943ba1e87ff7,
         type: 3}
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 7f57ebf5889138c41b02ec166658dbb8, type: 2}
-  m_Color: {r: 0.8207547, g: 0.08666353, b: 0, a: 0.3137255}
+  m_Color: {r: 0.8207547, g: 0.29798332, b: 0.24390352, a: 0.3137255}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2454,13 +2454,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c19390a5ed1dd47b54fa0309dab5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SUNRISE_START: 6
-  MORNING_START: 7
-  MIDDAY_START: 11
-  EVENING_START: 16
+  SUNRISE_START: 4
+  MORNING_START: 5
+  MIDDAY_START: 12
+  EVENING_START: 18
   NIGHT_START: 21
   startTime: 0
-  DaySpeedMultiplier: 3600
+  DayLength: 10
 --- !u!114 &775685226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2552,8 +2552,8 @@ MonoBehaviour:
   topNight: {r: 0.8207547, g: 0.08666353, b: 0, a: 0.3137255}
   bottomNight: {r: 0.16470589, g: 0.06666667, b: 0.53333336, a: 0.47058824}
   nightOpacity: 1
-  previewTime: 4
-  transitionAlpha: 0.7
+  previewTime: 0
+  transitionAlpha: 0
 --- !u!224 &862266602 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8911578579625800289, guid: 693c6c4474b901f458e955eecfca83aa,
@@ -3188,7 +3188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 7f57ebf5889138c41b02ec166658dbb8, type: 2}
-  m_Color: {r: 0.16470589, g: 0.06666667, b: 0.53333336, a: 0.47058824}
+  m_Color: {r: 0.18155926, g: 0.63424426, b: 0.754717, a: 0.3137255}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3347,7 +3347,7 @@ PrefabInstance:
     - target: {fileID: 7930808758864414913, guid: 95ce57142504a2c43bf0b675f65418f9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -339.99994
+      value: -340
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ce57142504a2c43bf0b675f65418f9, type: 3}
@@ -5851,7 +5851,7 @@ PrefabInstance:
     - target: {fileID: 5717834204566387667, guid: 57a5b36aab8762e48a3b44f3a26a4a71,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5717834204566387664, guid: 57a5b36aab8762e48a3b44f3a26a4a71,
         type: 3}
@@ -5971,7 +5971,7 @@ PrefabInstance:
     - target: {fileID: 7420978166686630691, guid: 57a5b36aab8762e48a3b44f3a26a4a71,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -333.99994
+      value: -334
       objectReference: {fileID: 0}
     - target: {fileID: 7420978166686630691, guid: 57a5b36aab8762e48a3b44f3a26a4a71,
         type: 3}
@@ -6317,7 +6317,7 @@ PrefabInstance:
     - target: {fileID: 8911578579625800290, guid: 693c6c4474b901f458e955eecfca83aa,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8911578579625800289, guid: 693c6c4474b901f458e955eecfca83aa,
         type: 3}
