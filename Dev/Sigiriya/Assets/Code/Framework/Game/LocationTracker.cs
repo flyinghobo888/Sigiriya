@@ -6,7 +6,8 @@ using UnityEngine.UI;
 //Responsible for keeping track of which location in the world we're in.
 public class LocationTracker : ManagerBase<LocationTracker>
 {
-    [SerializeField] public EnumLocation CurrentLocation { get; private set; } = EnumLocation.HOME;
+    [SerializeField] private EnumLocation currentLocation = EnumLocation.HOME;
+    public EnumLocation CurrentLocation { get { return currentLocation; } private set { currentLocation = value; } }
 
     public EnumLocation TargetLocation { get; private set; }
     private bool shouldFade;
@@ -18,6 +19,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     private void Awake()
     {
+        CurrentLocation = currentLocation;
         TargetLocation = CurrentLocation;
 
         ChangeLocation(EnumLocation.SIZE, CurrentLocation, false);
