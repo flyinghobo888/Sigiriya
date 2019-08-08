@@ -16,8 +16,11 @@ public class PromptNode : BaseNode
     public Character speaker;
 	public Character.EnumExpression expression;
 	public EnumMood mood;
+
+    //TODO: CHANGE TO SigiTime moodDuration;
 	public float moodDuration;
-	public bool isVisited = false;
+
+    public bool isVisited = false;
 	public bool isNoReturn = false;
 
 	public Color connected;

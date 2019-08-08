@@ -81,7 +81,7 @@ public class DialogueController : ManagerBase<DialogueController>
 	{
 		ID = name;
 
-		dialogueGraph.Restart();
+		dialogueGraph.Init();
 
 		AssessCurrentType();
 	}
@@ -168,7 +168,8 @@ public class DialogueController : ManagerBase<DialogueController>
                 characterNameBox.text = pNode.speaker.characterName;
 				if (pNode.mood != EnumMood.NONE)
 				{
-					pNode.speaker.MoodTracker.AddMood(pNode.mood, pNode.moodDuration);
+                    //TODO: UPDATE THIS WITH THE SigiTime variable from the prompt node
+					pNode.speaker.MoodTracker.AddMood(pNode.mood, new SigiTime(0, 0, (int)pNode.moodDuration));
 				}
 				ActivateSpeechPrompt(EnumTalking.CHARACTER);
             }
@@ -178,7 +179,7 @@ public class DialogueController : ManagerBase<DialogueController>
             }
 
             currentPromptPanel.text = "";
-            EventAnnouncer.OnDialogueUpdate(currentPromptPanel, pNode.prompt);
+            EventAnnouncer.OnDialogueUpdate?.Invoke(currentPromptPanel, pNode.prompt);
 
             //nameBox.text = pNode.speaker == null ? "Player" : pNode.speaker.characterName;
             //promptPanel.text = "";//pNode.prompt;
@@ -261,11 +262,11 @@ public class DialogueController : ManagerBase<DialogueController>
 
             if (rNode.textFull != "")
             {
-                EventAnnouncer.OnDialogueUpdate(currentPromptPanel, rNode.textFull);
+                EventAnnouncer.OnDialogueUpdate?.Invoke(currentPromptPanel, rNode.textFull);
             }
             else
             {
-                EventAnnouncer.OnDialogueUpdate(currentPromptPanel, rNode.textButton);
+                EventAnnouncer.OnDialogueUpdate?.Invoke(currentPromptPanel, rNode.textButton);
             }
 
             //nameBox.text = "Player";
@@ -298,9 +299,8 @@ public class DialogueController : ManagerBase<DialogueController>
 	/// </summary>
 	public void ContinueDialogue()
 	{
-        if (!TextController.Instance.IsFinished)
+        if (TextController.Instance.TryToFinishText(currentPromptPanel))
         {
-            EventAnnouncer.OnDialogueRequestFinish(currentPromptPanel);
             return;
         }
 
@@ -317,6 +317,11 @@ public class DialogueController : ManagerBase<DialogueController>
 
         //talkTimer = 0;
 	}
+
+    public void TryFinishDialogue()
+    {
+        TextController.Instance.TryToFinishText(currentPromptPanel);
+    }
 
 	//SHOULD ONLY BE USED BY RESPONSE BUTTONS FOR NOW
 	/// <summary>
@@ -438,7 +443,7 @@ public class DialogueController : ManagerBase<DialogueController>
 			//Now if we have more than one in possibleGraphs
 			if (possibleGraphs.Count > 1)
 			{
-				int num = Random.Range(0, possibleGraphs.Count - 1);
+				int num = Random.Range(0, possibleGraphs.Count);
 
 				dialogueGraph = possibleGraphs[num];
 			}
@@ -673,7 +678,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 		for (int i = 0; i < graphList.Count; i++)
 		{
-			graphList[i].isInit = false;
+			graphList[i].Reset();
 		}
 
         EventAnnouncer.OnDialogueRestart?.Invoke();

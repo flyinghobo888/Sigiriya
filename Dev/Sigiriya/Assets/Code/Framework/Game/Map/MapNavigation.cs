@@ -18,47 +18,47 @@ public class MapNavigation : MonoBehaviour
 
     public void GoToKitchen(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.KITCHEN, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, EnumLocation.KITCHEN, shouldFade);
     }
 
     public void GoToWewa(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.WEWA_MARSH, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, EnumLocation.WEWA_MARSH, shouldFade);
     }
 
     public void GoToConstructionSite(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.CONSTRUCTION_SITE, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, EnumLocation.CONSTRUCTION_SITE, shouldFade);
     }
 
     public void GoToGatheringSpace(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.GATHERING_SPACE, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, EnumLocation.GATHERING_SPACE, shouldFade);
     }
 
     public void GoToForestClearing(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.FOREST_CLEARING, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, EnumLocation.FOREST_CLEARING, shouldFade);
     }
 
     public void GoToHome(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.HOME, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, EnumLocation.HOME, shouldFade);
     }
 
     public void GoToVillageCenter(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.VILLAGE_CENTER, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, EnumLocation.VILLAGE_CENTER, shouldFade);
     }
 
     public void GoToPottingYard(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.POTTING_YARD, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, EnumLocation.POTTING_YARD, shouldFade);
     }
 
     public void GoToSpring(bool shouldFade)
     {
-        EventAnnouncer.OnRequestLocationChange?.Invoke(EnumLocation.SPRING, shouldFade);
+        EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, EnumLocation.SPRING, shouldFade);
     }
 
     public void ToggleMap()
