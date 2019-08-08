@@ -30,11 +30,11 @@ public class GradientChanger : ManagerBase<GradientChanger>
     [SerializeField] private Color bottomNight = Color.white;
     [SerializeField] [Range(0, 1)] private float nightOpacity = 1.0f;
     [Space]
-    [SerializeField] private GlobalTimeTracker.EnumDisplayTime previewTime = GlobalTimeTracker.EnumDisplayTime.SUNRISE;
+    [SerializeField] private EnumDisplayTime previewTime = EnumDisplayTime.SUNRISE;
     [Space]
-    [SerializeField] [Range(0, 1)] private float transitionAlpha = 0.0f;
+    [SerializeField] [Range(0, 0.99f)] private float transitionAlpha = 0.0f;
 
-    private Dictionary<GlobalTimeTracker.EnumDisplayTime, ColorData> timeColors = new Dictionary<GlobalTimeTracker.EnumDisplayTime, ColorData>();
+    private Dictionary<EnumDisplayTime, ColorData> timeColors = new Dictionary<EnumDisplayTime, ColorData>();
 
     private Color topStartColor, topEndColor;
     private Color bottomStartColor, bottomEndColor;
@@ -49,21 +49,21 @@ public class GradientChanger : ManagerBase<GradientChanger>
     {
         timeTracker = GlobalTimeTracker.Instance;
 
-        EventAnnouncer.OnTimeChanged += UpdateBackground;
+        EventAnnouncer.OnTimeTickUpdated += UpdateBackground;
 
-        timeColors.Add(GlobalTimeTracker.EnumDisplayTime.SIZE, new ColorData(topSunrise, bottomSunrise, sunriseOpacity));
-        timeColors.Add(GlobalTimeTracker.EnumDisplayTime.SUNRISE, new ColorData(topSunrise, bottomSunrise, sunriseOpacity));
-        timeColors.Add(GlobalTimeTracker.EnumDisplayTime.MORNING, new ColorData(topMorning, bottomMorning, morningOpacity));
-        timeColors.Add(GlobalTimeTracker.EnumDisplayTime.MIDDAY, new ColorData(topMidday, bottomMidday, middayOpacity));
-        timeColors.Add(GlobalTimeTracker.EnumDisplayTime.EVENING, new ColorData(topEvening, bottomEvening, eveningOpacity));
-        timeColors.Add(GlobalTimeTracker.EnumDisplayTime.NIGHT, new ColorData(topNight, bottomNight, nightOpacity));
+        timeColors.Add(EnumDisplayTime.SIZE, new ColorData(topSunrise, bottomSunrise, sunriseOpacity));
+        timeColors.Add(EnumDisplayTime.SUNRISE, new ColorData(topSunrise, bottomSunrise, sunriseOpacity));
+        timeColors.Add(EnumDisplayTime.MORNING, new ColorData(topMorning, bottomMorning, morningOpacity));
+        timeColors.Add(EnumDisplayTime.MIDDAY, new ColorData(topMidday, bottomMidday, middayOpacity));
+        timeColors.Add(EnumDisplayTime.EVENING, new ColorData(topEvening, bottomEvening, eveningOpacity));
+        timeColors.Add(EnumDisplayTime.NIGHT, new ColorData(topNight, bottomNight, nightOpacity));
 
         UpdateBackground(timeTracker.GlobalTime);
     }
 
     private void OnDisable()
     {
-        EventAnnouncer.OnTimeChanged -= UpdateBackground;
+        EventAnnouncer.OnTimeTickUpdated -= UpdateBackground;
     }
 
     private void OnValidate()
@@ -78,11 +78,11 @@ public class GradientChanger : ManagerBase<GradientChanger>
 
     private void LerpColors(float lerp)
     {
-        topColor = Color.Lerp(topStartColor, topEndColor, timeTracker.TimeAlpha);
-        topColor.a *= Mathf.Lerp(startOpacity, endOpacity, timeTracker.TimeAlpha);
+        topColor = Color.Lerp(topStartColor, topEndColor, lerp);
+        topColor.a *= Mathf.Lerp(startOpacity, endOpacity, lerp);
 
-        bottomColor = Color.Lerp(bottomStartColor, bottomEndColor, timeTracker.TimeAlpha);
-        bottomColor.a *= Mathf.Lerp(startOpacity, endOpacity, timeTracker.TimeAlpha);
+        bottomColor = Color.Lerp(bottomStartColor, bottomEndColor, lerp);
+        bottomColor.a *= Mathf.Lerp(startOpacity, endOpacity, lerp);
 
         topColor.a *= masterOpacity;
         bottomColor.a *= masterOpacity;
@@ -95,7 +95,7 @@ public class GradientChanger : ManagerBase<GradientChanger>
     {
         if (timeColors.TryGetValue(timeTracker.ExternalTimeOfDay, out ColorData currentColorData))
         {
-            if (timeColors.TryGetValue((GlobalTimeTracker.EnumDisplayTime)(((int)timeTracker.ExternalTimeOfDay + 1) % (int)GlobalTimeTracker.EnumDisplayTime.SIZE), out ColorData nextColorData))
+            if (timeColors.TryGetValue((EnumDisplayTime)(((int)timeTracker.ExternalTimeOfDay + 1) % (int)EnumDisplayTime.SIZE), out ColorData nextColorData))
             {
                 topStartColor = currentColorData.TopColor;
                 topEndColor = nextColorData.TopColor;
@@ -111,10 +111,16 @@ public class GradientChanger : ManagerBase<GradientChanger>
         }
 
         //Debug.Log(timeTracker.TimeAlpha + " | " + (timeTracker.TimeAlpha - transitionAlpha) / (1.0f - transitionAlpha));
-        LerpColors((timeTracker.TimeAlpha - transitionAlpha) / (1.0f - transitionAlpha));
+
+        if (timeTracker.TimeAlpha >= transitionAlpha)
+        {
+            float scaledAlpha = (timeTracker.TimeAlpha - transitionAlpha) / (1.0f - transitionAlpha);
+            EventAnnouncer.OnTimeTransitioning?.Invoke(timeTracker.ExternalTimeOfDay, timeTracker.NextTimeOfDay, scaledAlpha);
+            LerpColors(scaledAlpha);
+        }
     }
 
-    public void ChangeGradient(GlobalTimeTracker.EnumDisplayTime time)
+    public void ChangeGradient(EnumDisplayTime time)
     {
         topColor = topGradient.color;
         bottomColor = bottomGradient.color;
@@ -122,19 +128,19 @@ public class GradientChanger : ManagerBase<GradientChanger>
         switch (time)
         {
             default:
-            case GlobalTimeTracker.EnumDisplayTime.SUNRISE:
+            case EnumDisplayTime.SUNRISE:
                 ChangeColor(ref topColor, topSunrise, ref bottomColor, bottomSunrise, sunriseOpacity);
                 break;
-            case GlobalTimeTracker.EnumDisplayTime.MORNING:
+            case EnumDisplayTime.MORNING:
                 ChangeColor(ref topColor, topMorning, ref bottomColor, bottomMorning, morningOpacity);
                 break;
-            case GlobalTimeTracker.EnumDisplayTime.MIDDAY:
+            case EnumDisplayTime.MIDDAY:
                 ChangeColor(ref topColor, topMidday, ref bottomColor, bottomMidday, middayOpacity);
                 break;
-            case GlobalTimeTracker.EnumDisplayTime.EVENING:
+            case EnumDisplayTime.EVENING:
                 ChangeColor(ref topColor, topEvening, ref bottomColor, bottomEvening, eveningOpacity);
                 break;
-            case GlobalTimeTracker.EnumDisplayTime.NIGHT:
+            case EnumDisplayTime.NIGHT:
                 ChangeColor(ref topColor, topNight, ref bottomColor, bottomNight, nightOpacity);
                 break;
         }

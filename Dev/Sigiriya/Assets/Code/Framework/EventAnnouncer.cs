@@ -184,8 +184,14 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     /* Global Time Events */
 
-    public delegate void TimeChanged(SigiTime globalTime);
-    public static TimeChanged OnTimeChanged;
+    public delegate void TimeOfDayChanged(EnumDisplayTime currentTime);
+    public static TimeOfDayChanged OnTimeOfDayChanged;
+
+    public delegate void TimeTickUpdated(SigiTime globalTime);
+    public static TimeTickUpdated OnTimeTickUpdated;
+
+    public delegate void TimeTransitioning(EnumDisplayTime prev, EnumDisplayTime next, float alpha);
+    public static TimeTransitioning OnTimeTransitioning;
 
     public delegate void DayIsStarting();
     public static DayIsStarting OnDayIsStarting;
