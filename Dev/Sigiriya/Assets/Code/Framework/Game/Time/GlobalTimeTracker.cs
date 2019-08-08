@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 {
     public SigiTime GlobalTime { get; private set; } = new SigiTime();
-    private Dictionary<EnumDisplayTime, float> TimeOfDay = new Dictionary<EnumDisplayTime, float>();
+    private Dictionary<EnumDisplayTime, float> SwitchTimesList = new Dictionary<EnumDisplayTime, float>();
 
-    [Header("Hour at which time should switch")]
+    [Header("Hour at which time should switch.")]
     public int SUNRISE_START = 6;
     public int MORNING_START = 7;
     public int MIDDAY_START = 11;
@@ -18,20 +18,22 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     public int NIGHT_START = 21;
 
     public EnumDisplayTime startTime = EnumDisplayTime.SUNRISE;
-    public float DaySpeedMultiplier = 360.0f;
+
+    [Header("Length of a day in real life seconds.")]
+    public float DayLength = 20.0f;
 
     //How far into the cycle the time is.
     public float TimeAlpha { get; private set; } = 0.0f;
 
     public EnumTime CurrentTimeOfDay { get; private set; }
-    public EnumDisplayTime CurrentDisplayTimeOfDay { get; private set; }
+    public EnumDisplayTime ExternalTimeOfDay { get; private set; }
 
     private void Start()
     {
         InitTimeOfDay();
-        GlobalTime.Multiplier = DaySpeedMultiplier;
+        GlobalTime.SetDayLength(DayLength);
 
-        if (TimeOfDay.TryGetValue(startTime, out float ticks))
+        if (SwitchTimesList.TryGetValue(startTime, out float ticks))
         {
             GlobalTime.SetTickValue(ticks);
         }
@@ -45,22 +47,21 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
     private void InitTimeOfDay()
     {
-        TimeOfDay.Clear();
-        TimeOfDay.Add(EnumDisplayTime.SUNRISE, SUNRISE_START * SigiTime.SECONDS * SigiTime.MINUTES);
-        TimeOfDay.Add(EnumDisplayTime.MORNING, MORNING_START * SigiTime.SECONDS * SigiTime.MINUTES);
-        TimeOfDay.Add(EnumDisplayTime.MIDDAY, MIDDAY_START * SigiTime.SECONDS * SigiTime.MINUTES);
-        TimeOfDay.Add(EnumDisplayTime.EVENING, EVENING_START * SigiTime.SECONDS * SigiTime.MINUTES);
-        TimeOfDay.Add(EnumDisplayTime.NIGHT, NIGHT_START * SigiTime.SECONDS * SigiTime.MINUTES);
+        SwitchTimesList.Clear();
+        SwitchTimesList.Add(EnumDisplayTime.SUNRISE, SUNRISE_START * SigiTime.SECONDS * SigiTime.MINUTES);
+        SwitchTimesList.Add(EnumDisplayTime.MORNING, MORNING_START * SigiTime.SECONDS * SigiTime.MINUTES);
+        SwitchTimesList.Add(EnumDisplayTime.MIDDAY, MIDDAY_START * SigiTime.SECONDS * SigiTime.MINUTES);
+        SwitchTimesList.Add(EnumDisplayTime.EVENING, EVENING_START * SigiTime.SECONDS * SigiTime.MINUTES);
+        SwitchTimesList.Add(EnumDisplayTime.NIGHT, NIGHT_START * SigiTime.SECONDS * SigiTime.MINUTES);
     }
 
     private void CalculateDisplayTime()
     {
-        CurrentDisplayTimeOfDay = GetTimeOfDay();
-        CurrentTimeOfDay = GetSimplifiedTime(CurrentDisplayTimeOfDay);
+        UpdateTimeOfDay();
 
-        EnumDisplayTime NextTimeOfDay = (EnumDisplayTime)(((int)CurrentTimeOfDay + 1) % (int)EnumDisplayTime.SIZE);
-        TimeOfDay.TryGetValue(CurrentDisplayTimeOfDay, out float startTime);
-        TimeOfDay.TryGetValue((EnumDisplayTime)((int)NextTimeOfDay), out float endTime);
+        EnumDisplayTime NextTimeOfDay = (EnumDisplayTime)(((int)ExternalTimeOfDay + 1) % (int)EnumDisplayTime.SIZE);
+        SwitchTimesList.TryGetValue(ExternalTimeOfDay, out float startTime);
+        SwitchTimesList.TryGetValue(NextTimeOfDay, out float endTime);
         float currentTime = GlobalTime.Ticks;
 
         if (startTime > endTime)
@@ -78,33 +79,46 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
         EventAnnouncer.OnTimeChanged(GlobalTime);
     }
 
-    private EnumDisplayTime GetTimeOfDay()
+    private void UpdateTimeOfDay()
     {
         if (GlobalTime.Hour < SUNRISE_START || GlobalTime.Hour >= NIGHT_START)
         {
-            return EnumDisplayTime.NIGHT;
+            ExternalTimeOfDay = EnumDisplayTime.NIGHT;
         }
         else if (GlobalTime.Hour < MORNING_START)
         {
-            return EnumDisplayTime.SUNRISE;
+            ExternalTimeOfDay = EnumDisplayTime.SUNRISE;
         }
         else if (GlobalTime.Hour < MIDDAY_START)
         {
-            return EnumDisplayTime.MORNING;
+            ExternalTimeOfDay = EnumDisplayTime.MORNING;
         }
         else if (GlobalTime.Hour < EVENING_START)
         {
-            return EnumDisplayTime.MIDDAY;
+            ExternalTimeOfDay = EnumDisplayTime.MIDDAY;
         }
         else
         {
-            return EnumDisplayTime.EVENING;
+            ExternalTimeOfDay = EnumDisplayTime.EVENING;
         }
+
+        CurrentTimeOfDay = ToEnumTime(ExternalTimeOfDay);
     }
 
-    private EnumTime GetSimplifiedTime(EnumDisplayTime displayTime)
+    private EnumTime ToEnumTime(EnumDisplayTime displayTime)
     {
-        return (EnumTime)displayTime;
+        switch (displayTime)
+        {
+            case EnumDisplayTime.SUNRISE:
+            case EnumDisplayTime.MORNING:
+                return EnumTime.MORNING;
+            case EnumDisplayTime.MIDDAY:
+                return EnumTime.MIDDAY;
+            case EnumDisplayTime.EVENING:
+            case EnumDisplayTime.NIGHT:
+            default:
+                return EnumTime.NIGHT;
+        }
     }
 
     public class SigiTime
@@ -114,7 +128,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
         public int Minute { get; private set; }
         public int Second { get; private set; }
 
-        public float Multiplier { get; set; } = 1.0f;
+        private float multiplier;
 
         private float totalTimeCount = 0.0f;
         private float tickCounter = 0.0f;
@@ -134,7 +148,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
         public void Tick()
         {
-            totalTimeCount += Time.deltaTime * Multiplier;
+            totalTimeCount += Time.deltaTime * multiplier;
             Ticks = totalTimeCount % TICKS;
             tickCounter = Ticks;
 
@@ -156,8 +170,14 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
         {
             totalTimeCount = tickValue;
         }
+
+        public void SetDayLength(float realLifeSeconds)
+        {
+            multiplier = TICKS / realLifeSeconds;
+        }
     }
 
+    //Custom values to map to EnumTime
     public enum EnumDisplayTime
     {
         SUNRISE,
@@ -172,7 +192,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 public enum EnumTime
 {
     MORNING = 1,
-    MIDDAY,
+    MIDDAY = 2,
     NIGHT = 4,
-    SIZE = 5
+    SIZE = 3
 }

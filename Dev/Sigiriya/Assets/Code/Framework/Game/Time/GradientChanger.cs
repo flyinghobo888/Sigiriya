@@ -93,9 +93,9 @@ public class GradientChanger : ManagerBase<GradientChanger>
 
     private void UpdateBackground(GlobalTimeTracker.SigiTime globalTime)
     {
-        if (timeColors.TryGetValue(timeTracker.CurrentDisplayTimeOfDay, out ColorData currentColorData))
+        if (timeColors.TryGetValue(timeTracker.ExternalTimeOfDay, out ColorData currentColorData))
         {
-            if (timeColors.TryGetValue((GlobalTimeTracker.EnumDisplayTime)(((int)timeTracker.CurrentTimeOfDay + 1) % (int)GlobalTimeTracker.EnumDisplayTime.SIZE), out ColorData nextColorData))
+            if (timeColors.TryGetValue((GlobalTimeTracker.EnumDisplayTime)(((int)timeTracker.ExternalTimeOfDay + 1) % (int)GlobalTimeTracker.EnumDisplayTime.SIZE), out ColorData nextColorData))
             {
                 topStartColor = currentColorData.TopColor;
                 topEndColor = nextColorData.TopColor;
@@ -106,7 +106,7 @@ public class GradientChanger : ManagerBase<GradientChanger>
                 startOpacity = currentColorData.Opacity;
                 endOpacity = nextColorData.Opacity;
 
-                previewTime = timeTracker.CurrentDisplayTimeOfDay;
+                previewTime = timeTracker.ExternalTimeOfDay;
             }
         }
 
