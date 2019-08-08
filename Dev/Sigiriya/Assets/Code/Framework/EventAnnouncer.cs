@@ -182,6 +182,9 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     /* Global Time Events */
 
-    public delegate void TimeChanged(GlobalTimeTracker.SigiTime globalTime);
+    public delegate void TimeChanged(SigiTime globalTime);
     public static TimeChanged OnTimeChanged;
+
+    public delegate void DayIsEnding();
+    public static DayIsEnding OnDayIsEnding;
 }

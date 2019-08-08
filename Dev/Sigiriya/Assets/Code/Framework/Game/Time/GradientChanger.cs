@@ -91,7 +91,7 @@ public class GradientChanger : ManagerBase<GradientChanger>
         bottomGradient.color = bottomColor;
     }
 
-    private void UpdateBackground(GlobalTimeTracker.SigiTime globalTime)
+    private void UpdateBackground(SigiTime globalTime)
     {
         if (timeColors.TryGetValue(timeTracker.ExternalTimeOfDay, out ColorData currentColorData))
         {

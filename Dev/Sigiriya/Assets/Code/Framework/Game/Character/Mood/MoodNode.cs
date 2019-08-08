@@ -10,7 +10,8 @@ public class MoodNode
     public bool Paused { get; set; }
 
     //When duration hits 0, the mood gets removed from the character.
-    public float Duration { get; private set; }
+    //public float Duration { get; private set; }
+    public SigiTime Duration { get; private set; }
     
     //The mood for this character.
     public EnumMood Mood { get; private set; }
@@ -21,26 +22,22 @@ public class MoodNode
         DeactivateNode();
     }
 
-    public void InitMoodNode(EnumMood mood, float duration, bool isPaused)
+    public void InitMoodNode(EnumMood mood, SigiTime duration, bool isPaused)
     {
         Mood = mood;
         Duration = duration;
         Paused = isPaused;
     }
 
-    public void Update(float deltaTime)
+    public void Update()
     {
-        if (Duration > 0)
-        {
-            Duration -= deltaTime;
-        }
-        else
+        if (Duration.CountDown())
         {
             DeactivateNode();
         }
     }
 
-    public void SetDuration(float duration)
+    public void SetDuration(SigiTime duration)
     {
         Duration = duration;
     }
@@ -49,7 +46,7 @@ public class MoodNode
     {
         Active = false;
         Paused = true;
-        Duration = 0;
+        Duration = null;
         Mood = EnumMood.SIZE;
     }
 }

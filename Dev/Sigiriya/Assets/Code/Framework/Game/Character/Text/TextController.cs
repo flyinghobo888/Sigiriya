@@ -88,4 +88,15 @@ public class TextController : ManagerBase<TextController>
             IsFinished = true;
         }
     }
+
+    public bool TryToFinishText(TextMeshProUGUI promptPanelText)
+    {
+        if (!IsFinished)
+        {
+            EventAnnouncer.OnDialogueRequestFinish?.Invoke(promptPanelText);
+            return true;
+        }
+
+        return false;
+    }
 }
