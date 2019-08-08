@@ -11,11 +11,11 @@ public class TitleScene : SceneBase<TitleScene>
 
     public void StartClicked()
     {
-        EventAnnouncer.OnRequestSceneChange(EnumScene.GAME, true);
+        EventAnnouncer.OnRequestSceneChange?.Invoke(EnumScene.GAME, true);
     }
 
     public void CreditsClicked()
     {
-        EventAnnouncer.OnRequestSceneChange(EnumScene.CREDITS, true);
+        EventAnnouncer.OnRequestSceneChange?.Invoke(EnumScene.CREDITS, true);
     }
 }

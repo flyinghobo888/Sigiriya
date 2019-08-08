@@ -11,6 +11,6 @@ public class CreditsScene : SceneBase<CreditsScene>
 
     public void MenuClicked()
     {
-        EventAnnouncer.OnRequestSceneChange(EnumScene.TITLE, true);
+        EventAnnouncer.OnRequestSceneChange?.Invoke(EnumScene.TITLE, true);
     }
 }

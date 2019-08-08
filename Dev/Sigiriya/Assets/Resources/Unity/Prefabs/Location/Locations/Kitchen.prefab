@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locationData: {fileID: 11400000, guid: 77441d49e4cac1f4ea27769c386290a3, type: 2}
+  characterContainer: {fileID: 3953622521791061372}
 --- !u!1001 &106923681359413102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349,6 +350,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451653331066276359, guid: 2e9f757fabd6a2b45a4a303eed4f1bf7,
+        type: 3}
+      propertyPath: charactersInConvo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451653331066276359, guid: 2e9f757fabd6a2b45a4a303eed4f1bf7,
+        type: 3}
+      propertyPath: dialogueGraph
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451653331066276359, guid: 2e9f757fabd6a2b45a4a303eed4f1bf7,
+        type: 3}
+      propertyPath: charactersInConvo.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b,
+        type: 2}
+    - target: {fileID: 1449843020556261715, guid: 2e9f757fabd6a2b45a4a303eed4f1bf7,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.13967896
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e9f757fabd6a2b45a4a303eed4f1bf7, type: 3}

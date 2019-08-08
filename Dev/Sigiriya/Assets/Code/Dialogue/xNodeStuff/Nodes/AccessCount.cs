@@ -28,7 +28,7 @@ public class AccessCount : Node
 	public override object GetValue(NodePort port)
 	{
 		SimpleGraph sGraph = graph as SimpleGraph;
-		bool arg1;
+		//bool arg1;
 
 
 		if (comparison == Comparison.GREATER_THAN)

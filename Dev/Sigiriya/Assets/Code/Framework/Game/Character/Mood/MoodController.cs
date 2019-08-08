@@ -34,7 +34,7 @@ public class MoodController : ManagerBase<MoodController>
         }
     }
 
-    public MoodNode CreateMoodNode(EnumMood mood, float duration, bool isPaused = false)
+    public MoodNode CreateMoodNode(EnumMood mood, SigiTime duration, bool isPaused = false)
     {
         MoodNode node = ActivateMoodNode();
 

@@ -28,25 +28,70 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     public EnumTime CurrentTimeOfDay { get; private set; }
     public EnumDisplayTime ExternalTimeOfDay { get; private set; }
 
+    private IEnumerator DayCoroutine = null;
+
     private void Start()
     {
         InitTimeOfDay();
         GlobalTime.SetDayLength(DayLength);
 
-        if (SwitchTimesList.TryGetValue(startTime, out float ticks))
+        //if (SwitchTimesList.TryGetValue(startTime, out float ticks))
+        //{
+        //    GlobalTime.SetTickValue(ticks);
+        //}
+
+        //TODO: Call StartDay() when we want to start a new day from somewhere else.
+        StartDay(false);
+    }
+
+    public void StartDay(bool incrementDay)
+    {
+        if (IsDayOver())
         {
-            GlobalTime.SetTickValue(ticks);
+            Debug.Log("INCREMENTING IS: " + incrementDay);
+            GlobalTime.SetTimeOfDay(SUNRISE_START, incrementDay);
+            UpdateTimeOfDay();
+
+            DayCoroutine = GoThroughDay();
+            StartCoroutine(DayCoroutine);
+        }
+        else
+        {
+            Debug.Log("Cannot start a new day while it is still day time.");
         }
     }
 
-    private void Update()
+    public bool IsDayOver()
     {
-        GlobalTime.Tick();
-        CalculateDisplayTime();
+        return (DayCoroutine == null);
+    }
+
+    private IEnumerator GoThroughDay()
+    {
+        Debug.Log("STARTING DAY");
+        Debug.Log("Time: " + GlobalTime.Ticks + " | " + 
+            GlobalTime.Day + "D " + GlobalTime.Hour + "H " + GlobalTime.Minute + "M " + GlobalTime.Second + "S " +
+            " | TOD: " + ExternalTimeOfDay);
+
+        EventAnnouncer.OnDayIsStarting?.Invoke();
+
+        while (ExternalTimeOfDay != EnumDisplayTime.NIGHT)
+        {
+            GlobalTime.Tick();
+            CalculateDisplayTime();
+            yield return null;
+        }
+
+        //END OF DAY
+        Debug.Log("END OF DAY");
+        DayCoroutine = null;
+        EventAnnouncer.OnDayIsEnding?.Invoke();
     }
 
     private void InitTimeOfDay()
     {
+        UpdateTimeOfDay();
+
         SwitchTimesList.Clear();
         SwitchTimesList.Add(EnumDisplayTime.SUNRISE, SUNRISE_START * SigiTime.SECONDS * SigiTime.MINUTES);
         SwitchTimesList.Add(EnumDisplayTime.MORNING, MORNING_START * SigiTime.SECONDS * SigiTime.MINUTES);
@@ -76,7 +121,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
         TimeAlpha = (currentTime - startTime) / (endTime - startTime);
 
-        EventAnnouncer.OnTimeChanged(GlobalTime);
+        EventAnnouncer.OnTimeChanged?.Invoke(GlobalTime);
     }
 
     private void UpdateTimeOfDay()
@@ -121,62 +166,6 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
         }
     }
 
-    public class SigiTime
-    {
-        public int Day { get; private set; }
-        public int Hour { get; private set; }
-        public int Minute { get; private set; }
-        public int Second { get; private set; }
-
-        private float multiplier;
-
-        private float totalTimeCount = 0.0f;
-        private float tickCounter = 0.0f;
-        public float Ticks = 0.0f;
-
-        public const int HOURS = 24;
-        public const int MINUTES = 60;
-        public const int SECONDS = 60;
-        public const float TICKS = HOURS * MINUTES * SECONDS;
-
-        public SigiTime(int h = 0, int m = 0, int s = 0)
-        {
-            Hour = h;
-            Minute = m;
-            Second = s;
-        }
-
-        public void Tick()
-        {
-            totalTimeCount += Time.deltaTime * multiplier;
-            Ticks = totalTimeCount % TICKS;
-            tickCounter = Ticks;
-
-            Second = (int)Ticks;
-            Second %= SECONDS;
-
-            Minute = (int)(tickCounter /= SECONDS);
-            Minute %= MINUTES;
-
-            Hour = (int)(tickCounter /= MINUTES);
-            Hour %= HOURS;
-
-            Day = (int)(tickCounter /= HOURS);
-
-            //Debug.Log("Time: " + Day + "d " + Hour + "h " + Minute + "m " + Second + "s");
-        }
-
-        public void SetTickValue(float tickValue)
-        {
-            totalTimeCount = tickValue;
-        }
-
-        public void SetDayLength(float realLifeSeconds)
-        {
-            multiplier = TICKS / realLifeSeconds;
-        }
-    }
-
     //Custom values to map to EnumTime
     public enum EnumDisplayTime
     {
@@ -195,4 +184,100 @@ public enum EnumTime
     MIDDAY = 2,
     NIGHT = 4,
     SIZE = 3
+}
+
+public class SigiTime
+{
+    public int Day { get; private set; }
+    public int Hour { get; private set; }
+    public int Minute { get; private set; }
+    public int Second { get; private set; }
+
+    private float multiplier;
+
+    private float totalTimeCount = 0.0f;
+    private float tickCounter = 0.0f;
+    public float Ticks = 0.0f;
+
+    public const int HOURS = 24;
+    public const int MINUTES = 60;
+    public const int SECONDS = 60;
+    public const float TICKS = HOURS * MINUTES * SECONDS;
+
+    public SigiTime(int h = 0, int m = 0, int s = 0)
+    {
+        Hour = h;
+        Minute = m;
+        Second = s;
+        totalTimeCount = Hour * Minute * Second;
+    }
+
+    public void Tick()
+    {
+        totalTimeCount += Time.deltaTime * multiplier;
+
+        UpdateVars();
+
+        //Debug.Log("Time: " + Day + "d " + Hour + "h " + Minute + "m " + Second + "s");
+    }
+
+    public bool CountDown()
+    {
+        totalTimeCount -= Time.deltaTime * multiplier;
+
+        if (totalTimeCount <= 0)
+        {
+            totalTimeCount = 0;
+            Ticks = 0;
+            tickCounter = 0;
+            Second = 0;
+            Minute = 0;
+            Hour = 0;
+            Day = 0;
+            return true;
+        }
+
+        UpdateVars();
+
+        return false;
+    }
+
+    private void UpdateVars()
+    {
+        Ticks = totalTimeCount % TICKS;
+        tickCounter = totalTimeCount;
+
+        Second = (int)Ticks;
+        Second %= SECONDS;
+
+        Minute = (int)(tickCounter /= SECONDS);
+        Minute %= MINUTES;
+
+        Hour = (int)(tickCounter /= MINUTES);
+        Hour %= HOURS;
+
+        Day = (int)(tickCounter /= HOURS);
+    }
+
+    //public void SetTickValue(float tickValue)
+    //{
+    //    totalTimeCount = tickValue;
+    //}
+
+    public void SetDayLength(float realLifeSeconds)
+    {
+        multiplier = TICKS / realLifeSeconds;
+    }
+
+    public void SetTimeOfDay(int hour, bool incrementDay)
+    {
+        if (incrementDay)
+        {
+            totalTimeCount = Day * TICKS + TICKS;
+        }
+
+        totalTimeCount += (hour * MINUTES * SECONDS);
+
+        UpdateVars();
+    }
 }
