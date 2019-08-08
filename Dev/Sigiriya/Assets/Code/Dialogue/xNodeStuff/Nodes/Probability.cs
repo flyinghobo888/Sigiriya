@@ -29,7 +29,7 @@ public class Probability : Node {
 			calcProb = probability;
 		}
 
-		int num = Random.Range(0, 100);
+		int num = Random.Range(0, 101);
 
 		if (num < calcProb)
 		{
