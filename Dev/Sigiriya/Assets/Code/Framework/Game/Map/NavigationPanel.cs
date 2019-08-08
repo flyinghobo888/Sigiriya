@@ -31,7 +31,7 @@ public class NavigationPanel : MonoBehaviour
     {
         if (LocationTracker.Instance.IsLocationRegistered(location))
         {
-            EventAnnouncer.OnRequestLocationChange?.Invoke(location, true);
+            EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, location, true);
             Debug.Log("Attempt Success");
             ClosePanel();
         }

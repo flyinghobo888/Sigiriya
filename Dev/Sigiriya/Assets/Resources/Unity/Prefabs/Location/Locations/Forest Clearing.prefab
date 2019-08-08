@@ -197,7 +197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8911578579625800289
 RectTransform:
   m_ObjectHideFlags: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locationData: {fileID: 11400000, guid: f5c4e03e6f7fd054fb64e619a507a6ca, type: 2}
+  characterContainer: {fileID: 3953622521791061372}
 --- !u!1001 &1671673578226695211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349,6 +350,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449843020556261715, guid: 5023a6e2bd344ec4ba88baf33cce979c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.471466
       objectReference: {fileID: 0}
     - target: {fileID: 1769291596776652803, guid: 5023a6e2bd344ec4ba88baf33cce979c,
         type: 3}
