@@ -28,6 +28,8 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     public EnumTime CurrentTimeOfDay { get; private set; }
     public EnumDisplayTime ExternalTimeOfDay { get; private set; }
 
+    public EnumDisplayTime NextTimeOfDay { get; private set; }
+
     private IEnumerator DayCoroutine = null;
 
     private void Start()
@@ -104,7 +106,12 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     {
         UpdateTimeOfDay();
 
-        EnumDisplayTime NextTimeOfDay = (EnumDisplayTime)(((int)ExternalTimeOfDay + 1) % (int)EnumDisplayTime.SIZE);
+        if (ExternalTimeOfDay == NextTimeOfDay)
+        {
+            EventAnnouncer.OnTimeOfDayChanged?.Invoke(ExternalTimeOfDay);
+        }
+
+        NextTimeOfDay = (EnumDisplayTime)(((int)ExternalTimeOfDay + 1) % (int)EnumDisplayTime.SIZE);
         SwitchTimesList.TryGetValue(ExternalTimeOfDay, out float startTime);
         SwitchTimesList.TryGetValue(NextTimeOfDay, out float endTime);
         float currentTime = GlobalTime.Ticks;
@@ -121,7 +128,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
         TimeAlpha = (currentTime - startTime) / (endTime - startTime);
 
-        EventAnnouncer.OnTimeChanged?.Invoke(GlobalTime);
+        EventAnnouncer.OnTimeTickUpdated?.Invoke(GlobalTime);
     }
 
     private void UpdateTimeOfDay()
@@ -165,17 +172,17 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
                 return EnumTime.NIGHT;
         }
     }
+}
 
-    //Custom values to map to EnumTime
-    public enum EnumDisplayTime
-    {
-        SUNRISE,
-        MORNING,
-        MIDDAY,
-        EVENING,
-        NIGHT,
-        SIZE
-    }
+//Custom values to map to EnumTime
+public enum EnumDisplayTime
+{
+    SUNRISE,
+    MORNING,
+    MIDDAY,
+    EVENING,
+    NIGHT,
+    SIZE
 }
 
 public enum EnumTime
