@@ -193,7 +193,7 @@ public class SigiTime
     public int Minute { get; private set; }
     public int Second { get; private set; }
 
-    private float multiplier;
+    private static float multiplier;
 
     private float totalTimeCount = 0.0f;
     private float tickCounter = 0.0f;
@@ -204,12 +204,13 @@ public class SigiTime
     public const int SECONDS = 60;
     public const float TICKS = HOURS * MINUTES * SECONDS;
 
-    public SigiTime(int h = 0, int m = 0, int s = 0)
+    public SigiTime(int d = 0, int h = 0, int m = 0, int s = 0)
     {
+		Day = d;
         Hour = h;
         Minute = m;
         Second = s;
-        totalTimeCount = Hour * Minute * Second;
+        totalTimeCount = (Day * TICKS) + (Hour * MINUTES * SECONDS) + (Minute * SECONDS) + Second;
     }
 
     public void Tick()
@@ -234,12 +235,12 @@ public class SigiTime
             Minute = 0;
             Hour = 0;
             Day = 0;
-            return true;
+			return true;
         }
 
         UpdateVars();
 
-        return false;
+		return false;
     }
 
     private void UpdateVars()

@@ -17,8 +17,8 @@ public class PromptNode : BaseNode
 	public Character.EnumExpression expression;
 	public EnumMood mood;
 
-    //TODO: CHANGE TO SigiTime moodDuration;
-	public float moodDuration;
+	//SigiTime variables
+	public int sec = 0, min = 0, hr = 0, dys = 0;
 
     public bool isVisited = false;
 	public bool isNoReturn = false;
@@ -58,8 +58,12 @@ public class PromptNode : BaseNode
 
 	public ResponseNode GetAnswerConnection(int index)
 	{
-		ResponseNode node = GetOutputPort("responses " + index).Connection.node as ResponseNode;
-		return node;
+		if (GetOutputPort("responses " + index).Connection != null)
+		{
+			ResponseNode node = GetOutputPort("responses " + index).Connection.node as ResponseNode;
+			return node;
+		}
+		return null;
 	}
 
 	public BaseNode GetConnectedNode(string portName)
