@@ -24,4 +24,7 @@ public enum EnumSound
     DIALOGUE_SURPRISE,
     MUSIC_MAIN,
     MUSIC_MENU,
+    TACT_INT_CHOP,
+    TACT_INT_POUR,
+    TACT_INT_SHAKE,
 }
