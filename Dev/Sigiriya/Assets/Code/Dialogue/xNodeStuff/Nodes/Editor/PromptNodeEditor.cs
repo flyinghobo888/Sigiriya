@@ -8,6 +8,7 @@ using UnityEditor;
 public class PromptNodeEditor : NodeEditor
 {
 	public bool openFoldout;
+	public bool openMoodFoldout;
 	Sprite m_sprite;
 	[SerializeField] public UnityEngine.UI.Image pic;
 
@@ -46,8 +47,18 @@ public class PromptNodeEditor : NodeEditor
 
         //TODO: Change this to only display the valid expressions for the current speaker.
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("expression"), new GUIContent("Expression"));
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("mood"), new GUIContent("Mood"));
-		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("moodDuration"), new GUIContent("Duration"));
+
+		GUILayout.BeginVertical();
+		openMoodFoldout = EditorGUILayout.Foldout(openMoodFoldout, "Mood Info:", EditorStyles.boldFont);
+		if (openMoodFoldout)
+		{
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("mood"), new GUIContent("Mood"));
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("sec"), new GUIContent("Seconds"));
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("min"), new GUIContent("Minutes"));
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("hr"), new GUIContent("Hours"));
+			NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("dys"), new GUIContent("Days"));
+		}
+		GUILayout.EndVertical();
 
 		NodeEditorGUILayout.InstancePortList("responses", typeof(ResponseNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
 		//NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("responses"));
