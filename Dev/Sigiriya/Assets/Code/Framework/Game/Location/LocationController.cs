@@ -67,6 +67,8 @@ public class LocationController : MonoBehaviour
         }
     }
 
+    //Figure something out now that we use a world container.
+    //Maybe move all the items to another container while we disable the characters.
     private void EnableCharacters(bool shouldEnable)
     {
         characterContainer.gameObject.SetActive(shouldEnable);
