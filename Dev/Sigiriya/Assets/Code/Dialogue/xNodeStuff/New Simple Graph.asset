@@ -458,7 +458,14 @@ MonoBehaviour:
   prompt: Never Twice
   speaker: {fileID: 0}
   expression: 0
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
+  isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,14 +492,18 @@ MonoBehaviour:
   - {fileID: 3962279386680542615}
   - {fileID: -700574742881241019}
   current: {fileID: 0}
-  isInit: 1
+  isInit: 0
+  timesAccessed: 0
   actors:
   - {fileID: 11400000, guid: ab4ace76d33fb4d4da8aefce80f2de83, type: 2}
   - {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   - {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
   - {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
-  bitchPoints: 0
-  location: 0
+  location: 
+  neededFlags: 
+  timeOfDay: 
+  dependantConversation: []
+  isDone: 0
 --- !u!114 &3782531052460073622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,7 +622,14 @@ MonoBehaviour:
   prompt: Third
   speaker: {fileID: 11400000, guid: ab4ace76d33fb4d4da8aefce80f2de83, type: 2}
   expression: 0
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3962279386680542615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,7 +723,14 @@ MonoBehaviour:
   prompt: Only Once
   speaker: {fileID: 0}
   expression: 0
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
+  isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &6813453041190622318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,7 +951,14 @@ MonoBehaviour:
   prompt: First Time
   speaker: {fileID: 11400000, guid: ab4ace76d33fb4d4da8aefce80f2de83, type: 2}
   expression: 0
+  mood: 1
+  sec: 0
+  min: 5
+  hr: 2
+  dys: 0
   isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &8652324227779180851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,4 +1077,11 @@ MonoBehaviour:
   prompt: Second
   speaker: {fileID: 11400000, guid: ab4ace76d33fb4d4da8aefce80f2de83, type: 2}
   expression: 0
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
+  isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
