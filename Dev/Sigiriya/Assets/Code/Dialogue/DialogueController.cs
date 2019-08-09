@@ -3,22 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor;
-
-/*
-TODO:
--move text scaling
--make dimensions CONSTANT
-*/
 
 /// <summary>
 /// Class used to read SimpleGraphs and control the dialogue UI
 /// </summary>
 public class DialogueController : ManagerBase<DialogueController>
 {
-	//[Header("Camera")]
-	//[SerializeField] private int textSize;
-
 	//Graph where nodes are kept
 	public SimpleGraph dialogueGraph;
 
@@ -49,33 +39,12 @@ public class DialogueController : ManagerBase<DialogueController>
     private GameObject currentSpeakingCharacter = null;
 
 	[Header("Dialogue")]
-	//[SerializeField] PromptNode pNode;
 	private string ID;
 	private BaseNode checkPointNode = null;
 	private BaseNode exitNode = null;
 
-	//private float talkTimer = 0;
-
 	[Header("Dev/Editor")]
 	[SerializeField] private List<SimpleGraph> graphList = null;
-
-    //speakerImages[dialogueGraph.GetActorIndex(pNode.speaker)].gameObject - gets the game object in the scene of who is currently speaking. If pNode.speaker is null, the player is talking
-
-    //private void Awake()
-    //{
-    //	if (dialogueGraph != null)
-    //	{
-    //		if (dialogueGraph.isInit)
-    //		{
-    //			Instance.Init();
-    //			Instance.gameObject.SetActive(false);
-    //		}
-    //	}
-    //	else
-    //	{
-    //		Instance.gameObject.SetActive(false);
-    //	}
-    //}
 
     private void Init()
 	{
@@ -88,65 +57,18 @@ public class DialogueController : ManagerBase<DialogueController>
 
 	private void OnEnable()
 	{
-		//EventManager.StartListening("E_down", ContinueDialogue);
-		//EventManager.FireEvent("MENU_open");
-
 		//TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
-
 		PersistentEventBank.FireAllEvents();
 	}
 	private void OnDisable()
 	{
-		//EventManager.StopListening("E_down", ContinueDialogue);
-		//EventManager.FireEvent("MENU_close");
-
+		//TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
 		EventAnnouncer.OnDialogueEnd?.Invoke();
 	}
 
 	private void Start()
 	{
-        //Maybe set extraConnections again here? I dunno.
-
-        //move to start once text size is decided
-        //textSize = textSize * Screen.width / 1920;
-        //dialogueContainerObj.SetActive(false);
-        //backgroundBlurContainer.SetActive(false);
         ActivateDialogueUI(false);
-    }
-
-	private void Update()
-	{
-        //PromptNode pNode = dialogueGraph.current as PromptNode;
-
-        //null should be a signal to end the current discussion
-        //if (dialogueGraph.current != null && enabled)
-        //{
-        //	//this can probs be moved out of update tbh
-        //	//DisplayNode(dialogueGraph.current);
-        //}
-        //else
-        //{
-        //	Debug.Log(ID + " is done talking");
-        //	gameObject.SetActive(false);
-        //          characterContainer.SetActive(true);
-
-        //          dialogueGraph.current = exitNode;
-
-        //          //conversation is done.
-        //}
-
-        //int tempDefaultTime = 3;
-        ////TODO: the time variable should be moved from promptNode to baseNode
-        //if (tempDefaultTime != 0)//pNode.time != 0)
-        //{
-        //    talkTimer += Time.deltaTime;
-        //}
-        //if (talkTimer > tempDefaultTime)
-        //{
-        //    ContinueDialogue();
-
-        //    talkTimer = 0;
-        //}
     }
 
 	/// <summary>
@@ -168,8 +90,7 @@ public class DialogueController : ManagerBase<DialogueController>
                 characterNameBox.text = pNode.speaker.characterName;
 				if (pNode.mood != EnumMood.NONE)
 				{
-                    //TODO: UPDATE THIS WITH THE SigiTime variable from the prompt node
-					pNode.speaker.MoodTracker.AddMood(pNode.mood, new SigiTime(0, 0, (int)pNode.moodDuration));
+					pNode.speaker.MoodTracker.AddMood(pNode.mood, new SigiTime(pNode.dys, pNode.hr, pNode.min, pNode.sec));
 				}
 				ActivateSpeechPrompt(EnumTalking.CHARACTER);
             }
@@ -180,10 +101,6 @@ public class DialogueController : ManagerBase<DialogueController>
 
             currentPromptPanel.text = "";
             EventAnnouncer.OnDialogueUpdate?.Invoke(currentPromptPanel, pNode.prompt);
-
-            //nameBox.text = pNode.speaker == null ? "Player" : pNode.speaker.characterName;
-            //promptPanel.text = "";//pNode.prompt;
-            //EventAnnouncer.OnDialogueUpdate(promptPanel, pNode.prompt);
 
 			if (pNode.isNoReturn)
 			{
@@ -269,18 +186,6 @@ public class DialogueController : ManagerBase<DialogueController>
                 EventAnnouncer.OnDialogueUpdate?.Invoke(currentPromptPanel, rNode.textButton);
             }
 
-            //nameBox.text = "Player";
-            //if (rNode.textFull != "")
-			//{
-                //promptPanel.text = "";//rNode.textFull;
-                //EventAnnouncer.OnDialogueUpdate(promptPanel, rNode.textFull);
-            //}
-			//else
-			//{
-                //promptPanel.text = "";//rNode.textButton;
-                //EventAnnouncer.OnDialogueUpdate(promptPanel, rNode.textButton);
-            //}
-
 			Debug.Log("PLAYER TALKING");
 			int i = 0;
 
@@ -314,8 +219,6 @@ public class DialogueController : ManagerBase<DialogueController>
 		SetSpeakerImage(true);
 
         DisplayNodeOrQuit();
-
-        //talkTimer = 0;
 	}
 
     public void TryFinishDialogue()
@@ -342,20 +245,18 @@ public class DialogueController : ManagerBase<DialogueController>
 		//Activate the listening image while I've got the emotion
 		SetSpeakerImage(false);
 
-		if (pNode.GetAnswerConnection(responseNode).throwFlag != FlagBank.Flags.NONE)
-		{
-			EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
-		}
+		//if (pNode.GetAnswerConnection(responseNode).throwFlag != FlagBank.Flags.NONE)
+		//{
+		//	EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
+		//}
 
-		dialogueGraph.current = pNode.GetAnswerConnection(responseNode);//.GetNextNode();
+		dialogueGraph.current = pNode.GetAnswerConnection(responseNode);
 		AssessCurrentType();
 
 		//Activate the speaking for the new speaker
 		SetSpeakerImage(true);
 
         DisplayNodeOrQuit();
-
-        //talkTimer = 0;
 	}
 	#endregion
 
@@ -468,13 +369,11 @@ public class DialogueController : ManagerBase<DialogueController>
 		{
 			AssessCurrentType();
 
-			//SetSpeakerImage(false, 0);
 			SetNeutralSpeakers();
             BringAllToForeground();
 
 			DisplayNode(dialogueGraph.current);
             ActivateDialogueUI(true);
-			//dialogueContainerObj.SetActive(true);
 			dialogueGraph.timesAccessed++;
 			//Start talking.
 		}
@@ -491,13 +390,11 @@ public class DialogueController : ManagerBase<DialogueController>
 		{
 			AssessCurrentType();
 
-			//SetSpeakerImage(false, 0);
 			SetNeutralSpeakers();
 			BringAllToForeground();
 
 			DisplayNode(dialogueGraph.current);
 			ActivateDialogueUI(true);
-			//dialogueContainerObj.SetActive(true);
 			dialogueGraph.timesAccessed++;
 			//Start talking.
 		}
@@ -553,7 +450,7 @@ public class DialogueController : ManagerBase<DialogueController>
 		}
 	}
 
-	private void SetSpeakerImage(bool isSpeaking)//, int index)
+	private void SetSpeakerImage(bool isSpeaking)
 	{
 		//Error check
 		if (dialogueGraph.current == null || dialogueGraph.current.GetType() != typeof(PromptNode))
@@ -569,10 +466,6 @@ public class DialogueController : ManagerBase<DialogueController>
 		{
             Image speakerImage = speakerImages[dialogueGraph.GetActorIndex(pNode.speaker)];
             speakerImage.sprite = speakerPic;
-
-            //speakerImage.rectTransform.sizeDelta = speakerPic.bounds.reatio;
-
-            //speakerImages[0].gameObject.SetActive(true); //should always be active, this line is depracated
         }
 	}
 
@@ -637,6 +530,31 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				dialogueGraph.current = aNode.GetNextNode();
 			}
+			else if (dialogueGraph.current.GetType() == typeof(FlagNode))
+			{
+				FlagNode fNode = dialogueGraph.current as FlagNode;
+
+				if (fNode.throwFlag != FlagBank.Flags.NONE)
+				{
+					EventAnnouncer.OnThrowFlag?.Invoke(fNode.throwFlag);
+				}
+
+				dialogueGraph.current = fNode.GetNextNode();
+			}
+			else if (dialogueGraph.current.GetType() == typeof(MemoryNode))
+			{
+				MemoryNode mNode = dialogueGraph.current as MemoryNode;
+
+				if (mNode.memory != null)
+				{
+					//TODO: implement the memory node call to UI
+					Debug.Log(mNode.memory.memoryImage.sprite.name);
+				}
+
+				dialogueGraph.current = mNode.GetNextNode();
+			}
+
+
 		}
 
 		if (dialogueGraph.current.GetType() == typeof(PromptNode))
@@ -644,30 +562,6 @@ public class DialogueController : ManagerBase<DialogueController>
 			PromptNode pNode = dialogueGraph.current as PromptNode;
 
 			pNode.isVisited = true;
-		}
-	}
-
-	private void OnTriggerExit(Collider col)
-	{
-		if (col.tag == "Player")
-		{
-			if (enabled)
-			{
-				//TODO: setup interrupts in the xnode graph
-
-				//the interrupt node
-				//BaseNode interruptNode = pNode.GetConnectedNode("interruptConnection");
-				//BaseNode checkpoint = pNode.GetConnectedNode("checkpointConnection");
-
-				//set the interrupt node to go to the checkpoint node
-				//This means interrupts can't ramble
-				//dialogueGraph.nodes[interruptNode].connection = checkPointNode;
-				//dialogueGraph.nodes[interruptNode].checkPointConnection = checkpoint;
-
-				//now go to the interruptNode
-				//dialogueGraph.current = interruptNode;// as PromptNode;
-				enabled = false;
-			}
 		}
 	}
 
