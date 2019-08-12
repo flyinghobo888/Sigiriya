@@ -119,9 +119,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-9049444930110041545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,9 +375,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-7932552520196928521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,9 +501,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 4
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-7684763025103539050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,7 +681,10 @@ MonoBehaviour:
       _node: {fileID: -7485503003544117969}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: 2929638360324535876}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 1
@@ -696,9 +711,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-7250790191457676416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,9 +879,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-6904653011296905445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,9 +1011,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 5
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-6550562631404617989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,9 +1112,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-6543903296852632423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,9 +1284,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-6355073690713299804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1350,9 +1385,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-6247459549688356368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,9 +1486,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-6194456022001690947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,9 +1587,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-5396785713801040991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1736,9 +1783,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-3759537040336125051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1833,9 +1884,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-2961252028128154628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,9 +1985,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-2584308553731107733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2027,9 +2086,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-2376971400390688446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,9 +2258,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-2076154460609906335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2362,9 +2429,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 5
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-1691617686533172721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2459,9 +2530,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 4
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-1590569806199253962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2556,9 +2631,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-1236800355709483491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2653,9 +2732,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 5
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &-1093293877380271423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2971,9 +3054,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &595290322455272375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3065,9 +3152,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &657039623954807570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3162,9 +3253,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1170920452315710677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3284,9 +3379,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1931077513031747560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3381,9 +3480,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2566871749234613465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3478,9 +3581,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2929638360324535876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3545,7 +3652,10 @@ MonoBehaviour:
       _node: {fileID: 2929638360324535876}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: 4254879552643018398}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 1
@@ -3554,7 +3664,10 @@ MonoBehaviour:
       _node: {fileID: 2929638360324535876}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: -7485503003544117969}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -3569,9 +3682,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &2993742401895376369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3677,9 +3794,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3416399745252484486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3774,9 +3895,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3566263679996066223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3871,9 +3996,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 5
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3663009732979276406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3979,9 +4108,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 5
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3686099970554389823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4128,7 +4261,10 @@ MonoBehaviour:
       _node: {fileID: 4254879552643018398}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 2929638360324535876}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -4143,9 +4279,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &4554778601017015836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4285,9 +4425,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4965004229846863726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4452,9 +4596,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 4
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &5046838786499623160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4549,9 +4697,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5089260338552810868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4646,9 +4798,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5406606743963660651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4838,9 +4994,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5746092317990982241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4935,9 +5095,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6147635692047436984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5032,9 +5196,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6361771989239215210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5129,9 +5297,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 4
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6689888162357158077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5251,9 +5423,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6717236697136398588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5421,9 +5597,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &7204941273988938937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5518,9 +5698,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 4
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &7851527598946690832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5685,9 +5869,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8417034911508508460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5752,7 +5940,10 @@ MonoBehaviour:
       _node: {fileID: 8417034911508508460}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: 9077740257389719727}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 1
@@ -5779,9 +5970,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 4
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &8457200905615024756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5876,9 +6071,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 1
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8582683734630082489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6012,9 +6211,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 5
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8671132756647838585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6109,9 +6312,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8674637568846855695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6206,9 +6413,13 @@ MonoBehaviour:
   speaker: {fileID: 0}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8876917270429444163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6328,9 +6539,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 9
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &9077740257389719727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6407,7 +6622,10 @@ MonoBehaviour:
       _node: {fileID: 9077740257389719727}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 8417034911508508460}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -6422,9 +6640,13 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 26
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &9200303537834979015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6519,6 +6741,10 @@ MonoBehaviour:
   speaker: {fileID: 11400000, guid: a2959efbe290eb548837e942fdf84f2f, type: 2}
   expression: 4
   mood: 0
-  moodDuration: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
   isVisited: 0
   isNoReturn: 0
+  connected: {r: 0, g: 1, b: 0, a: 1}
