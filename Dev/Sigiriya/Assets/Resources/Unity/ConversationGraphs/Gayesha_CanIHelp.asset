@@ -3969,10 +3969,11 @@ MonoBehaviour:
   timesAccessed: 0
   actors:
   - {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
-  location: 
+  location: 00000000
   neededFlags: 
-  timeOfDay: 0400000001000000
-  dependantConversation: []
+  timeOfDay: 0200000001000000
+  dependantConversation:
+  - {fileID: 11400000, guid: dba39412423af3748af43e201e830f3d, type: 2}
   isDone: 0
 --- !u!114 &1378478523340484861
 MonoBehaviour:

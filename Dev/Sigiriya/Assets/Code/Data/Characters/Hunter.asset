@@ -14,7 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Hunter
   defaultSprite: {fileID: 21300000, guid: a4ff902ca4a544f4f91f00facba7ac35, type: 3}
-  rawExpressionOrder: 
-  rawExpressions: []
-  rawTalkExpressions: []
+  rawExpressionOrder: 050000000e000000110000001400000015000000
+  rawExpressions:
+  - {fileID: 21300000, guid: 8654da7520733514cb31a5dde58cb984, type: 3}
+  - {fileID: 21300000, guid: a4ff902ca4a544f4f91f00facba7ac35, type: 3}
+  - {fileID: 21300000, guid: 9b86911762eb93942a56be5d37d37e3a, type: 3}
+  - {fileID: 21300000, guid: fa47e32979f0c7a4da9cc89811a33f68, type: 3}
+  - {fileID: 21300000, guid: 651f8ccca323d1047bdade9d30f98824, type: 3}
+  rawTalkExpressions:
+  - {fileID: 21300000, guid: 108bd6ee15027b443a8040c14fbaafc6, type: 3}
+  - {fileID: 21300000, guid: 3aedca306fa1d6f40890fc864520199b, type: 3}
+  - {fileID: 21300000, guid: 5832e43813edfa8419d6505b008a1289, type: 3}
+  - {fileID: 21300000, guid: ae34262e2b74c7f4c88bfc6587862891, type: 3}
+  - {fileID: 21300000, guid: 1e32c644ecc758f488d61430b4317c88, type: 3}
   rawSubTraits: []

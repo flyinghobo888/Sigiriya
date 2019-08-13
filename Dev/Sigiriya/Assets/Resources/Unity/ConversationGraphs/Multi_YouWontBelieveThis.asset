@@ -4644,10 +4644,13 @@ MonoBehaviour:
   current: {fileID: 0}
   isInit: 0
   timesAccessed: 0
-  actors: []
-  location: 
+  actors:
+  - {fileID: 11400000, guid: e2c96fe1788cf924e98be01f4b03715b, type: 2}
+  - {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
+  - {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
+  location: 03000000
   neededFlags: 
-  timeOfDay: 
+  timeOfDay: 04000000
   dependantConversation: []
   isDone: 0
 --- !u!114 &14189727342045089

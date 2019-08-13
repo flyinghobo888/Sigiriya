@@ -4674,13 +4674,16 @@ MonoBehaviour:
   - {fileID: -2654970793656316997}
   - {fileID: 2005769109679997356}
   - {fileID: -7842280001261136698}
-  current: {fileID: 0}
+  current: {fileID: 4266680248498510704}
   isInit: 0
   timesAccessed: 0
-  actors: []
-  location: 
+  actors:
+  - {fileID: 11400000, guid: 203271aebf1b094488ee696a54d82efa, type: 2}
+  - {fileID: 11400000, guid: 0b8fcdc642f9f1c4891aa8b9e0d663df, type: 2}
+  - {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
+  location: 03000000
   neededFlags: 
-  timeOfDay: 
+  timeOfDay: 04000000
   dependantConversation: []
   isDone: 0
 --- !u!114 &167254794580348150

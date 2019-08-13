@@ -802,7 +802,10 @@ MonoBehaviour:
       _node: {fileID: -6793601331858334504}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 7680273360687794541}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -1116,7 +1119,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 1, g: 0, b: 0, a: 1}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-5996713041654040031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3273,8 +3276,8 @@ MonoBehaviour:
   - {fileID: -9096779784625349159}
   - {fileID: -5862662809849241754}
   current: {fileID: 0}
-  isInit: 0
-  timesAccessed: 0
+  isInit: 1
+  timesAccessed: 1
   actors:
   - {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
   location: 
@@ -6371,7 +6374,10 @@ MonoBehaviour:
       _node: {fileID: 7680273360687794541}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: output
+        node: {fileID: -6793601331858334504}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 1
@@ -6494,7 +6500,7 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  textFull: No, I think you should tell her stories of home.
+  textFull: Yes, she needs to move on.
   textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
