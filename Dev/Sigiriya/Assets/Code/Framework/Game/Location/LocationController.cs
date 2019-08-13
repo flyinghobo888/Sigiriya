@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SerializeField]
+[RequireComponent(typeof(ParallaxController))]
 public class LocationController : MonoBehaviour
 {
     [SerializeField] private Location locationData;
@@ -10,11 +11,16 @@ public class LocationController : MonoBehaviour
 
     [SerializeField] private RectTransform characterContainer = null;
 
-    //ParallaxController BackgroundParallax { get; private set; }
+    private ParallaxController backgroundController = null;
 
     //Get the random images based on flags and do parallax stuff in here when we get there.
 
     private bool HasEndOfDayHappened = false;
+
+    private void Start()
+    {
+        backgroundController = GetComponent<ParallaxController>();
+    }
 
     private void OnEnable()
     {
@@ -59,6 +65,13 @@ public class LocationController : MonoBehaviour
 
     private void ArrivedAtLocation(EnumLocation currentLocation)
     {
+        //Update background based on current game flags
+        //if (FlagBank.Instance.)
+        {
+            //Parallax currentBackground = locationData.BackgroundData.TryGetValue(/*current modifier for location*/);
+            //backgroundController.SetBackground(currentBackground);
+        }
+
         if (currentLocation == EnumLocation.HOME && currentLocation == locationData.locationType
             && HasEndOfDayHappened)
         {
