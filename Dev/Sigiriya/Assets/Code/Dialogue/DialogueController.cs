@@ -548,7 +548,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				if (mNode.memory != null)
 				{
 					//TODO: implement the memory node call to UI
-					Debug.Log(mNode.memory.memoryImage.sprite.name);
+					Debug.Log(mNode.memory.memoryImage.name);
 				}
 
 				dialogueGraph.current = mNode.GetNextNode();
