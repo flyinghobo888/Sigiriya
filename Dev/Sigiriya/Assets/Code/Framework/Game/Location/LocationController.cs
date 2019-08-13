@@ -14,7 +14,7 @@ public class LocationController : MonoBehaviour
 
     //Get the random images based on flags and do parallax stuff in here when we get there.
 
-    private bool HasEndOfDayHappened = false;
+    public bool HasEndOfDayHappened { get; private set; } = false;
 
     private void OnEnable()
     {
@@ -55,6 +55,12 @@ public class LocationController : MonoBehaviour
         {
             EndOfDay();
         }
+
+        if (prevLocation == EnumLocation.HOME && HasEndOfDayHappened)
+        {
+            //Hide the endOfDay button
+            LocationTracker.Instance.ShowEndOfDayButton(false);
+        }
     }
 
     private void ArrivedAtLocation(EnumLocation currentLocation)
@@ -62,8 +68,11 @@ public class LocationController : MonoBehaviour
         if (currentLocation == EnumLocation.HOME && currentLocation == locationData.locationType
             && HasEndOfDayHappened)
         {
+            //Show endOfDay button
+            LocationTracker.Instance.ShowEndOfDayButton(true);
+
             //For now restart the day
-            GlobalTimeTracker.Instance.StartDay(true);
+            //GlobalTimeTracker.Instance.StartDay(true);
         }
     }
 
