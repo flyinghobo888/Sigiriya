@@ -32,6 +32,9 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
     private IEnumerator DayCoroutine = null;
 
+	//TODO: dirty
+	public bool timePaused = false;
+
     private void Start()
     {
         InitTimeOfDay();
@@ -79,7 +82,10 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
         while (ExternalTimeOfDay != EnumDisplayTime.NIGHT)
         {
-            GlobalTime.Tick();
+			if (!timePaused)
+			{
+				GlobalTime.Tick();
+			}
             CalculateDisplayTime();
             yield return null;
         }
@@ -288,4 +294,9 @@ public class SigiTime
 
         UpdateVars();
     }
+
+	public void IncrementTime(SigiTime time)
+	{
+		totalTimeCount += time.totalTimeCount;
+	}
 }

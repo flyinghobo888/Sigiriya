@@ -23,11 +23,12 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     [Header("Location Fade")]
     [SerializeField] private Fade locationFadeRef = null;
+    [SerializeField] private Button endOfDayButton = null;
 
     private void Awake()
     {
         BackgroundController = GetComponent<ParallaxController>();
-
+        ShowEndOfDayButton(false);
         CurrentLocation = currentLocation;
         TargetLocation = CurrentLocation;
 
@@ -160,6 +161,11 @@ public class LocationTracker : ManagerBase<LocationTracker>
         background.SetAsFirstSibling();
         midground.SetAsFirstSibling();
         foreground.SetAsFirstSibling();
+    }
+
+    public void ShowEndOfDayButton(bool showButton)
+    {
+        endOfDayButton.gameObject.SetActive(showButton);
     }
 }
 
