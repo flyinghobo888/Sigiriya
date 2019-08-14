@@ -107,67 +107,67 @@ public class DialogueController : ManagerBase<DialogueController>
 				dialogueGraph.isDone = true;
 			}
 
-            int i = 0;
+   //         int i = 0;
 
-			if (pNode.responses.Count != 0) //if we have responses
-			{
-				int grossCount = 0; //part of the gross stuff
-                for (; i < pNode.responses.Count; i++)
-				{
-					//god this is so fucking gross
-					//TODO: hey, a fix might be to add a function in responses to check their connected promptNode,
-					//IF it's a prompt node
-					//A check to see if visited
-					if (pNode.GetAnswerConnection(i).GetNextNode() != null && pNode.GetAnswerConnection(i).GetNextNode().GetType() == typeof(PromptNode))
-					{
-						PromptNode ppNode = pNode.GetAnswerConnection(i).GetNextNode() as PromptNode;
+			//if (pNode.responses.Count != 0) //if we have responses
+			//{
+			//	int grossCount = 0; //part of the gross stuff
+   //             for (; i < pNode.responses.Count; i++)
+			//	{
+			//		//god this is so fucking gross
+			//		//TODO: hey, a fix might be to add a function in responses to check their connected promptNode,
+			//		//IF it's a prompt node
+			//		//A check to see if visited
+			//		if (pNode.GetAnswerConnection(i).GetNextNode() != null && pNode.GetAnswerConnection(i).GetNextNode().GetType() == typeof(PromptNode))
+			//		{
+			//			PromptNode ppNode = pNode.GetAnswerConnection(i).GetNextNode() as PromptNode;
 
-						if (ppNode.isVisited == true)
-						{
-							grossCount++;
-							responseButtons[i].gameObject.SetActive(false);
-							if(grossCount == pNode.responses.Count)
-							{
-								continueButton.gameObject.SetActive(true);
-							}
-							continue;
-						}
-					}
+			//			if (ppNode.isVisited == true)
+			//			{
+			//				grossCount++;
+			//				responseButtons[i].gameObject.SetActive(false);
+			//				if(grossCount == pNode.responses.Count)
+			//				{
+			//					continueButton.gameObject.SetActive(true);
+			//				}
+			//				continue;
+			//			}
+			//		}
 
 
-					if (!pNode.GetAnswerConnection(i).getHidden())
-                    {
-                        responseButtons[i].gameObject.SetActive(true);
+			//		if (!pNode.GetAnswerConnection(i).getHidden())
+   //                 {
+   //                     responseButtons[i].gameObject.SetActive(true);
 
-						if (pNode.GetAnswerConnection(i).textFull != "")
-						{
-							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textFull;
-						}
-						else
-						{
-							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
-						}
-					}
-					else
+			//			if (pNode.GetAnswerConnection(i).textFull != "")
+			//			{
+			//				responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textFull;
+			//			}
+			//			else
+			//			{
+			//				responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
+			//			}
+			//		}
+					for (int i = 0; i < responseButtons.Length; i++)
 					{
                         responseButtons[i].gameObject.SetActive(false);
                     }
-                }
+   //             }
 
-				if (grossCount != pNode.responses.Count)
-				{
-					continueButton.gameObject.SetActive(false);
-				}
-			}
-			else
-			{
+			//	if (grossCount != pNode.responses.Count)
+			//	{
+			//		continueButton.gameObject.SetActive(false);
+			//	}
+			//}
+			//else
+			//{
 				continueButton.gameObject.SetActive(true);
-			}
+			//}
 
-			for (; i < responseButtons.Length; i++)
-			{
-				responseButtons[i].gameObject.SetActive(false);
-			}
+			//for (; i < responseButtons.Length; i++)
+			//{
+			//	responseButtons[i].gameObject.SetActive(false);
+			//}
 		}
 		else if(node != null && node.GetType() == typeof(ResponseNode))
 		{
@@ -196,6 +196,75 @@ public class DialogueController : ManagerBase<DialogueController>
 
             continueButton.gameObject.SetActive(true);
         }
+		else if (node != null && node.GetType() == typeof(ResponseBranchNode))
+		{
+			playerSpeechObj.SetActive(false);
+			characterSpeechObj.SetActive(false);
+
+			ResponseBranchNode rbNode = node as ResponseBranchNode;
+
+			int i = 0;
+
+			if (rbNode.responses.Count != 0) //if we have responses
+			{
+				int grossCount = 0; //part of the gross stuff
+				for (; i < rbNode.responses.Count; i++)
+				{
+					//god this is so fucking gross
+
+					//A check to see if visited
+					if (rbNode.GetAnswerConnection(i).GetNextNode() != null && rbNode.GetAnswerConnection(i).GetNextNode().GetType() == typeof(PromptNode))
+					{
+						PromptNode ppNode = rbNode.GetAnswerConnection(i).GetNextNode() as PromptNode;
+
+						if (ppNode.isVisited == true)
+						{
+							grossCount++;
+							responseButtons[i].gameObject.SetActive(false);
+							if (grossCount == rbNode.responses.Count)
+							{
+								continueButton.gameObject.SetActive(true);
+							}
+							continue;
+						}
+					}
+
+
+					if (!rbNode.GetAnswerConnection(i).getHidden())
+					{
+						responseButtons[i].gameObject.SetActive(true);
+
+						if (rbNode.GetAnswerConnection(i).textFull != "")
+						{
+							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = rbNode.GetAnswerConnection(i).textFull;
+						}
+						else
+						{
+							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = rbNode.GetAnswerConnection(i).textButton;
+						}
+					}
+					else
+					{
+						responseButtons[i].gameObject.SetActive(false);
+					}
+				}
+
+				if (grossCount != rbNode.responses.Count)
+				{
+					continueButton.gameObject.SetActive(false);
+				}
+			}
+			else
+			{
+				continueButton.gameObject.SetActive(true);
+			}
+
+			for (; i < responseButtons.Length; i++)
+			{
+				responseButtons[i].gameObject.SetActive(false);
+			}
+		}
+
 	}
 
 	#region Continuation Commands
@@ -234,13 +303,13 @@ public class DialogueController : ManagerBase<DialogueController>
 	public void SelectResponse(int responseNode)
 	{
 		//Error check
-		if (dialogueGraph.current.GetType() != null && dialogueGraph.current.GetType() != typeof(PromptNode))
+		if (dialogueGraph.current.GetType() != null && dialogueGraph.current.GetType() != typeof(ResponseBranchNode))
 		{
 			Debug.LogError("Can't get responses because this isn't a PromptNode!");
 			return;
 		}
 
-		PromptNode pNode = dialogueGraph.current as PromptNode;
+		ResponseBranchNode rbNode = dialogueGraph.current as ResponseBranchNode;
 
 		//Activate the listening image while I've got the emotion
 		SetSpeakerImage(false);
@@ -250,7 +319,7 @@ public class DialogueController : ManagerBase<DialogueController>
 		//	EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
 		//}
 
-		dialogueGraph.current = pNode.GetAnswerConnection(responseNode);
+		dialogueGraph.current = rbNode.GetAnswerConnection(responseNode);
 		AssessCurrentType();
 
 		//Activate the speaking for the new speaker
@@ -501,7 +570,7 @@ public class DialogueController : ManagerBase<DialogueController>
 			return;
 		}
 
-		while (dialogueGraph.current != null && (dialogueGraph.current.GetType() != typeof(PromptNode) && dialogueGraph.current.GetType() != typeof(ResponseNode)))
+		while (dialogueGraph.current != null && (dialogueGraph.current.GetType() != typeof(PromptNode) && dialogueGraph.current.GetType() != typeof(ResponseNode) && dialogueGraph.current.GetType() != typeof(ResponseBranchNode)))
 		{
 			if (dialogueGraph.current.GetType() == typeof(BranchNode))
 			{
