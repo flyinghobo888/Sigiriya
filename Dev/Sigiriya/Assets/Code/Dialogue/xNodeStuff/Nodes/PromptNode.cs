@@ -23,6 +23,9 @@ public class PromptNode : BaseNode
     public bool isVisited = false;
 	public bool isNoReturn = false;
 
+	//TODO: fix stances later
+	public string newStance;
+
 	public Color connected;
 	public void CheckConnectedColor()
 	{

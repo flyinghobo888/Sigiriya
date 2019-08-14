@@ -37,6 +37,8 @@ public class Character : ScriptableObject
     private Dictionary<EnumExpression, Sprite> expressions = new Dictionary<EnumExpression, Sprite> ();
     private Dictionary<EnumExpression, Sprite> talkExpressions = new Dictionary<EnumExpression, Sprite> ();
 
+	public Stance stance;
+
     //MoodTracker.AddMood
     //MoodTracker.RemoveMood
     //MoodTracker.PauseMood
