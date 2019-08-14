@@ -6,9 +6,12 @@ public class ButtonInfo : MonoBehaviour
 {
 	[SerializeField] private GameObject characterContainer = null;
 	[SerializeField] private GameObject talkBubble = null;
+
+    [Header("Might be hidden in the future.")]
 	[SerializeField] private SimpleGraph dialogueGraph = null;
-	[SerializeField] private List<Character> charactersInConvo = null;
     //[SerializeField] private DialogueController dCon;
+
+    private WorldCharacterHandler characterhandle = null;
 
     //TODO: instead of this script, rename it to ButtonInfo or something...
     //and have the button call functions from here 
@@ -18,6 +21,7 @@ public class ButtonInfo : MonoBehaviour
 
     private void Awake()
     {
+        characterhandle = GetComponent<WorldCharacterHandler>();
         CheckIfWantsToTalk();
     }
 
@@ -63,7 +67,7 @@ public class ButtonInfo : MonoBehaviour
 
 	public void EnableCurrNode()
 	{
-		DialogueController.Instance.EnableCurrNode(charactersInConvo);
+		DialogueController.Instance.EnableCurrNode(characterhandle.CharactersInConvo);
 		//DialogueController.Instance.EnableCurrNode(dialogueGraph);
 	}
 

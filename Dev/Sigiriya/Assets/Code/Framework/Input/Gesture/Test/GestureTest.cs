@@ -17,12 +17,12 @@ public class GestureTest : ManagerBase<GestureTest>
 
     private void UpdateGestureLabel()
     {
-        gestureLabel.text = InputTracker.Instance.InputStateMachine.CurrentState.ToString();
+        //gestureLabel.text = InputTracker.Instance.InputStateMachine.CurrentState.ToString();
     }
 
     private void UpdateTouchLabels()
     {
         touchCountLabel.text = Input.touchCount.ToString();
-        heldTouchCoundLabel.text = InputTracker.Instance.HeldTouches.Count.ToString();
+        //heldTouchCoundLabel.text = InputTracker.Instance.HeldTouches.Count.ToString();
     }
 }
