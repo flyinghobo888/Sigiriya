@@ -24,6 +24,7 @@ public class Character : ScriptableObject
 
     public List<SubTrait> rawSubTraits = new List<SubTrait>();
 
+    public List<CharacterTransform> characterTransforms = new List<CharacterTransform>();
 
     /////////////////////////////////////////////
     // This is the stuff we access in code

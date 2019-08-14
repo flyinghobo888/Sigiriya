@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(ButtonInfo))]
 public class WorldCharacterHandler : MonoBehaviour
 {
+    [SerializeField] private RectTransform characterRect = null;
+    [Space]
     [SerializeField] private Button button = null;
     [Space]
     [Header("Swap characters here to test them.")]
@@ -32,6 +33,17 @@ public class WorldCharacterHandler : MonoBehaviour
             if (characterInfo)
             {
                 gameObject.SetActive(true);
+
+                //TODO: For now. In the future we can decide how we want to pick the transforms.
+                if (characterInfo.characterTransforms.Count > 0)
+                {
+                    ApplyCharacterTransform(characterInfo.characterTransforms[0]);
+                }
+                else
+                {
+                    Debug.LogWarning("Cannot update transforms. This object does not have any.");
+                }
+
                 button.GetComponent<Image>().sprite = characterInfo.defaultSprite;
                 buttonInfoScript = GetComponent<ButtonInfo>();
 
@@ -69,5 +81,23 @@ public class WorldCharacterHandler : MonoBehaviour
         }
 
         CharactersInConvo.Add(character);
+    }
+
+    private void ApplyCharacterTransform(CharacterTransform charTransform)
+    {
+        charTransform.ApplyTransform(characterRect);
+
+        RectTransform[] childrenRects = characterRect.GetComponentsInChildren<RectTransform>(true);
+        foreach (RectTransform childRect in childrenRects)
+        {
+            foreach (ObjectTransform objTransform in charTransform.Children)
+            {
+                if (childRect.tag == objTransform.Tag)
+                {
+                    objTransform.ApplyTransform(childRect);
+                    break;
+                }
+            }
+        }
     }
 }

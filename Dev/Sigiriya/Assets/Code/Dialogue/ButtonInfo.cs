@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldCharacterHandler))]
 public class ButtonInfo : MonoBehaviour
 {
 	[SerializeField] private GameObject characterContainer = null;
