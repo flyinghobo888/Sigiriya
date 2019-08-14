@@ -65,11 +65,13 @@ public class DialogueController : ManagerBase<DialogueController>
 	private void OnEnable()
 	{
 		//TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
+		GlobalTimeTracker.Instance.timePaused = true;
 		PersistentEventBank.FireAllEvents();
 	}
 	private void OnDisable()
 	{
 		//TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
+		GlobalTimeTracker.Instance.timePaused = false;
 		EventAnnouncer.OnDialogueEnd?.Invoke();
 	}
 
@@ -245,6 +247,7 @@ public class DialogueController : ManagerBase<DialogueController>
         DisplayNodeOrQuit();
 
 		Debug.Log("Node Hit!");
+		GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 	}
 
 	public void TryFinishDialogue()
@@ -285,6 +288,7 @@ public class DialogueController : ManagerBase<DialogueController>
         DisplayNodeOrQuit();
 
 		Debug.Log("Node Hit!");
+		GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 	}
 	#endregion
 
@@ -537,6 +541,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				dialogueGraph.current = bNode.GetOutputNode();
 				Debug.Log("Node Hit!");
+				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 			else if (dialogueGraph.current.GetType() == typeof(ActorNode))
 			{
@@ -559,6 +564,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				dialogueGraph.current = aNode.GetNextNode();
 				Debug.Log("Node Hit!");
+				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 			else if (dialogueGraph.current.GetType() == typeof(FlagNode))
 			{
@@ -571,6 +577,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				dialogueGraph.current = fNode.GetNextNode();
 				Debug.Log("Node Hit!");
+				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 			else if (dialogueGraph.current.GetType() == typeof(MemoryNode))
 			{
@@ -584,6 +591,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				dialogueGraph.current = mNode.GetNextNode();
 				Debug.Log("Node Hit!");
+				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 		}
 
