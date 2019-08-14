@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
 [CreateAssetMenu(fileName = "New Background", menuName = "Background")]
 public class Parallax : ScriptableObject
 {
@@ -14,9 +13,9 @@ public class Parallax : ScriptableObject
     public Sprite Foreground = null;
 
     [Header("The speed in relation to drag speed")]
-    [Range(0.1f, 3.0f)] public float BackgroundSpeedMult = 1.0f;
+    [Range(0.1f, 3.0f)] public float BackgroundSpeedMult = 0.61f;
     [Range(0.1f, 3.0f)] public float MidgroundSpeedMult = 1.0f;
-    [Range(0.1f, 3.0f)] public float ForegroundSpeedMult = 1.0f;
+    [Range(0.1f, 3.0f)] public float ForegroundSpeedMult = 1.43f;
 }
 
 //Modifiers that might change how the location looks.

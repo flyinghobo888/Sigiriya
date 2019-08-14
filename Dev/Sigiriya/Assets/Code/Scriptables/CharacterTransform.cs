@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[SerializeField]
 public class CharacterTransform : ObjectTransform
 {
     //if you want to make for a specific mood, change the mood and it will use that transform instead.

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[SerializeField]
 public class ObjectTransform : ScriptableObject
 {
     [SerializeField] public string Tag = "";
@@ -32,7 +31,7 @@ public class ObjectTransform : ScriptableObject
     {
         transform.tag = Tag;
         //transform.localPosition = Position;
-        //transform.localRotation = Rotation;
+        transform.localRotation = Rotation;
         //transform.localScale = Scale;
         //transform.anchoredPosition = AnchorPosition;
         transform.anchorMin = AnchorMin;

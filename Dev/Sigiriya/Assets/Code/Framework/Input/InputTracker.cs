@@ -144,7 +144,7 @@ public class InputTracker : ManagerBase<InputTracker>
         //Update the bool variables too dragRecognized etc
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
-            Debug.Log("MOUSE SCROLL OCCURRED");
+            //Debug.Log("MOUSE SCROLL OCCURRED");
             EventAnnouncer.OnScrollOccurred?.Invoke(Input.GetAxis("Mouse ScrollWheel"));
 
             pinchRecognized = true;

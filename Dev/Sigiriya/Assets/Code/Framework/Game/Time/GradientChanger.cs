@@ -126,7 +126,7 @@ public class GradientChanger : ManagerBase<GradientChanger>
         if (timeTracker.TimeAlpha >= transitionAlpha)
         {
             scaledAlpha = (timeTracker.TimeAlpha - transitionAlpha) / (1.0f - transitionAlpha);
-            EventAnnouncer.OnTimeTransitioning?.Invoke(timeTracker.ExternalTimeOfDay, timeTracker.NextTimeOfDay, scaledAlpha);
+            EventAnnouncer.OnTimeTransitioning?.Invoke(timeTracker.ExternalTimeOfDay, timeTracker.NextExternalTimeOfDay, scaledAlpha);
             LerpColors(scaledAlpha);
         }
     }

@@ -8,7 +8,7 @@ public class TimeUI : MonoBehaviour
     [SerializeField] private Image prevTimeImage = null;
     [SerializeField] private Image currentTimeImage = null;
 
-    [SerializeField] private Sprite background = null;
+    //[SerializeField] private Sprite background = null;
     [SerializeField] private Sprite sunrise = null;
     [SerializeField] private Sprite morning = null;
     [SerializeField] private Sprite midday = null;

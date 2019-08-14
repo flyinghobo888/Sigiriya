@@ -62,18 +62,36 @@ public class DialogueController : ManagerBase<DialogueController>
 		AssessCurrentType();
 	}
 
+    //Can't use this. The dialogue controller isnt on the popup ui anymore.
 	private void OnEnable()
 	{
-		//TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
-		GlobalTimeTracker.Instance.timePaused = true;
-		PersistentEventBank.FireAllEvents();
+        EventAnnouncer.OnDialogueStart += EnableDialogue;
+        EventAnnouncer.OnDialogueEnd += DisableDialogue;
+
+        //TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
+        //GlobalTimeTracker.Instance.timePaused = true;
+		//PersistentEventBank.FireAllEvents();
 	}
+
 	private void OnDisable()
 	{
-		//TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
-		GlobalTimeTracker.Instance.timePaused = false;
-		EventAnnouncer.OnDialogueEnd?.Invoke();
-	}
+        EventAnnouncer.OnDialogueStart -= EnableDialogue;
+        EventAnnouncer.OnDialogueEnd -= DisableDialogue;
+
+        //TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
+        //GlobalTimeTracker.Instance.timePaused = false;
+    }
+
+    private void EnableDialogue()
+    {
+        GlobalTimeTracker.Instance.timePaused = true;
+        PersistentEventBank.FireAllEvents();
+    }
+
+    private void DisableDialogue()
+    {
+        GlobalTimeTracker.Instance.timePaused = false;
+    }
 
 	private void Start()
 	{
@@ -99,7 +117,7 @@ public class DialogueController : ManagerBase<DialogueController>
             //The character is speaking
             if (pNode.speaker != null)
             {
-                characterNameBox.text = pNode.speaker.characterName;
+                characterNameBox.text = pNode.speaker.CharacterName;
 				if (pNode.mood != EnumMood.NONE)
 				{
 					pNode.speaker.MoodTracker.AddMood(pNode.mood, new SigiTime(pNode.dys, pNode.hr, pNode.min, pNode.sec));
@@ -378,7 +396,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				//congrats! you passed!
 				possibleGraphs.Add(graph);
-			}
+            }
 			//Second Pass. ie. out of the possible convos, what do we pick?
 			foreach (SimpleGraph graph in possibleGraphs)
 			{
@@ -417,8 +435,10 @@ public class DialogueController : ManagerBase<DialogueController>
 
 			DisplayNode(dialogueGraph.current);
             ActivateDialogueUI(true);
-			dialogueGraph.timesAccessed++;
+            dialogueGraph.timesAccessed++;
 			//Start talking.
+
+            EventAnnouncer.OnDialogueStart?.Invoke();
 		}
 	}
 	/// <summary>
@@ -645,6 +665,7 @@ public class DialogueController : ManagerBase<DialogueController>
 			}
 
             ActivateDialogueUI(false);
+            EventAnnouncer.OnDialogueEnd?.Invoke();
 
             if (characterButtonObj)
             {

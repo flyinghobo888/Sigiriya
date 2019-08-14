@@ -12,19 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
   m_Name: Lakmini
   m_EditorClassIdentifier: 
-  characterName: Lakmini
-  defaultSprite: {fileID: 21300000, guid: 235e6c58d1fc923478a1c17a7c584db7, type: 3}
-  rawExpressionOrder: 0e00000003000000050000000f00000011000000
-  rawExpressions:
-  - {fileID: 21300000, guid: 235e6c58d1fc923478a1c17a7c584db7, type: 3}
+  CharacterName: Lakmini
+  DefaultSprite: {fileID: 21300000, guid: 235e6c58d1fc923478a1c17a7c584db7, type: 3}
+  RawExpressionOrder: 03000000
+  RawExpressions:
   - {fileID: 21300000, guid: 1f7ae3fe384cffe4689c9cd4495cc13f, type: 3}
-  - {fileID: 21300000, guid: 028948c4f125c1d4783049bf4e096938, type: 3}
-  - {fileID: 21300000, guid: e4c7de87e3d37034f8486bc648ee93ac, type: 3}
-  - {fileID: 21300000, guid: 8cd28f4f9522422448400e795631e04b, type: 3}
-  rawTalkExpressions:
-  - {fileID: 21300000, guid: 1efec94bc6837944885a7cd660f74a7f, type: 3}
+  RawTalkExpressions:
   - {fileID: 21300000, guid: fae397bf1b1cb68459a92b5686605ce0, type: 3}
-  - {fileID: 21300000, guid: 6e4d5e41d3c148f449c908a5bda7a257, type: 3}
-  - {fileID: 21300000, guid: f32a40716f9c8d14bb0fecad0e585a83, type: 3}
-  - {fileID: 21300000, guid: 6b6b3d91a17599240b584c1c50813a75, type: 3}
-  rawSubTraits: []
+  CharacterTransforms:
+  - {fileID: 11400000, guid: f5bb0ffe68516f84bbb82b06bc531173, type: 2}
+  MorningSchedule: {fileID: 11400000, guid: f548d65b9c19ec448bb0d82bf9fbdc9e, type: 2}
+  MiddaySchedule: {fileID: 11400000, guid: 1fbee5190e310bf4a8f09019ed0f9de0, type: 2}
+  NightSchedule: {fileID: 11400000, guid: 90abc24f43de50a4d807226265ec708b, type: 2}
