@@ -126,7 +126,13 @@ public class DialogueController : ManagerBase<DialogueController>
 
 			if (pNode.newStance != "" && pNode.speaker != null)
 			{
-				pNode.speaker.stance.SetStance(pNode.newStance);
+				foreach (Stance stance in pNode.speaker.stance)
+				{
+					if (stance.stanceNames.Contains(pNode.newStance))
+					{
+						stance.SetStance(pNode.newStance);
+					}
+				}
 			}
 
 			continueButton.gameObject.SetActive(true);
