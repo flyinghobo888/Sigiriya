@@ -38,24 +38,26 @@ public class CharacterTracker : ManagerBase<CharacterTracker>
 
     private void OnEnable()
     {
-        //EventAnnouncer.OnDayIsStarting += UpdateCharacters;
-        EventAnnouncer.OnTimeOfDayChanged += TryUpdateCharacters;
-        EventAnnouncer.OnDialogueEnd += TryUpdateCharacters;
+        EventAnnouncer.OnDayIsStarting += UpdateCharacters;
+        EventAnnouncer.OnTimeOfDayChanged += TryUpdateCharactersTimeChange;
+        EventAnnouncer.OnDialogueEnd += TryUpdateCharactersEndOfDialogue;
         EventAnnouncer.OnRequestLocationChange += TryUpdateCharacters;
+        EventAnnouncer.OnEndFadeIn += TryUpdateCharactersDuringFade;
     }
 
     private void OnDisable()
     {
-        //EventAnnouncer.OnDayIsStarting -= UpdateCharacters;
-        EventAnnouncer.OnTimeOfDayChanged -= TryUpdateCharacters;
-        EventAnnouncer.OnDialogueEnd -= TryUpdateCharacters;
+        EventAnnouncer.OnDayIsStarting -= UpdateCharacters;
+        EventAnnouncer.OnTimeOfDayChanged -= TryUpdateCharactersTimeChange;
+        EventAnnouncer.OnDialogueEnd -= TryUpdateCharactersEndOfDialogue;
         EventAnnouncer.OnRequestLocationChange -= TryUpdateCharacters;
+        EventAnnouncer.OnEndFadeIn -= TryUpdateCharactersDuringFade;
     }
 
     private bool RequestUpdate = false;
     private bool HasUpdatedAlready = false;
 
-    private void TryUpdateCharacters(EnumDisplayTime displayTime)
+    private void TryUpdateCharactersTimeChange(EnumTime displayTime)
     {
         RequestUpdate = true;
         HasUpdatedAlready = false;
@@ -63,26 +65,40 @@ public class CharacterTracker : ManagerBase<CharacterTracker>
 
     private void TryUpdateCharacters(EnumLocation prev, EnumLocation next, bool shouldFade)
     {
-        if (RequestUpdate && !HasUpdatedAlready)
-        {
-            UpdateCharacters();
-            RequestUpdate = false;
-            HasUpdatedAlready = true;
-        }
+        //if (RequestUpdate && !HasUpdatedAlready)
+        //{
+        //    UpdateCharacters();
+        //}
     }
 
-    private void TryUpdateCharacters()
+    private void TryUpdateCharactersEndOfDialogue()
     {
         if (RequestUpdate && !HasUpdatedAlready)
         {
             UpdateCharacters();
-            RequestUpdate = false;
-            HasUpdatedAlready = true;
+        }
+    }
+
+    private void TryUpdateCharactersDuringFade(string fadeID)
+    {
+        if (RequestUpdate && !HasUpdatedAlready)
+        {
+            UpdateCharacters();
         }
     }
 
     private void UpdateCharacters()
     {
+        StartCoroutine(UpdateChars());
+    }
+
+    private IEnumerator UpdateChars()
+    {
+        yield return new WaitForEndOfFrame();
+
+        HasUpdatedAlready = true;
+        RequestUpdate = false;
+
         //LocationTracker.Instance.CharacterScheduleUpdate();
         EventAnnouncer.OnRequestCharacterScheduleUpdate?.Invoke();
 

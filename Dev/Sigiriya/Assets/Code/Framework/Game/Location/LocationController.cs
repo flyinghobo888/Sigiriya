@@ -40,13 +40,13 @@ public class LocationController : MonoBehaviour
     public void StartOfDay()
     {
         HasEndOfDayHappened = false;
-        EnableCharacters(true);
+        //EnableCharacters(true);
     }
 
     private void EndOfDay()
     {
         HasEndOfDayHappened = true;
-        EnableCharacters(false);
+        DisableCharacters();
     }
 
     private void UpdateLocationOnLeave(EnumLocation prevLocation, EnumLocation targetLocation, bool shouldFade)
@@ -93,14 +93,14 @@ public class LocationController : MonoBehaviour
 
     //Figure something out now that we use a world container.
     //Maybe move all the items to another container while we disable the characters.
-    private void EnableCharacters(bool shouldEnable)
+    private void DisableCharacters()
     {
-        EnableCharacters(shouldEnable, BG);
-        EnableCharacters(shouldEnable, MG);
-        EnableCharacters(shouldEnable, FG);
+        DisableCharacters(BG);
+        DisableCharacters(MG);
+        DisableCharacters(FG);
     }
 
-    private void EnableCharacters(bool shouldEnable, RectTransform layer)
+    private void DisableCharacters(RectTransform layer)
     {
         Transform[] characters = layer.GetComponentsInChildren<Transform>(true);
 
@@ -108,7 +108,7 @@ public class LocationController : MonoBehaviour
         {
             if (child.gameObject.tag == "Character")
             {
-                child.gameObject.SetActive(shouldEnable);
+                child.gameObject.SetActive(false);
             }
         }
     }

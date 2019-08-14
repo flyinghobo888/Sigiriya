@@ -26,9 +26,11 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     public float TimeAlpha { get; private set; } = 0.0f;
 
     public EnumTime CurrentTimeOfDay { get; private set; }
+    public EnumTime NextTimeOfDay { get; private set; }
+
     public EnumDisplayTime ExternalTimeOfDay { get; private set; }
 
-    public EnumDisplayTime NextTimeOfDay { get; private set; }
+    public EnumDisplayTime NextExternalTimeOfDay { get; private set; }
 
     private IEnumerator DayCoroutine = null;
 
@@ -111,14 +113,21 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     {
         UpdateTimeOfDay();
 
-        if (ExternalTimeOfDay == NextTimeOfDay)
+        if (ExternalTimeOfDay == NextExternalTimeOfDay)
         {
-            EventAnnouncer.OnTimeOfDayChanged?.Invoke(ExternalTimeOfDay);
+            EventAnnouncer.OnDisplayTimeOfDayChanged?.Invoke(ExternalTimeOfDay);
         }
 
-        NextTimeOfDay = (EnumDisplayTime)(((int)ExternalTimeOfDay + 1) % (int)EnumDisplayTime.SIZE);
+        if (CurrentTimeOfDay == NextTimeOfDay)
+        {
+            EventAnnouncer.OnTimeOfDayChanged?.Invoke(CurrentTimeOfDay);
+        }
+
+        NextExternalTimeOfDay = (EnumDisplayTime)(((int)ExternalTimeOfDay + 1) % (int)EnumDisplayTime.SIZE);
+        NextTimeOfDay = (EnumTime)(((int)CurrentTimeOfDay + 1) % (int)EnumTime.SIZE);
+
         SwitchTimesList.TryGetValue(ExternalTimeOfDay, out float startTime);
-        SwitchTimesList.TryGetValue(NextTimeOfDay, out float endTime);
+        SwitchTimesList.TryGetValue(NextExternalTimeOfDay, out float endTime);
         float currentTime = GlobalTime.Ticks;
 
         if (startTime > endTime)
@@ -192,10 +201,10 @@ public enum EnumDisplayTime
 
 public enum EnumTime
 {
-    MORNING = 1,
-    MIDDAY = 2,
-    NIGHT = 4,
-    SIZE = 3
+    MORNING,
+    MIDDAY,
+    NIGHT,
+    SIZE
 }
 
 public class SigiTime

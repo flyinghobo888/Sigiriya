@@ -50,6 +50,9 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     public delegate void ThrowFlag(FlagBank.Flags throwFlag);
     public static ThrowFlag OnThrowFlag;
 
+    public delegate void DialogueStart();
+    public static DialogueStart OnDialogueStart;
+
     public delegate void DialogueEnd();
     public static DialogueEnd OnDialogueEnd;
 
@@ -244,7 +247,10 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
 
     #region Global Time Events
 
-    public delegate void TimeOfDayChanged(EnumDisplayTime currentTime);
+    public delegate void DisplayTimeOfDayChanged(EnumDisplayTime currentTime);
+    public static DisplayTimeOfDayChanged OnDisplayTimeOfDayChanged;
+
+    public delegate void TimeOfDayChanged(EnumTime currentTime);
     public static TimeOfDayChanged OnTimeOfDayChanged;
 
     public delegate void TimeTickUpdated(SigiTime globalTime);
