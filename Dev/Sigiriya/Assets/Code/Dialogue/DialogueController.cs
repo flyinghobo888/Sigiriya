@@ -11,6 +11,13 @@ public class DialogueController : ManagerBase<DialogueController>
 {
 	//Graph where nodes are kept
 	public SimpleGraph dialogueGraph;
+	[Header("Time")]
+	//[SerializeField] private int days;
+	//[SerializeField] private int hours;
+	[SerializeField] private int minutesPerNode;
+	[SerializeField] private int secondsPerNode;
+
+	[SerializeField] private SigiTime timePerNode;
 
     [Header("Dialogue Scene Objects")]
     [SerializeField] private GameObject dialogueContainerObj = null;
@@ -43,8 +50,8 @@ public class DialogueController : ManagerBase<DialogueController>
 	private BaseNode checkPointNode = null;
 	private BaseNode exitNode = null;
 
-	[Header("Dev/Editor")]
-	[SerializeField] private List<SimpleGraph> graphList = null;
+	[Header("Pool")]
+	[SerializeField] private List<SimpleGraph> dialoguePool = null;
 
     private void Init()
 	{
@@ -69,6 +76,9 @@ public class DialogueController : ManagerBase<DialogueController>
 	private void Start()
 	{
         ActivateDialogueUI(false);
+
+		//TODO: add days and hours for insane people
+		timePerNode = new SigiTime(0, 0, minutesPerNode, secondsPerNode);
     }
 
 	/// <summary>
@@ -107,67 +117,12 @@ public class DialogueController : ManagerBase<DialogueController>
 				dialogueGraph.isDone = true;
 			}
 
-   //         int i = 0;
+			for (int i = 0; i < responseButtons.Length; i++)
+			{
+                responseButtons[i].gameObject.SetActive(false);
+            }
 
-			//if (pNode.responses.Count != 0) //if we have responses
-			//{
-			//	int grossCount = 0; //part of the gross stuff
-   //             for (; i < pNode.responses.Count; i++)
-			//	{
-			//		//god this is so fucking gross
-			//		//TODO: hey, a fix might be to add a function in responses to check their connected promptNode,
-			//		//IF it's a prompt node
-			//		//A check to see if visited
-			//		if (pNode.GetAnswerConnection(i).GetNextNode() != null && pNode.GetAnswerConnection(i).GetNextNode().GetType() == typeof(PromptNode))
-			//		{
-			//			PromptNode ppNode = pNode.GetAnswerConnection(i).GetNextNode() as PromptNode;
-
-			//			if (ppNode.isVisited == true)
-			//			{
-			//				grossCount++;
-			//				responseButtons[i].gameObject.SetActive(false);
-			//				if(grossCount == pNode.responses.Count)
-			//				{
-			//					continueButton.gameObject.SetActive(true);
-			//				}
-			//				continue;
-			//			}
-			//		}
-
-
-			//		if (!pNode.GetAnswerConnection(i).getHidden())
-   //                 {
-   //                     responseButtons[i].gameObject.SetActive(true);
-
-			//			if (pNode.GetAnswerConnection(i).textFull != "")
-			//			{
-			//				responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textFull;
-			//			}
-			//			else
-			//			{
-			//				responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
-			//			}
-			//		}
-					for (int i = 0; i < responseButtons.Length; i++)
-					{
-                        responseButtons[i].gameObject.SetActive(false);
-                    }
-   //             }
-
-			//	if (grossCount != pNode.responses.Count)
-			//	{
-			//		continueButton.gameObject.SetActive(false);
-			//	}
-			//}
-			//else
-			//{
-				continueButton.gameObject.SetActive(true);
-			//}
-
-			//for (; i < responseButtons.Length; i++)
-			//{
-			//	responseButtons[i].gameObject.SetActive(false);
-			//}
+			continueButton.gameObject.SetActive(true);
 		}
 		else if(node != null && node.GetType() == typeof(ResponseNode))
 		{
@@ -288,9 +243,11 @@ public class DialogueController : ManagerBase<DialogueController>
 		SetSpeakerImage(true);
 
         DisplayNodeOrQuit();
+
+		Debug.Log("Node Hit!");
 	}
 
-    public void TryFinishDialogue()
+	public void TryFinishDialogue()
     {
         TextController.Instance.TryToFinishText(currentPromptPanel);
     }
@@ -326,6 +283,8 @@ public class DialogueController : ManagerBase<DialogueController>
 		SetSpeakerImage(true);
 
         DisplayNodeOrQuit();
+
+		Debug.Log("Node Hit!");
 	}
 	#endregion
 
@@ -339,7 +298,7 @@ public class DialogueController : ManagerBase<DialogueController>
 		if (character != null)
 		{
 			List<SimpleGraph> possibleGraphs = new List<SimpleGraph>();
-			foreach (SimpleGraph graph in graphList)
+			foreach (SimpleGraph graph in dialoguePool)
 			{
 				//cull the impossible
 
@@ -347,7 +306,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				bool containsGraph = true;
 				for (int i = 0; i < graph.dependantConversation.Count; i++)
 				{
-					if (graphList.Contains(graph.dependantConversation[i]))
+					if (dialoguePool.Contains(graph.dependantConversation[i]))
 					{
 						containsGraph = false;
 					}
@@ -577,6 +536,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				BranchNode bNode = dialogueGraph.current as BranchNode;
 
 				dialogueGraph.current = bNode.GetOutputNode();
+				Debug.Log("Node Hit!");
 			}
 			else if (dialogueGraph.current.GetType() == typeof(ActorNode))
 			{
@@ -598,6 +558,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				dialogueGraph.current = aNode.GetNextNode();
+				Debug.Log("Node Hit!");
 			}
 			else if (dialogueGraph.current.GetType() == typeof(FlagNode))
 			{
@@ -609,6 +570,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				dialogueGraph.current = fNode.GetNextNode();
+				Debug.Log("Node Hit!");
 			}
 			else if (dialogueGraph.current.GetType() == typeof(MemoryNode))
 			{
@@ -621,9 +583,8 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				dialogueGraph.current = mNode.GetNextNode();
+				Debug.Log("Node Hit!");
 			}
-
-
 		}
 
 		if (dialogueGraph.current.GetType() == typeof(PromptNode))
@@ -639,9 +600,9 @@ public class DialogueController : ManagerBase<DialogueController>
 	{
 		Debug.Log("RESET");
 
-		for (int i = 0; i < graphList.Count; i++)
+		for (int i = 0; i < dialoguePool.Count; i++)
 		{
-			graphList[i].Reset();
+			dialoguePool[i].Reset();
 		}
 
         EventAnnouncer.OnDialogueRestart?.Invoke();
@@ -661,7 +622,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 			if (dialogueGraph.isDone)
 			{
-				graphList.Remove(dialogueGraph);
+				dialoguePool.Remove(dialogueGraph);
 			}
 
             ActivateDialogueUI(false);
