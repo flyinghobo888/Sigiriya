@@ -2399,7 +2399,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: "Once he poked a cobra with a stick because he thought I\u2019d find it
     cool."
-  speaker: {fileID: 11400000, guid: b10273b19b178c34da5c2a0cabdf45a3, type: 2}
+  speaker: {fileID: 0}
   expression: 0
   mood: 0
   sec: 0
@@ -3211,6 +3211,89 @@ MonoBehaviour:
   textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
+--- !u!114 &-3803471384108686972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f46ffb28b7b5ad429639f67dbf5c0e0, type: 3}
+  m_Name: Response Branch Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1203.7267, y: 28.730988}
+  ports:
+    keys:
+    - responses
+    - input
+    - output
+    - responses 0
+    - responses 1
+    values:
+    - _fieldName: responses
+      _node: {fileID: -3803471384108686972}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: -3803471384108686972}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -2751607372264287316}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -3803471384108686972}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: responses 0
+      _node: {fileID: -3803471384108686972}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: promptInput
+        node: {fileID: 2462550565029153818}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: responses 1
+      _node: {fileID: -3803471384108686972}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: promptInput
+        node: {fileID: 2358264761520552709}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses:
+  - {fileID: 0}
+  - {fileID: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-3719152850702607014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3979,7 +4062,10 @@ MonoBehaviour:
       _node: {fileID: -2751607372264287316}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: -3803471384108686972}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -6015,6 +6101,7 @@ MonoBehaviour:
   - {fileID: -7106128583248736328}
   - {fileID: -396672867602317042}
   - {fileID: -463026963534623131}
+  - {fileID: -3803471384108686972}
   current: {fileID: 0}
   isInit: 0
   timesAccessed: 0
@@ -8545,6 +8632,9 @@ MonoBehaviour:
       - fieldName: responses 1
         node: {fileID: -2751607372264287316}
         reroutePoints: []
+      - fieldName: responses 1
+        node: {fileID: -3803471384108686972}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 2
@@ -8614,6 +8704,9 @@ MonoBehaviour:
       connections:
       - fieldName: responses 0
         node: {fileID: -2751607372264287316}
+        reroutePoints: []
+      - fieldName: responses 0
+        node: {fileID: -3803471384108686972}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
