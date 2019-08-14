@@ -752,7 +752,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &-6599066239965889289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,7 +1122,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-5929992667352142618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,6 +1230,9 @@ MonoBehaviour:
       connections:
       - fieldName: responses 1
         node: {fileID: -980784232046798436}
+        reroutePoints: []
+      - fieldName: responses 1
+        node: {fileID: -4919122658627921792}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1948,6 +1951,89 @@ MonoBehaviour:
   isVisited: 0
   isNoReturn: 0
   connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-4919122658627921792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f46ffb28b7b5ad429639f67dbf5c0e0, type: 3}
+  m_Name: Response Branch Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 288.59167, y: 49.478184}
+  ports:
+    keys:
+    - responses
+    - input
+    - output
+    - responses 0
+    - responses 1
+    values:
+    - _fieldName: responses
+      _node: {fileID: -4919122658627921792}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: -4919122658627921792}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -980784232046798436}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -4919122658627921792}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: responses 0
+      _node: {fileID: -4919122658627921792}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: promptInput
+        node: {fileID: -3167575428487694301}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: responses 1
+      _node: {fileID: -4919122658627921792}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: promptInput
+        node: {fileID: -5613922030954277293}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses:
+  - {fileID: 0}
+  - {fileID: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-4810551909033331662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2290,6 +2376,9 @@ MonoBehaviour:
       connections:
       - fieldName: responses 0
         node: {fileID: -980784232046798436}
+        reroutePoints: []
+      - fieldName: responses 0
+        node: {fileID: -4919122658627921792}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -3198,7 +3287,10 @@ MonoBehaviour:
       _node: {fileID: -980784232046798436}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: -4919122658627921792}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -4011,6 +4103,7 @@ MonoBehaviour:
   - {fileID: -5944868594137228093}
   - {fileID: 8203594664752799336}
   - {fileID: -6604663049363598421}
+  - {fileID: -4919122658627921792}
   current: {fileID: 0}
   isInit: 1
   timesAccessed: 1
@@ -8217,7 +8310,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &8420396679684031407
 MonoBehaviour:
   m_ObjectHideFlags: 0

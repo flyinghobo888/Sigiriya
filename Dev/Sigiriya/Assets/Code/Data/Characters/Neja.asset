@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
   m_Name: Neja
   m_EditorClassIdentifier: 
-  CharacterName: Neja
+  CharacterName: 
   DefaultSprite: {fileID: 21300000, guid: 147f7398e2c59334c95da3c5045675b7, type: 3}
-  RawExpressionOrder: 0e000000
-  RawExpressions:
-  - {fileID: 21300000, guid: 147f7398e2c59334c95da3c5045675b7, type: 3}
-  RawTalkExpressions:
-  - {fileID: 21300000, guid: 49287dc6d43d40b43aed04f3bfcda71b, type: 3}
-  CharacterTransforms:
-  - {fileID: 11400000, guid: 31a33484818241a4ea4f87a6694a94dd, type: 2}
+  RawExpressionOrder: 
+  RawExpressions: []
+  RawTalkExpressions: []
+  CharacterTransforms: []
   MorningSchedule: {fileID: 11400000, guid: 10f48c9592765de438dbdd2bbce3783f, type: 2}
   MiddaySchedule: {fileID: 11400000, guid: 105842b5d4bd1274b80e2c4c822ae020, type: 2}
   NightSchedule: {fileID: 11400000, guid: 5c4f91d1f751c8f4589a47cfa2e9175a, type: 2}

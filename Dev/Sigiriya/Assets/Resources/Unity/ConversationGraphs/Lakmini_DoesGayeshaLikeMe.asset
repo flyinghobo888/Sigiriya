@@ -125,7 +125,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-9049444930110041545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-7932552520196928521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,7 +507,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-7684763025103539050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,7 +885,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &-6904653011296905445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-6543903296852632423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,7 +1290,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-6355073690713299804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,7 +1391,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-6247459549688356368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,7 +1492,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-6194456022001690947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,7 +1593,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-5396785713801040991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1789,7 +1789,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-3759537040336125051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1890,7 +1890,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2961252028128154628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2584308553731107733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2092,7 +2092,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2376971400390688446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2121,6 +2121,9 @@ MonoBehaviour:
       connections:
       - fieldName: responses 0
         node: {fileID: 1170920452315710677}
+        reroutePoints: []
+      - fieldName: responses 0
+        node: {fileID: 4249675337261792448}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -2264,7 +2267,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2076154460609906335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2435,7 +2438,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-1691617686533172721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2637,7 +2640,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-1236800355709483491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2738,7 +2741,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-1093293877380271423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2950,6 +2953,7 @@ MonoBehaviour:
   - {fileID: -6981418333265119463}
   - {fileID: -1590569806199253962}
   - {fileID: 595290322455272375}
+  - {fileID: 4249675337261792448}
   current: {fileID: 0}
   isInit: 0
   timesAccessed: 0
@@ -3060,7 +3064,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &595290322455272375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3158,7 +3162,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &657039623954807570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3259,7 +3263,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1170920452315710677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3338,7 +3342,10 @@ MonoBehaviour:
       _node: {fileID: 1170920452315710677}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 4249675337261792448}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -3486,7 +3493,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &2566871749234613465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3587,7 +3594,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &2929638360324535876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3688,7 +3695,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 1, g: 0, b: 0, a: 1}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &2993742401895376369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3800,7 +3807,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3416399745252484486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4002,7 +4009,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3663009732979276406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4114,7 +4121,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3686099970554389823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4185,6 +4192,89 @@ MonoBehaviour:
   textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
+--- !u!114 &4249675337261792448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f46ffb28b7b5ad429639f67dbf5c0e0, type: 3}
+  m_Name: Response Branch Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 593.7533, y: 48.496223}
+  ports:
+    keys:
+    - responses
+    - input
+    - output
+    - responses 0
+    - responses 1
+    values:
+    - _fieldName: responses
+      _node: {fileID: 4249675337261792448}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 4249675337261792448}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: 1170920452315710677}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 4249675337261792448}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: responses 0
+      _node: {fileID: 4249675337261792448}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: promptInput
+        node: {fileID: -2376971400390688446}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: responses 1
+      _node: {fileID: 4249675337261792448}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: promptInput
+        node: {fileID: 4965004229846863726}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses:
+  - {fileID: 0}
+  - {fileID: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &4254879552643018398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4431,7 +4521,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &4965004229846863726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4460,6 +4550,9 @@ MonoBehaviour:
       connections:
       - fieldName: responses 1
         node: {fileID: 1170920452315710677}
+        reroutePoints: []
+      - fieldName: responses 1
+        node: {fileID: 4249675337261792448}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -4703,7 +4796,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &5089260338552810868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4804,7 +4897,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &5406606743963660651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5000,7 +5093,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &5746092317990982241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5101,7 +5194,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &6147635692047436984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5202,7 +5295,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &6361771989239215210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5303,7 +5396,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &6689888162357158077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5429,7 +5522,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &6717236697136398588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5704,7 +5797,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &7851527598946690832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5875,7 +5968,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &8417034911508508460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6077,7 +6170,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 1
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &8582683734630082489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6217,7 +6310,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &8671132756647838585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6318,7 +6411,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &8674637568846855695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6419,7 +6512,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &8876917270429444163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6545,7 +6638,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
-  connected: {r: 0, g: 0, b: 0, a: 0}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &9077740257389719727
 MonoBehaviour:
   m_ObjectHideFlags: 0

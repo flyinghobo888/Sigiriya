@@ -62,12 +62,13 @@ public class TaskManager : ManagerBase<TaskManager>
 			taskList.Add(newTask);
 		}
 	}
+#if UNITY_EDITOR
 	public void AddTaskTest() //TEST FUNCTION
 	{
 		taskList.Add(editorAllTasks[0]);
 		UpdateTaskDisplay();
 	}
-
+#endif
 	public void RemoveTask(Task oldTask)
 	{
 		if (taskList.Contains(oldTask))
