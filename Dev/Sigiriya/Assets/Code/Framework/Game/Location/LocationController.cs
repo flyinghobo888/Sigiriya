@@ -7,7 +7,11 @@ public class LocationController : MonoBehaviour
 {
     [SerializeField] private Location locationData;
     public Location LocationData { get => locationData; private set { locationData = value; } }
-
+    [Space]
+    [SerializeField] private List<WorldCharacterHandler> characterSlotsInLocation;
+    public List<WorldCharacterHandler> CharacterSlotsInLocation { get => characterSlotsInLocation; private set { characterSlotsInLocation = value; } }
+    private List<WorldCharacterHandler> openCharacterSlots = new List<WorldCharacterHandler>();
+    [Space]
     //public RectTransform WorldContainer = null;
     public RectTransform BG = null;
     public RectTransform MG = null;
@@ -106,6 +110,43 @@ public class LocationController : MonoBehaviour
             {
                 child.gameObject.SetActive(shouldEnable);
             }
+        }
+    }
+
+    public bool SetRandomCharacterSlot(Character character, bool resetCharactersInConvo)
+    {
+        if (IsCharacterSlotAvailable())
+        {
+            int rand = Random.Range(0, openCharacterSlots.Count);
+            WorldCharacterHandler slot = openCharacterSlots[rand];
+            openCharacterSlots.RemoveAt(rand);
+
+            slot.SetCharacter(character, resetCharactersInConvo);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool IsCharacterSlotAvailable()
+    {
+        return openCharacterSlots.Count > 0;
+    }
+
+    public void ResetCharacterSlots()
+    {
+        foreach (WorldCharacterHandler characterSlot in CharacterSlotsInLocation)
+        {
+            characterSlot.SetCharacter(null, true);
+        }
+
+        openCharacterSlots.Clear();
+
+        for (int i = 0; i < CharacterSlotsInLocation.Count; ++i)
+        {
+            openCharacterSlots.Add(CharacterSlotsInLocation[i]);
         }
     }
 }

@@ -99,7 +99,7 @@ public class DialogueController : ManagerBase<DialogueController>
             //The character is speaking
             if (pNode.speaker != null)
             {
-                characterNameBox.text = pNode.speaker.characterName;
+                characterNameBox.text = pNode.speaker.CharacterName;
 				if (pNode.mood != EnumMood.NONE)
 				{
 					pNode.speaker.MoodTracker.AddMood(pNode.mood, new SigiTime(pNode.dys, pNode.hr, pNode.min, pNode.sec));

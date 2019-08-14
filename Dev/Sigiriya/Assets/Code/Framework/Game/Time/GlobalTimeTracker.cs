@@ -53,9 +53,10 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
     {
         if (IsDayOver())
         {
-            Debug.Log("INCREMENTING IS: " + incrementDay);
             GlobalTime.SetTimeOfDay(SUNRISE_START, incrementDay);
             UpdateTimeOfDay();
+
+            EventAnnouncer.OnDayIsStarting?.Invoke();
 
             DayCoroutine = GoThroughDay();
             StartCoroutine(DayCoroutine);
@@ -77,8 +78,6 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
         Debug.Log("Time: " + GlobalTime.Ticks + " | " + 
             GlobalTime.Day + "D " + GlobalTime.Hour + "H " + GlobalTime.Minute + "M " + GlobalTime.Second + "S " +
             " | TOD: " + ExternalTimeOfDay);
-
-        EventAnnouncer.OnDayIsStarting?.Invoke();
 
         while (ExternalTimeOfDay != EnumDisplayTime.NIGHT)
         {

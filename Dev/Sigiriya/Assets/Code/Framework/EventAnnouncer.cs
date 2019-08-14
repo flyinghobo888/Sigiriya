@@ -259,6 +259,9 @@ public class EventAnnouncer : ManagerBase<EventAnnouncer>
     public delegate void DayIsEnding();
     public static DayIsEnding OnDayIsEnding;
 
+    public delegate void RequestCharacterScheduleUpdate();
+    public static RequestCharacterScheduleUpdate OnRequestCharacterScheduleUpdate;
+
     #endregion
 
     #region Input Events

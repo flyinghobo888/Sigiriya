@@ -12,19 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
   m_Name: Gayesha
   m_EditorClassIdentifier: 
-  characterName: Gayesha
-  defaultSprite: {fileID: 21300000, guid: f112e5dc2a0084746999c39f062a3ec7, type: 3}
-  rawExpressionOrder: 010000000e0000001300000009000000
-  rawExpressions:
+  CharacterName: Gayesha
+  DefaultSprite: {fileID: 21300000, guid: f112e5dc2a0084746999c39f062a3ec7, type: 3}
+  RawExpressionOrder: 01000000
+  RawExpressions:
   - {fileID: 21300000, guid: 552aba970327c9f4bad3daca3f6e22b8, type: 3}
-  - {fileID: 21300000, guid: f112e5dc2a0084746999c39f062a3ec7, type: 3}
-  - {fileID: 21300000, guid: 76eee2a93e610b04a859023f3db18123, type: 3}
-  - {fileID: 21300000, guid: a59f09378a95a97469035fb828fb47e8, type: 3}
-  rawTalkExpressions:
+  RawTalkExpressions:
   - {fileID: 21300000, guid: c11bb8effc61f06439e68f9673a19d1a, type: 3}
-  - {fileID: 21300000, guid: 836bee8db4dba0e4f96f2115a57d33cb, type: 3}
-  - {fileID: 21300000, guid: 976df7aef7f281d43936bc5cb2f49235, type: 3}
-  - {fileID: 21300000, guid: 5e7e9d86096f7c942a557d59191f85e0, type: 3}
-  rawSubTraits: []
-  characterTransforms:
+  CharacterTransforms:
   - {fileID: 11400000, guid: 08eda3710da89644ca6479933e628110, type: 2}
+  MorningSchedule: {fileID: 11400000, guid: 945beb1946e75234e848510e6b9e83b3, type: 2}
+  MiddaySchedule: {fileID: 11400000, guid: 0f3c2b7157e39d4468f28d82f024836a, type: 2}
+  NightSchedule: {fileID: 11400000, guid: 8ea6ebe0518a6a6468d1f715db7f1989, type: 2}

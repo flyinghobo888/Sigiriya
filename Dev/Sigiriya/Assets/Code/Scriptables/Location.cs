@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Can be used to create new Locations by designers or artists.
-[Serializable]
 [CreateAssetMenu(fileName = "New Location", menuName = "Location")]
 public class Location : ScriptableObject
 {
@@ -32,17 +31,6 @@ public class Location : ScriptableObject
     public void OnEnable()
     {
         BackgroundData.Clear();
-        //if (Keys.Count == Values.Count)
-        //{
-        //    for (int i = 0; i < Keys.Count; ++i)
-        //    {
-        //        BackgroundData.Add(Keys[i], Values[i]);
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("Keys and values need to have the same number of elements.");
-        //}
 
         for (int i = 0; i < Values.Count; ++i)
         {
