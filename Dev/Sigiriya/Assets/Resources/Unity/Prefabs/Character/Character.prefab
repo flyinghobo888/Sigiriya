@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6029808925146278215}
+  - component: {fileID: 1193407625104258656}
+  - component: {fileID: 4460882749464877121}
   m_Layer: 5
-  m_Name: Character 1
+  m_Name: Character
   m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,6 +40,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1193407625104258656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2627974211220257630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d6f484bb9159c479f980b6f324f58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterContainer: {fileID: 2627974211220257630}
+  talkBubble: {fileID: 3297335373469619755}
+  dialogueGraph: {fileID: 0}
+--- !u!114 &4460882749464877121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2627974211220257630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd87fc22ddd0f7146ac37a44ae0f3556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterRect: {fileID: 6029808925146278215}
+  button: {fileID: 1059108452929703996}
+  characterInfo: {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
+  resetConvo: 1
+  charactersInConvo:
+  - {fileID: 11400000, guid: 1befcfd6931f84d4cbf10f0d7c22906b, type: 2}
 --- !u!1 &3297335373469619755
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +266,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1193407625104258656}
         m_MethodName: PressButton
         m_Mode: 1
         m_Arguments:

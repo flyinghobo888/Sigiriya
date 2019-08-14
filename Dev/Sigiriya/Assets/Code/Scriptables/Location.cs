@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Can be used to create new Locations by designers or artists.
+[Serializable]
 [CreateAssetMenu(fileName = "New Location", menuName = "Location")]
 public class Location : ScriptableObject
 {
