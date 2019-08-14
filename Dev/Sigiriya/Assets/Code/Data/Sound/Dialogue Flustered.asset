@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3957a008614447a448d5721c93d5227d, type: 3}
+  m_Name: Dialogue Flustered
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 83072de97037bb24dade03a014dcfd64, type: 3}
+  - {fileID: 8300000, guid: 818c751db37ea1e4c86c3c5f9b48d0c1, type: 3}
+  - {fileID: 8300000, guid: 8f735da201cccc0418b4ce65be5ff437, type: 3}
+  - {fileID: 8300000, guid: a2590a4daef2b4d42b6dffb16b97b92e, type: 3}
+  - {fileID: 8300000, guid: 2ef730b45e5efe0469b612b5d8f75bf9, type: 3}
+  soundID: 5
