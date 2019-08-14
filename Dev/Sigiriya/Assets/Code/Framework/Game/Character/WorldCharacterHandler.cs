@@ -14,6 +14,7 @@ public class WorldCharacterHandler : MonoBehaviour
     [Space]
     [Header("Reset convo on character info change.")]
     [SerializeField] private bool resetConvo = true;
+    public bool ResetConvo { get { return resetConvo; } private set { resetConvo = value; } }
     [Space]
     [Header("In the future, don't edit directly.")]
     [SerializeField] private List<Character> charactersInConvo = null;
@@ -21,7 +22,12 @@ public class WorldCharacterHandler : MonoBehaviour
 
     private ButtonInfo buttonInfoScript;
 
-    private void OnValidate()
+    //private void OnValidate()
+    //{
+    //    SetCharacter(resetConvo);
+    //}
+
+    private void Start()
     {
         SetCharacter(resetConvo);
     }

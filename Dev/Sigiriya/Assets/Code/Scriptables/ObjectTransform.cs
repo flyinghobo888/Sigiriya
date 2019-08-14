@@ -31,10 +31,10 @@ public class ObjectTransform : ScriptableObject
     public void ApplyTransform(RectTransform transform)
     {
         transform.tag = Tag;
-        transform.localPosition = Position;
-        transform.localRotation = Rotation;
-        transform.localScale = Scale;
-        transform.anchoredPosition = AnchorPosition;
+        //transform.localPosition = Position;
+        //transform.localRotation = Rotation;
+        //transform.localScale = Scale;
+        //transform.anchoredPosition = AnchorPosition;
         transform.anchorMin = AnchorMin;
         transform.anchorMax = AnchorMax;
         transform.pivot = Pivot;
