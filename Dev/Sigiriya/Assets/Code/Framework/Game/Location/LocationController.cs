@@ -3,24 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [SerializeField]
-[RequireComponent(typeof(ParallaxController))]
 public class LocationController : MonoBehaviour
 {
     [SerializeField] private Location locationData;
     public Location LocationData { get => locationData; private set { locationData = value; } }
 
-    [SerializeField] private RectTransform characterContainer = null;
-
-    private ParallaxController backgroundController = null;
+    //public RectTransform WorldContainer = null;
+    public RectTransform BG = null;
+    public RectTransform MG = null;
+    public RectTransform FG = null;
 
     //Get the random images based on flags and do parallax stuff in here when we get there.
 
     private bool HasEndOfDayHappened = false;
-
-    private void Start()
-    {
-        backgroundController = GetComponent<ParallaxController>();
-    }
 
     private void OnEnable()
     {
@@ -68,8 +63,11 @@ public class LocationController : MonoBehaviour
         //Update background based on current game flags
         //if (FlagBank.Instance.)
         {
-            //Parallax currentBackground = locationData.BackgroundData.TryGetValue(/*current modifier for location*/);
-            //backgroundController.SetBackground(currentBackground);
+            //TODO: Change EnumLocationModifier to flagbank stuff
+            if (locationData.BackgroundData.TryGetValue(EnumLocationModifier.NORMAL, out Parallax p))
+            {
+                LocationTracker.Instance.BackgroundController.SetBackground(p);
+            }
         }
 
         if (currentLocation == EnumLocation.HOME && currentLocation == locationData.locationType
@@ -84,6 +82,21 @@ public class LocationController : MonoBehaviour
     //Maybe move all the items to another container while we disable the characters.
     private void EnableCharacters(bool shouldEnable)
     {
-        characterContainer.gameObject.SetActive(shouldEnable);
+        EnableCharacters(shouldEnable, BG);
+        EnableCharacters(shouldEnable, MG);
+        EnableCharacters(shouldEnable, FG);
+    }
+
+    private void EnableCharacters(bool shouldEnable, RectTransform layer)
+    {
+        Transform[] characters = layer.GetComponentsInChildren<Transform>(true);
+
+        foreach (Transform child in characters)
+        {
+            if (child.gameObject.tag == "Character")
+            {
+                child.gameObject.SetActive(shouldEnable);
+            }
+        }
     }
 }

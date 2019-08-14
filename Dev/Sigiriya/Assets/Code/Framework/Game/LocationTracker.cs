@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //Responsible for keeping track of which location in the world we're in.
+[RequireComponent(typeof(ParallaxController))]
 public class LocationTracker : ManagerBase<LocationTracker>
 {
     [SerializeField] private EnumLocation currentLocation = EnumLocation.HOME;
@@ -12,6 +13,12 @@ public class LocationTracker : ManagerBase<LocationTracker>
     public EnumLocation TargetLocation { get; private set; }
     private bool shouldFade;
 
+    public ParallaxController BackgroundController { get; private set; } = null;
+
+    [SerializeField] private RectTransform background = null;
+    [SerializeField] private RectTransform midground = null;
+    [SerializeField] private RectTransform foreground = null;
+
     private Dictionary<EnumLocation, LocationController> locationControllers = new Dictionary<EnumLocation, LocationController>();
 
     [Header("Location Fade")]
@@ -19,6 +26,8 @@ public class LocationTracker : ManagerBase<LocationTracker>
 
     private void Awake()
     {
+        BackgroundController = GetComponent<ParallaxController>();
+
         CurrentLocation = currentLocation;
         TargetLocation = CurrentLocation;
 
@@ -88,7 +97,9 @@ public class LocationTracker : ManagerBase<LocationTracker>
     {
         GetLocationController(CurrentLocation).gameObject.SetActive(false);
         CurrentLocation = TargetLocation;
-        GetLocationController(CurrentLocation).gameObject.SetActive(true);
+        LocationController newLoc = GetLocationController(CurrentLocation);
+        newLoc.gameObject.SetActive(true);
+        SetObjectOrdering(newLoc);
 
         EventAnnouncer.OnArrivedAtLocation?.Invoke(CurrentLocation);
 
@@ -112,7 +123,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
         return false;
     }
 
-    private LocationController GetLocationController(EnumLocation location)
+    public LocationController GetLocationController(EnumLocation location)
     {
         if (locationControllers.TryGetValue(location, out LocationController locationController))
         {
@@ -132,6 +143,24 @@ public class LocationTracker : ManagerBase<LocationTracker>
             controller.StartOfDay();
         }
     }
+
+    private void SetObjectOrdering(LocationController locationController)
+    {
+        StartCoroutine(SortingOrderChanged(locationController));
+    }
+
+    private IEnumerator SortingOrderChanged(LocationController locationController)
+    {
+        yield return null;
+
+        background.SetParent(locationController.BG);
+        midground.SetParent(locationController.MG);
+        foreground.SetParent(locationController.FG);
+
+        background.SetAsFirstSibling();
+        midground.SetAsFirstSibling();
+        foreground.SetAsFirstSibling();
+    }
 }
 
 public enum EnumLocation : int
@@ -146,15 +175,4 @@ public enum EnumLocation : int
     POTTING_YARD,
     SPRING,
     SIZE
-}
-
-//Modifiers that might change how the location looks.
-//Should use the flag bank maybe. Gotta talk to Karim about that
-public enum EnumLocationModifier : int
-{
-    MORNING,
-    EVENING,
-    NIGHT,
-    //FIRE,
-    //etc
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WorldDepthFromHeight : MonoBehaviour
 {
-    [SerializeField] private GameObject worldContainer = null;
+    [SerializeField] private GameObject container = null;
     [SerializeField] private List<GameObject> affectedObjects = new List<GameObject>();
     [SerializeField] [Range(-0.0001f, -0.01f)] private float depthScaleOffset = -0.005f;
     [SerializeField] [Range(0.7f, 10.0f)] private float depthHeightOffset = 1.0f;
@@ -24,7 +24,7 @@ public class WorldDepthFromHeight : MonoBehaviour
 
     public void UpdateDepth()
     {
-        if (worldContainer != null)
+        if (container != null)
         {
             Sort();
         }
