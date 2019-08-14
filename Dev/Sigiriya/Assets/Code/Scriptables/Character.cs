@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 //Can be used to create new Characters by designers or artists.
-[CreateAssetMenu (fileName = "New Character", menuName = "Character")]
+[Serializable]
+[CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class Character : ScriptableObject
 {
     //  - traits
@@ -24,6 +26,7 @@ public class Character : ScriptableObject
 
     public List<SubTrait> rawSubTraits = new List<SubTrait> ();
 
+    public List<CharacterTransform> characterTransforms = new List<CharacterTransform>();
 
     /////////////////////////////////////////////
     // This is the stuff we access in code
