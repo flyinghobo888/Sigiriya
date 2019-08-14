@@ -52,7 +52,7 @@ public class TransformSaver : MonoBehaviour
             AssetDatabase.CreateAsset(charTransform, CHAR_PATH + transformName + "/" + transformName + ".asset");
 
             //Bind the character transform scriptable object to the character scriptable object
-            characterToBind.characterTransforms.Add(charTransform);
+            characterToBind.CharacterTransforms.Add(charTransform);
 
             transformsToSave = null;
             characterTransform = null;

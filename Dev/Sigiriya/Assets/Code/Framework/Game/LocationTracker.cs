@@ -25,6 +25,17 @@ public class LocationTracker : ManagerBase<LocationTracker>
     [SerializeField] private Fade locationFadeRef = null;
     [SerializeField] private Button endOfDayButton = null;
 
+    [SerializeField] private Parallax testBackground = null;
+
+    private void OnValidate()
+    {
+        if (testBackground)
+        {
+            BackgroundController = GetComponent<ParallaxController>();
+            BackgroundController.SetBackground(testBackground);
+        }
+    }
+
     private void Awake()
     {
         BackgroundController = GetComponent<ParallaxController>();
@@ -39,6 +50,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
     {
         EventAnnouncer.OnRequestLocationChange += ChangeLocation;
         EventAnnouncer.OnEndFadeIn += GoToNextLocation;
+        EventAnnouncer.OnRequestCharacterScheduleUpdate += CharacterScheduleUpdate;
 
         EventAnnouncer.OnDayIsStarting += StartOfDay;
     }
@@ -47,6 +59,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
     {
         EventAnnouncer.OnRequestLocationChange -= ChangeLocation;
         EventAnnouncer.OnEndFadeIn -= GoToNextLocation;
+        EventAnnouncer.OnRequestCharacterScheduleUpdate -= CharacterScheduleUpdate;
 
         EventAnnouncer.OnDayIsStarting -= StartOfDay;
     }
@@ -167,6 +180,14 @@ public class LocationTracker : ManagerBase<LocationTracker>
     {
         endOfDayButton.gameObject.SetActive(showButton);
     }
+
+    public void CharacterScheduleUpdate()
+    {
+        foreach (KeyValuePair<EnumLocation, LocationController> locationPair in locationControllers)
+        {
+            locationPair.Value.ResetCharacterSlots();
+        }
+    }
 }
 
 public enum EnumLocation : int
@@ -180,5 +201,6 @@ public enum EnumLocation : int
     VILLAGE_CENTER,
     POTTING_YARD,
     SPRING,
-    SIZE
+    SIZE = 9,
+    NOT_PRESENT
 }

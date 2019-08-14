@@ -29,7 +29,13 @@ public class WorldCharacterHandler : MonoBehaviour
 
     private void Start()
     {
-        SetCharacter(resetConvo);
+        //SetCharacter(resetConvo);
+    }
+
+    public void SetCharacter(Character character, bool resetCharactersInConvo)
+    {
+        characterInfo = character;
+        SetCharacter(resetCharactersInConvo);
     }
 
     public void SetCharacter(bool resetCharactersInConvo)
@@ -41,16 +47,16 @@ public class WorldCharacterHandler : MonoBehaviour
                 gameObject.SetActive(true);
 
                 //TODO: For now. In the future we can decide how we want to pick the transforms.
-                if (characterInfo.characterTransforms.Count > 0)
+                if (characterInfo.CharacterTransforms.Count > 0)
                 {
-                    ApplyCharacterTransform(characterInfo.characterTransforms[0]);
+                    ApplyCharacterTransform(characterInfo.CharacterTransforms[0]);
                 }
                 else
                 {
                     Debug.LogWarning("Cannot update transforms. This object does not have any.");
                 }
 
-                button.GetComponent<Image>().sprite = characterInfo.defaultSprite;
+                button.GetComponent<Image>().sprite = characterInfo.DefaultSprite;
                 buttonInfoScript = GetComponent<ButtonInfo>();
 
                 if (resetCharactersInConvo)
@@ -60,8 +66,9 @@ public class WorldCharacterHandler : MonoBehaviour
             }
             else
             {
-                gameObject.SetActive(false);
                 SetCharctersInConvo(null);
+                gameObject.SetActive(false);
+                //button.GetComponent<Image>().sprite = null;
             }
         }
         else
@@ -81,7 +88,7 @@ public class WorldCharacterHandler : MonoBehaviour
         {
             if (c.GetInstanceID() == character.GetInstanceID())
             {
-                Debug.LogWarning("Character: " + character.characterName + " is already in this conversation.");
+                Debug.LogWarning("Character: " + character.CharacterName + " is already in this conversation.");
                 return;
             }
         }

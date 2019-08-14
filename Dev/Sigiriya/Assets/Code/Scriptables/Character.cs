@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 //Can be used to create new Characters by designers or artists.
-[Serializable]
 [CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class Character : ScriptableObject
 {
@@ -17,22 +15,32 @@ public class Character : ScriptableObject
 
     //This is the stuff implemented by the designers/artists
 
-    public string characterName;
-    public Sprite defaultSprite;
+    public string CharacterName;
+    public Sprite DefaultSprite;
 
-    public List<EnumExpression> rawExpressionOrder = new List<EnumExpression> ();
-    public List<Sprite> rawExpressions = new List<Sprite> ();
-    public List<Sprite> rawTalkExpressions = new List<Sprite> ();
-
-    public List<SubTrait> rawSubTraits = new List<SubTrait> ();
-
-    public List<CharacterTransform> characterTransforms = new List<CharacterTransform>();
+    [Header("List of possible expressions")]
+    public List<EnumExpression> RawExpressionOrder = new List<EnumExpression> ();
+    [Space]
+    [Header("List of expression images (keep same order!)")]
+    public List<Sprite> RawExpressions = new List<Sprite> ();
+    [Space]
+    [Header("List of talk expression images(keep same order!)")]
+    public List<Sprite> RawTalkExpressions = new List<Sprite> ();
+    [Space]
+    //public List<SubTrait> RawSubTraits = new List<SubTrait> ();
+    [Header("Character transforms for in the world")]
+    public List<CharacterTransform> CharacterTransforms = new List<CharacterTransform>();
+    [Space]
+    [Header("Schedules")]
+    public Schedule MorningSchedule;
+    public Schedule MiddaySchedule;
+    public Schedule NightSchedule;
 
     /////////////////////////////////////////////
     // This is the stuff we access in code
 
-    private HashSet<SubTrait> subTraits = new HashSet<SubTrait> ();
-    private HashSet<SuperTrait> superTraits;
+    //private HashSet<SubTrait> subTraits = new HashSet<SubTrait> ();
+    //private HashSet<SuperTrait> superTraits;
 
     private Dictionary<EnumExpression, Sprite> expressions = new Dictionary<EnumExpression, Sprite> ();
     private Dictionary<EnumExpression, Sprite> talkExpressions = new Dictionary<EnumExpression, Sprite> ();
@@ -49,46 +57,46 @@ public class Character : ScriptableObject
 
     public void InitCharacter()
     {
-        RegisterSubTraits ();
-        RegisterSuperTraits ();
+        //RegisterSubTraits ();
+        //RegisterSuperTraits ();
         MoodController.Instance.RegisterMoodTracker (this, MoodTracker);
         InitSprites ();
     }
 
-    private void RegisterSubTraits()
-    {
-        subTraits.Clear ();
-        foreach (SubTrait trait in rawSubTraits)
-        {
-            if (!subTraits.Add (trait))
-            {
-                Debug.Log ("Sub Trait: " + trait.traitName + " is already registered.");
-            }
-        }
-    }
+    //private void RegisterSubTraits()
+    //{
+    //    subTraits.Clear ();
+    //    foreach (SubTrait trait in RawSubTraits)
+    //    {
+    //        if (!subTraits.Add (trait))
+    //        {
+    //            Debug.Log ("Sub Trait: " + trait.traitName + " is already registered.");
+    //        }
+    //    }
+    //}
 
-    private void RegisterSuperTraits()
-    {
-        superTraits = TraitController.Instance.GetSuperTraits (in subTraits);
+    //private void RegisterSuperTraits()
+    //{
+    //    superTraits = TraitController.Instance.GetSuperTraits (in subTraits);
 
-        Debug.Log ("Super Traits for: " + characterName);
-        foreach (SuperTrait superTrait in superTraits)
-        {
-            Debug.Log ("Trait: " + superTrait);
-        }
-    }
+    //    Debug.Log ("Super Traits for: " + CharacterName);
+    //    foreach (SuperTrait superTrait in superTraits)
+    //    {
+    //        Debug.Log ("Trait: " + superTrait);
+    //    }
+    //}
 
     //In the future I want to make a node graph for this.
     private void InitSprites()
     {
         bool fail = false;
-        if (rawExpressionOrder.Count != rawExpressions.Count)
+        if (RawExpressionOrder.Count != RawExpressions.Count)
         {
             Debug.Log ("Make sure there are the correct amount of expression sprites for the ordering.");
             fail = true;
         }
 
-        if (rawExpressionOrder.Count != rawTalkExpressions.Count)
+        if (RawExpressionOrder.Count != RawTalkExpressions.Count)
         {
             Debug.Log ("Make sure there are the correct amount of TALK expression sprites for the ordering.");
             fail = true;
@@ -100,14 +108,14 @@ public class Character : ScriptableObject
         if (fail)
             return;
 
-        for (int i = 0 ; i < rawExpressions.Count ; ++i)
+        for (int i = 0 ; i < RawExpressions.Count ; ++i)
         {
-            expressions.Add (rawExpressionOrder [i], rawExpressions [i]);
+            expressions.Add (RawExpressionOrder [i], RawExpressions [i]);
         }
 
-        for (int i = 0 ; i < rawTalkExpressions.Count ; ++i)
+        for (int i = 0 ; i < RawTalkExpressions.Count ; ++i)
         {
-            talkExpressions.Add (rawExpressionOrder [i], rawTalkExpressions [i]);
+            talkExpressions.Add (RawExpressionOrder [i], RawTalkExpressions [i]);
         }
     }
 
@@ -135,12 +143,26 @@ public class Character : ScriptableObject
         }
 
         Debug.Log ("COULDN'T FIND SPRITE FOR EXPRESSION: " + expression + ". Returning default sprite.");
-        return defaultSprite;
+        return DefaultSprite;
     }
 
     public Sprite GetDefaultSprite()
     {
-        return defaultSprite;
+        return DefaultSprite;
+    }
+
+    public Schedule GetSchedule(EnumTime timeOfDay)
+    {
+        switch (timeOfDay)
+        {
+            case EnumTime.MORNING:
+                return MorningSchedule;
+            case EnumTime.MIDDAY:
+                return MiddaySchedule;
+            case EnumTime.NIGHT:
+            default:
+                return NightSchedule;
+        }
     }
 
     //These can be changed, just took from the art names.

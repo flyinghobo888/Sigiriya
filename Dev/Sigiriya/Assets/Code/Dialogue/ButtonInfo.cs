@@ -67,7 +67,7 @@ public class ButtonInfo : MonoBehaviour
 
 	public void EnableCurrNode()
 	{
-		DialogueController.Instance.EnableCurrNode(characterhandle.CharactersInConvo);
+        DialogueController.Instance.EnableCurrNode(characterhandle.CharactersInConvo);
 		//DialogueController.Instance.EnableCurrNode(dialogueGraph);
 	}
 

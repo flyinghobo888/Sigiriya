@@ -7,7 +7,11 @@ public class LocationController : MonoBehaviour
 {
     [SerializeField] private Location locationData;
     public Location LocationData { get => locationData; private set { locationData = value; } }
-
+    [Space]
+    [SerializeField] private List<WorldCharacterHandler> characterSlotsInLocation;
+    public List<WorldCharacterHandler> CharacterSlotsInLocation { get => characterSlotsInLocation; private set { characterSlotsInLocation = value; } }
+    private List<WorldCharacterHandler> openCharacterSlots = new List<WorldCharacterHandler>();
+    [Space]
     //public RectTransform WorldContainer = null;
     public RectTransform BG = null;
     public RectTransform MG = null;
@@ -36,13 +40,13 @@ public class LocationController : MonoBehaviour
     public void StartOfDay()
     {
         HasEndOfDayHappened = false;
-        EnableCharacters(true);
+        //EnableCharacters(true);
     }
 
     private void EndOfDay()
     {
         HasEndOfDayHappened = true;
-        EnableCharacters(false);
+        DisableCharacters();
     }
 
     private void UpdateLocationOnLeave(EnumLocation prevLocation, EnumLocation targetLocation, bool shouldFade)
@@ -89,14 +93,14 @@ public class LocationController : MonoBehaviour
 
     //Figure something out now that we use a world container.
     //Maybe move all the items to another container while we disable the characters.
-    private void EnableCharacters(bool shouldEnable)
+    private void DisableCharacters()
     {
-        EnableCharacters(shouldEnable, BG);
-        EnableCharacters(shouldEnable, MG);
-        EnableCharacters(shouldEnable, FG);
+        DisableCharacters(BG);
+        DisableCharacters(MG);
+        DisableCharacters(FG);
     }
 
-    private void EnableCharacters(bool shouldEnable, RectTransform layer)
+    private void DisableCharacters(RectTransform layer)
     {
         Transform[] characters = layer.GetComponentsInChildren<Transform>(true);
 
@@ -104,8 +108,45 @@ public class LocationController : MonoBehaviour
         {
             if (child.gameObject.tag == "Character")
             {
-                child.gameObject.SetActive(shouldEnable);
+                child.gameObject.SetActive(false);
             }
+        }
+    }
+
+    public bool SetRandomCharacterSlot(Character character, bool resetCharactersInConvo)
+    {
+        if (IsCharacterSlotAvailable())
+        {
+            int rand = Random.Range(0, openCharacterSlots.Count);
+            WorldCharacterHandler slot = openCharacterSlots[rand];
+            openCharacterSlots.RemoveAt(rand);
+
+            slot.SetCharacter(character, resetCharactersInConvo);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool IsCharacterSlotAvailable()
+    {
+        return openCharacterSlots.Count > 0;
+    }
+
+    public void ResetCharacterSlots()
+    {
+        foreach (WorldCharacterHandler characterSlot in CharacterSlotsInLocation)
+        {
+            characterSlot.SetCharacter(null, true);
+        }
+
+        openCharacterSlots.Clear();
+
+        for (int i = 0; i < CharacterSlotsInLocation.Count; ++i)
+        {
+            openCharacterSlots.Add(CharacterSlotsInLocation[i]);
         }
     }
 }
