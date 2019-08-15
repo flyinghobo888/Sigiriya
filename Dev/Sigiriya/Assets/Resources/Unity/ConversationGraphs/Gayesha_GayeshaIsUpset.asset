@@ -3014,8 +3014,7 @@ MonoBehaviour:
   location: 00000000
   neededFlags: 00000000
   timeOfDay: 0000000001000000
-  dependantConversation:
-  - {fileID: 0}
+  dependantConversation: []
   isDone: 0
 --- !u!114 &218903407326004870
 MonoBehaviour:
@@ -5774,7 +5773,7 @@ MonoBehaviour:
   min: 0
   hr: 0
   dys: 0
-  isVisited: 1
+  isVisited: 0
   isNoReturn: 0
   newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}

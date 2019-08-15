@@ -97,6 +97,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &-8623336958586062524
 MonoBehaviour:
@@ -238,6 +239,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-7696659901896471111
 MonoBehaviour:
@@ -403,6 +405,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-6262712719261425446
 MonoBehaviour:
@@ -600,6 +603,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2776223817492410119
 MonoBehaviour:
@@ -701,6 +705,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2136970363682641902
 MonoBehaviour:
@@ -915,6 +920,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &-1509289189289372960
 MonoBehaviour:
@@ -1234,7 +1240,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
   location: 
   neededFlags: 
-  timeOfDay: 04000000
+  timeOfDay: 
   dependantConversation: []
   isDone: 0
 --- !u!114 &1095107695860129400
@@ -1393,6 +1399,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1490662240387105165
 MonoBehaviour:
@@ -1730,6 +1737,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3237021923938414974
 MonoBehaviour:
@@ -1829,6 +1837,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &3343830135632978248
 MonoBehaviour:
@@ -2133,6 +2142,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &7749184777036221148
 MonoBehaviour:
@@ -2259,4 +2269,5 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 1, g: 0, b: 0, a: 1}
