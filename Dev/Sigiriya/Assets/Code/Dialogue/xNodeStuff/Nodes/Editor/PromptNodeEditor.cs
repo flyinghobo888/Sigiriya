@@ -44,8 +44,9 @@ public class PromptNodeEditor : NodeEditor
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("isNoReturn"), new GUIContent("No Return"));
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("speaker"), new GUIContent("Speaker"));
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("newStance"), new GUIContent("newStance"));
 
-        //TODO: Change this to only display the valid expressions for the current speaker.
+		//TODO: Change this to only display the valid expressions for the current speaker.
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("expression"), new GUIContent("Expression"));
 
 		GUILayout.BeginVertical();

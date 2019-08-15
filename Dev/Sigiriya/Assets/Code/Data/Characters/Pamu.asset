@@ -12,17 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
   m_Name: Pamu
   m_EditorClassIdentifier: 
-  characterName: Pamu
-  defaultSprite: {fileID: 21300000, guid: 60cc5e31d2902f24da03d5e4ef100b03, type: 3}
-  rawExpressionOrder: 01000000030000000e00000011000000
-  rawExpressions:
+  CharacterName: Pamu
+  DefaultSprite: {fileID: 21300000, guid: 60cc5e31d2902f24da03d5e4ef100b03, type: 3}
+  RawExpressionOrder: 01000000030000000e00000011000000
+  RawExpressions:
   - {fileID: 21300000, guid: ec40e8389fc7d264abe6d4f6b6896fd3, type: 3}
   - {fileID: 21300000, guid: 7ce8e25f3cfe0934fb8c5159a2802422, type: 3}
   - {fileID: 21300000, guid: 60cc5e31d2902f24da03d5e4ef100b03, type: 3}
   - {fileID: 21300000, guid: 1f2bbb74931983945a9888acb2a9f99a, type: 3}
-  rawTalkExpressions:
+  RawTalkExpressions:
   - {fileID: 21300000, guid: dbc9dee6634bc664bb4cf9beaa7a54b7, type: 3}
   - {fileID: 21300000, guid: 0733533cb1391154288013f7236428fa, type: 3}
   - {fileID: 21300000, guid: d05f6b5023816f64488bb3d7b10dfb82, type: 3}
   - {fileID: 21300000, guid: 7d827881d0729e740a8bbaa0aab07e3d, type: 3}
-  rawSubTraits: []
+  CharacterTransforms: []
+  MorningSchedule: {fileID: 11400000, guid: 79eedce872be2704299ef96c0cb33109, type: 2}
+  MiddaySchedule: {fileID: 11400000, guid: 33f4a78c30b77584997b1079604fa0db, type: 2}
+  NightSchedule: {fileID: 11400000, guid: fa09f463a6a91dd429ede3503c2c4e64, type: 2}
+  stance:
+  - {fileID: 11400000, guid: 6ed5d9495343f1a44b75e0984da2f3ec, type: 2}

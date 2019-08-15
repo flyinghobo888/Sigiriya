@@ -14,13 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Chamara
   DefaultSprite: {fileID: 21300000, guid: 4b9e7b61f1509884dabad9cd59252e06, type: 3}
-  RawExpressionOrder: 0e000000
+  RawExpressionOrder: 0000000001000000020000000e0000001300000016000000
   RawExpressions:
+  - {fileID: 21300000, guid: 074af81a701bc8842bcd741843a5b298, type: 3}
+  - {fileID: 21300000, guid: eded05c59609b594087e058eb8b8080f, type: 3}
+  - {fileID: 21300000, guid: 4beadea440d4b9c4a932ad3f578c9c70, type: 3}
   - {fileID: 21300000, guid: 4b9e7b61f1509884dabad9cd59252e06, type: 3}
+  - {fileID: 21300000, guid: 4f003a22879104f4f9fbfc9a12311d1f, type: 3}
+  - {fileID: 21300000, guid: 0c8cabc693d6c92478ba9d19da5630d4, type: 3}
   RawTalkExpressions:
+  - {fileID: 21300000, guid: 6afada3799ebadd4eb95227b147451e5, type: 3}
+  - {fileID: 21300000, guid: d6b473a457b4d754580b9cb9a40fc1ef, type: 3}
+  - {fileID: 21300000, guid: a576aea6710bf08429bfcfea094d3ce6, type: 3}
   - {fileID: 21300000, guid: 210aa5d4b5a3a9847b6a11ec1acf772e, type: 3}
-  CharacterTransforms:
-  - {fileID: 11400000, guid: 34eb0980e5f06974aa6ec2992e865c84, type: 2}
+  - {fileID: 21300000, guid: c078f6274e650154e910d1146818b855, type: 3}
+  - {fileID: 21300000, guid: f977030e229a094438111ed6be463285, type: 3}
+  CharacterTransforms: []
   MorningSchedule: {fileID: 11400000, guid: 54e9f268578837540afe85723318bb49, type: 2}
   MiddaySchedule: {fileID: 11400000, guid: 6c3116b295205644ab2f2122e8858a30, type: 2}
   NightSchedule: {fileID: 11400000, guid: a835095939eec0b43a75a0b61e1204bd, type: 2}
+  stance:
+  - {fileID: 11400000, guid: 75df7e0b980e817448485ed5d9e678d7, type: 2}

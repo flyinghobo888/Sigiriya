@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(255,0,183)]
-[CreateNodeMenu("Sigiriya/Label")]
+[CreateNodeMenu("A Label")]
 public class Label : Node
 {
 	public string label;

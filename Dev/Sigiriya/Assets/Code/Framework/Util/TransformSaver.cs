@@ -41,18 +41,20 @@ public class TransformSaver : MonoBehaviour
                     ObjectTransform objTransform = ScriptableObject.CreateInstance<ObjectTransform>();
                     objTransform.Init(t);
 
-                    //Create the object transform scriptable object
-                    AssetDatabase.CreateAsset(objTransform, CHAR_PATH + transformName + "/Object/" + transformName + "_" + t.tag + ".asset");
-
-                    charTransform.AddObject(objTransform);
+#if UNITY_EDITOR
+					//Create the object transform scriptable object
+					AssetDatabase.CreateAsset(objTransform, CHAR_PATH + transformName + "/Object/" + transformName + "_" + t.tag + ".asset");
+#endif
+					charTransform.AddObject(objTransform);
                 }
             }
 
-            //Create the character transform scriptable object
-            AssetDatabase.CreateAsset(charTransform, CHAR_PATH + transformName + "/" + transformName + ".asset");
-
-            //Bind the character transform scriptable object to the character scriptable object
-            characterToBind.CharacterTransforms.Add(charTransform);
+			//Create the character transform scriptable object
+#if UNITY_EDITOR
+			AssetDatabase.CreateAsset(charTransform, CHAR_PATH + transformName + "/" + transformName + ".asset");
+#endif
+			//Bind the character transform scriptable object to the character scriptable object
+			characterToBind.CharacterTransforms.Add(charTransform);
 
             transformsToSave = null;
             characterTransform = null;

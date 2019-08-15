@@ -142,6 +142,17 @@ public class DialogueController : ManagerBase<DialogueController>
                 responseButtons[i].gameObject.SetActive(false);
             }
 
+			if (pNode.newStance != "" && pNode.speaker != null)
+			{
+				foreach (Stance stance in pNode.speaker.stance)
+				{
+					if (stance.stanceNames.Contains(pNode.newStance))
+					{
+						stance.SetStance(pNode.newStance);
+					}
+				}
+			}
+
 			continueButton.gameObject.SetActive(true);
 		}
 		else if(node != null && node.GetType() == typeof(ResponseNode))
