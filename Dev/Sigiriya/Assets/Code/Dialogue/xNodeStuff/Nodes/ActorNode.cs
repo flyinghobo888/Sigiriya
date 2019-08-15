@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[CreateNodeMenu("ActorNode")]
 public class ActorNode : BaseNode
 {
 	//[Input] BaseNode input;

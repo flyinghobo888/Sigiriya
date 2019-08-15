@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[CreateNodeMenu("Event/FlagNode")]
 public class FlagNode : BaseNode
 {
 	public FlagBank.Flags throwFlag;

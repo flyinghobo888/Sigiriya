@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-[CreateNodeMenu("Sigiriya/Dialogue/PromptNode")]
+[CreateNodeMenu("Dialogue/PromptNode")]
 public class PromptNode : BaseNode
 {
 	[Output(instancePortList = true, connectionType = ConnectionType.Override)] public List<BaseNode> responses = new List<BaseNode>();

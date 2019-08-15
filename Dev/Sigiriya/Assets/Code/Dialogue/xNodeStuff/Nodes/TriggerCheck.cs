@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(46, 217, 125)]
-[CreateNodeMenu("Sigiriya/Logic/TriggerCheck")]
+[CreateNodeMenu("Logic/TriggerCheck")]
 public class TriggerCheck : Node
 {
 	[Output] public bool result;

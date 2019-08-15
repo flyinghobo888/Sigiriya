@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-[CreateNodeMenu("Sigiriya/Dialogue/ResponseBranch")]
+[CreateNodeMenu("Dialogue/ResponseBranch")]
 public class ResponseBranchNode : BaseNode
 {
 	[Output(instancePortList = true, connectionType = ConnectionType.Override)] public List<BaseNode> responses = new List<BaseNode>();

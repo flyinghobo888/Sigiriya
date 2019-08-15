@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(46, 217, 125)]
-[CreateNodeMenu("Sigiriya/Logic/StanceCheck")]
+[CreateNodeMenu("Logic/StanceCheck")]
 public class StanceCheck : Node
 {
 	public Stance stance;

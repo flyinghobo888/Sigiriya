@@ -50,7 +50,7 @@ public class TaskManager : ManagerBase<TaskManager>
 			taskList[i].InitTask();
 		}
 
-		EventAnnouncer.OnThrowFlag += UpdateTasks;
+		//EventAnnouncer.OnThrowFlag += UpdateTasks;
 		UpdateTaskDisplay();
 	}
 
@@ -58,7 +58,7 @@ public class TaskManager : ManagerBase<TaskManager>
 	{
 		if (!taskList.Contains(newTask))
 		{
-			Debug.Log(newTask.taskName);
+			Debug.Log(newTask.name);
 			taskList.Add(newTask);
 		}
 	}
@@ -67,16 +67,18 @@ public class TaskManager : ManagerBase<TaskManager>
 	{
 		taskList.Add(editorAllTasks[0]);
 		UpdateTaskDisplay();
+		UpdateTasks();
 	}
 #endif
 	public void RemoveTask(Task oldTask)
 	{
 		if (taskList.Contains(oldTask))
 		{
-			Debug.Log(oldTask.taskName);
+			Debug.Log(oldTask.name);
 			taskList.Remove(oldTask);
 		}
 	}
+#if UNITY_EDITOR
 	public void RemoveTaskTest() //TEST FUNCTION
 	{
 		if (taskList.Count != 0)
@@ -85,73 +87,28 @@ public class TaskManager : ManagerBase<TaskManager>
 			UpdateTaskDisplay();
 		}
 	}
+#endif
 
-	public void UpdateTasks(FlagBank.Flags flag)
+	/// <summary>
+	/// Updates the tasks recursivly, as well as the UI at the same time
+	/// </summary>
+	public void UpdateTasks()
 	{
 		allTasksComplete = true;
 
 		for (int i = 0; i < taskList.Count; i++)
 		{
-			taskList[i].UpdateTask(flag);
+			taskList[i].UpdateTask();
 
 			if (!taskList[i].isTaskComplete)
 			{
 				allTasksComplete = false;
 			}
 		}
-
-		//CheckTasks();
-		//UpdateTaskDisplay();
 	}
-
-	//public void CheckTasks()
-	//{
-	//	if (taskList.Count <= 0)
-	//	{
-	//		return;
-	//	}
-	//
-	//	allTasksComplete = true;
-	//	for (int i = 0; i < taskList.Count; i++)
-	//	{
-	//		//taskList[i].CheckTaskRequirements();
-	//		if (!taskList[i].isTaskComplete)
-	//		{
-	//			allTasksComplete = false;
-	//		}
-	//	}
-	//}
 
 	void UpdateTaskDisplay()
 	{
-		//int numChild = taskContainer.transform.childCount;
-		//while (taskList.Count > numChild)
-		//{
-		//	GameObject taskUI = Instantiate(taskUIReference) as GameObject;
-		//
-		//	taskUI.transform.SetParent(taskContainer.transform);
-		//	taskUIList.Add(taskUI);
-		//
-		//	numChild++;
-		//}
-		//if (taskList.Count < numChild)
-		//{
-		//	while (taskUIList.Count > taskList.Count)
-		//	{
-		//		GameObject taskUI = taskUIList[taskUIList.Count - 1];
-		//		taskUIList.Remove(taskUI);
-		//
-		//		Destroy(taskUI);
-		//	}
-		//}
-		//
-		//for (int i = 0; i < taskUIList.Count; i++)
-		//{
-		//	TaskUIInfo taskInfo = taskUIList[i].GetComponent<TaskUIInfo>();
-		//
-		//	taskInfo.task = taskList[i];
-		//	taskInfo.UpdateTaskUI();
-		//}
 		foreach (Task task in taskList)
 		{
 			task.CreateUIElement(this.gameObject, taskUIReference);

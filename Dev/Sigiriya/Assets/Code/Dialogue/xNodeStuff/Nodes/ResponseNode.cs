@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(189, 169, 30)]
-[CreateNodeMenu("Sigiriya/Dialogue/Response")]
+[CreateNodeMenu("Dialogue/Response")]
 public class ResponseNode : BaseNode
 {
 	[Input(typeConstraint = TypeConstraint.Strict)] ResponseNode promptInput;

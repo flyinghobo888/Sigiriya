@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(46, 217, 125)]
-[CreateNodeMenu("Sigiriya/Logic/Access Count")]
+[CreateNodeMenu("Logic/Access Count")]
 public class AccessCount : Node
 {
 	[Output] public bool result;

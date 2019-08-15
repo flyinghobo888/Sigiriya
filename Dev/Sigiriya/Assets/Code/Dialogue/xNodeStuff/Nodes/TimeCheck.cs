@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 [NodeTint(46, 217, 125)]
-[CreateNodeMenu("Sigiriya/Logic/TimeCheck")]
+[CreateNodeMenu("Logic/TimeCheck")]
 public class TimeCheck : Node
 {
 	[Output] public bool result;

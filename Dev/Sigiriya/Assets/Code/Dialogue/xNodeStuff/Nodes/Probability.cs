@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(46, 217, 125)]
-[CreateNodeMenu("Sigiriya/Logic/Probability")]
+[CreateNodeMenu("Logic/Probability")]
 public class Probability : Node {
 
 	[Input(typeConstraint = TypeConstraint.Strict)] public bool arg1;
