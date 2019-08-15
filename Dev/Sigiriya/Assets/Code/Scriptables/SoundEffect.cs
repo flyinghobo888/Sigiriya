@@ -17,5 +17,15 @@ public class SoundEffect : ScriptableObject
 
 public enum EnumSound
 {
-    BUTTON_PRESS
+    BUTTON_PRESS,
+    DIALOGUE_ANNOYED,
+    DIALOGUE_NEUTRAL,
+    DIALOGUE_SMILE,
+    DIALOGUE_SURPRISE,
+    DIALOGUE_FLUSTERED,
+    MUSIC_MAIN,
+    MUSIC_MENU,
+    TACT_INT_CHOP,
+    TACT_INT_POUR,
+    TACT_INT_SHAKE,
 }
