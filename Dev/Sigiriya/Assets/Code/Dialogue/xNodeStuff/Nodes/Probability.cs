@@ -5,28 +5,39 @@ using XNode;
 
 [NodeTint(46, 217, 125)]
 [CreateNodeMenu("Logic/Probability")]
-public class Probability : Node {
-
-	[Input(typeConstraint = TypeConstraint.Strict)] public bool arg1;
+public class Probability : Node
+{
+	[Input(instancePortList = true, connectionType = ConnectionType.Override)] public List<bool> args = new List<bool>();
 	[Output] public bool result;
 
-	public int probability = 50;
-	public int modVal;
+	public int baseProbability = 50;
+	public List<int> modVal;
+
+	public void UpdateModLength()
+	{
+		while (modVal.Count < this.args.Count)
+		{
+			int num = 0;
+			modVal.Add(num);
+		}
+		int i = modVal.Count;
+		while (modVal.Count > this.args.Count)
+		{
+			modVal.RemoveAt(--i);
+		}
+	}
 
 	// Return the correct value of an output port when requested
 	public override object GetValue(NodePort port)
 	{
-		bool arg1 = GetInputValue<bool>("arg1", this.arg1);
+		int calcProb = baseProbability;
 
-		int calcProb = 0;
-
-		if (arg1)
+		for (int i = 0; i < this.args.Count; i++)
 		{
-			calcProb = probability + modVal;
-		}
-		else
-		{
-			calcProb = probability;
+			if (GetInputValue<bool>("args " + i, this.args[i]))
+			{
+				calcProb += modVal[i];
+			}
 		}
 
 		int num = Random.Range(0, 101);

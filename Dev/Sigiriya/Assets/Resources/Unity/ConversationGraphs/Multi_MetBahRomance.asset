@@ -100,6 +100,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-4753882880138587165
 MonoBehaviour:
@@ -201,6 +202,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-4300709254087827818
 MonoBehaviour:
@@ -341,6 +343,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-3588592875055159397
 MonoBehaviour:
@@ -467,6 +470,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-3531060388740170679
 MonoBehaviour:
@@ -568,6 +572,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-3415891810668469655
 MonoBehaviour:
@@ -669,6 +674,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-3030256227528500710
 MonoBehaviour:
@@ -770,6 +776,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2793323315140255730
 MonoBehaviour:
@@ -873,6 +880,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2694749551419995285
 MonoBehaviour:
@@ -974,6 +982,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 1
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2647864101907513132
 MonoBehaviour:
@@ -1148,6 +1157,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-1553425316801778051
 MonoBehaviour:
@@ -1249,6 +1259,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-1203464878282838704
 MonoBehaviour:
@@ -1389,6 +1400,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-911778154444301561
 MonoBehaviour:
@@ -1490,6 +1502,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-608373948144187714
 MonoBehaviour:
@@ -1591,6 +1604,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -1649,7 +1663,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e2c96fe1788cf924e98be01f4b03715b, type: 2}
   location: 01000000
   neededFlags: 
-  timeOfDay: 04000000
+  timeOfDay: 
   dependantConversation: []
   isDone: 0
 --- !u!114 &149001023094750934
@@ -1749,6 +1763,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &493548167526890401
 MonoBehaviour:
@@ -1896,6 +1911,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1150930005488550316
 MonoBehaviour:
@@ -1997,6 +2013,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1956907801940936705
 MonoBehaviour:
@@ -2174,6 +2191,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3178111211423282258
 MonoBehaviour:
@@ -2277,6 +2295,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3399092192094383419
 MonoBehaviour:
@@ -2451,6 +2470,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &3967820169202130254
 MonoBehaviour:
@@ -2577,6 +2597,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &4268522990276001697
 MonoBehaviour:
@@ -2678,6 +2699,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &4671244728182597996
 MonoBehaviour:
@@ -2781,6 +2803,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &5587133992215450850
 MonoBehaviour:
@@ -2882,6 +2905,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &6054622743942130889
 MonoBehaviour:
@@ -2983,6 +3007,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &6088763379284462032
 MonoBehaviour:
@@ -3095,6 +3120,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &6390416101944858206
 MonoBehaviour:
@@ -3196,6 +3222,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &7541586457206967204
 MonoBehaviour:
@@ -3297,6 +3324,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &7679226050099264869
 MonoBehaviour:
@@ -3544,6 +3572,7 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &8324618497146926318
 MonoBehaviour:
@@ -3645,4 +3674,5 @@ MonoBehaviour:
   dys: 0
   isVisited: 0
   isNoReturn: 0
+  newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
