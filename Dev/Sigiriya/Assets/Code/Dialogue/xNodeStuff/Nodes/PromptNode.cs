@@ -12,7 +12,7 @@ public class PromptNode : BaseNode
 	[Output(connectionType = ConnectionType.Override)] public BaseNode checkpointConnection;
 	[Output(connectionType = ConnectionType.Override)] public BaseNode exitConnection;
 
-	[TextArea] public string prompt;
+	[TextArea(3,8)] public string prompt;
     public Character speaker;
 	public Character.EnumExpression expression;
 	public EnumMood mood;

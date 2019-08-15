@@ -10,7 +10,7 @@ public class ResponseNode : BaseNode
 	[Input(typeConstraint = TypeConstraint.Strict)] ResponseNode promptInput;
 	[Input(connectionType = ConnectionType.Override)] public bool isHidden;
 
-	public string textFull;
+	[TextArea(3, 8)] public string textFull;
 	public string textButton;
 	public AudioClip voiceClip;
 	public FlagBank.Flags throwFlag;
