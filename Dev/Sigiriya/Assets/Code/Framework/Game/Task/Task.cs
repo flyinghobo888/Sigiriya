@@ -126,7 +126,7 @@ public class Task : ScriptableObject
 		}
 		foreach (Task task in subTasks)
 		{
-			task.CreateUIElement(myUI , uiReference);
+			task.CreateUIElement(parentObject, uiReference);
 		}
 
 	}

@@ -66,6 +66,7 @@ public class TaskManager : ManagerBase<TaskManager>
 	public void AddTaskTest() //TEST FUNCTION
 	{
 		taskList.Add(editorAllTasks[0]);
+		editorAllTasks[0].InitTask();
 		UpdateTaskDisplay();
 		UpdateTasks();
 	}

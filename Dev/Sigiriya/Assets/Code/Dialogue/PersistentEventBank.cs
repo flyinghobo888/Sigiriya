@@ -14,6 +14,7 @@ public class PersistentEventBank : MonoBehaviour
 			eventFlags = new List<FlagBank.Flags>();
 		}
 		EventAnnouncer.OnThrowFlag += AddEvent;
+		//EventAnnouncer.OnKillFlag += RemoveEvent;
         EventAnnouncer.OnDialogueEnd += IncrementPeopleTalkedTo;
         PlayerPrefs.DeleteAll();
     }
@@ -52,7 +53,15 @@ public class PersistentEventBank : MonoBehaviour
 		//TaskManager.Instance.CheckTasks();
     }
 
-    private static void IncrementPeopleTalkedTo()
+	private static void RemoveEvent(FlagBank.Flags flag)
+	{
+		if (eventFlags.Contains(flag))
+		{
+			eventFlags.Remove(flag);
+		}
+	}
+
+	private static void IncrementPeopleTalkedTo()
     {
         //if (Managers.GameStateManager.Instance.CurrentTime == EnumTime.MORNING)
         //{
