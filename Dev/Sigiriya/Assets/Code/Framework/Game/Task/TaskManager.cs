@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class TaskManager : ManagerBase<TaskManager>
 {
 	[InspectorButton("AddTaskTest")]
-	public bool AddTaskButton = false;
+	public bool addTask = false;
 
 	[InspectorButton("RemoveTaskTest")]
-	public bool RemoveTaskButton = false;
+	public bool removeTask = false;
 
 	public List<Task> taskList;
 	//public List<TaskUI> taskUIList; //create a taskUI class //why did I need this? if you figure it out, replace var of same name
@@ -67,8 +67,8 @@ public class TaskManager : ManagerBase<TaskManager>
 	{
 		taskList.Add(editorAllTasks[0]);
 		editorAllTasks[0].InitTask();
-		UpdateTaskDisplay();
 		UpdateTasks();
+		UpdateTaskDisplay();
 	}
 #endif
 	public void RemoveTask(Task oldTask)
