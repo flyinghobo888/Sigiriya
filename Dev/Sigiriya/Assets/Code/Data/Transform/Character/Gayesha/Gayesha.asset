@@ -13,19 +13,13 @@ MonoBehaviour:
   m_Name: Gayesha
   m_EditorClassIdentifier: 
   Tag: Character
-  Position: {x: 0, y: 0, z: -89.923546}
+  Position: {x: 0, y: 0, z: 0}
   Rotation: {x: -0, y: -0, z: -0, w: 1}
   Scale: {x: 1, y: 1, z: 1}
   AnchorPosition: {x: 0, y: 0}
   AnchorMin: {x: 0, y: 0}
   AnchorMax: {x: 1, y: 1}
   Pivot: {x: 0.5, y: 0.5}
-  Rect:
-    serializedVersion: 2
-    x: -540
-    y: -959.99994
-    width: 1080
-    height: 1919.9999
   Mood: 0
   Children:
   - {fileID: 11400000, guid: 55b915f603e16424788587d53264d91a, type: 2}

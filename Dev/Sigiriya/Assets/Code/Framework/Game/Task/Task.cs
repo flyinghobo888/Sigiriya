@@ -16,7 +16,7 @@ using UnityEngine;
 public class Task : ScriptableObject
 {
 	//quick description
-	public string description;
+	[TextArea] public string description;
 
 	//Either a list of tasks, OR flags to complete this task
 	public List<Task> subTasks;
