@@ -16,6 +16,9 @@ MonoBehaviour:
   Background: {fileID: 21300000, guid: b06551444ff527440adf7e9459f93d19, type: 3}
   Midground: {fileID: 21300000, guid: b59d8e36ed3dc194f90f9af6f96be944, type: 3}
   Foreground: {fileID: 21300000, guid: 9e5cad34da792e54b9dea47f0cf01c0d, type: 3}
-  BackgroundSpeedMult: 1
-  MidgroundSpeedMult: 1
-  ForegroundSpeedMult: 1
+  BackgroundSpeedMult: 0.1
+  MidgroundSpeedMult: 0.2
+  ForegroundSpeedMult: 0.4
+  BackgroundScale: 1.03
+  MidgroundScale: 1.03
+  ForegroundScale: 1.03

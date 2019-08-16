@@ -16,6 +16,12 @@ public class Parallax : ScriptableObject
     [Range(0.1f, 3.0f)] public float BackgroundSpeedMult = 0.61f;
     [Range(0.1f, 3.0f)] public float MidgroundSpeedMult = 1.0f;
     [Range(0.1f, 3.0f)] public float ForegroundSpeedMult = 1.43f;
+
+	[Header("Scale stuff baby")]
+	[Range(1.0f, 3.0f)] public float BackgroundScale = 1.0f;
+	[Range(1.0f, 3.0f)] public float MidgroundScale = 1.0f;
+	[Range(1.0f, 3.0f)] public float ForegroundScale = 1.0f;
+
 }
 
 //Modifiers that might change how the location looks.
