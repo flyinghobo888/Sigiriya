@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbd913c1860269419536a7ffb19cb5a, type: 3}
+  m_Name: Pamu
+  m_EditorClassIdentifier: 
+  Tag: Character
+  Position: {x: -0.2999878, y: 0, z: -89.923546}
+  Rotation: {x: -0, y: -0, z: -0, w: 1}
+  Scale: {x: 1, y: 1, z: 1}
+  AnchorPosition: {x: -0.2999878, y: 0}
+  AnchorMin: {x: 0, y: 0}
+  AnchorMax: {x: 1, y: 1}
+  Pivot: {x: 0.5, y: 0.5}
+  Mood: 0
+  Children:
+  - {fileID: 11400000, guid: af510032cb25bcc419c8cb87cf607608, type: 2}
+  - {fileID: 11400000, guid: c5cb2e80c95c59d4e9375bfaedcd3af1, type: 2}
+  - {fileID: 11400000, guid: 473c3091e4727be42b478c1823b8d92b, type: 2}

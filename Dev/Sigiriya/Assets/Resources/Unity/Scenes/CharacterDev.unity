@@ -343,11 +343,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b67d5d717b609a40a0b70083e344e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterToBind: {fileID: 0}
-  characterTransform: {fileID: 0}
+  characterToBind: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  characterTransform: {fileID: 7735472056238097247}
   characterMood: 0
-  transformsToSave: []
-  transformName: 
+  transformsToSave:
+  - {fileID: 227113441997524788}
+  - {fileID: 2492806531356103184}
+  - {fileID: 4120026221670398918}
+  transformName: Suvik
 --- !u!1 &2002304688
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,10 +472,10 @@ RectTransform:
   m_Father: {fileID: 7735472056238097247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.20548151, y: 0.024350513}
-  m_AnchorMax: {x: 0.7345186, y: 0.105743736}
-  m_AnchoredPosition: {x: 2.278778, y: 16.579468}
-  m_SizeDelta: {x: -5.199997, y: 4.892}
+  m_AnchorMin: {x: 0.20263179, y: 0.021268306}
+  m_AnchorMax: {x: 0.84636825, y: 0.12516852}
+  m_AnchoredPosition: {x: -1.0534786, y: 11.579498}
+  m_SizeDelta: {x: -1.5, y: 5}
   m_Pivot: {x: 0.53563875, y: 3.5206962}
 --- !u!114 &861962457837983606
 MonoBehaviour:
@@ -668,17 +671,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528330584360107059}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7735472056238097247}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5748703}
-  m_AnchorMax: {x: 0.38422096, y: 0.75187033}
-  m_AnchoredPosition: {x: 6.2943115, y: -13.519783}
-  m_SizeDelta: {x: 10.028015, y: 6.299988}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.028589165, y: 0.7903947}
+  m_AnchorMax: {x: 0.41944188, y: 0.9701841}
+  m_AnchoredPosition: {x: 3.325114, y: -4.6385293}
+  m_SizeDelta: {x: 3.0280151, y: 1.2999878}
   m_Pivot: {x: 1.1656392, y: -1.4934036}
 --- !u!114 &4414300983169175511
 MonoBehaviour:
@@ -700,7 +703,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 147f7398e2c59334c95da3c5045675b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc3ddccdacd982240973391c9205d00d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
