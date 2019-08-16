@@ -84,7 +84,7 @@ public class SimpleGraph : NodeGraph
 		}
 		else
 		{
-			Debug.Log("I don't know that actor");
+			//Debug.Log("I don't know that actor");
 		}
 
 		//Debug.LogError("THERE IS NO CHARACTER ATTACHED TO THIS NODE! :o");

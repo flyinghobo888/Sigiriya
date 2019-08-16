@@ -36,7 +36,7 @@ public class MoodTracker
         {
             existingValue.SetDuration(duration);
             existingValue.Paused = isPaused;
-            Debug.Log("Mood already active on this character. Updating values.");
+            //Debug.Log("Mood already active on this character. Updating values.");
         }
         else
         {
@@ -48,7 +48,7 @@ public class MoodTracker
             }
             else
             {
-                Debug.LogWarning("Could not add mood to mood tracker. Mood Node is null.");
+                //Debug.LogWarning("Could not add mood to mood tracker. Mood Node is null.");
             }
         }
     }
@@ -63,7 +63,7 @@ public class MoodTracker
         }
         else
         {
-            Debug.Log("Can't remove mood. This character doesn't have mood: " + mood.ToString() + " already.");
+            //Debug.Log("Can't remove mood. This character doesn't have mood: " + mood.ToString() + " already.");
         }
     }
 
@@ -76,7 +76,7 @@ public class MoodTracker
         }
         else
         {
-            Debug.Log("Can't pause mood. This character doesn't have mood: " + mood.ToString());
+            //Debug.Log("Can't pause mood. This character doesn't have mood: " + mood.ToString());
             return false;
         }
     }
@@ -89,7 +89,7 @@ public class MoodTracker
         }
         else
         {
-            Debug.Log("Can't get mood. This character doesn't have mood: " + mood.ToString());
+            //Debug.Log("Can't get mood. This character doesn't have mood: " + mood.ToString());
             return null;
         }
     }

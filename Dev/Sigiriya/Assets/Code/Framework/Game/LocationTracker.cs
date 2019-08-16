@@ -68,11 +68,11 @@ public class LocationTracker : ManagerBase<LocationTracker>
     {
         if (IsLocationRegistered(locationKey))
         {
-            Debug.LogWarning("A location has already been registered with key: " + locationKey.ToString());
+            //Debug.LogWarning("A location has already been registered with key: " + locationKey.ToString());
         }
         else
         {
-            Debug.Log("Registering Location: " + locationKey.ToString());
+            //Debug.Log("Registering Location: " + locationKey.ToString());
             locationControllers.Add(locationKey, locationValue);
         }
     }
@@ -95,7 +95,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
         }
         else
         {
-            Debug.Log("Location: " + targetLocation + " is not registered.");
+            //Debug.Log("Location: " + targetLocation + " is not registered.");
         }
     }
 
@@ -145,7 +145,7 @@ public class LocationTracker : ManagerBase<LocationTracker>
         }
         else
         {
-            Debug.LogWarning("Could not find location registerd with key: " + location.ToString());
+            //Debug.LogWarning("Could not find location registerd with key: " + location.ToString());
             return null;
         }
     }

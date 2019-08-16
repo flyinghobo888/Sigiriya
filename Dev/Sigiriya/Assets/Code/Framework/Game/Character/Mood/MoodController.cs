@@ -58,7 +58,7 @@ public class MoodController : ManagerBase<MoodController>
             }
         }
 
-        Debug.LogWarning("Using the max amount of mood nodes! Either use less, or expand the MoodNodePool size.");
+        //Debug.LogWarning("Using the max amount of mood nodes! Either use less, or expand the MoodNodePool size.");
         return null;
     }
 }

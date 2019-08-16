@@ -27,7 +27,7 @@ public class PersistentEventBank : MonoBehaviour
 		}
         for (int i = 0; i < eventFlags.Count; i++)
         {
-            Debug.Log(eventFlags[i]);
+            //Debug.Log(eventFlags[i]);
             EventAnnouncer.OnThrowFlag?.Invoke(eventFlags[i]);
         }
     }

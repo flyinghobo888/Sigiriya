@@ -39,7 +39,7 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
 
     private void SceneChanged(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Level was loaded!");
+        //Debug.Log("Level was loaded!");
     }
 
     private void ChangeScene(EnumScene targetScene, bool fade)
@@ -67,7 +67,7 @@ public class SceneNavigator : ManagerBase<SceneNavigator>
 
     private void GoToNextScene()
     {
-        Debug.Log("GO TO SCENE: " + TargetScene);
+        //Debug.Log("GO TO SCENE: " + TargetScene);
         SceneManager.LoadScene((int)TargetScene);
         CurrentScene = TargetScene;
     }

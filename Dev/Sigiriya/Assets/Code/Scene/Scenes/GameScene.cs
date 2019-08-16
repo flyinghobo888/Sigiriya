@@ -6,7 +6,7 @@ public class GameScene : SceneBase<GameScene>
 {
 	private void OnEnable()
     {
-        Debug.Log("Game scene enabled!");
+        //Debug.Log("Game scene enabled!");
         DialogueController.Instance.RestartAllDialogue();
     }
 }

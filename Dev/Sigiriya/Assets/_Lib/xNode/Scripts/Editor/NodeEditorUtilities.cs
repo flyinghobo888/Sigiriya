@@ -39,7 +39,7 @@ namespace XNodeEditor {
             FieldInfo field = NodeEditorWindow.GetFieldInfo(classType, fieldName);
             // This shouldn't happen. Ever.
             if (field == null) {
-                Debug.LogWarning("Field " + fieldName + " couldnt be found");
+                //Debug.LogWarning("Field " + fieldName + " couldnt be found");
                 attribOut = null;
                 return false;
             }
@@ -138,7 +138,7 @@ namespace XNodeEditor {
         private static void CreateNode() {
             string[] guids = AssetDatabase.FindAssets("xNode_NodeTemplate.cs");
             if (guids.Length == 0) {
-                Debug.LogWarning("xNode_NodeTemplate.cs.txt not found in asset database");
+                //Debug.LogWarning("xNode_NodeTemplate.cs.txt not found in asset database");
                 return;
             }
             string path = AssetDatabase.GUIDToAssetPath(guids[0]);
@@ -153,7 +153,7 @@ namespace XNodeEditor {
         private static void CreateGraph() {
             string[] guids = AssetDatabase.FindAssets("xNode_NodeGraphTemplate.cs");
             if (guids.Length == 0) {
-                Debug.LogWarning("xNode_NodeGraphTemplate.cs.txt not found in asset database");
+                //Debug.LogWarning("xNode_NodeGraphTemplate.cs.txt not found in asset database");
                 return;
             }
             string path = AssetDatabase.GUIDToAssetPath(guids[0]);
@@ -209,7 +209,7 @@ namespace XNodeEditor {
                 AssetDatabase.ImportAsset(pathName);
                 return AssetDatabase.LoadAssetAtPath(pathName, typeof(Object));
             } else {
-                Debug.LogError(string.Format("The template file was not found: {0}", templatePath));
+                //Debug.LogError(string.Format("The template file was not found: {0}", templatePath));
                 return null;
             }
         }

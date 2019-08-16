@@ -407,7 +407,7 @@ namespace XNodeEditor {
                             while (instancePorts.Count <= arraySize) {
                                 arrayData.DeleteArrayElementAtIndex(--arraySize);
                             }
-                            UnityEngine.Debug.LogWarning("Array size exceeded instance ports size. Excess items removed.");
+                            //UnityEngine.Debug.LogWarning("Array size exceeded instance ports size. Excess items removed.");
                         }
                         serializedObject.ApplyModifiedProperties();
                         serializedObject.Update();

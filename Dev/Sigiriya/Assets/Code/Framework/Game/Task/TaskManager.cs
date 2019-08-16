@@ -60,7 +60,7 @@ public class TaskManager : ManagerBase<TaskManager>
 	{
 		if (!taskList.Contains(newTask))
 		{
-			Debug.Log(newTask.name);
+			//Debug.Log(newTask.name);
 			taskList.Add(newTask);
 		}
 	}
@@ -80,7 +80,7 @@ public class TaskManager : ManagerBase<TaskManager>
 	{
 		if (taskList.Contains(oldTask))
 		{
-			Debug.Log(oldTask.name);
+			//Debug.Log(oldTask.name);
 			taskList.Remove(oldTask);
 		}
 	}

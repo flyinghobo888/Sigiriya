@@ -12,13 +12,13 @@ public class FlagEnumHelper
 	{
 		canCopy = copy;
 		 m_flag = flag;
-		Debug.Log(flag);
+		//Debug.Log(flag);
 	}
 	public void CopyFlagHelper(out bool copy, out FlagBank.Flags flag)
 	{
 		copy = canCopy;
 		flag = m_flag;
-		Debug.Log(flag);
+		//Debug.Log(flag);
 	}
 
 	public void CreateMenu(FlagBank.Flags flag, out FlagBank.Flags throwFlag)

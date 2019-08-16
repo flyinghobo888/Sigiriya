@@ -216,12 +216,12 @@ public class InputTracker : ManagerBase<InputTracker>
             {
                 middleMouseDrag = true;
 
-                Debug.Log("MIDDLE MOUSE DRAG BEGAN");
+                //Debug.Log("MIDDLE MOUSE DRAG BEGAN");
                 EventAnnouncer.OnMiddleMouseDragBegan?.Invoke(Input.mousePosition);
             }
             else if (middleMouseDrag)
             {
-                Debug.Log("MIDDLE MOUSE DRAG HELD");
+                //Debug.Log("MIDDLE MOUSE DRAG HELD");
                 EventAnnouncer.OnMiddleMouseDragHeld?.Invoke(Input.mousePosition);
             }
             //else if (dragMovement.sqrMagnitude > sqrMaxTapMovement)
@@ -233,7 +233,7 @@ public class InputTracker : ManagerBase<InputTracker>
         {
             if (middleMouseDrag)
             {
-                Debug.Log("MIDDLE MOUSE DRAG ENDED");
+                //Debug.Log("MIDDLE MOUSE DRAG ENDED");
                 EventAnnouncer.OnMiddleMouseDragEnded?.Invoke(Input.mousePosition);
             }
         }
@@ -260,12 +260,12 @@ public class InputTracker : ManagerBase<InputTracker>
                 dragRecognized = false;
                 tapFailed = true;
 
-                Debug.Log("PINCH BEGAN");
+                //Debug.Log("PINCH BEGAN");
                 EventAnnouncer.OnPinchBegan?.Invoke(firstTouch, secondTouch);
             }
             else if (pinchRecognized)
             {
-                Debug.Log("PINCH HELD");
+                //Debug.Log("PINCH HELD");
                 EventAnnouncer.OnPinchHeld?.Invoke(firstTouch, secondTouch);
             }
             else if (dragMovement.sqrMagnitude > sqrMaxTapMovement)
@@ -277,7 +277,7 @@ public class InputTracker : ManagerBase<InputTracker>
         {
             if (pinchRecognized)
             {
-                Debug.Log("PINCH ENDED");
+                //Debug.Log("PINCH ENDED");
                 EventAnnouncer.OnPinchEnded?.Invoke(firstTouch, secondTouch);
             }
         }
@@ -289,7 +289,7 @@ public class InputTracker : ManagerBase<InputTracker>
         if (pinchRecognized) return;
 
         Touch touch = Input.touches[0];
-        Debug.Log(touch.phase);
+        //Debug.Log(touch.phase);
 
         if (touch.phase == TouchPhase.Began)
         {
@@ -306,12 +306,12 @@ public class InputTracker : ManagerBase<InputTracker>
                 pinchRecognized = false;
                 tapFailed = true;
 
-                Debug.Log("DRAG BEGAN");
+                //Debug.Log("DRAG BEGAN");
                 EventAnnouncer.OnDragBegan?.Invoke(touch.position);
             }
             else if (dragRecognized)
             {
-                Debug.Log("DRAG HELD");
+                //Debug.Log("DRAG HELD");
                 EventAnnouncer.OnDragHeld?.Invoke(touch.position);
             }
             else if (dragMovement.sqrMagnitude > sqrMaxTapMovement)
@@ -323,7 +323,7 @@ public class InputTracker : ManagerBase<InputTracker>
         {
             if (dragRecognized)
             {
-                Debug.Log("DRAG ENDED");
+                //Debug.Log("DRAG ENDED");
                 EventAnnouncer.OnDragEnded?.Invoke(touch.position);
             }
             else
@@ -341,7 +341,7 @@ public class InputTracker : ManagerBase<InputTracker>
 
         if (!tapFailed)
         {
-            Debug.Log("TAP OCCURRED");
+            //Debug.Log("TAP OCCURRED");
             EventAnnouncer.OnTapOccurred?.Invoke(Input.touches[0].position);
         }
     }
@@ -353,7 +353,7 @@ public class InputTracker : ManagerBase<InputTracker>
 
         if (!tapFailed)
         {
-            Debug.Log("TAP OCCURRED");
+            //Debug.Log("TAP OCCURRED");
             EventAnnouncer.OnTapOccurred?.Invoke(Input.mousePosition);
         }
     }

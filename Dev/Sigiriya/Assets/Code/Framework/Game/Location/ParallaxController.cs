@@ -61,7 +61,7 @@ public class ParallaxController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Parallax was null!");
+            //Debug.LogWarning("Parallax was null!");
         }
     }
 
@@ -127,7 +127,7 @@ public class ParallaxController : MonoBehaviour
 		{
 			if (img.rectTransform.rect.xMin * scale + clampedPos.x >= parentRect.rect.xMin) // if true, DO NOT move
 			{
-				Debug.Log("Out of right bound");
+				//Debug.Log("Out of right bound");
 				offsetVec.x = parentRect.rect.xMin - img.rectTransform.rect.xMin * scale;
 
 				canClamp = false;
@@ -140,7 +140,7 @@ public class ParallaxController : MonoBehaviour
 		{
 			if (img.rectTransform.rect.xMax * scale + clampedPos.x <= parentRect.rect.xMax)
 			{
-				Debug.Log("Out of left bound");
+				//Debug.Log("Out of left bound");
 				offsetVec.x = parentRect.rect.xMax - img.rectTransform.rect.xMax * scale;
 
 				canClamp = false;

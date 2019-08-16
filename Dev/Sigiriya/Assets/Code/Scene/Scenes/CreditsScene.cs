@@ -6,7 +6,7 @@ public class CreditsScene : SceneBase<CreditsScene>
 {
     private void OnEnable()
     {
-        Debug.Log("Credits scene enabled!");
+        //Debug.Log("Credits scene enabled!");
     }
 
     public void MenuClicked()

@@ -53,7 +53,7 @@ public class WorldCharacterHandler : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("Cannot update transforms. This object does not have any.");
+                    //Debug.LogWarning("Cannot update transforms. This object does not have any.");
                 }
 
                 button.GetComponent<Image>().sprite = characterInfo.DefaultSprite;
@@ -73,7 +73,7 @@ public class WorldCharacterHandler : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Button Image is null.");
+            //Debug.LogWarning("Button Image is null.");
         }
     }
 
@@ -88,7 +88,7 @@ public class WorldCharacterHandler : MonoBehaviour
         {
             if (c.GetInstanceID() == character.GetInstanceID())
             {
-                Debug.LogWarning("Character: " + character.CharacterName + " is already in this conversation.");
+                //Debug.LogWarning("Character: " + character.CharacterName + " is already in this conversation.");
                 return;
             }
         }

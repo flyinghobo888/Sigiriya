@@ -19,7 +19,7 @@ public class StateMachine
     {
         if (states.ContainsValue(state))
         {
-            Debug.LogWarning("State is already added.");
+            //Debug.LogWarning("State is already added.");
         }
         else
         {
@@ -57,7 +57,7 @@ public class StateMachine
         }
         else
         {
-            Debug.LogWarning("Cannot start an invalid state.");
+            //Debug.LogWarning("Cannot start an invalid state.");
         }
     }
 
@@ -78,7 +78,7 @@ public class StateMachine
         }
         else
         {
-            Debug.LogWarning("Invalid targetID: " + targetStateID + ". Could not find state.");
+            //Debug.LogWarning("Invalid targetID: " + targetStateID + ". Could not find state.");
         }
     }
 }

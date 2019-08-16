@@ -27,7 +27,7 @@ public class FlagNodeEditor : NodeEditor
 		{
 			flagHelp = new FlagEnumHelper();
 			flagHelp.InitFlagHelper(canCopy, m_flag);
-			Debug.Log("Init FLaghelp");
+			//Debug.Log("Init FLaghelp");
 		}
 		flagHelp.CreateMenu(node.throwFlag, out node.throwFlag);
 		flagHelp.CopyFlagHelper(out canCopy, out m_flag);

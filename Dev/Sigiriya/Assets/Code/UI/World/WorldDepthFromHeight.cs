@@ -30,7 +30,7 @@ public class WorldDepthFromHeight : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("World container is null! Cannot sort.");
+            //Debug.LogWarning("World container is null! Cannot sort.");
         }
     }
 

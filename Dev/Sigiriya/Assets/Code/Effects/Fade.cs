@@ -26,7 +26,7 @@ public class Fade : MonoBehaviour
         }
         else
         {
-            Debug.Log("Could not fade in, already fading");
+            //Debug.Log("Could not fade in, already fading");
         }
     }
 
@@ -39,7 +39,7 @@ public class Fade : MonoBehaviour
         }
         else
         {
-            Debug.Log("Could not fade out, already fading");
+            //Debug.Log("Could not fade out, already fading");
         }
     }
 
@@ -68,7 +68,7 @@ public class Fade : MonoBehaviour
 
         fadeIn = null;
 
-        Debug.Log("Fade in ended");
+        //Debug.Log("Fade in ended");
         EventAnnouncer.OnEndFadeIn?.Invoke(fadeID);
     }
 
@@ -87,7 +87,7 @@ public class Fade : MonoBehaviour
 
         fadeOut = null;
 
-        Debug.Log("Fade out ended");
+        //Debug.Log("Fade out ended");
         EventAnnouncer.OnEndFadeOut?.Invoke(fadeID);
     }
 }

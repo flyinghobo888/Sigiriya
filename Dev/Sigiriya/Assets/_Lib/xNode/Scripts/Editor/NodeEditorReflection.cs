@@ -99,11 +99,11 @@ namespace XNodeEditor {
                 ContextMenu[] attribs = methods[i].GetCustomAttributes(typeof(ContextMenu), true).Select(x => x as ContextMenu).ToArray();
                 if (attribs == null || attribs.Length == 0) continue;
                 if (methods[i].GetParameters().Length != 0) {
-                    Debug.LogWarning("Method " + methods[i].DeclaringType.Name + "." + methods[i].Name + " has parameters and cannot be used for context menu commands.");
+                    //Debug.LogWarning("Method " + methods[i].DeclaringType.Name + "." + methods[i].Name + " has parameters and cannot be used for context menu commands.");
                     continue;
                 }
                 if (methods[i].IsStatic) {
-                    Debug.LogWarning("Method " + methods[i].DeclaringType.Name + "." + methods[i].Name + " is static and cannot be used for context menu commands.");
+                    //Debug.LogWarning("Method " + methods[i].DeclaringType.Name + "." + methods[i].Name + " is static and cannot be used for context menu commands.");
                     continue;
                 }
 
@@ -157,8 +157,8 @@ namespace XNodeEditor {
                 }
 #endif
             } catch (Exception e) {
-                Debug.LogError(e);
-                Debug.LogWarning("Unity has changed around internally. Can't open properties through reflection. Please contact xNode developer and supply unity version number.");
+                //Debug.LogError(e);
+                //Debug.LogWarning("Unity has changed around internally. Can't open properties through reflection. Please contact xNode developer and supply unity version number.");
             }
         }
     }

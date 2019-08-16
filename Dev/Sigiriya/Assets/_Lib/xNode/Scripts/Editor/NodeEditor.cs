@@ -27,7 +27,7 @@ namespace XNodeEditor {
                     }
                     target.name = EditorGUILayout.TextField(target.name, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
                     if (!EditorGUIUtility.editingTextField) {
-                        Debug.Log("Finish renaming");
+                        //Debug.Log("Finish renaming");
                         Rename(target.name);
                         renaming = 0;
                     }

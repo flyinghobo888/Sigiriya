@@ -65,7 +65,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
         }
         else
         {
-            Debug.Log("Cannot start a new day while it is still day time.");
+            //Debug.Log("Cannot start a new day while it is still day time.");
         }
     }
 
@@ -76,10 +76,10 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
 
     private IEnumerator GoThroughDay()
     {
-        Debug.Log("STARTING DAY");
-        Debug.Log("Time: " + GlobalTime.Ticks + " | " + 
-            GlobalTime.Day + "D " + GlobalTime.Hour + "H " + GlobalTime.Minute + "M " + GlobalTime.Second + "S " +
-            " | TOD: " + ExternalTimeOfDay);
+        //Debug.Log("STARTING DAY");
+        //Debug.Log("Time: " + GlobalTime.Ticks + " | " + 
+        //    GlobalTime.Day + "D " + GlobalTime.Hour + "H " + GlobalTime.Minute + "M " + GlobalTime.Second + "S " +
+        //    " | TOD: " + ExternalTimeOfDay);
 
         while (ExternalTimeOfDay != EnumDisplayTime.NIGHT)
         {
@@ -92,7 +92,7 @@ public class GlobalTimeTracker : ManagerBase<GlobalTimeTracker>
         }
 
         //END OF DAY
-        Debug.Log("END OF DAY");
+        //Debug.Log("END OF DAY");
         DayCoroutine = null;
         EventAnnouncer.OnDayIsEnding?.Invoke();
     }

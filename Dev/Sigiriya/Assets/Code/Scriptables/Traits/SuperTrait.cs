@@ -19,7 +19,7 @@ public class SuperTrait : Trait
         {
             if (!subTraits.Add(trait))
             {
-                Debug.Log("Sub Trait: " + trait.traitName + " is already registered with super trait: " + traitName);
+                //Debug.Log("Sub Trait: " + trait.traitName + " is already registered with super trait: " + traitName);
             }
         }
 

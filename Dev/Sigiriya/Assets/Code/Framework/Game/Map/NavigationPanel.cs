@@ -32,12 +32,12 @@ public class NavigationPanel : MonoBehaviour
         if (LocationTracker.Instance.IsLocationRegistered(location))
         {
             EventAnnouncer.OnRequestLocationChange?.Invoke(LocationTracker.Instance.CurrentLocation, location, true);
-            Debug.Log("Attempt Success");
+            //Debug.Log("Attempt Success");
             ClosePanel();
         }
         else
         {
-            Debug.Log("Attempt Failed. Register location first!");
+            //Debug.Log("Attempt Failed. Register location first!");
         }
     }
 

@@ -67,7 +67,7 @@ public class MusicManager : ManagerBase<MusicManager>
 
     private void ChangeMusic(EnumScene scene, bool shouldFade)
     {
-        Debug.Log("CHANGE MUSIC!");
+        //Debug.Log("CHANGE MUSIC!");
         if (audioSource.isPlaying)
         {
             AudioClip newSong = GetRandomSong(scene);
@@ -113,7 +113,7 @@ public class MusicManager : ManagerBase<MusicManager>
             }
             else
             {
-                Debug.LogWarning("Song is null. Cannot play.");
+                //Debug.LogWarning("Song is null. Cannot play.");
                 CurrentMusicState = EnumMusicState.OFF;
             }
         }

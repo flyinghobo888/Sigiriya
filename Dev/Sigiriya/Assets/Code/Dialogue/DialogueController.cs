@@ -172,7 +172,7 @@ public class DialogueController : ManagerBase<DialogueController>
                 EventAnnouncer.OnDialogueUpdate?.Invoke(currentPromptPanel, rNode.textButton);
             }
 
-			Debug.Log("PLAYER TALKING");
+			//Debug.Log("PLAYER TALKING");
 			int i = 0;
 
 			for (; i < responseButtons.Length; i++)
@@ -275,7 +275,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
         DisplayNodeOrQuit();
 
-		Debug.Log("Node Hit!");
+		//Debug.Log("Node Hit!");
 		GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 	}
 
@@ -316,7 +316,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
         DisplayNodeOrQuit();
 
-		Debug.Log("Node Hit!");
+		//Debug.Log("Node Hit!");
 		GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 	}
 	#endregion
@@ -560,7 +560,7 @@ public class DialogueController : ManagerBase<DialogueController>
 	{
 		if (dialogueGraph.current == null)
 		{
-			Debug.Log("Null node");
+			//Debug.Log("Null node");
 			return;
 		}
 
@@ -571,7 +571,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				BranchNode bNode = dialogueGraph.current as BranchNode;
 
 				dialogueGraph.current = bNode.GetOutputNode();
-				Debug.Log("Node Hit!");
+				//Debug.Log("Node Hit!");
 				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 			else if (dialogueGraph.current.GetType() == typeof(ActorNode))
@@ -594,7 +594,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				dialogueGraph.current = aNode.GetNextNode();
-				Debug.Log("Node Hit!");
+				//Debug.Log("Node Hit!");
 				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 			else if (dialogueGraph.current.GetType() == typeof(FlagNode))
@@ -607,7 +607,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				dialogueGraph.current = fNode.GetNextNode();
-				Debug.Log("Node Hit!");
+				//Debug.Log("Node Hit!");
 				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 			else if (dialogueGraph.current.GetType() == typeof(MemoryNode))
@@ -621,7 +621,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				dialogueGraph.current = mNode.GetNextNode();
-				Debug.Log("Node Hit!");
+				//Debug.Log("Node Hit!");
 				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 		}
@@ -637,7 +637,7 @@ public class DialogueController : ManagerBase<DialogueController>
 	//A fun reset switch. SHOULD restart all the dialogue
 	public void RestartAllDialogue()
 	{
-		Debug.Log("RESET");
+		//Debug.Log("RESET");
 
 		for (int i = 0; i < dialoguePool.Count; i++)
 		{
@@ -655,7 +655,7 @@ public class DialogueController : ManagerBase<DialogueController>
         }
         else
         {
-            Debug.Log(ID + " is done talking");
+            //Debug.Log(ID + " is done talking");
 			dialogueGraph.current = exitNode;
 			dialogueGraph.ResetIsVisited();
 

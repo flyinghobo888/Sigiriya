@@ -16,7 +16,7 @@ public class CharacterTracker : ManagerBase<CharacterTracker>
         {
             if (!characters.Add(character))
             {
-                Debug.Log("Character: " + character.CharacterName + " is already registered.");
+                //Debug.Log("Character: " + character.CharacterName + " is already registered.");
             }
             else
             {
@@ -24,10 +24,10 @@ public class CharacterTracker : ManagerBase<CharacterTracker>
             }
         }
 
-        Debug.Log("Registered Characters");
+        //Debug.Log("Registered Characters");
         foreach (Character character in characters)
         {
-            Debug.Log("Character: " + character.CharacterName);
+            //Debug.Log("Character: " + character.CharacterName);
         }
     }
 

@@ -94,13 +94,13 @@ public class Character : ScriptableObject
         bool fail = false;
         if (RawExpressionOrder.Count != RawExpressions.Count)
         {
-            Debug.Log ("Make sure there are the correct amount of expression sprites for the ordering.");
+            //Debug.Log ("Make sure there are the correct amount of expression sprites for the ordering.");
             fail = true;
         }
 
         if (RawExpressionOrder.Count != RawTalkExpressions.Count)
         {
-            Debug.Log ("Make sure there are the correct amount of TALK expression sprites for the ordering.");
+            //Debug.Log ("Make sure there are the correct amount of TALK expression sprites for the ordering.");
             fail = true;
         }
 
@@ -144,7 +144,7 @@ public class Character : ScriptableObject
             }
         }
 
-        Debug.Log ("COULDN'T FIND SPRITE FOR EXPRESSION: " + expression + ". Returning default sprite.");
+        //Debug.Log ("COULDN'T FIND SPRITE FOR EXPRESSION: " + expression + ". Returning default sprite.");
         return DefaultSprite;
     }
 

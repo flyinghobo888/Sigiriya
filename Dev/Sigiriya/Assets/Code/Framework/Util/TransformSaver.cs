@@ -63,7 +63,7 @@ public class TransformSaver : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Please insert your transform, character, and transform name!");
+            //Debug.LogWarning("Please insert your transform, character, and transform name!");
         }
     }
 }

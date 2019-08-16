@@ -65,7 +65,7 @@ public class Task : ScriptableObject
 				if (PersistentEventBank.ContainsFlag(flag.Key))
 				{
 					requirementStatus[flag.Key] = true;
-					Debug.Log(flag.Key);
+					//Debug.Log(flag.Key);
 				}
 			}
 		}
@@ -104,7 +104,7 @@ public class Task : ScriptableObject
 			}
 			else
 			{
-				Debug.Log("Task " + this.name + " is Done! I think");
+				//Debug.Log("Task " + this.name + " is Done! I think");
 				isTaskComplete = true;
 			}
 		}

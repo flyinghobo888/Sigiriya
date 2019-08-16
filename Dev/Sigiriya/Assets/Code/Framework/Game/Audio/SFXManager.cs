@@ -131,14 +131,14 @@ public class SFXManager : ManagerBase<SFXManager>
                 }
                 else
                 {
-                    Debug.LogWarning("Could not find sound effect for sound ID: " + soundID.ToString());
+                    //Debug.LogWarning("Could not find sound effect for sound ID: " + soundID.ToString());
                 }
             }
 
             return audioSource;
         }
 
-        Debug.LogWarning("Unable to find sound with ID: " + soundID.ToString());
+        //Debug.LogWarning("Unable to find sound with ID: " + soundID.ToString());
         return null;
     }
 
@@ -152,7 +152,7 @@ public class SFXManager : ManagerBase<SFXManager>
             }
         }
 
-        Debug.Log("All audio sources in the sfxPool are being used right now! Returning null.");
+        //Debug.Log("All audio sources in the sfxPool are being used right now! Returning null.");
         return null;
     }
 }
