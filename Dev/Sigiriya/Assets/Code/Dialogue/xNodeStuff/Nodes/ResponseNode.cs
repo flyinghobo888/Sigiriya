@@ -4,13 +4,13 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(189, 169, 30)]
-[CreateNodeMenu("Sigiriya/Dialogue/Response")]
+[CreateNodeMenu("Dialogue/Response")]
 public class ResponseNode : BaseNode
 {
 	[Input(typeConstraint = TypeConstraint.Strict)] ResponseNode promptInput;
 	[Input(connectionType = ConnectionType.Override)] public bool isHidden;
 
-	public string textFull;
+	[TextArea(8, 8)] public string textFull;
 	public string textButton;
 	public AudioClip voiceClip;
 	public FlagBank.Flags throwFlag;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[CreateNodeMenu("Event/Mood")]
 public class MemoryNode : BaseNode
 {
 	public Memory memory;

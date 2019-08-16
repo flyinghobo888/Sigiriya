@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(225, 139, 62)]
-[CreateNodeMenu("Sigiriya/Branch/BranchCheck")]
+[CreateNodeMenu("Branch/BranchCheck")]
 public class BranchCheck : Node
 {
 	[Input] public BranchCheck input;

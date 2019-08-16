@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
+  m_Name: Mettaloka
+  m_EditorClassIdentifier: 
+  CharacterName: Mettaloka
+  DefaultSprite: {fileID: 21300000, guid: 17f968eed120f35459574f4c58ec45e3, type: 3}
+  RawExpressionOrder: 03000000060000000e00000016000000
+  RawExpressions:
+  - {fileID: 21300000, guid: 9a4fb2667f07516459ec5a3e7a9a802a, type: 3}
+  - {fileID: 21300000, guid: 62ade491cf1591a428ae3eba005a5650, type: 3}
+  - {fileID: 21300000, guid: 17f968eed120f35459574f4c58ec45e3, type: 3}
+  - {fileID: 21300000, guid: 2c4d557e6631e054cb0792cd5f7205bc, type: 3}
+  RawTalkExpressions:
+  - {fileID: 21300000, guid: b35f013a5861fff46b146e32515a0b88, type: 3}
+  - {fileID: 21300000, guid: ee895be4e006a3241b3b369eedbd8935, type: 3}
+  - {fileID: 21300000, guid: 64cdbd1370b975c4490cbf6cacf47ca7, type: 3}
+  - {fileID: 21300000, guid: f80d6210194b3ab4db88f3b714ca7c76, type: 3}
+  CharacterTransforms: []
+  MorningSchedule: {fileID: 11400000, guid: 758fe0f1aaa44a24eb570f044af62d1a, type: 2}
+  MiddaySchedule: {fileID: 11400000, guid: 5695f6c624ced2b48bcc65754ce0dea4, type: 2}
+  NightSchedule: {fileID: 11400000, guid: 49ba5b3f000ba2d4a8dc01b325ca178a, type: 2}
+  stance: []

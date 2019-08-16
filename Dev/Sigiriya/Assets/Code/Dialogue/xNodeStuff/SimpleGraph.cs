@@ -47,7 +47,7 @@ public class SimpleGraph : NodeGraph
 	{
 		for (int i = 0; i < nodes.Count; i++)
 		{
-			if (nodes[i].GetType() == typeof(PromptNode))
+			if (nodes[i] is PromptNode)
 			{
 				PromptNode pNode = nodes[i] as PromptNode;
 

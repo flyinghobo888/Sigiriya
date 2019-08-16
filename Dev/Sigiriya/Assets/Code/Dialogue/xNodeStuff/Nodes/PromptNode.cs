@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-[CreateNodeMenu("Sigiriya/Dialogue/PromptNode")]
+[CreateNodeMenu("Dialogue/PromptNode")]
 public class PromptNode : BaseNode
 {
 	[Output(instancePortList = true, connectionType = ConnectionType.Override)] public List<BaseNode> responses = new List<BaseNode>();
@@ -12,7 +12,7 @@ public class PromptNode : BaseNode
 	[Output(connectionType = ConnectionType.Override)] public BaseNode checkpointConnection;
 	[Output(connectionType = ConnectionType.Override)] public BaseNode exitConnection;
 
-	[TextArea] public string prompt;
+	[TextArea(8, 8)] public string prompt;
     public Character speaker;
 	public Character.EnumExpression expression;
 	public EnumMood mood;
@@ -22,6 +22,9 @@ public class PromptNode : BaseNode
 
     public bool isVisited = false;
 	public bool isNoReturn = false;
+
+	//TODO: fix stances later
+	public string newStance;
 
 	public Color connected;
 	public void CheckConnectedColor()
