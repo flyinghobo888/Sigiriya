@@ -55,8 +55,9 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
         {
             for (int i = 0; i < list.Count;)
             {
-                Destroy(list[i]);
+                ScrollBoardItemUIBase temp = list[i];
                 list.RemoveAt(i);
+                Destroy(temp.gameObject);
             }
         }
     }
@@ -65,8 +66,9 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
     {
         for (int i = 0; i < taskElements.Count;)
         {
-            Destroy(taskElements[i]);
+            ScrollBoardItemUIBase temp = taskElements[i];
             taskElements.RemoveAt(i);
+            Destroy(temp.gameObject);
         }
     }
 
@@ -74,8 +76,9 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
     {
         for (int i = 0; i < memoryElements.Count;)
         {
-            Destroy(memoryElements[i]);
+            ScrollBoardItemUIBase temp = memoryElements[i];
             memoryElements.RemoveAt(i);
+            Destroy(temp.gameObject);
         }
     }
 
