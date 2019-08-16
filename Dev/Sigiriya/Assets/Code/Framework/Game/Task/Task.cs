@@ -12,9 +12,6 @@ using UnityEngine;
 	-the task manager is just used to get a quick answer to the top level of tasks
 	-each task should be responsible for it's ui somehow. or something like that
 	 */
-
-
-
 [CreateAssetMenu(fileName = "TaskData", menuName = "Task")]
 public class Task : ScriptableObject
 {
@@ -24,21 +21,33 @@ public class Task : ScriptableObject
 	//Either a list of tasks, OR flags to complete this task
 	public List<Task> subTasks;
 	public List<FlagBank.Flags> requirementFlags;
+    public Task RootTask { get; private set; } = null;
+    public EnumTaskType TaskType { get; private set; } = EnumTaskType.SIZE;
 
 	//if we have flags, we create a dictionary to hold them
 	public Dictionary<FlagBank.Flags, bool> requirementStatus;
 	public bool isTaskComplete;
 
-	[SerializeField] GameObject myUI;
-	bool isHidden; //TODO: needs to be implemented
+	//[SerializeField] GameObject myUI;
+	//bool isHidden; //TODO: needs to be implemented
 	//if a certain flag is hit, this can be revealed to the player
 
-	public void InitTask()
+    public void SetTaskType(EnumTaskType type)
+    {
+        TaskType = type;
+    }
+
+	public void InitTask(Task root)
 	{
-		//if we have flags, create the flag checking thing
-		if (requirementFlags.Count > 0)
+        RootTask = root;
+
+        //if we have flags, create the flag checking thing
+        if (requirementFlags.Count > 0)
 		{
-			if (requirementStatus == null)
+            //If we have flags, then this is a solution task
+            TaskType = EnumTaskType.SOLUTION;
+
+            if (requirementStatus == null)
 			{
 				requirementStatus = new Dictionary<FlagBank.Flags, bool>();
 			}
@@ -62,9 +71,16 @@ public class Task : ScriptableObject
 		}
 		else
 		{
+            if (TaskType != EnumTaskType.ROOT)
+            {
+                TaskType = EnumTaskType.GOAL;
+            }
+
+            //If we have subtasks, this task is a goal.
+
 			foreach (Task task in subTasks)
 			{
-				task.InitTask();
+				task.InitTask(root);
 			}
 		}
 	}
@@ -107,27 +123,35 @@ public class Task : ScriptableObject
 			}
 		}
 
-		TaskUIInfo taskInfo = myUI.GetComponent<TaskUIInfo>();
-		taskInfo.UpdateTaskUI();
+		//TaskUIInfo taskInfo = myUI.GetComponent<TaskUIInfo>();
+		//taskInfo.UpdateTaskUI();
 	}
 
-	public void CreateUIElement(GameObject parentObject, GameObject uiReference)
-	{
-		//instantiate a UI reference, and child it the the parent. then call function for 
-		//all tasks this holds, with itself as the parent
+	//public void CreateUIElement(GameObject parentObject, GameObject uiReference)
+	//{
+	//	//instantiate a UI reference, and child it the the parent. then call function for 
+	//	//all tasks this holds, with itself as the parent
 
-		//TODO: if I am a parent task, create a ui thing. If I am a leaf, instantiate nothing, return
-		//this way, the parent can create the prefab for the multitask UI object, and add data from all 3 to it
-		if (myUI == null)
-		{
-			myUI = Instantiate(uiReference);
-			myUI.transform.SetParent(parentObject.transform);
-			myUI.GetComponent<TaskUIInfo>().task = this;
-		}
-		foreach (Task task in subTasks)
-		{
-			task.CreateUIElement(parentObject, uiReference);
-		}
+	//	//TODO: if I am a parent task, create a ui thing. If I am a leaf, instantiate nothing, return
+	//	//this way, the parent can create the prefab for the multitask UI object, and add data from all 3 to it
+	//	if (myUI == null)
+	//	{
+	//		myUI = Instantiate(uiReference);
+	//		myUI.transform.SetParent(parentObject.transform);
+	//		myUI.GetComponent<TaskUIInfo>().task = this;
+	//	}
+	//	foreach (Task task in subTasks)
+	//	{
+	//		task.CreateUIElement(parentObject, uiReference);
+	//	}
 
-	}
+	//}
+}
+
+public enum EnumTaskType 
+{
+    ROOT,
+    GOAL,
+    SOLUTION,
+    SIZE
 }
