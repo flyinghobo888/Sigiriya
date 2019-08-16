@@ -10,7 +10,10 @@ public class MusicManager : ManagerBase<MusicManager>
         OFF
     }
 
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] menuMusic;
+    [SerializeField] private AudioClip[] gameMusic;
+    private int currentSongIndex = -1;
 
     public EnumMusicState CurrentMusicState { get; private set; } = EnumMusicState.OFF;
 
@@ -37,11 +40,13 @@ public class MusicManager : ManagerBase<MusicManager>
 
     private void Awake()
     {
-        if (!audioSource)
-        {
-            AudioSource source = new GameObject().AddComponent<AudioSource>();
-            audioSource = Instantiate(source);
-        }
+        //if (!audioSource)
+        //{
+        //    AudioSource source = new GameObject().AddComponent<AudioSource>();
+        //    source.name = "Music Audio Source";
+        //    audioSource = Instantiate(source);
+        //    DontDestroyOnLoad(audioSource.gameObject);
+        //}
 
         PlayMusic();
     }
@@ -65,7 +70,8 @@ public class MusicManager : ManagerBase<MusicManager>
         Debug.Log("CHANGE MUSIC!");
         if (audioSource.isPlaying)
         {
-            AudioClip newSong = GetMusicForScene(scene);
+            AudioClip newSong = GetRandomSong(scene);
+            //AudioClip newSong = GetMusicForScene(scene);
             StartCoroutine(TransitionBetweenSongs(newSong));
         }
     }
@@ -80,6 +86,8 @@ public class MusicManager : ManagerBase<MusicManager>
             CurrentMusicState = EnumMusicState.OFF;
         }
 
+        currentSongIndex = -1;
+
         if (newSong && audioSource.isActiveAndEnabled)
         {
             audioSource.clip = newSong;
@@ -93,7 +101,8 @@ public class MusicManager : ManagerBase<MusicManager>
     {
         if (!audioSource.isPlaying && audioSource.isActiveAndEnabled)
         {
-            AudioClip song = GetMusicForScene(SceneNavigator.Instance.CurrentScene);
+            //AudioClip song = GetMusicForScene(SceneNavigator.Instance.CurrentScene);
+            AudioClip song = GetRandomSong(SceneNavigator.Instance.CurrentScene);
 
             if (song)
             {
@@ -118,6 +127,7 @@ public class MusicManager : ManagerBase<MusicManager>
         }
 
         CurrentMusicState = EnumMusicState.OFF;
+        currentSongIndex = -1;
     }
 
     private void Update()
@@ -135,8 +145,36 @@ public class MusicManager : ManagerBase<MusicManager>
 
     //TEMP
     //TODO: Implement depending on how we want to do music.
-    private AudioClip GetMusicForScene(EnumScene scene)
+    //private AudioClip GetMusicForScene(EnumScene scene)
+    //{
+        //return null;
+    //}
+
+    private AudioClip GetRandomSong(EnumScene scene)
     {
-        return null;
+        AudioClip[] musicSelection;
+        if (scene == EnumScene.TITLE 
+            || scene == EnumScene.CREDITS)
+        {
+            musicSelection = menuMusic;
+        }
+        else
+        {
+            musicSelection = gameMusic;
+        }
+
+        if (musicSelection.Length <= 0)
+        {
+            return null;
+        }
+
+        int index = Random.Range(0, musicSelection.Length);
+        if (index == currentSongIndex)
+        {
+            index = ((currentSongIndex + 1) % musicSelection.Length);
+        }
+
+        currentSongIndex = index;
+        return musicSelection[index];
     }
 }
