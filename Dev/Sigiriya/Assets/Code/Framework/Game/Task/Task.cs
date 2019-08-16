@@ -12,34 +12,42 @@ using UnityEngine;
 	-the task manager is just used to get a quick answer to the top level of tasks
 	-each task should be responsible for it's ui somehow. or something like that
 	 */
-
-
-
 [CreateAssetMenu(fileName = "TaskData", menuName = "Task")]
 public class Task : ScriptableObject
 {
-	//Task name, and quick description
-	public string taskName;
+	//quick description
 	public string description;
 
 	//Either a list of tasks, OR flags to complete this task
 	public List<Task> subTasks;
 	public List<FlagBank.Flags> requirementFlags;
+    public Task RootTask { get; private set; } = null;
+    public EnumTaskType TaskType { get; private set; } = EnumTaskType.SIZE;
 
 	//if we have flags, we create a dictionary to hold them
 	public Dictionary<FlagBank.Flags, bool> requirementStatus;
 	public bool isTaskComplete;
 
-	[SerializeField] GameObject myUI;
-	bool isHidden; //needs to be implemented
+	//[SerializeField] GameObject myUI;
+	//bool isHidden; //TODO: needs to be implemented
 	//if a certain flag is hit, this can be revealed to the player
 
-	public void InitTask()
+    public void SetTaskType(EnumTaskType type)
+    {
+        TaskType = type;
+    }
+
+	public void InitTask(Task root)
 	{
-		//if we have flags, create the flag checking thing
-		if (requirementFlags.Count > 0)
+        RootTask = root;
+
+        //if we have flags, create the flag checking thing
+        if (requirementFlags.Count > 0)
 		{
-			if (requirementStatus == null)
+            //If we have flags, then this is a solution task
+            TaskType = EnumTaskType.SOLUTION;
+
+            if (requirementStatus == null)
 			{
 				requirementStatus = new Dictionary<FlagBank.Flags, bool>();
 			}
@@ -63,19 +71,32 @@ public class Task : ScriptableObject
 		}
 		else
 		{
+            if (TaskType != EnumTaskType.ROOT)
+            {
+                TaskType = EnumTaskType.GOAL;
+            }
+
+            //If we have subtasks, this task is a goal.
+
 			foreach (Task task in subTasks)
 			{
-				task.InitTask();
+				task.InitTask(root);
 			}
 		}
 	}
-	//update the bool value of the passed in key if it exists
-	public void UpdateTask(FlagBank.Flags flag)
+	//update the bool value of the passed in key if it exists //why am I passing in a flag?
+	public void UpdateTask()
 	{
-		if (requirementFlags.Count > 0 && requirementStatus.ContainsKey(flag))
+		if (requirementFlags.Count > 0)
 		{
-			Debug.Log("Task is Done! I think");
-			requirementStatus[flag] = true;
+			foreach (FlagBank.Flags flag in requirementFlags)
+			{
+				if (PersistentEventBank.ContainsFlag(flag))
+				{
+					requirementStatus[flag] = true;
+				}
+			}
+
 
 			if (requirementStatus.ContainsValue(false))
 			{
@@ -83,7 +104,7 @@ public class Task : ScriptableObject
 			}
 			else
 			{
-				Debug.Log("Task " + taskName + " is Done! I think");
+				Debug.Log("Task " + this.name + " is Done! I think");
 				isTaskComplete = true;
 			}
 		}
@@ -93,7 +114,7 @@ public class Task : ScriptableObject
 
 			foreach (Task task in subTasks)
 			{
-				task.UpdateTask(flag);
+				task.UpdateTask();
 
 				if (!task.isTaskComplete)
 				{
@@ -101,95 +122,36 @@ public class Task : ScriptableObject
 				}
 			}
 		}
+
+		//TaskUIInfo taskInfo = myUI.GetComponent<TaskUIInfo>();
+		//taskInfo.UpdateTaskUI();
 	}
 
-	public void CreateUIElement(GameObject parentObject, GameObject uiReference)
-	{
-		//instantiate a UI reference, and child it the the parent. then call function for 
-		//all tasks this holds, with itself as the parent
-
-		if (myUI == null)
-		{
-			myUI = Instantiate(uiReference);
-			myUI.transform.parent = parentObject.transform;
-			myUI.GetComponent<TaskUIInfo>().task = this;
-		}
-		foreach (Task task in subTasks)
-		{
-			task.CreateUIElement(myUI , uiReference);
-		}
-
-		//create the prefab and set to the member var
-		//if it exists, don't create it, and instead update it, or delete it
-	}
-	//check if all subtasks are complete
-//	public void CheckTaskRequirements()
-//	{
-//		if (requirementFlags.Count > 0)
-//		{
-//			if (requirementStatus.ContainsValue(false))
-//			{
-//				isTaskComplete = false;
-//
-//				return;
-//			}
-//			Debug.Log("Task " + taskName + " is Done! I think");
-//			isTaskComplete = true;
-//		}
-//		else
-//		{
-//			foreach (Task task in subTasks)
-//			{
-//				task.CheckTaskRequirements();
-//				if (!task.isTaskComplete)
-//				{
-//					isTaskComplete = false;
-//					return;
-//				}
-//			}
-//			isTaskComplete = true;
-//			return;
-//		}
-//	}	
-
-
-	//public void InitAllSubTasks()
+	//public void CreateUIElement(GameObject parentObject, GameObject uiReference)
 	//{
-	//	if (subTasks == null)
+	//	//instantiate a UI reference, and child it the the parent. then call function for 
+	//	//all tasks this holds, with itself as the parent
+
+	//	//TODO: if I am a parent task, create a ui thing. If I am a leaf, instantiate nothing, return
+	//	//this way, the parent can create the prefab for the multitask UI object, and add data from all 3 to it
+	//	if (myUI == null)
 	//	{
-	//		Debug.Log("There are no subtasks!");
-	//		return;
+	//		myUI = Instantiate(uiReference);
+	//		myUI.transform.SetParent(parentObject.transform);
+	//		myUI.GetComponent<TaskUIInfo>().task = this;
 	//	}
-	//
-	//	for (int i = 0; i < subTasks.Count; i++)
+	//	foreach (Task task in subTasks)
 	//	{
-	//		subTasks[i].InitSubTask();
+	//		task.CreateUIElement(parentObject, uiReference);
 	//	}
+
 	//}
-	//
-	//public void UpdateSubTasks(FlagBank.Flags flag)
-	//{
-	//	for (int i = 0; i < subTasks.Count; i++)
-	//	{
-	//		subTasks[i].UpdateSubTask(flag);
-	//	}
-	//
-	//	CheckTaskRequirements();
-	//}
-	//
-	////check if all subtasks are complete
-	//public void CheckTaskRequirements()
-	//{
-	//	for (int i = 0; i < subTasks.Count; i++)
-	//	{
-	//		if (subTasks[i].requirementStatus.ContainsValue(false))
-	//		{
-	//			isTaskComplete = false;
-	//
-	//			return;
-	//		}
-	//	}
-	//	Debug.Log("Task " + taskName + " is Done! I think");
-	//	isTaskComplete = true;
-	//}
+}
+
+public enum EnumTaskType 
+{
+    ROOT,
+    GOAL,
+    SOLUTION,
+    SIZE
 }

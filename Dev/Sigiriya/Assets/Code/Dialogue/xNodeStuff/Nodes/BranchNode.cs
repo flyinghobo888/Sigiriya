@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(225, 139, 62)]
-[CreateNodeMenu("Sigiriya/Branch/BranchNode")]
+[CreateNodeMenu("Branch/BranchNode")]
 public class BranchNode : BaseNode
 {
 	/*TODO: This class will accept a base node, as well as a bunch of 

@@ -11,6 +11,13 @@ public class DialogueController : ManagerBase<DialogueController>
 {
 	//Graph where nodes are kept
 	public SimpleGraph dialogueGraph;
+	[Header("Time")]
+	//[SerializeField] private int days;
+	//[SerializeField] private int hours;
+	[SerializeField] private int minutesPerNode;
+	[SerializeField] private int secondsPerNode;
+
+	[SerializeField] private SigiTime timePerNode;
 
     [Header("Dialogue Scene Objects")]
     [SerializeField] private GameObject dialogueContainerObj = null;
@@ -43,8 +50,8 @@ public class DialogueController : ManagerBase<DialogueController>
 	private BaseNode checkPointNode = null;
 	private BaseNode exitNode = null;
 
-	[Header("Dev/Editor")]
-	[SerializeField] private List<SimpleGraph> graphList = null;
+	[Header("Pool")]
+	[SerializeField] private List<SimpleGraph> dialoguePool = null;
 
     private void Init()
 	{
@@ -55,20 +62,43 @@ public class DialogueController : ManagerBase<DialogueController>
 		AssessCurrentType();
 	}
 
+    //Can't use this. The dialogue controller isnt on the popup ui anymore.
 	private void OnEnable()
 	{
-		//TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
-		PersistentEventBank.FireAllEvents();
+        EventAnnouncer.OnDialogueStart += EnableDialogue;
+        EventAnnouncer.OnDialogueEnd += DisableDialogue;
+
+        //TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
+        //GlobalTimeTracker.Instance.timePaused = true;
+		//PersistentEventBank.FireAllEvents();
 	}
+
 	private void OnDisable()
 	{
-		//TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
-		EventAnnouncer.OnDialogueEnd?.Invoke();
-	}
+        EventAnnouncer.OnDialogueStart -= EnableDialogue;
+        EventAnnouncer.OnDialogueEnd -= DisableDialogue;
+
+        //TODO: Save data somewhere, somehow, cause the dialogueGraph.current isn't actually saved on exit :(
+        //GlobalTimeTracker.Instance.timePaused = false;
+    }
+
+    private void EnableDialogue()
+    {
+        GlobalTimeTracker.Instance.timePaused = true;
+        PersistentEventBank.FireAllEvents();
+    }
+
+    private void DisableDialogue()
+    {
+        GlobalTimeTracker.Instance.timePaused = false;
+    }
 
 	private void Start()
 	{
         ActivateDialogueUI(false);
+
+		//TODO: add days and hours for insane people
+		timePerNode = new SigiTime(0, 0, minutesPerNode, secondsPerNode);
     }
 
 	/// <summary>
@@ -87,7 +117,7 @@ public class DialogueController : ManagerBase<DialogueController>
             //The character is speaking
             if (pNode.speaker != null)
             {
-                characterNameBox.text = pNode.speaker.characterName;
+                characterNameBox.text = pNode.speaker.CharacterName;
 				if (pNode.mood != EnumMood.NONE)
 				{
 					pNode.speaker.MoodTracker.AddMood(pNode.mood, new SigiTime(pNode.dys, pNode.hr, pNode.min, pNode.sec));
@@ -107,67 +137,23 @@ public class DialogueController : ManagerBase<DialogueController>
 				dialogueGraph.isDone = true;
 			}
 
-            int i = 0;
-
-			if (pNode.responses.Count != 0) //if we have responses
+			for (int i = 0; i < responseButtons.Length; i++)
 			{
-				int grossCount = 0; //part of the gross stuff
-                for (; i < pNode.responses.Count; i++)
+                responseButtons[i].gameObject.SetActive(false);
+            }
+
+			if (pNode.newStance != "" && pNode.speaker != null)
+			{
+				foreach (Stance stance in pNode.speaker.stance)
 				{
-					//god this is so fucking gross
-					//TODO: hey, a fix might be to add a function in responses to check their connected promptNode,
-					//IF it's a prompt node
-					//A check to see if visited
-					if (pNode.GetAnswerConnection(i).GetNextNode() != null && pNode.GetAnswerConnection(i).GetNextNode().GetType() == typeof(PromptNode))
+					if (stance.stanceNames.Contains(pNode.newStance))
 					{
-						PromptNode ppNode = pNode.GetAnswerConnection(i).GetNextNode() as PromptNode;
-
-						if (ppNode.isVisited == true)
-						{
-							grossCount++;
-							responseButtons[i].gameObject.SetActive(false);
-							if(grossCount == pNode.responses.Count)
-							{
-								continueButton.gameObject.SetActive(true);
-							}
-							continue;
-						}
+						stance.SetStance(pNode.newStance);
 					}
-
-
-					if (!pNode.GetAnswerConnection(i).getHidden())
-                    {
-                        responseButtons[i].gameObject.SetActive(true);
-
-						if (pNode.GetAnswerConnection(i).textFull != "")
-						{
-							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textFull;
-						}
-						else
-						{
-							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = pNode.GetAnswerConnection(i).textButton;
-						}
-					}
-					else
-					{
-                        responseButtons[i].gameObject.SetActive(false);
-                    }
-                }
-
-				if (grossCount != pNode.responses.Count)
-				{
-					continueButton.gameObject.SetActive(false);
 				}
 			}
-			else
-			{
-				continueButton.gameObject.SetActive(true);
-			}
 
-			for (; i < responseButtons.Length; i++)
-			{
-				responseButtons[i].gameObject.SetActive(false);
-			}
+			continueButton.gameObject.SetActive(true);
 		}
 		else if(node != null && node.GetType() == typeof(ResponseNode))
 		{
@@ -196,6 +182,75 @@ public class DialogueController : ManagerBase<DialogueController>
 
             continueButton.gameObject.SetActive(true);
         }
+		else if (node != null && node.GetType() == typeof(ResponseBranchNode))
+		{
+			playerSpeechObj.SetActive(false);
+			characterSpeechObj.SetActive(false);
+
+			ResponseBranchNode rbNode = node as ResponseBranchNode;
+
+			int i = 0;
+
+			if (rbNode.responses.Count != 0) //if we have responses
+			{
+				int grossCount = 0; //part of the gross stuff
+				for (; i < rbNode.responses.Count; i++)
+				{
+					//god this is so fucking gross
+
+					//A check to see if visited
+					if (rbNode.GetAnswerConnection(i).GetNextNode() != null && rbNode.GetAnswerConnection(i).GetNextNode().GetType() == typeof(PromptNode))
+					{
+						PromptNode ppNode = rbNode.GetAnswerConnection(i).GetNextNode() as PromptNode;
+
+						if (ppNode.isVisited == true)
+						{
+							grossCount++;
+							responseButtons[i].gameObject.SetActive(false);
+							if (grossCount == rbNode.responses.Count)
+							{
+								continueButton.gameObject.SetActive(true);
+							}
+							continue;
+						}
+					}
+
+
+					if (!rbNode.GetAnswerConnection(i).getHidden())
+					{
+						responseButtons[i].gameObject.SetActive(true);
+
+						if (rbNode.GetAnswerConnection(i).textFull != "")
+						{
+							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = rbNode.GetAnswerConnection(i).textFull;
+						}
+						else
+						{
+							responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = rbNode.GetAnswerConnection(i).textButton;
+						}
+					}
+					else
+					{
+						responseButtons[i].gameObject.SetActive(false);
+					}
+				}
+
+				if (grossCount != rbNode.responses.Count)
+				{
+					continueButton.gameObject.SetActive(false);
+				}
+			}
+			else
+			{
+				continueButton.gameObject.SetActive(true);
+			}
+
+			for (; i < responseButtons.Length; i++)
+			{
+				responseButtons[i].gameObject.SetActive(false);
+			}
+		}
+
 	}
 
 	#region Continuation Commands
@@ -219,9 +274,12 @@ public class DialogueController : ManagerBase<DialogueController>
 		SetSpeakerImage(true);
 
         DisplayNodeOrQuit();
+
+		Debug.Log("Node Hit!");
+		GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 	}
 
-    public void TryFinishDialogue()
+	public void TryFinishDialogue()
     {
         TextController.Instance.TryToFinishText(currentPromptPanel);
     }
@@ -234,13 +292,13 @@ public class DialogueController : ManagerBase<DialogueController>
 	public void SelectResponse(int responseNode)
 	{
 		//Error check
-		if (dialogueGraph.current.GetType() != null && dialogueGraph.current.GetType() != typeof(PromptNode))
+		if (dialogueGraph.current.GetType() != null && dialogueGraph.current.GetType() != typeof(ResponseBranchNode))
 		{
 			Debug.LogError("Can't get responses because this isn't a PromptNode!");
 			return;
 		}
 
-		PromptNode pNode = dialogueGraph.current as PromptNode;
+		ResponseBranchNode rbNode = dialogueGraph.current as ResponseBranchNode;
 
 		//Activate the listening image while I've got the emotion
 		SetSpeakerImage(false);
@@ -250,13 +308,16 @@ public class DialogueController : ManagerBase<DialogueController>
 		//	EventAnnouncer.OnThrowFlag?.Invoke(pNode.GetAnswerConnection(responseNode).throwFlag);
 		//}
 
-		dialogueGraph.current = pNode.GetAnswerConnection(responseNode);
+		dialogueGraph.current = rbNode.GetAnswerConnection(responseNode);
 		AssessCurrentType();
 
 		//Activate the speaking for the new speaker
 		SetSpeakerImage(true);
 
         DisplayNodeOrQuit();
+
+		Debug.Log("Node Hit!");
+		GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 	}
 	#endregion
 
@@ -270,7 +331,7 @@ public class DialogueController : ManagerBase<DialogueController>
 		if (character != null)
 		{
 			List<SimpleGraph> possibleGraphs = new List<SimpleGraph>();
-			foreach (SimpleGraph graph in graphList)
+			foreach (SimpleGraph graph in dialoguePool)
 			{
 				//cull the impossible
 
@@ -278,7 +339,7 @@ public class DialogueController : ManagerBase<DialogueController>
 				bool containsGraph = true;
 				for (int i = 0; i < graph.dependantConversation.Count; i++)
 				{
-					if (graphList.Contains(graph.dependantConversation[i]))
+					if (dialoguePool.Contains(graph.dependantConversation[i]))
 					{
 						containsGraph = false;
 					}
@@ -335,7 +396,7 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				//congrats! you passed!
 				possibleGraphs.Add(graph);
-			}
+            }
 			//Second Pass. ie. out of the possible convos, what do we pick?
 			foreach (SimpleGraph graph in possibleGraphs)
 			{
@@ -374,8 +435,10 @@ public class DialogueController : ManagerBase<DialogueController>
 
 			DisplayNode(dialogueGraph.current);
             ActivateDialogueUI(true);
-			dialogueGraph.timesAccessed++;
+            dialogueGraph.timesAccessed++;
 			//Start talking.
+
+            EventAnnouncer.OnDialogueStart?.Invoke();
 		}
 	}
 	/// <summary>
@@ -501,13 +564,15 @@ public class DialogueController : ManagerBase<DialogueController>
 			return;
 		}
 
-		while (dialogueGraph.current != null && (dialogueGraph.current.GetType() != typeof(PromptNode) && dialogueGraph.current.GetType() != typeof(ResponseNode)))
+		while (dialogueGraph.current != null && (dialogueGraph.current.GetType() != typeof(PromptNode) && dialogueGraph.current.GetType() != typeof(ResponseNode) && dialogueGraph.current.GetType() != typeof(ResponseBranchNode)))
 		{
 			if (dialogueGraph.current.GetType() == typeof(BranchNode))
 			{
 				BranchNode bNode = dialogueGraph.current as BranchNode;
 
 				dialogueGraph.current = bNode.GetOutputNode();
+				Debug.Log("Node Hit!");
+				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 			else if (dialogueGraph.current.GetType() == typeof(ActorNode))
 			{
@@ -529,6 +594,8 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				dialogueGraph.current = aNode.GetNextNode();
+				Debug.Log("Node Hit!");
+				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 			else if (dialogueGraph.current.GetType() == typeof(FlagNode))
 			{
@@ -540,6 +607,8 @@ public class DialogueController : ManagerBase<DialogueController>
 				}
 
 				dialogueGraph.current = fNode.GetNextNode();
+				Debug.Log("Node Hit!");
+				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
 			else if (dialogueGraph.current.GetType() == typeof(MemoryNode))
 			{
@@ -547,14 +616,14 @@ public class DialogueController : ManagerBase<DialogueController>
 
 				if (mNode.memory != null)
 				{
-					//TODO: implement the memory node call to UI
-					Debug.Log(mNode.memory.memoryImage.sprite.name);
+					Debug.Log(mNode.memory.memoryImage.name);
+					MemoryManager.Instance.AddMemory(mNode.memory);
 				}
 
 				dialogueGraph.current = mNode.GetNextNode();
+				Debug.Log("Node Hit!");
+				GlobalTimeTracker.Instance.GlobalTime.IncrementTime(timePerNode);
 			}
-
-
 		}
 
 		if (dialogueGraph.current.GetType() == typeof(PromptNode))
@@ -570,9 +639,9 @@ public class DialogueController : ManagerBase<DialogueController>
 	{
 		Debug.Log("RESET");
 
-		for (int i = 0; i < graphList.Count; i++)
+		for (int i = 0; i < dialoguePool.Count; i++)
 		{
-			graphList[i].Reset();
+			dialoguePool[i].Reset();
 		}
 
         EventAnnouncer.OnDialogueRestart?.Invoke();
@@ -592,10 +661,11 @@ public class DialogueController : ManagerBase<DialogueController>
 
 			if (dialogueGraph.isDone)
 			{
-				graphList.Remove(dialogueGraph);
+				dialoguePool.Remove(dialogueGraph);
 			}
 
             ActivateDialogueUI(false);
+            EventAnnouncer.OnDialogueEnd?.Invoke();
 
             if (characterButtonObj)
             {

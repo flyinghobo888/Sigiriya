@@ -4,7 +4,7 @@ using UnityEngine;
 using XNode;
 
 [NodeTint(46, 217, 125)]
-[CreateNodeMenu("Sigiriya/Logic/Not")]
+[CreateNodeMenu("Logic/Not")]
 public class Not : Node
 {
 	[Input(typeConstraint = TypeConstraint.Strict)] public bool arg1;

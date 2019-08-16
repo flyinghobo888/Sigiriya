@@ -18,6 +18,11 @@ public class FlagNodeEditor : NodeEditor
 		FlagNode node = target as FlagNode;
 		SerializedObject so = new SerializedObject(target);
 
+		GUILayout.BeginHorizontal();
+		NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("input"), GUILayout.MinWidth(0));
+		NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("output"), GUILayout.MinWidth(0));
+		GUILayout.EndHorizontal();
+
 		if (flagHelp == null)
 		{
 			flagHelp = new FlagEnumHelper();

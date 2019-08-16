@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbd913c1860269419536a7ffb19cb5a, type: 3}
+  m_Name: Lakmini
+  m_EditorClassIdentifier: 
+  Tag: Character
+  Position: {x: 0, y: 0, z: -89.923546}
+  Rotation: {x: -0, y: -0, z: -0, w: 1}
+  Scale: {x: 1, y: 1, z: 1}
+  AnchorPosition: {x: 0, y: 0}
+  AnchorMin: {x: 0, y: 0}
+  AnchorMax: {x: 1, y: 1}
+  Pivot: {x: 0.5, y: 0.5}
+  Mood: 0
+  Children:
+  - {fileID: 11400000, guid: 8500e618ba09b6246a52f060ed046845, type: 2}
+  - {fileID: 11400000, guid: 2598359f544e9394ca3c2d0c8d5c93c3, type: 2}
+  - {fileID: 11400000, guid: e6a0a4faf7d0ce347a90512e60283f88, type: 2}

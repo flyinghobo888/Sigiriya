@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f08e770f48f9e44b3ac389d46899c2, type: 3}
   m_Name: Kitchen
   m_EditorClassIdentifier: 
-  locationObjects: {fileID: 8609844408506559611, guid: 6ed2c06b83af48642b125d6d917ecb39,
-    type: 3}
-  keys: 00000000
-  values:
-  - {fileID: 21300000, guid: 2616019cfac42d844a0ee452e15c4893, type: 3}
+  locationType: 0
+  Values:
+  - {fileID: 11400000, guid: 090f7a5bba668a94a8904c2834df6343, type: 2}

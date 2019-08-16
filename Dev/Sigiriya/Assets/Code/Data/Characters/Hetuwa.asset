@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
+  m_Name: Hetuwa
+  m_EditorClassIdentifier: 
+  CharacterName: Hetuwa
+  DefaultSprite: {fileID: 21300000, guid: e3e64d5961f22174dbb091c95be00ea1, type: 3}
+  RawExpressionOrder: 0d0000000e0000001100000017000000
+  RawExpressions:
+  - {fileID: 21300000, guid: 4fbbf92afe0d7d0408dd64f6cd0ed649, type: 3}
+  - {fileID: 21300000, guid: e3e64d5961f22174dbb091c95be00ea1, type: 3}
+  - {fileID: 21300000, guid: dc26de2693a942d42b3f358cc7d7f01a, type: 3}
+  - {fileID: 21300000, guid: 4cd5fac6de8d92143861beffdc549ab0, type: 3}
+  RawTalkExpressions:
+  - {fileID: 21300000, guid: 5d7c4e1d8d72fcf4bb82591146900164, type: 3}
+  - {fileID: 21300000, guid: 77363c2f94722344f90363304c3c0e0a, type: 3}
+  - {fileID: 21300000, guid: 64928c751584b724d9f9dd88fc96d36c, type: 3}
+  - {fileID: 21300000, guid: c0c6c4e3920dd224199ae0c66bb557b2, type: 3}
+  CharacterTransforms: []
+  MorningSchedule: {fileID: 11400000, guid: fa3a191288847674c92e7797e42dab8d, type: 2}
+  MiddaySchedule: {fileID: 11400000, guid: d519992b1af89744bb34dc1a847c278c, type: 2}
+  NightSchedule: {fileID: 11400000, guid: 620a8671cb133374c8511edbe9fb6237, type: 2}
+  stance:
+  - {fileID: 11400000, guid: b0ed24f5901e0d644b715fdea6b97af2, type: 2}

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed02a54d0cbd22478bdda3fc64f5e2c, type: 3}
+  m_Name: Suvik
+  m_EditorClassIdentifier: 
+  CharacterName: Suvik
+  DefaultSprite: {fileID: 21300000, guid: fc3ddccdacd982240973391c9205d00d, type: 3}
+  RawExpressionOrder: 000000000400000006000000080000000e00000012000000
+  RawExpressions:
+  - {fileID: 21300000, guid: 563449007c987444c99d2aeca51db90b, type: 3}
+  - {fileID: 21300000, guid: 1f784a3465e4a8042971817fb16bda75, type: 3}
+  - {fileID: 21300000, guid: eabf870de26c57446b5ee47a428fb7d5, type: 3}
+  - {fileID: 21300000, guid: 661485a9bd3040f4f9777efdcf0fc845, type: 3}
+  - {fileID: 21300000, guid: fc3ddccdacd982240973391c9205d00d, type: 3}
+  - {fileID: 21300000, guid: 4034bb7cc55c30e42b5885c06bbe8d69, type: 3}
+  RawTalkExpressions:
+  - {fileID: 21300000, guid: e83358f4fa6f2ac41ad0cf6281a9ca81, type: 3}
+  - {fileID: 21300000, guid: 0b44bc956d826d543baef96882e04e4b, type: 3}
+  - {fileID: 21300000, guid: 4e616ffc250d95d4abc771b8f7c979e8, type: 3}
+  - {fileID: 21300000, guid: 1b48b2779fff4dd41b182a60f210260b, type: 3}
+  - {fileID: 21300000, guid: 4ee5d53fd6fb80348aa84b768a527ecc, type: 3}
+  - {fileID: 21300000, guid: a2d41f95d792bd947a9f5b6fb0d379e0, type: 3}
+  CharacterTransforms: []
+  MorningSchedule: {fileID: 11400000, guid: 73eb38eb750ee594da449fb1ba9fbbf9, type: 2}
+  MiddaySchedule: {fileID: 11400000, guid: a2cab1048bd4fdf43a9b105d7903ba54, type: 2}
+  NightSchedule: {fileID: 11400000, guid: 4680a29d846cab54ea79322bdd82bf11, type: 2}
+  stance:
+  - {fileID: 11400000, guid: d9eed9856b0af2e4393c8853e854ec06, type: 2}

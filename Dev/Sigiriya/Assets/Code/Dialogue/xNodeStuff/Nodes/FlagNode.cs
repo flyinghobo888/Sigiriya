@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[CreateNodeMenu("Event/FlagNode")]
 public class FlagNode : BaseNode
 {
 	public FlagBank.Flags throwFlag;
@@ -17,6 +18,6 @@ public class FlagNode : BaseNode
 	// Return the correct value of an output port when requested
 	public override object GetValue(NodePort port)
 	{
-		return null; // Replace this
+		return throwFlag; // Replace this
 	}
 }
