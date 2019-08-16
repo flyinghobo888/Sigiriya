@@ -73,7 +73,7 @@ public class TaskManager : ManagerBase<TaskManager>
         taskList.Add(firstTask);
         firstTask.InitTask(firstTask);
 		UpdateTasks();
-        UpdateTasksInScrollBoard();
+        //UpdateTasksInScrollBoard();
 	}
 #endif
 	public void RemoveTask(Task oldTask)
@@ -90,7 +90,7 @@ public class TaskManager : ManagerBase<TaskManager>
 		if (taskList.Count != 0)
 		{
 			taskList.Remove(taskList[taskList.Count - 1]);
-            UpdateTasksInScrollBoard();
+            //UpdateTasksInScrollBoard();
 		}
 	}
 #endif
@@ -113,7 +113,7 @@ public class TaskManager : ManagerBase<TaskManager>
 		}
 	}
 
-	void UpdateTasksInScrollBoard()
+	public void UpdateTasksInScrollBoard()
 	{
         ScrollBoardController.Instance.ResetTaskUIList();
 

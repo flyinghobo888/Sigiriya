@@ -7,8 +7,10 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
 {
     [SerializeField] private RectTransform journalContainer = null;
     [SerializeField] private GameObject backgroundBlurContainer = null;
-    [Header("The scroll content container")]
-    [SerializeField] private RectTransform contentContainer = null;
+    [Header("The task content container")]
+    [SerializeField] private RectTransform taskContentContainer = null;
+    [Header("The memory content container")]
+    [SerializeField] private RectTransform memoryContentContainer = null;
     [Header("The top image of the scroll")]
     [SerializeField] private Sprite topBoardBackground = null;
     [Space]
@@ -19,6 +21,9 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
     [SerializeField] private RootTaskUI rootTaskUIPrefab = null;
     [SerializeField] private GoalTaskUI goalTaskUIPrefab = null;
     [SerializeField] private SolutionsTaskUI solutionTaskUIPrefab = null;
+    [Space]
+    [Header("The memory ui prefabs")]
+    [SerializeField] private MemoryUI memoryUIPrefab = null;
     [Space]
     [Header("The memory ui prefabs")]
     //[SerializeField] private RootMemoryUI rootMemoryUIPrefab = null;
@@ -37,6 +42,10 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
     public void ShowJournal(bool show)
     {
         backgroundBlurContainer.SetActive(show);
+
+        TaskManager.Instance.UpdateTasksInScrollBoard();
+        MemoryManager.Instance.DisplayMemories();
+
         journalContainer.gameObject.SetActive(show);
     }
 
@@ -46,7 +55,9 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
         {
             for (int i = 0; i < list.Count;)
             {
-                Destroy(list[i]);
+                ScrollBoardItemUIBase temp = list[i];
+                list.RemoveAt(i);
+                Destroy(temp.gameObject);
             }
         }
     }
@@ -55,7 +66,19 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
     {
         for (int i = 0; i < taskElements.Count;)
         {
-            Destroy(taskElements[i]);
+            ScrollBoardItemUIBase temp = taskElements[i];
+            taskElements.RemoveAt(i);
+            Destroy(temp.gameObject);
+        }
+    }
+
+    public void ResetMemoryUIList()
+    {
+        for (int i = 0; i < memoryElements.Count;)
+        {
+            ScrollBoardItemUIBase temp = memoryElements[i];
+            memoryElements.RemoveAt(i);
+            Destroy(temp.gameObject);
         }
     }
 
@@ -82,7 +105,7 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
     //Create the new ui pieces for the task!
     private void AddTask(Task task)
     {
-        Sprite backgroundSprite = GetBackgroundSprite();
+        Sprite backgroundSprite = GetBackgroundSprite(ref taskElements);
         ScrollBoardItemUIBase boardPrefab;
 
         switch (task.TaskType)
@@ -127,7 +150,7 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
 
         if (shouldInstantiate)
         {
-            ScrollBoardItemUIBase uiElement = Instantiate(boardPrefab, contentContainer, false);
+            ScrollBoardItemUIBase uiElement = Instantiate(boardPrefab, taskContentContainer, false);
 
             if (uiElement is SolutionsTaskUI)
             {
@@ -157,11 +180,16 @@ public class ScrollBoardController : ManagerBase<ScrollBoardController>
     private void AddMemory(Memory memory)
     {
         //DO THIS IN THE FUTURE
+        MemoryUI uiElement = Instantiate(memoryUIPrefab, memoryContentContainer, false) as MemoryUI;
+        Sprite backgroundSprite = GetBackgroundSprite(ref taskElements);
+
+        uiElement.InitBoardItemUI(memory, backgroundSprite);
+        registerMemoryUIElement(uiElement);
     }
 
-    private Sprite GetBackgroundSprite()
+    private Sprite GetBackgroundSprite(ref List<ScrollBoardItemUIBase> type)
     {
-        if (GetActiveElementsCount() == 0)
+        if (type.Count == 0)
         {
             return topBoardBackground;
         }
