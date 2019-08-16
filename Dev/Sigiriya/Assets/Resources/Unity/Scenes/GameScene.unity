@@ -5273,7 +5273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addTask: 0
   removeTask: 0
-  taskList: []
+  taskList:
+  - {fileID: 11400000, guid: 9796f66f0b27e2e4cb8c88f29e16e9da, type: 2}
   taskUIReference: {fileID: 452941348144609349, guid: a4c718e4a2ef6ae4e9ab90fe92d9a603,
     type: 3}
   taskUIList: []
@@ -5292,7 +5293,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f190465307ff7549a4db4379bf7b99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recordedMemories: []
+  recordedMemories:
+  - {fileID: 11400000, guid: 7793427b163ca6645a39b80b7a6ebad3, type: 2}
+  - {fileID: 11400000, guid: 34e459680a1342d48a7a9d7d4928dbe4, type: 2}
+  - {fileID: 11400000, guid: b0291e57269c92647bce30d61cde3744, type: 2}
+  - {fileID: 11400000, guid: 9713b2007e39b2a4886c4148b0d1a715, type: 2}
+  - {fileID: 11400000, guid: 520a691c00ea91f44abe4c21de68a77d, type: 2}
+  - {fileID: 11400000, guid: b263c2c9dcab1dc41b92816132956329, type: 2}
+  - {fileID: 11400000, guid: 093d097260eb92048a21e3a072d7e35c, type: 2}
+  - {fileID: 11400000, guid: 6c026cbb9b662844bab21e7b3918419e, type: 2}
+  - {fileID: 11400000, guid: c76a9d965a2b20947b8bf747ff19a098, type: 2}
+  - {fileID: 11400000, guid: 312ca87170706314e83fd3daa89c261e, type: 2}
+  - {fileID: 11400000, guid: 25824d0dc6272ea4b8e17eb6c846ff91, type: 2}
+  - {fileID: 11400000, guid: 9036a1d95313e5d478d145de96eaa3d5, type: 2}
+  - {fileID: 11400000, guid: baeb7339454a0f24ab221b1c0f9d3353, type: 2}
+  - {fileID: 11400000, guid: e73fc4e30fbdf6d46baa61a1700d44aa, type: 2}
   unrecordedMemories: []
   Display: 0
 --- !u!1001 &839332235
