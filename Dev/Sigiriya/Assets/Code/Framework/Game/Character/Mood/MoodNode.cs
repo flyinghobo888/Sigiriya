@@ -54,10 +54,24 @@ public class MoodNode
 public enum EnumMood
 {
 	NONE,
-    HAPPY,
-    SAD,
-    EXCITED,
     ANGRY,
-
+    ANNOYED,
+    EMBARRASED,
+    EXITED,
+    FRAGILE,
+    FURIOUS,
+    GRATEFUL,
+    HURT,
+    NERVOUS,
+    ONEDGE,
+    SAD,
+    SMUG,
+    SPOOKED,
+    STRESSED,
+    SURPRISED,
+    THOUGHTFUL,
+    UNSURE,
+    UPSET,
+    WARY,
     SIZE
 }
