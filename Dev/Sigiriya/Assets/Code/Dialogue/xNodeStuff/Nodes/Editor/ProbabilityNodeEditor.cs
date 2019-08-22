@@ -13,7 +13,11 @@ public class ProbabilityNodeEditor : NodeEditor
 
 		Probability node = target as Probability;
 
-		node.UpdateModLength();
+		if (node != null)
+		{
+			node.UpdateModLength();
+		}
+
 		NodeEditorGUILayout.InstancePortList("args", typeof(bool), serializedObject, XNode.NodePort.IO.Input, XNode.Node.ConnectionType.Multiple, XNode.Node.TypeConstraint.Strict);
 
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("baseProbability"));

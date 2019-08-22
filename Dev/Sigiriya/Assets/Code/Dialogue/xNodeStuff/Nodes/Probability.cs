@@ -15,6 +15,11 @@ public class Probability : Node
 
 	public void UpdateModLength()
 	{
+		if (modVal == null || this.args == null)
+		{
+			return;
+		}
+
 		while (modVal.Count < this.args.Count)
 		{
 			int num = 0;
