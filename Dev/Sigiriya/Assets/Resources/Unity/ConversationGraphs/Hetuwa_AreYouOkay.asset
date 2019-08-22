@@ -306,6 +306,48 @@ MonoBehaviour:
   isNoReturn: 0
   newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-8590493498789308644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5959026e79e3184dae3bb38a60319a5, type: 3}
+  m_Name: Probability
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -126, y: -165.5}
+  ports:
+    keys:
+    - args
+    - result
+    values:
+    - _fieldName: args
+      _node: {fileID: -8590493498789308644}
+      _typeQualifiedName: System.Collections.Generic.List`1[[System.Boolean, mscorlib,
+        Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib,
+        Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: result
+      _node: {fileID: -8590493498789308644}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  args: 
+  result: 0
+  baseProbability: 50
+  modVal: 
 --- !u!114 &-8536858639269164712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3697,6 +3739,36 @@ MonoBehaviour:
   isNoReturn: 0
   newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-3261253360576846091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41aa272820d1c549819ff0b33dbcd62, type: 3}
+  m_Name: Location Check
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 3032.7222, y: -407.3337}
+  ports:
+    keys:
+    - result
+    values:
+    - _fieldName: result
+      _node: {fileID: -3261253360576846091}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  result: 0
+  location: 0
+  operatorType: 0
 --- !u!114 &-2864625594895446582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5370,6 +5442,8 @@ MonoBehaviour:
   - {fileID: -2271019908670932724}
   - {fileID: 1205419854693946034}
   - {fileID: -6498796522825249939}
+  - {fileID: -8590493498789308644}
+  - {fileID: -3261253360576846091}
   current: {fileID: 0}
   isInit: 1
   timesAccessed: 1
@@ -5702,17 +5776,18 @@ MonoBehaviour:
   position: {x: 2392, y: 3128}
   ports:
     keys:
-    - arg1
+    - args
     - result
     values:
-    - _fieldName: arg1
+    - _fieldName: args
       _node: {fileID: 614880592817027665}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: System.Collections.Generic.List`1[[System.Boolean, mscorlib,
+        Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib,
+        Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
-      _connectionType: 0
-      _typeConstraint: 2
+      _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: result
       _node: {fileID: 614880592817027665}
@@ -5726,10 +5801,10 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  arg1: 0
+  args: 
   result: 1
-  probability: 40
-  modVal: 0
+  baseProbability: 50
+  modVal: 
 --- !u!114 &910491582157585843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9261,17 +9336,18 @@ MonoBehaviour:
   position: {x: 2392, y: 3576}
   ports:
     keys:
-    - arg1
+    - args
     - result
     values:
-    - _fieldName: arg1
+    - _fieldName: args
       _node: {fileID: 7363570827954735661}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: System.Collections.Generic.List`1[[System.Boolean, mscorlib,
+        Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib,
+        Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
       connections: []
       _direction: 0
-      _connectionType: 0
-      _typeConstraint: 2
+      _connectionType: 1
+      _typeConstraint: 0
       _dynamic: 0
     - _fieldName: result
       _node: {fileID: 7363570827954735661}
@@ -9285,10 +9361,10 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  arg1: 0
+  args: 
   result: 0
-  probability: 30
-  modVal: 0
+  baseProbability: 50
+  modVal: 
 --- !u!114 &8022633899989677118
 MonoBehaviour:
   m_ObjectHideFlags: 0
