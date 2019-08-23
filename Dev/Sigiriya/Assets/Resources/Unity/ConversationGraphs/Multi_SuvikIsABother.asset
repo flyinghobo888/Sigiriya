@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7608, y: 440}
+  position: {x: 8632, y: 504}
   ports:
     keys:
     - responses
@@ -92,7 +92,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: What's with you sticking up for the minion?
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8216, y: -8}
+  position: {x: 9272, y: -8}
   ports:
     keys:
     - responses
@@ -194,7 +194,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: But wow, would that be satisfying.
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 1
   mood: 0
   sec: 0
   min: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: Actor Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5624, y: -8}
+  position: {x: 6392, y: -8}
   ports:
     keys:
     - input
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6872, y: -8}
+  position: {x: 7800, y: -8}
   ports:
     keys:
     - responses
@@ -344,7 +344,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Trying to intimidate me. I could lift him up with one arm!
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 1
   mood: 0
   sec: 0
   min: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: Response Branch Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2328, y: -8}
+  position: {x: 2488, y: -8}
   ports:
     keys:
     - responses
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1112, y: -8}
+  position: {x: 1208, y: -8}
   ports:
     keys:
     - responses
@@ -529,7 +529,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: That's not what I -
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 1
   mood: 0
   sec: 0
   min: 0
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6056, y: -8}
+  position: {x: 6904, y: -8}
   ports:
     keys:
     - promptInput
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1416, y: -8}
+  position: {x: 1528, y: -8}
   ports:
     keys:
     - responses
@@ -701,7 +701,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: You failed to order the necessary materials?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 4
   mood: 0
   sec: 0
   min: 0
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2552, y: 440}
+  position: {x: 2744, y: 504}
   ports:
     keys:
     - promptInput
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6056, y: 264}
+  position: {x: 6904, y: 248}
   ports:
     keys:
     - promptInput
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8520, y: -8}
+  position: {x: 9592, y: -8}
   ports:
     keys:
     - responses
@@ -940,7 +940,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Anyway, I should get back to work, you heard the minion.
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7912, y: -8}
+  position: {x: 8952, y: -8}
   ports:
     keys:
     - responses
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: And I'm not allowed to swat him.
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 1
   mood: 0
   sec: 0
   min: 0
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7912, y: 440}
+  position: {x: 9592, y: 504}
   ports:
     keys:
     - responses
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Anyway, I should get back to work, you heard the minion.
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -1164,7 +1164,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5016, y: -8}
+  position: {x: 5752, y: -8}
   ports:
     keys:
     - responses
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 808, y: -8}
+  position: {x: 888, y: -8}
   ports:
     keys:
     - responses
@@ -1346,7 +1346,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: So then you were not fully aware of the scope of the project?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 4
   mood: 0
   sec: 0
   min: 0
@@ -1369,7 +1369,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6568, y: -8}
+  position: {x: 7480, y: -8}
   ports:
     keys:
     - responses
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   prompt: The King asks us to do the impossible, and then this guy is amazed that
     we can't do it. I mean, AMAZED.
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 1
   mood: 0
   sec: 0
   min: 0
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5320, y: -8}
+  position: {x: 6072, y: -8}
   ports:
     keys:
     - responses
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 504, y: -8}
+  position: {x: 568, y: -8}
   ports:
     keys:
     - responses
@@ -1653,7 +1653,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: No -
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 1
   mood: 0
   sec: 0
   min: 0
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7400, y: 440}
+  position: {x: 8376, y: 504}
   ports:
     keys:
     - promptInput
@@ -1746,7 +1746,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3976, y: -8}
+  position: {x: 4600, y: -8}
   ports:
     keys:
     - responses
@@ -1825,7 +1825,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: These things happen.
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -1848,7 +1848,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2024, y: -8}
+  position: {x: 2168, y: -8}
   ports:
     keys:
     - responses
@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3368, y: -8}
+  position: {x: 3960, y: -8}
   ports:
     keys:
     - responses
@@ -2029,7 +2029,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: '...'
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 1
   mood: 0
   sec: 0
   min: 0
@@ -2052,7 +2052,7 @@ MonoBehaviour:
   m_Name: Response Branch Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5832, y: -8}
+  position: {x: 6648, y: -8}
   ports:
     keys:
     - responses
@@ -2135,7 +2135,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2760, y: -8}
+  position: {x: 3320, y: -8}
   ports:
     keys:
     - responses
@@ -2190,6 +2190,9 @@ MonoBehaviour:
       - fieldName: output
         node: {fileID: 3771062569372510667}
         reroutePoints: []
+      - fieldName: output
+        node: {fileID: 3691325632060537123}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 1
@@ -2214,7 +2217,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: How kind of you to join us in a conversation that is none of your business.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 4
   mood: 0
   sec: 0
   min: 0
@@ -2300,7 +2303,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3064, y: -8}
+  position: {x: 3640, y: -8}
   ports:
     keys:
     - responses
@@ -2353,9 +2356,6 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: output
-        node: {fileID: 3691325632060537123}
-        reroutePoints: []
-      - fieldName: output
         node: {fileID: -139082042244476372}
         reroutePoints: []
       _direction: 0
@@ -2382,7 +2382,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Pamu was just about to share with me why he is three days behind schedule.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1720, y: -8}
+  position: {x: 1848, y: -8}
   ports:
     keys:
     - responses
@@ -2484,7 +2484,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Your men are lazy?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 4
   mood: 0
   sec: 0
   min: 0
@@ -2493,7 +2493,7 @@ MonoBehaviour:
   isVisited: 0
   isNoReturn: 0
   newStance: 
-  connected: {r: 1, g: 0, b: 0, a: 1}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &2151480436369213607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2507,7 +2507,7 @@ MonoBehaviour:
   m_Name: Response Branch Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7176, y: -8}
+  position: {x: 8120, y: -8}
   ports:
     keys:
     - responses
@@ -2636,7 +2636,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3672, y: -8}
+  position: {x: 4280, y: -8}
   ports:
     keys:
     - responses
@@ -2738,7 +2738,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4504, y: -8}
+  position: {x: 5176, y: -8}
   ports:
     keys:
     - promptInput
@@ -2808,7 +2808,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2760, y: 440}
+  position: {x: 3000, y: 504}
   ports:
     keys:
     - responses
@@ -2873,7 +2873,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: input
-        node: {fileID: 555970814061155789}
+        node: {fileID: -139082042244476372}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -2887,7 +2887,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Nishantha, I didn't see you there.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -2910,7 +2910,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2552, y: -8}
+  position: {x: 2744, y: -8}
   ports:
     keys:
     - promptInput
@@ -2980,7 +2980,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6264, y: -8}
+  position: {x: 7160, y: -8}
   ports:
     keys:
     - responses
@@ -3062,7 +3062,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Can you BELIEVE that guy?
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 1
   mood: 0
   sec: 0
   min: 0
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   m_Name: Response Branch Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4280, y: -8}
+  position: {x: 4920, y: -8}
   ports:
     keys:
     - responses
@@ -3168,7 +3168,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4504, y: 264}
+  position: {x: 5176, y: 248}
   ports:
     keys:
     - promptInput
@@ -3238,7 +3238,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 200, y: -8}
+  position: {x: 248, y: -8}
   ports:
     keys:
     - responses
@@ -3318,7 +3318,7 @@ MonoBehaviour:
   prompt: 'So what you are telling me is: you are unfamiliar with the capabilities
     of your employees?'
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 4
   mood: 0
   sec: 0
   min: 0
@@ -3341,7 +3341,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7608, y: -8}
+  position: {x: 8632, y: -8}
   ports:
     keys:
     - responses
@@ -3420,7 +3420,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: ' He''s like a little gnat or something, always buzzing around.'
   speaker: {fileID: 11400000, guid: 9a7cbe63a00ff1c4a9689eae14e2599d, type: 2}
-  expression: 0
+  expression: 1
   mood: 0
   sec: 0
   min: 0
@@ -3443,7 +3443,7 @@ MonoBehaviour:
   m_Name: Prompt Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4712, y: -8}
+  position: {x: 5432, y: -8}
   ports:
     keys:
     - responses
@@ -3525,7 +3525,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: '"These things happen?"'
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 18
   mood: 0
   sec: 0
   min: 0
@@ -3548,7 +3548,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7400, y: -8}
+  position: {x: 8376, y: -8}
   ports:
     keys:
     - promptInput

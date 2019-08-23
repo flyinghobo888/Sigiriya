@@ -321,7 +321,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Although, truly, why should I be surprised?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -668,7 +668,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: And then, two blocks away, the first murder - a neighbor.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -803,7 +803,109 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Let us talk about something else.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 18
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 0
+  newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-8009670533664610793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 11960, y: 2296}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: -8009670533664610793}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: -8009670533664610793}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: -8009670533664610793}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: -8009670533664610793}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: -8009670533664610793}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: 2126894410028414946}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -8009670533664610793}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -132080794670056665}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: Heh, of course.
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 18
   mood: 0
   sec: 0
   min: 0
@@ -976,7 +1078,7 @@ MonoBehaviour:
   prompt: But often, when the day is - not easy - I turn to them to remember why I
     do what I do.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -1161,7 +1263,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: '...'
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -1240,7 +1342,7 @@ MonoBehaviour:
   input: {fileID: 0}
   output: {fileID: 0}
   isHidden: 0
-  textFull: What are you up to?
+  textFull: Hi! What are you up to?
   textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
@@ -1416,14 +1518,14 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: I'll check in with you later, I'm sure.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 18
   mood: 0
   sec: 0
   min: 0
   hr: 0
   dys: 0
   isVisited: 0
-  isNoReturn: 0
+  isNoReturn: 1
   newStance: 
   connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &-5883694259655867256
@@ -1566,7 +1668,10 @@ MonoBehaviour:
       _node: {fileID: -5657928310181195369}
       _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: promptInput
+        node: {fileID: -2506832614089007560}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -1575,7 +1680,10 @@ MonoBehaviour:
       _node: {fileID: -5657928310181195369}
       _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: promptInput
+        node: {fileID: -2338134195524599332}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -1585,7 +1693,7 @@ MonoBehaviour:
   responses:
   - {fileID: 0}
   - {fileID: 0}
-  connected: {r: 1, g: 0, b: 0, a: 1}
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-5580521389033235161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,7 +1786,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: All right then.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -1927,7 +2035,7 @@ MonoBehaviour:
   prompt: Do you believe that my family has survived this long by forgiving those
     who do not deserve to be forgiven?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 4
   mood: 0
   sec: 0
   min: 0
@@ -2032,7 +2140,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: That's an easy question, so let me ask you first.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -2134,7 +2242,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: I do everything that I do for the security of my family.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -2240,7 +2348,7 @@ MonoBehaviour:
   prompt: I am thinking about that very first moment when I realized that our neighborhood
     was no longer safe for my children.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -2342,7 +2450,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: We had heard rumors of civil war, but not in our place, not in Anuradhapura.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -2445,7 +2553,109 @@ MonoBehaviour:
   prompt: Of course! So sorry! Not a conversation to be had, not with a coworker on
     a nice, sunny day.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 18
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 0
+  newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-3496942143738651764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 11128, y: 2296}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: -3496942143738651764}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: -3496942143738651764}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: -3496942143738651764}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: -3496942143738651764}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: -3496942143738651764}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: 7247872673716815780}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -3496942143738651764}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -2353597580991834888}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: What do YOU want, Nishanta?
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 8
   mood: 0
   sec: 0
   min: 0
@@ -2617,7 +2827,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: You're an intelligent man, what do you think?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 18
   mood: 0
   sec: 0
   min: 0
@@ -2894,7 +3104,10 @@ MonoBehaviour:
       _node: {fileID: -2506832614089007560}
       _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: responses 0
+        node: {fileID: -5657928310181195369}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 2
@@ -2921,7 +3134,10 @@ MonoBehaviour:
       _node: {fileID: -2506832614089007560}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: -1037030329115824069}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -3025,7 +3241,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Yes, indeed! A man after my own heart.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 18
   mood: 0
   sec: 0
   min: 0
@@ -3034,6 +3250,89 @@ MonoBehaviour:
   isVisited: 0
   isNoReturn: 0
   newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-2353597580991834888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f46ffb28b7b5ad429639f67dbf5c0e0, type: 3}
+  m_Name: Response Branch Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 11448, y: 2296}
+  ports:
+    keys:
+    - responses
+    - input
+    - output
+    - responses 0
+    - responses 1
+    values:
+    - _fieldName: responses
+      _node: {fileID: -2353597580991834888}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: -2353597580991834888}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -3496942143738651764}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -2353597580991834888}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: responses 0
+      _node: {fileID: -2353597580991834888}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: promptInput
+        node: {fileID: 2126894410028414946}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: responses 1
+      _node: {fileID: -2353597580991834888}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: promptInput
+        node: {fileID: 5358924143017283639}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses:
+  - {fileID: 0}
+  - {fileID: 0}
   connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-2338134195524599332
 MonoBehaviour:
@@ -3048,7 +3347,7 @@ MonoBehaviour:
   m_Name: Response Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 10216, y: 2056}
+  position: {x: 10232, y: 2296}
   ports:
     keys:
     - promptInput
@@ -3060,7 +3359,10 @@ MonoBehaviour:
       _node: {fileID: -2338134195524599332}
       _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: responses 1
+        node: {fileID: -5657928310181195369}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 2
@@ -3087,7 +3389,10 @@ MonoBehaviour:
       _node: {fileID: -2338134195524599332}
       _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: input
+        node: {fileID: 2766779549960056443}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
@@ -3261,7 +3566,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: You do?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -3620,7 +3925,7 @@ MonoBehaviour:
   prompt: It's a lock of hair, a small bundle comprised of snips from my wife and
     both of my children.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -3783,6 +4088,108 @@ MonoBehaviour:
   textButton: 
   voiceClip: {fileID: 0}
   throwFlag: 0
+--- !u!114 &-1037030329115824069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 10488, y: 1784}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: -1037030329115824069}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: -1037030329115824069}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: -1037030329115824069}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: -1037030329115824069}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: -1037030329115824069}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -2506832614089007560}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -1037030329115824069}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 1874108827245350233}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: Sure, let's call it that.
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 14
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 0
+  newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &-536902959050703989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3875,7 +4282,110 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: ' Absolutely anything.'
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 0
+  newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-372515289776294189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 12600, y: 2808}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: -372515289776294189}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: -372515289776294189}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: -372515289776294189}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: -372515289776294189}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: -372515289776294189}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: 2085856015575294382}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -372515289776294189}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 8342763238949965685}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: "I think you\u2019ve gotten quite enough out of me for tonight, what do
+    you think?"
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -3977,7 +4487,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: But, on to cheerier subjects, yes?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 18
   mood: 0
   sec: 0
   min: 0
@@ -4079,7 +4589,109 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: And then, two blocks away, the first murder - a neighbor.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 0
+  newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-132080794670056665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 12280, y: 2296}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: -132080794670056665}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: -132080794670056665}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: -132080794670056665}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: -132080794670056665}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: -132080794670056665}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -8009670533664610793}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -132080794670056665}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 7484798995219016495}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: Heh, of course.
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 8
   mood: 0
   sec: 0
   min: 0
@@ -4184,6 +4796,21 @@ MonoBehaviour:
   - {fileID: 3722697003538806842}
   - {fileID: -3453652707364159040}
   - {fileID: -5657928310181195369}
+  - {fileID: -1037030329115824069}
+  - {fileID: 1874108827245350233}
+  - {fileID: 2766779549960056443}
+  - {fileID: 7247872673716815780}
+  - {fileID: -3496942143738651764}
+  - {fileID: -2353597580991834888}
+  - {fileID: 5358924143017283639}
+  - {fileID: 2126894410028414946}
+  - {fileID: -8009670533664610793}
+  - {fileID: -132080794670056665}
+  - {fileID: 7484798995219016495}
+  - {fileID: 7056657012106464205}
+  - {fileID: 2085856015575294382}
+  - {fileID: -372515289776294189}
+  - {fileID: 8342763238949965685}
   current: {fileID: 0}
   isInit: 0
   timesAccessed: 0
@@ -4471,7 +5098,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: All right.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -4573,7 +5200,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: '...'
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -4675,7 +5302,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: I'm afraid you've caught me lost in thoughts not entirely on my profession.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 18
   mood: 0
   sec: 0
   min: 0
@@ -4847,7 +5474,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Unless you have a professional question to ask - get away from me.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -4857,6 +5484,277 @@ MonoBehaviour:
   isNoReturn: 0
   newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &1874108827245350233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 10808, y: 1784}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: 1874108827245350233}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: 1874108827245350233}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: 1874108827245350233}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: 1874108827245350233}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 1874108827245350233}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -1037030329115824069}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 1874108827245350233}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: As I am, and you surely are, right now.
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 14
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 1
+  newStance: 
+  connected: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &2085856015575294382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 12280, y: 2808}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: 2085856015575294382}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: 2085856015575294382}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: 2085856015575294382}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: 2085856015575294382}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 2085856015575294382}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: 7056657012106464205}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 2085856015575294382}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -372515289776294189}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: A dangerous desire.
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 18
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 0
+  newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &2126894410028414946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842428de3e3972f449da1bd1e9fbcc33, type: 3}
+  m_Name: Response Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 11704, y: 2296}
+  ports:
+    keys:
+    - promptInput
+    - isHidden
+    - input
+    - output
+    values:
+    - _fieldName: promptInput
+      _node: {fileID: 2126894410028414946}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: responses 0
+        node: {fileID: -2353597580991834888}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: isHidden
+      _node: {fileID: 2126894410028414946}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 2126894410028414946}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 2126894410028414946}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -8009670533664610793}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  isHidden: 0
+  textFull: Just to do my job.
+  textButton: 
+  voiceClip: {fileID: 0}
+  throwFlag: 0
 --- !u!114 &2140265040046105230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5036,7 +5934,109 @@ MonoBehaviour:
   prompt: It is unbelievable to me that you would think I'd be interested in friendly
     conversation with you.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 4
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 0
+  newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &2766779549960056443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 10488, y: 2296}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: 2766779549960056443}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: 2766779549960056443}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: 2766779549960056443}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: 2766779549960056443}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 2766779549960056443}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -2338134195524599332}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 2766779549960056443}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 7247872673716815780}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: I cannot take kindness at face value.
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -5138,7 +6138,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Nishanta! Hello! You surprised me.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -5240,7 +6240,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Yes, they are all alive and well and here in the camp, thank gods.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -5444,7 +6444,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: You mean, why don't I fraternize with my employees?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 8
   mood: 0
   sec: 0
   min: 0
@@ -5801,7 +6801,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: ' I would do anything for my family.'
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -6069,7 +7069,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Then perhaps we are less alike than I had thought.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -6079,6 +7079,76 @@ MonoBehaviour:
   isNoReturn: 0
   newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &5358924143017283639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842428de3e3972f449da1bd1e9fbcc33, type: 3}
+  m_Name: Response Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 11720, y: 2808}
+  ports:
+    keys:
+    - promptInput
+    - isHidden
+    - input
+    - output
+    values:
+    - _fieldName: promptInput
+      _node: {fileID: 5358924143017283639}
+      _typeQualifiedName: ResponseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: responses 1
+        node: {fileID: -2353597580991834888}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: isHidden
+      _node: {fileID: 5358924143017283639}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 5358924143017283639}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 5358924143017283639}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 7056657012106464205}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  isHidden: 0
+  textFull: I want to get to know you.
+  textButton: 
+  voiceClip: {fileID: 0}
+  throwFlag: 0
 --- !u!114 &5810732544376873331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6371,7 +7441,211 @@ MonoBehaviour:
   prompt: And the honor of the King, of course, who has finally received the riches
     he deserved.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 0
+  newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &7056657012106464205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 11960, y: 2808}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: 7056657012106464205}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: 7056657012106464205}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: 7056657012106464205}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: 7056657012106464205}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 7056657012106464205}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: 5358924143017283639}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 7056657012106464205}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 2085856015575294382}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: Hmph.
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 14
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 0
+  newStance: 
+  connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &7247872673716815780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 10808, y: 2296}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: 7247872673716815780}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: 7247872673716815780}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: 7247872673716815780}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: 7247872673716815780}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 7247872673716815780}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: 2766779549960056443}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 7247872673716815780}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -3496942143738651764}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: Everyone wants something.
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -6473,7 +7747,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: It isn't easy to forget.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -6483,6 +7757,105 @@ MonoBehaviour:
   isNoReturn: 0
   newStance: 
   connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &7484798995219016495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 12600, y: 2296}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: 7484798995219016495}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: 7484798995219016495}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: 7484798995219016495}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: 7484798995219016495}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 7484798995219016495}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -132080794670056665}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 7484798995219016495}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: Nevermind then, we should both be on our ways.
+  speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
+  expression: 18
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 1
+  newStance: 
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &7540031833717031254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6645,7 +8018,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: Why do you do what you do?
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -6840,6 +8213,105 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   connected: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &8342763238949965685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c1a496dc5d3954ca176be412f51854, type: 3}
+  m_Name: Prompt Node
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 12920, y: 2808}
+  ports:
+    keys:
+    - responses
+    - interruptConnection
+    - checkpointConnection
+    - exitConnection
+    - input
+    - output
+    values:
+    - _fieldName: responses
+      _node: {fileID: 8342763238949965685}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BaseNode, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptConnection
+      _node: {fileID: 8342763238949965685}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: checkpointConnection
+      _node: {fileID: 8342763238949965685}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitConnection
+      _node: {fileID: 8342763238949965685}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 8342763238949965685}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -372515289776294189}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 1
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 8342763238949965685}
+      _typeQualifiedName: BaseNode, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  output: {fileID: 0}
+  responses: []
+  interruptConnection: {fileID: 0}
+  checkpointConnection: {fileID: 0}
+  exitConnection: {fileID: 0}
+  prompt: "Ha, I\u2019d agree. It was good talking with you."
+  speaker: {fileID: 0}
+  expression: 14
+  mood: 0
+  sec: 0
+  min: 0
+  hr: 0
+  dys: 0
+  isVisited: 0
+  isNoReturn: 1
+  newStance: 
+  connected: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &8526623868019992309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6932,7 +8404,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: I couldn't allow my children out of my sight.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -7031,7 +8503,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: '...'
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 14
   mood: 0
   sec: 0
   min: 0
@@ -7133,7 +8605,7 @@ MonoBehaviour:
   exitConnection: {fileID: 0}
   prompt: I knew that we were alike Nishanta.
   speaker: {fileID: 11400000, guid: 9f60e32559725c24d8b68a59b38078d1, type: 2}
-  expression: 0
+  expression: 18
   mood: 0
   sec: 0
   min: 0
