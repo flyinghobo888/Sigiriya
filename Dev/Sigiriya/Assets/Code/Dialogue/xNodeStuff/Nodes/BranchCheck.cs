@@ -11,6 +11,26 @@ public class BranchCheck : Node
 	[Input] public bool flag = true;
 	[Output] public BaseNode output;
 
+	public Color connected;
+	public void CheckConnectedColor()
+	{
+		bool isConnected = true;
+
+		if (GetConnectedNode() == null)
+		{
+			isConnected = false;
+		}
+
+		if (isConnected)
+		{
+			connected = Color.green;
+		}
+		else
+		{
+			connected = Color.red;
+		}
+	}
+
 	public bool CheckBranchFlag()
 	{
 		bool flag = GetInputValue<bool>("flag", this.flag);

@@ -9,15 +9,32 @@ public class TriggerCheck : Node
 {
 	[Output] public bool result;
 	public FlagBank.Flags trigger;
-	//public EnumLocation location;
-	//public EnumMood mood;
-	//public EnumTime time;
 
 	[NodeEnum] public Operator operatorType = Operator.TRUE;
 	public enum Operator
 	{
 		TRUE,
 		FALSE
+	}
+
+	public Color connected;
+	public void CheckConnectedColor()
+	{
+		bool isConnected = true;
+
+		if (trigger == FlagBank.Flags.NONE)
+		{
+			isConnected = false;
+		}
+
+		if (isConnected)
+		{
+			connected = Color.green;
+		}
+		else
+		{
+			connected = Color.red;
+		}
 	}
 
 	// Return the correct value of an output port when requested

@@ -6,7 +6,7 @@ using XNode;
 [CreateNodeMenu("Dialogue/PromptNode")]
 public class PromptNode : BaseNode
 {
-	[Output(instancePortList = true, connectionType = ConnectionType.Override)] public List<BaseNode> responses = new List<BaseNode>();
+	//[Output(instancePortList = true, connectionType = ConnectionType.Override)] public List<BaseNode> responses = new List<BaseNode>();
 
 	[Output(connectionType = ConnectionType.Override)] public BaseNode interruptConnection;
 	[Output(connectionType = ConnectionType.Override)] public BaseNode checkpointConnection;
@@ -34,19 +34,6 @@ public class PromptNode : BaseNode
 		if (GetConnectedNode("output") == null)
 		{
 			isConnected = false;
-		}
-
-		if (responses.Count > 0)
-		{
-			isConnected = true;
-		}
-
-		for (int i = 0; i < responses.Count; i++)
-		{
-			if (GetAnswerConnection(i) == null)
-			{
-				isConnected = false;
-			}
 		}
 
 		if (isConnected)

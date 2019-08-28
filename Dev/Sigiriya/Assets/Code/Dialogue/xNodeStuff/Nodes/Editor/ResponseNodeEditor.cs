@@ -19,6 +19,8 @@ public class ResponseNodeEditor : NodeEditor
 
 		GUILayout.BeginHorizontal();
 		NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("promptInput"), GUILayout.MinWidth(0));
+		node.CheckConnectedColor();
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("connected"), GUIContent.none);
 		NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("output"), GUILayout.MinWidth(0));
 		GUILayout.EndHorizontal();
 

@@ -61,9 +61,6 @@ public class PromptNodeEditor : NodeEditor
 		}
 		GUILayout.EndVertical();
 
-		NodeEditorGUILayout.InstancePortList("responses", typeof(ResponseNode), serializedObject, XNode.NodePort.IO.Output, XNode.Node.ConnectionType.Override);
-		//NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("responses"));
-
 		serializedObject.ApplyModifiedProperties();
 	}
 

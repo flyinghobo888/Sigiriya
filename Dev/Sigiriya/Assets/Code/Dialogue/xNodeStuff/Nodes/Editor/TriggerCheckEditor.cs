@@ -20,6 +20,8 @@ public class StringNodeEditor : NodeEditor
 
 		GUILayout.BeginHorizontal();
 		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("operatorType"), GUIContent.none);
+		node.CheckConnectedColor();
+		NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("connected"), GUIContent.none);
 		NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("result"), GUILayout.MinWidth(0));
 		GUILayout.EndHorizontal();
 

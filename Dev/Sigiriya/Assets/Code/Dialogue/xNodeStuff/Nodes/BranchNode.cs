@@ -7,16 +7,37 @@ using XNode;
 [CreateNodeMenu("Branch/BranchNode")]
 public class BranchNode : BaseNode
 {
-	/*TODO: This class will accept a base node, as well as a bunch of 
-			Bool inputs from triggers. Depending on the trigger*, that 
-			connection will be the output. If none pass, the output 
-			is the default
-
-		*I couldn't figure out a way to have dynamic input AND output pins.
-		* *actually, possible solution. treat it like responses. connecto to responses. but branch versions, not actual responses
-	*/
-
 	[Output(instancePortList = true, connectionType = ConnectionType.Override)] public List<BranchCheck> branches = new List<BranchCheck>();
+
+	public Color connected;
+	public void CheckConnectedColor()
+	{
+		bool isConnected = true;
+
+		if (branches.Count == 0)
+		{
+			isConnected = false;
+		}
+		else
+		{
+			for (int i = 0; i < branches.Count; i++)
+			{
+				if (GetOutputPort("branches " + i).Connection == null)
+				{
+					isConnected = false;
+				}
+			}
+		}
+
+		if (isConnected)
+		{
+			connected = Color.green;
+		}
+		else
+		{
+			connected = Color.red;
+		}
+	}
 
 	public BaseNode GetOutputNode()
 	{

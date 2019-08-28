@@ -15,6 +15,26 @@ public class ResponseNode : BaseNode
 	public AudioClip voiceClip;
 	public FlagBank.Flags throwFlag;
 
+	public Color connected;
+	public void CheckConnectedColor()
+	{
+		bool isConnected = true;
+
+		if (GetNextNode() == null)
+		{
+			isConnected = false;
+		}
+
+		if (isConnected)
+		{
+			connected = Color.green;
+		}
+		else
+		{
+			connected = Color.red;
+		}
+	}
+
 	public bool getHidden()
 	{
 		NodePort port = GetInputPort("isHidden");

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
+[NodeTint(189, 169, 30)]
 [CreateNodeMenu("Dialogue/ResponseBranch")]
 public class ResponseBranchNode : BaseNode
 {
